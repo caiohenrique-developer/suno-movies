@@ -1,0 +1,40 @@
+{
+  "name": "suno-movies",
+  "description": "🍿 Let's watch?",
+  "main": "index.js",
+  "repository": "https://github.com/caiohenrique-developer/suno-movies.git",
+  "bugs": {
+    "url": "https://github.com/caiohenrique-developer/suno-movies/issues"
+  },
+  "author": "Caio Henrique <caiohenrique.developer@gmail.com> (https://github.com/caiohenrique-developer)",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": true,
+  "keywords": [],
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "commit": "git-cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "./.cz-config.js"
+    }
+  },
+  "dependencies": {
+    "next": "10.2.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
+    "commitizen": "^4.2.4",
+    "cz-customizable": "^6.3.0",
+    "husky": "^6.0.0"
+  }
+}
