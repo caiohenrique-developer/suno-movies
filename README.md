@@ -1,2 +1,206 @@
-# suno-movies
-🍿 Let's watch?
+### <a name="top"></a>
+
+<h1 align="center">
+  <a href="https://suno-movies.vercel.app/" target="_blank">
+    <img alt="Suno Movies logotipo" src="./public/logo-full.svg" />
+  </a>
+</h1>
+
+<h5 align="center">🍿 Let's watch?</h5>
+
+<p align="center">
+  <a href="#-roadmap-gem">💎 Roadmap</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#-techs-flying_saucer">🛸 Techs</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#-prerequisites-warning">⚠️ Prerequisites</a>&nbsp;&nbsp;&nbsp;|&nbsp;
+  <a href="#-how-to-use-grey_question">❔ How To Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#-badges-bookmark">🔖 Badges</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#-license-closed_lock_with_key">🔐 License</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#-contact-me-phone">☎ Contact Me</a>
+</p>
+
+<br><br>
+
+<p align="center">
+  <img alt="Suno Movies mockup image" src="./public/mockup.png" width="100%" />
+</p>
+
+<br>
+
+## [🔝](#top) Roadmap :gem:
+
+<img align="right" src="https://img.shields.io/badge/Project%20Status%20-🚧%20(WIP)%20🚧-2C8EBB?style=flat&logo=statuspage&logoColor=white&color=yellowgreen"/>
+
+- [x] Countdown
+  - [x] Restart countdown
+- [x] Challenges
+  - [x] Completed or failed challenges
+- [x] Levels
+- [x] Experience
+- [x] Pop-up congratulations
+- [x] Responsive
+- [ ] Manage countdown time
+- [ ] Effects & Animations
+- [ ] Dark mode (default), Light mode toggle
+- [ ] PWA
+- [ ] Change your avatar and profile name
+- [ ] GitHub login
+- [ ] Share experiences in any social community
+- Any suggestion?
+  - <a href="#-contact-me-phone">Contact me!</a>
+
+## [🔝](#top) Techs :flying_saucer:
+
+<table>
+  <tr align="center">
+    <th>dependencies</th>
+    <th>devDependencies</th>
+  </tr>
+  <tr align="center">
+    <td><a href="https://github.com/js-cookie/js-cookie">JavaScript Cookie</a></td>
+    <td><a href="https://github.com/conventional-changelog/commitlint">Commitlint</a></td>
+  </tr>
+  <tr align="center">
+    <td><a href="https://vercel.com/solutions/nextjs">Next.js</a></td>
+    <td><a href="https://github.com/commitizen/cz-cli">Commitizen</a></td>
+  </tr>
+  <tr align="center">
+    <td><a href="https://reactjs.org/">ReactJS</a></td>
+    <td><a href="https://github.com/typicode/husky">Husky</a></td>
+  </tr>
+  <tr align="center">
+    <td><a href="https://styled-components.com/">Styled-components</a></td>
+    <td><a href="https://semantic-release.gitbook.io/semantic-release/">Semantic-release</a></td>
+  </tr>
+  <tr align="center">
+    <td></td>
+    <td><a href="https://www.typescriptlang.org/">TypeScript</a></td>
+  </tr>
+</table>
+
+## [🔝](#top) Prerequisites :warning:
+
+In order to use and test this project locally, you should've already setup the development environment. <br>
+_Or go to [**moveit-web-phi.vercel.app**](http://moveit-web-phi.vercel.app/) to see the project in a production environment._
+
+## [🔝](#top) How To Use :grey_question:
+
+To clone and run this application locally, you'll need [Git](https://git-scm.com), [Node.js v10.16][nodejs] or higher + [Yarn v1.13][yarn] or higher installed on your computer.
+
+<details open>
+  <summary>Hit me to toggle collapse: 🕹️<sup>🤏</sup></summary>
+
+_From your `command line` follow these steps..._
+
+```bash
+# Clone the project
+$ git clone https://github.com/caiohenrique-developer/moveit-web 'Suno Movies Web' && cd 'Suno Movies Web'
+
+# Install dependencies
+$ yarn
+# or
+$ npm i
+
+# Start the project
+$ yarn dev
+
+# Very well, now you can enjoy this project! ;)
+```
+
+</details>
+
+<br>
+
+<p align="center">
+  <img alt="Suno Movies background image" src="./public/Thumb-OneNumber.png" width="700" />
+</p>
+
+## [🔝](#top) Badges :bookmark:
+
+<p align="center">
+  <img alt="GitHub Language Count" src="https://img.shields.io/github/languages/count/caiohenrique-developer/moveit-web">
+
+  <img alt="GitHub Top Language" src="https://img.shields.io/github/languages/top/caiohenrique-developer/moveit-web">
+
+  <a href="https://www.codacy.com/app/caiohenrique-developer/moveit-web?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=caiohenrique-developer/moveit-web&amp;utm_campaign=Badge_Grade">
+    <img alt="Codacy Grade" src="https://img.shields.io/codacy/grade/4f87fc059ec846118f2ef2950200b13a.svg">
+  </a>
+
+  <a href="https://github.com/caiohenrique-developer/moveit-web/commits/master">
+    <img alt="GitHub Last Commit" src="https://img.shields.io/github/last-commit/caiohenrique-developer/moveit-web">
+  </a>
+
+  <a href="https://github.com/caiohenrique-developer/moveit-web/releases">
+    <img alt="GitHub Releases" src="https://img.shields.io/github/release-date/caiohenrique-developer/moveit-web">
+  </a>
+
+  <a href="https://github.com/caiohenrique-developer/moveit-web/tags">
+    <img alt="GitHub Tags" src="https://img.shields.io/github/package-json/v/caiohenrique-developer/moveit-web/master">
+  </a>
+
+  <a href="https://github.com/caiohenrique-developer/moveit-web/issues">
+    <img alt="Repository issues" src="https://img.shields.io/github/issues/caiohenrique-developer/moveit-web">
+  </a>
+
+  <img alt="Repository Size" src="https://img.shields.io/github/repo-size/caiohenrique-developer/moveit-web">
+
+  <img alt="GitHub License" src="https://img.shields.io/github/license/caiohenrique-developer/moveit-web">
+
+  <a href="https://github.com/semantic-release/semantic-release">
+    <img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg">
+  </a>
+
+  <img src="https://img.shields.io/badge/Markdown-000000?style=flat&logo=markdown&logoColor=white"/>
+
+  <img src="https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=flat&logo=visual%20studio%20code&logoColor=white"/>
+
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white"/>
+
+  <!-- <img src="https://img.shields.io/badge/styled--components-DB7093?style=flat&logo=styled-components&logoColor=white"/> -->
+
+  <img src="https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white"/>
+
+  <img src="https://img.shields.io/badge/npm-CB3837?style=flat&logo=npm&logoColor=white"/>
+
+  <img src="https://img.shields.io/badge/Yarn-2C8EBB?style=flat&logo=yarn&logoColor=white"/>
+
+  <img src="https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB"/>
+
+  <a href="https://moveit-web-phi.vercel.app/">
+    <img src="https://img.shields.io/badge/next.js-000000?style=flat&logo=next.js&logoColor=white"/>
+  </a>
+</p>
+
+## [🔝](#top) License :closed_lock_with_key:
+
+Copyright © 2021 MoveIt, [MIT](https://github.com/caiohenrique-developer/moveit-web/blob/master/LICENSE) .
+
+###### _This project is under the <sup>MIT</sup> license. See the license for more information._
+
+---
+
+<blockquote align="center">“Always running in search of the goals!” <br> Done with ♥ by myself 👇 <a href="#-contact-me-phone">Get in touch!</a></blockquote>
+
+## [🔝](#top) Contact Me :phone:
+
+<p align="left">
+  <img align="left" alt="Profile Avatar" src="./public/professional.png" width="80" />
+
+  <br>
+
+  <a href="https://www.linkedin.com/in/caio-henrique-024627171">
+    <img align="center" alt="LinkedIn" src="https://img.shields.io/badge/Caio%20Henrique-0077B5?logo=linkedin&logoColor=white&style=flat-square" />
+  </a>
+  <a href="mailto:caiohenrique.developer@gmail.com">
+    <img align="center" alt="Gmail" src="https://img.shields.io/badge/caiohenrique.developer@gmail.com-D14836?logo=gmail&logoColor=white&style=flat-square" />
+  </a>
+  <a href="https://api.whatsapp.com/send?phone=5511943902438&text=Fala%20Caio,%20como%20vai?">
+    <img align="center" alt="Whatsapp" src="https://img.shields.io/badge/(11)%2094390%202438-25D366?style=social&logo=whatsapp&logoColor=black" />
+  </a>
+</p>
+
+[nodejs]: https://nodejs.org/
+[yarn]: https://yarnpkg.com/
+[vc]: https://code.visualstudio.com/
+[vceditconfig]: https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
+[vceslint]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+[vcprettier]: https://prettier.io/
