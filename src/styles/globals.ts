@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   /* Root variables */
-  :root { --background:#121212; }
+  :root { --background:#1B1B1F; }
 
   * {
     border: 0;
@@ -26,7 +26,6 @@ export default createGlobalStyle`
     body {
       font-family: 'Poppins', sans-serif;
       background: var(--background);
-      color: #ccc;
 
       button { cursor: pointer; }
 
