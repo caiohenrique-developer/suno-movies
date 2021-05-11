@@ -11,8 +11,7 @@ export default createGlobalStyle`
     outline: none;
     box-sizing: border-box;
 
-    font: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif 1rem;
+    font: 'Poppins', sans-serif 1rem;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
   }
@@ -25,6 +24,7 @@ export default createGlobalStyle`
     body, input, textarea, select, button { font-weight: 400; }
 
     body {
+      font-family: 'Poppins', sans-serif;
       background: var(--background);
       color: #ccc;
 
