@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 export default createGlobalStyle`
   /* Root variables */
   :root {
+    /* Colors */
     --gray_2E2:#2E2D31;
     --gray_313:#313136;
     --gray_252:#252529;
