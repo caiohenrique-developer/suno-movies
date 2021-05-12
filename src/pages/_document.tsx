@@ -49,12 +49,6 @@ export default class MyDocument extends Document {
             rel='stylesheet'
           />
 
-          {/* Viewport */}
-          <meta
-            name='viewport'
-            content='initial-scale=1.0, width=device-width'
-          />
-
           {/* Favicon */}
           <link rel='shortcut icon' href='/favicon.png' type='image/x-icon' />
           <link rel='icon' href='/favicon.png' type='image/x-icon' />
