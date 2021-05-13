@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { opacify } from 'polished';
 
 export const Container = styled.header`
   background: var(--black_212);
@@ -55,8 +56,14 @@ export const Container = styled.header`
 
     button {
       margin-left: 3rem;
+      border-radius: 0;
+      padding: 10px;
+      transition: 0.5s;
 
       &:hover {
+        background: ${opacify('0.1', 'rgba(254, 49, 137, 0)')};
+        border-radius: 15px;
+
         svg g {
           opacity: 0.5;
           stroke: var(--pink_FE3);
