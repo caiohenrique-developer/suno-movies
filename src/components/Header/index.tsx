@@ -11,21 +11,21 @@ export const Header = () => {
     <Container>
       <div>
         <Link href='/'>
-          <a>
+          <a className='hvr-shrink'>
             <AppLogotipo />
           </a>
         </Link>
 
         <nav>
           <Link href='/'>
-            <a>Início</a>
+            <a className='hvr-underline-from-center'>Início</a>
           </Link>
           <Link href='888'>
-            <a>Catálogo</a>
+            <a className='hvr-underline-from-center'>Catálogo</a>
           </Link>
         </nav>
 
-        <button type='button'>
+        <button className='hvr-grow' type='button'>
           <MagnifyingGlass />
         </button>
       </div>

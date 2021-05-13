@@ -39,12 +39,12 @@ export const Container = styled.header`
         font-size: 1rem;
         text-transform: uppercase;
         color: var(--white_EAE);
-        border-bottom: 3px solid transparent;
-        transition: 0.4s;
 
-        &:hover,
-        &:focus {
-          border-bottom: 3px solid var(--pink_FE3);
+        &.hvr-underline-from-center {
+          &:before {
+            height: 3px;
+            background: var(--pink_FE3);
+          }
         }
 
         & + a {
@@ -55,6 +55,20 @@ export const Container = styled.header`
 
     button {
       margin-left: 3rem;
+
+      &:hover {
+        svg g {
+          opacity: 0.5;
+          stroke: var(--pink_FE3);
+        }
+      }
+
+      &:focus {
+        svg g {
+          opacity: 1;
+          stroke: var(--pink_FE3);
+        }
+      }
     }
   }
 `;

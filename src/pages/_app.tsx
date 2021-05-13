@@ -7,7 +7,7 @@ import { Footer } from '@components/Footer';
 
 import GlobalStyles from '@styles/globals';
 
-import 'animate.css';
+import 'hover.css';
 
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   return (
