@@ -83,13 +83,15 @@ export const Container = styled.header`
 
     &:last-child {
       width: 100%;
-      margin-top: -2px;
-
-      transition: 2s;
-      max-height: min(112px, 7rem);
+      max-height: 100%;
+      border-top: 0;
+      overflow: hidden;
+      transition: calc(var(--animate-duration) * 0.75);
 
       &.false {
         max-height: 0;
+        transition: calc(var(--animate-duration) * 0.75)
+          cubic-bezier(0.15, -0.4, 1, 0.01);
       }
 
       form {
