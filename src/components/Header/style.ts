@@ -79,7 +79,13 @@ export const Container = styled.header`
     }
 
     &:last-child {
+      width: 100%;
       border-top: 2px solid var(--black_000);
+
+      &.false {
+        opacity: 0;
+        display: none;
+      }
 
       form {
         padding: 20px;

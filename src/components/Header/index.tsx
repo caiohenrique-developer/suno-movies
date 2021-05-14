@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 
 import AppLogotipo from '@assets/app-logotipo.svg';
@@ -7,6 +7,12 @@ import MagnifyingGlass from '@assets/search-outline.svg';
 import { Container } from './style';
 
 export const Header = () => {
+  const [toggleHeaderSearchBar, setToggleHeaderSearchBar] = useState(true);
+
+  const handleHeaderSearchBar = () => {
+    setToggleHeaderSearchBar(!toggleHeaderSearchBar);
+  };
+
   return (
     <Container>
       <div>
@@ -26,13 +32,17 @@ export const Header = () => {
             </Link>
           </nav>
 
-          <button className='hvr-grow' type='button'>
+          <button
+            className='hvr-grow'
+            type='button'
+            onClick={handleHeaderSearchBar}
+          >
             <MagnifyingGlass />
           </button>
         </div>
       </div>
 
-      <div>
+      <div className={`${toggleHeaderSearchBar}`}>
         <form>
           <input type='text' placeholder='O que deseja assistir agora?' />
 
