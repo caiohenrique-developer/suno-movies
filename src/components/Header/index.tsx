@@ -16,33 +16,41 @@ export const Header = () => {
   return (
     <Container>
       <div>
-        <Link href='/'>
-          <a className='hvr-shrink'>
-            <AppLogotipo />
-          </a>
-        </Link>
+        <div className='heanderContent'>
+          <Link href='/'>
+            <a className='hvr-shrink'>
+              <AppLogotipo />
+            </a>
+          </Link>
 
-        <div>
-          <nav>
-            <Link href='/'>
-              <a className='hvr-underline-from-center'>Início</a>
-            </Link>
-            <Link href='888'>
-              <a className='hvr-underline-from-center'>Catálogo</a>
-            </Link>
-          </nav>
+          <div>
+            <nav>
+              <Link href='/'>
+                <a className='hvr-underline-from-center'>Início</a>
+              </Link>
+              <Link href='888'>
+                <a className='hvr-underline-from-center'>Catálogo</a>
+              </Link>
+            </nav>
 
-          <button
-            className='hvr-grow'
-            type='button'
-            onClick={handleHeaderSearchBar}
-          >
-            <MagnifyingGlass />
-          </button>
+            <button
+              className='hvr-grow'
+              type='button'
+              onClick={handleHeaderSearchBar}
+            >
+              <MagnifyingGlass />
+            </button>
+          </div>
         </div>
       </div>
 
-      <div className={`${toggleHeaderSearchBar}`}>
+      <div
+        className={`animate__animated ${
+          toggleHeaderSearchBar === true
+            ? `animate__flipInX ${toggleHeaderSearchBar}`
+            : `animate__flipOutX ${toggleHeaderSearchBar}`
+        }`}
+      >
         <form>
           <input type='text' placeholder='O que deseja assistir agora?' />
 
