@@ -102,6 +102,20 @@ export const Container = styled.header`
           color: var(--white_EAE);
           font-size: 2rem;
           font-weight: 500;
+
+          &::-webkit-input-placeholder {
+            /* Edge */
+            font-size: 1rem;
+          }
+
+          &:-ms-input-placeholder {
+            /* Internet Explorer 10-11 */
+            font-size: 1rem;
+          }
+
+          &::placeholder {
+            font-size: 1rem;
+          }
         }
 
         span {
