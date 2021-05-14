@@ -127,6 +127,7 @@ export const Container = styled.header`
 
         span {
           display: none;
+
           margin-top: 30px;
           font-size: 2rem;
           color: var(--white_EAE);
