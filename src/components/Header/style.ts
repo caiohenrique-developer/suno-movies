@@ -4,6 +4,9 @@ import { opacify } from 'polished';
 import { HeaderProps } from '@utils/types/styles';
 
 export const Container = styled.div<HeaderProps>`
+  position: relative;
+  z-index: 1;
+
   header {
     position: fixed;
     top: 0;
@@ -22,7 +25,7 @@ export const Container = styled.div<HeaderProps>`
         .heanderContent {
           display: flex;
           align-items: center;
-          /* justify-content: space-between; */
+          justify-content: space-between;
 
           max-width: 1200px;
           width: 100%;
@@ -45,7 +48,7 @@ export const Container = styled.div<HeaderProps>`
           div {
             nav {
               a {
-                padding: 2.8rem 10px;
+                padding: 2.8rem 0.6em;
                 font-size: 1rem;
                 text-transform: uppercase;
                 color: var(--white_EAE);
@@ -156,6 +159,7 @@ export const Container = styled.div<HeaderProps>`
         height: 100vh;
         opacity: 0.8;
         background: var(--black_181);
+        cursor: crosshair;
       }
     `};
 `;

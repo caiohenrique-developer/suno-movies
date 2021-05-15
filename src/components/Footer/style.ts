@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.footer`
   position: relative;
   bottom: 0;
+  z-index: 1;
 
   background: var(--black_181);
 
