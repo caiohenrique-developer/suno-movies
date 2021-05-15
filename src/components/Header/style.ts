@@ -1,9 +1,7 @@
 import styled, { css } from 'styled-components';
 import { opacify } from 'polished';
 
-interface HeaderProps {
-  toggleDropDown: boolean;
-}
+import { HeaderProps } from '@utils/types/styles';
 
 export const Container = styled.div<HeaderProps>`
   header {

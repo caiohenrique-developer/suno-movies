@@ -60,7 +60,7 @@ export const Header = () => {
         </div>
       </header>
 
-      <span></span>
+      <span onClick={handleHeaderSearchBar}></span>
     </Container>
   );
 };
