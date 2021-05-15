@@ -72,15 +72,13 @@ export const Container = styled.div`
                 border-radius: 15px;
 
                 svg g {
-                  opacity: 0.5;
-                  stroke: var(--pink_FE3);
+                  stroke: ${opacify('0.5', 'rgba(254, 49, 137, 0)')};
                 }
               }
 
               &:focus {
                 svg g {
-                  opacity: 1;
-                  stroke: var(--pink_FE3);
+                  stroke: ${opacify('1', 'rgba(254, 49, 137, 0)')};
                 }
               }
             }

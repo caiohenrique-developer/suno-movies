@@ -1,3 +1,4 @@
+import { opacify } from 'polished';
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
@@ -43,6 +44,20 @@ export default createGlobalStyle`
     body {
       font-family: 'Poppins', sans-serif;
       background: var(--background);
+
+      &::-webkit-scrollbar {
+        width: 5px;
+        height: 0;
+      }
+
+      &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: ${opacify('0.3', 'rgba(254, 49, 137, 0)')};
+        border-radius: 5px;
+      }
 
       button {
         cursor: pointer;
