@@ -14,7 +14,7 @@ export const Header = () => {
   };
 
   return (
-    <Container>
+    <Container toggleDropDown={toggleHeaderSearchBar}>
       <header>
         <div>
           <div className='heanderContent'>

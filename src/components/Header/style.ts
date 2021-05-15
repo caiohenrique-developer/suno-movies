@@ -1,7 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { opacify } from 'polished';
 
-export const Container = styled.div`
+interface HeaderProps {
+  toggleDropDown: boolean;
+}
+
+export const Container = styled.div<HeaderProps>`
   header {
     position: fixed;
     top: 0;
@@ -131,6 +135,7 @@ export const Container = styled.div`
           }
 
           span {
+            /* display: block; */
             display: none;
 
             margin-top: 30px;
@@ -142,14 +147,17 @@ export const Container = styled.div`
     }
   }
 
-  span {
-    position: fixed;
-    top: 0;
+  ${({ toggleDropDown }) =>
+    toggleDropDown &&
+    css`
+      > span {
+        position: fixed;
+        top: 0;
 
-    width: 100vw;
-    height: 100vh;
-    opacity: 0.3;
-
-    background: var(--pink_FE3);
-  }
+        width: 100vw;
+        height: 100vh;
+        opacity: 0.8;
+        background: var(--black_181);
+      }
+    `};
 `;

@@ -1,5 +1,5 @@
-import { opacify } from 'polished';
 import { createGlobalStyle } from 'styled-components';
+import { opacify } from 'polished';
 
 export default createGlobalStyle`
   /* Root variables */
