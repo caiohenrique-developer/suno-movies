@@ -3,28 +3,23 @@ import styled from 'styled-components';
 export const Container = styled.main`
   position: relative;
 
-  margin-top: max(9vw, 7.125rem);
+  margin-top: min(9vw, 7.125rem);
   max-height: 62vw;
   overflow: hidden;
 
-  section {
-    /* position: absolute; */
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+  > div {
+    width: 100%;
+  }
 
+  section {
     max-width: 1200px;
     margin: auto;
 
     aside {
       position: absolute;
-      /* top: min(50%, 33vw); */
-
       top: 50%;
-      transform: translateY(-50%);
 
-      /* transform: translateY(max(-50%, -1vw)); */
+      transform: translateY(-50%);
       padding: max(1.25rem, 1.57vw);
       margin: auto max(1.25rem, 1.57vw);
       color: var(--white_EAE);

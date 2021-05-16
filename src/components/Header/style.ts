@@ -5,7 +5,7 @@ import { HeaderProps } from '@utils/types/styles';
 
 export const Container = styled.div<HeaderProps>`
   position: relative;
-  z-index: 1;
+  z-index: 2;
 
   header {
     position: fixed;
@@ -30,9 +30,9 @@ export const Container = styled.div<HeaderProps>`
           max-width: 1200px;
           width: 100%;
           max-height: 112px;
-          min-height: max(8.8vw, 7rem);
+          min-height: min(8.8vw, 7rem);
           margin: 0 auto;
-          padding: 0 max(1.25rem, 1.57vw);
+          padding: 0 min(1.25rem, 1.57vw);
 
           > a {
             max-width: 11.25rem;
