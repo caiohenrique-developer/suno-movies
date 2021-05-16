@@ -14,7 +14,7 @@ export default function Home() {
 
       <Container>
         <Image
-          src='/images/Home_Background_Mobile.jpg'
+          src='/images/Home_Background_Desktop.jpg'
           width={2160}
           height={1350}
           alt='Home background image'
