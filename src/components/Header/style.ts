@@ -35,7 +35,7 @@ export const Container = styled.div<HeaderProps>`
           padding: 0 min(1.25rem, 1.57vw);
 
           > a {
-            max-width: 11.25rem;
+            max-width: min(11.25rem, 14.1vw);
             min-width: 7rem;
             width: 100%;
             margin-right: 2rem;
