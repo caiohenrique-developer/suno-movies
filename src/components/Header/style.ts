@@ -29,12 +29,14 @@ export const Container = styled.div<HeaderProps>`
 
           max-width: 1200px;
           width: 100%;
-          height: min(112px, 7rem);
+          max-height: 112px;
+          min-height: max(8.8vw, 7rem);
           margin: 0 auto;
-          padding: 0 20px;
+          padding: 0 max(1.25rem, 1.57vw);
 
           > a {
             max-width: 11.25rem;
+            min-width: 7rem;
             width: 100%;
             margin-right: 2rem;
           }
@@ -51,7 +53,7 @@ export const Container = styled.div<HeaderProps>`
             nav {
               a {
                 padding: 2.8rem 0.6em;
-                font-size: 1rem;
+                font-size: min(1rem, 3vw);
                 text-transform: uppercase;
                 color: var(--white_EAE);
 
@@ -70,9 +72,18 @@ export const Container = styled.div<HeaderProps>`
 
             button {
               border-radius: 0;
-              margin-left: 3rem;
-              padding: 10px;
+              margin-left: min(3rem, 3.8vw);
+              padding: min(10px, 2vw);
               transition: 0.5s;
+
+              svg {
+                min-width: 12px;
+                min-height: 12px;
+                max-width: 30px;
+                max-height: 30px;
+                width: 1.9vw;
+                height: 1.9vw;
+              }
 
               &:hover {
                 background: ${opacify('0.1', 'rgba(254, 49, 137, 0)')};
@@ -107,19 +118,19 @@ export const Container = styled.div<HeaderProps>`
         }
 
         form {
-          padding: 20px;
           max-width: 1200px;
           width: 100%;
           margin: 0 auto;
+          padding: max(1.25rem, 1.57vw);
 
           input {
             display: block;
             width: 100%;
-            padding: 20px;
+            padding: max(1.25rem, 1.57vw);
             background: transparent;
             border-bottom: 1px solid var(--pink_FE3);
             color: var(--white_EAE);
-            font-size: 2rem;
+            font-size: min(2rem, 2.5vw);
             font-weight: 500;
 
             &::-webkit-input-placeholder {
