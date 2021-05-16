@@ -135,16 +135,16 @@ export const Container = styled.div<HeaderProps>`
 
             &::-webkit-input-placeholder {
               /* Edge */
-              font-size: 1rem;
+              font-size: min(1rem, 2.5vw);
             }
 
             &:-ms-input-placeholder {
               /* Internet Explorer 10-11 */
-              font-size: 1rem;
+              font-size: min(1rem, 2.5vw);
             }
 
             &::placeholder {
-              font-size: 1rem;
+              font-size: min(1rem, 2.5vw);
             }
           }
 

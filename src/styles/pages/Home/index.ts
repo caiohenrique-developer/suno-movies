@@ -4,9 +4,11 @@ export const Container = styled.main`
   position: relative;
 
   margin-top: max(9vw, 7.125rem);
+  max-height: 62vw;
+  overflow: hidden;
 
   section {
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     right: 0;
     bottom: 0;
@@ -16,10 +18,13 @@ export const Container = styled.main`
     margin: auto;
 
     aside {
-      position: fixed;
-      top: min(50%, 33vw);
+      position: absolute;
+      /* top: min(50%, 33vw); */
 
-      transform: translateY(max(-50%, -1vw));
+      top: 50%;
+      transform: translateY(-50%);
+
+      /* transform: translateY(max(-50%, -1vw)); */
       padding: max(1.25rem, 1.57vw);
       margin: auto max(1.25rem, 1.57vw);
       color: var(--white_EAE);
