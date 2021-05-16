@@ -34,6 +34,8 @@ export const Container = styled.div<HeaderProps>`
           padding: 0 20px;
 
           > a {
+            max-width: 11.25rem;
+            width: 100%;
             margin-right: 2rem;
           }
 

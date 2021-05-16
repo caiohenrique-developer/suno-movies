@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 
-import AppLogotipo from '@assets/app-logotipo.svg';
+import { AppLogotipo } from '@components/AppLogotipo';
 import MagnifyingGlass from '@assets/search-outline.svg';
 
 import { Container } from './style';

@@ -6,11 +6,12 @@ export const Container = styled.a`
 
   max-width: 9.25rem;
   padding: 0.8rem 1.25rem;
+  cursor: pointer;
+  background: linear-gradient(0deg, var(--gray_2E2) 0%, var(--black_212) 100%);
   border-radius: 8px;
+  border: 2px solid var(--black_2E2);
   font-size: 1rem;
   text-transform: uppercase;
-  border: 2px solid var(--black_2E2);
-  background: linear-gradient(0deg, var(--gray_2E2) 0%, var(--black_212) 100%);
   transition: 0.8s;
 
   &:hover {
