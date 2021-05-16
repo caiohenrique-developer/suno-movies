@@ -4,7 +4,9 @@ export const Container = styled.a`
   display: flex;
   align-items: center;
 
-  max-width: 9.25rem;
+  max-width: 11.6vw;
+  min-width: 50px;
+  width: 100%;
   padding: 0.8rem 1.25rem;
   cursor: pointer;
   background: linear-gradient(0deg, var(--gray_2E2) 0%, var(--black_212) 100%);
