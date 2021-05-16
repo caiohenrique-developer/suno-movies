@@ -136,7 +136,7 @@ export const Container = styled.div<HeaderProps>`
           }
 
           span {
-            /* display: block; */
+            display: block;
             display: none;
 
             margin-top: 30px;
