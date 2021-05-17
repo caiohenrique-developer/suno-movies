@@ -6,6 +6,7 @@ import { Header } from '@components/Header';
 import { Footer } from '@components/Footer';
 
 import GlobalStyles from '@styles/globals';
+import '@styles/responsive.scss';
 
 import 'hover.css';
 import 'animate.css';

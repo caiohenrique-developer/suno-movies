@@ -22,6 +22,8 @@ export const Container = styled.div<HeaderProps>`
       box-shadow: 0px 20px 20px 0px rgb(0 0 0 / 40%);
 
       &:first-child {
+        border-top: transparent;
+
         .heanderContent {
           display: flex;
           align-items: center;

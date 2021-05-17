@@ -1,0 +1,81 @@
+// X-Small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  body {
+    #__next {
+      > div {
+        header {
+          > div {
+            border-width: 1px;
+
+            &:first-of-type {
+              .heanderContent {
+                > div {
+                  nav {
+                    a {
+                      padding: 1.8em 0.6em;
+                    }
+                  }
+                }
+              }
+            }
+            &:last-of-type {
+            }
+          }
+        }
+      }
+
+      main {
+        margin-top: 56px;
+
+        section,
+        aside {
+          display: flex;
+          justify-content: center;
+        }
+
+        section {
+          aside {
+            align-items: center;
+            flex-direction: column;
+
+            text-align: center;
+
+            p {
+              margin: 5px 0 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  body {
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  body {
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  body {
+  }
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  body {
+  }
+}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {
+  body {
+  }
+}
