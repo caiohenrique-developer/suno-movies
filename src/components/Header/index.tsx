@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 
+import MediaQuery from 'react-responsive';
+
 import { useHomeIndicator } from '@hooks/useHomeIndicator';
 import { AppLogotipo } from '@components/AppLogotipo';
 import MagnifyingGlass from '@assets/search-outline.svg';
@@ -18,24 +20,28 @@ export const Header = () => {
 
   return (
     <Container toggleDropDown={toggleHeaderSearchBar}>
+      {/* Header breakpoint */}
       <header id={homeID}>
         <div>
-          <div className='heanderContent'>
-            <Link href='/'>
-              <a className='hvr-shrink'>
-                <AppLogotipo />
-              </a>
-            </Link>
+          {/* Mob */}
+          <MediaQuery maxDeviceWidth={767}>
+            <div className='heanderContent'>
+              <div>
+                <nav>
+                  <Link href='/'>
+                    <a className='hvr-underline-from-center'>Início</a>
+                  </Link>
+                  <Link href='/catalogue'>
+                    <a className='hvr-underline-from-center'>Catálogo</a>
+                  </Link>
+                </nav>
+              </div>
 
-            <div>
-              <nav>
-                <Link href='/'>
-                  <a className='hvr-underline-from-center'>Início</a>
-                </Link>
-                <Link href='/catalogue'>
-                  <a className='hvr-underline-from-center'>Catálogo</a>
-                </Link>
-              </nav>
+              <Link href='/'>
+                <a className='hvr-shrink'>
+                  <AppLogotipo />
+                </a>
+              </Link>
 
               <button
                 className='hvr-grow'
@@ -45,7 +51,37 @@ export const Header = () => {
                 <MagnifyingGlass />
               </button>
             </div>
-          </div>
+          </MediaQuery>
+
+          {/* Tablet and up */}
+          <MediaQuery minDeviceWidth={768}>
+            <div className='heanderContent'>
+              <Link href='/'>
+                <a className='hvr-shrink'>
+                  <AppLogotipo />
+                </a>
+              </Link>
+
+              <div>
+                <nav>
+                  <Link href='/'>
+                    <a className='hvr-underline-from-center'>Início</a>
+                  </Link>
+                  <Link href='/catalogue'>
+                    <a className='hvr-underline-from-center'>Catálogo</a>
+                  </Link>
+                </nav>
+
+                <button
+                  className='hvr-grow'
+                  type='button'
+                  onClick={handleHeaderSearchBar}
+                >
+                  <MagnifyingGlass />
+                </button>
+              </div>
+            </div>
+          </MediaQuery>
         </div>
 
         <div
