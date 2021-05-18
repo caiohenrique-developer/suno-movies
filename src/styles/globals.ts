@@ -46,7 +46,7 @@ export default createGlobalStyle`
       background: var(--background);
 
       &::-webkit-scrollbar {
-        width: 5px;
+        width: 8px;
         height: 0;
       }
 

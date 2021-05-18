@@ -37,8 +37,13 @@
           position: relative;
           z-index: 1;
 
-          -webkit-box-shadow: 0px -0px 50px 50px var(--background);
-          box-shadow: 0px 0px 50px 50px var(--background);
+          box-shadow: 0px -0px 50px 50px var(--background);
+          background: linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 1) 40%,
+            var(--background) 100%
+          );
 
           aside {
             position: static;
