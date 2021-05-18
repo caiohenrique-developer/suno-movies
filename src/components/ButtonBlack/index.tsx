@@ -7,7 +7,7 @@ import { Container } from './style';
 
 export const ButtonBlack = () => {
   return (
-    <Link href='/'>
+    <Link href='/catalogue'>
       <Container className='hvr-shrink hvr-icon-grow hvr-icon-wobble-horizontal'>
         Catálogo
         <i className='hvr-icon'>

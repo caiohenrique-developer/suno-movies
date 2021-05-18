@@ -25,7 +25,7 @@
       }
 
       main {
-        margin-top: 56px;
+        max-height: inherit;
 
         section,
         aside {
@@ -34,16 +34,40 @@
         }
 
         section {
+          position: relative;
+          z-index: 1;
+
+          -webkit-box-shadow: 0px -0px 50px 50px var(--background);
+          box-shadow: 0px 0px 50px 50px var(--background);
+
           aside {
+            position: static;
+
             align-items: center;
             flex-direction: column;
 
             text-align: center;
 
+            h1 {
+              font-size: min(4.5vw, 2.75rem);
+            }
+
             p {
-              margin: 5px 0 10px;
+              font-size: min(2.7vw, 1.625rem);
+            }
+
+            a {
+              max-width: 100%;
+              font-size: min(1rem, 2.3vw);
+              padding: min(1.8rem, 3vw) 20px;
             }
           }
+        }
+      }
+
+      footer {
+        p {
+          height: 60px;
         }
       }
     }
