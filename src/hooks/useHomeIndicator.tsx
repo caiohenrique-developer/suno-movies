@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
 import { ChildrenGlobalType } from '@utils/types/GlobalTypes';
 import { HomeIDContextProps } from '@utils/types/hooks';
@@ -8,12 +8,9 @@ const HomeIDContext = createContext({} as HomeIDContextProps);
 export const HomeIDProvider = ({ children }: ChildrenGlobalType) => {
   const [homeID, setHomeID] = useState('');
 
-  useEffect(() => {
-    setHomeID('home');
-  }, []);
-
-  const addHomeID = () => {
-    setHomeID('home');
+  const addHomeID = (page: string) => {
+    if (page === 'home') setHomeID(page);
+    else setHomeID('');
   };
 
   return (

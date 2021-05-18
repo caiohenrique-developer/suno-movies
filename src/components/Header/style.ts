@@ -14,6 +14,24 @@ export const Container = styled.div<HeaderProps>`
 
     width: 100%;
 
+    &#home {
+      > div {
+        border: 0;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        background: transparent;
+
+        nav {
+          display: none;
+        }
+
+        button {
+          background: ${opacify('0.1', 'rgba(254, 49, 137, 0)')};
+          border-radius: 15px;
+        }
+      }
+    }
+
     > div {
       background: var(--black_212);
       border-top: 2px solid var(--black_000);
@@ -59,11 +77,9 @@ export const Container = styled.div<HeaderProps>`
                 text-transform: uppercase;
                 color: var(--white_EAE);
 
-                &.hvr-underline-from-center {
-                  &:before {
-                    height: 2px;
-                    background: var(--pink_FE3);
-                  }
+                &.hvr-underline-from-center:before {
+                  height: 2px;
+                  background: var(--pink_FE3);
                 }
 
                 & + a {

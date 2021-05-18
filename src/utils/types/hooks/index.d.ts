@@ -1,5 +1,5 @@
 // useHomeIndicator
 export interface HomeIDContextProps {
   homeID: string;
-  addHomeID(): void;
+  addHomeID(page: string): void;
 }

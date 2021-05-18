@@ -17,8 +17,8 @@ export const Header = () => {
   };
 
   return (
-    <Container id={homeID} toggleDropDown={toggleHeaderSearchBar}>
-      <header>
+    <Container toggleDropDown={toggleHeaderSearchBar}>
+      <header id={homeID}>
         <div>
           <div className='heanderContent'>
             <Link href='/'>

@@ -2,10 +2,16 @@ import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 
+import { useHomeIndicator } from '@hooks/useHomeIndicator';
+
 import { Container } from '@styles/pages/Home';
 import { ButtonBlack } from '@components/ButtonBlack';
 
 export default function Home() {
+  const { addHomeID } = useHomeIndicator();
+
+  addHomeID('home');
+
   return (
     <>
       <Head>
