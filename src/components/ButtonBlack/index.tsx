@@ -5,11 +5,13 @@ import RightArrow from '@assets/chevron-next-outline.svg';
 
 import { Container } from './style';
 
-export const ButtonBlack = () => {
+import { ButtonBlackProps } from '@utils/types/components';
+
+export const ButtonBlack = ({ title }: ButtonBlackProps) => {
   return (
     <Link href='/catalogue'>
       <Container className='hvr-shrink hvr-icon-grow hvr-icon-wobble-horizontal'>
-        Catálogo
+        {title}
         <i className='hvr-icon'>
           <RightArrow />
         </i>

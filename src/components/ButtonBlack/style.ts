@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.a`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  max-width: min(9.375rem, 11.6vw);
   min-width: 50px;
-  width: 100%;
   padding: min(0.8rem, 2vw) min(1.25rem, 2vw);
   cursor: pointer;
   background: linear-gradient(0deg, var(--gray_2E2) 0%, var(--black_212) 100%);

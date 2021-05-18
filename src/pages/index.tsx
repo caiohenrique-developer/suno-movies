@@ -61,11 +61,9 @@ export default function Home() {
             <h1>
               Filmes, séries e muito mais. <br /> Ilimitados.
             </h1>
-            <p>
-              Assista de onde quiser. <strong>Let's go!?</strong>
-            </p>
+            <p>Assista de onde quiser.</p>
 
-            <ButtonBlack />
+            <ButtonBlack title="Let's go!?" />
           </aside>
         </section>
       </Container>
