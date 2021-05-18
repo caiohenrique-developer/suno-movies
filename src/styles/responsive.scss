@@ -4,7 +4,13 @@
     #__next {
       > div {
         header {
-          padding: 10px 0;
+          &#home > div .heanderContent {
+            padding: 1rem 0.5em;
+          }
+
+          nav a {
+            padding: 1.5rem 0.6em;
+          }
         }
       }
 
@@ -47,10 +53,8 @@
         }
       }
 
-      footer {
-        p {
-          height: 60px;
-        }
+      footer p {
+        height: 60px;
       }
     }
   }
