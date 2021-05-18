@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Container = styled.main`
   position: relative;
 
-  max-height: 62vw;
   overflow: hidden;
 
   > div {

@@ -6,6 +6,7 @@ export const Container = styled.footer`
   z-index: 1;
 
   background: var(--black_181);
+  margin-top: -8px;
 
   p {
     display: flex;
