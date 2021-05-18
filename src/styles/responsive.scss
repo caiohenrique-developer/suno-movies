@@ -5,16 +5,30 @@
       > div {
         header {
           &#home > div .heanderContent {
-            padding: 1rem 0.5em;
+            padding: 1rem max(1.25rem, 1.57vw);
           }
 
-          nav a {
-            padding: 1.5rem 0.6em;
+          > div {
+            .heanderContent {
+              padding: 0 max(1.25rem, 1.57vw);
+
+              nav a {
+                padding: 1.5rem 0.6em;
+              }
+            }
+
+            &:last-child {
+              margin-top: -1px;
+            }
           }
         }
       }
 
       main {
+        &:not(#home) {
+          padding: 1.25rem max(1.25rem, 1.57vw);
+        }
+
         section,
         aside {
           display: flex;

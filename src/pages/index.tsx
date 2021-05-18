@@ -9,7 +9,7 @@ import { Container } from '@styles/pages/Home';
 import { ButtonBlack } from '@components/ButtonBlack';
 
 export default function Home() {
-  const { addHomeID } = useHomeIndicator();
+  const { homeID, addHomeID } = useHomeIndicator();
 
   addHomeID('home');
 
@@ -19,7 +19,7 @@ export default function Home() {
         <title>Home | Suno Movies</title>
       </Head>
 
-      <Container>
+      <Container id={homeID}>
         {/* Home background breakpoint */}
         <>
           {/* Mob */}
