@@ -67,7 +67,7 @@ export const Header = () => {
                 ) : (
                   <>
                     <button
-                      className={`hamburger hamburger--slider-r ${
+                      className={`hamburger hamburger--spring ${
                         toggleMenuMob && 'is-active'
                       }`}
                       onClick={handleMenuMob}
