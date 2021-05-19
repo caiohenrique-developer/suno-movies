@@ -67,16 +67,21 @@ export const Header = () => {
                 ) : (
                   <>
                     <button
-                      className={`hamburger hamburger--spring ${
+                      className={`hamburger hamburger--collapse ${
                         toggleMenuMob && 'is-active'
                       }`}
                       onClick={handleMenuMob}
                       type='button'
+                      aria-label='Menu'
+                      aria-controls='navigation'
                     >
                       <span className='hamburger-box'>
                         <span className='hamburger-inner'></span>
                       </span>
                     </button>
+                    {/* <nav id='navigation'> */}
+                    {/* <!--navigation goes here--> */}
+                    {/* </nav> */}
 
                     <Link href='/'>
                       <a className='hvr-shrink'>
