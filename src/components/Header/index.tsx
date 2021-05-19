@@ -13,9 +13,14 @@ export const Header = () => {
   const { homeID } = useHomeIndicator();
 
   const [toggleHeaderSearchBar, setToggleHeaderSearchBar] = useState(false);
+  const [toggleMenuMob, setToggleMenuMob] = useState(false);
 
   const handleHeaderSearchBar = () => {
     setToggleHeaderSearchBar(!toggleHeaderSearchBar);
+  };
+
+  const handleMenuMob = () => {
+    setToggleMenuMob(!toggleMenuMob);
   };
 
   return (
@@ -61,7 +66,17 @@ export const Header = () => {
                   </>
                 ) : (
                   <>
-                    <button>MENU</button>
+                    <button
+                      className={`hamburger hamburger--slider-r ${
+                        toggleMenuMob && 'is-active'
+                      }`}
+                      onClick={handleMenuMob}
+                      type='button'
+                    >
+                      <span className='hamburger-box'>
+                        <span className='hamburger-inner'></span>
+                      </span>
+                    </button>
 
                     <Link href='/'>
                       <a className='hvr-shrink'>
@@ -129,7 +144,6 @@ export const Header = () => {
       </header>
 
       {/* header overlay */}
-      <span onClick={handleHeaderSearchBar}></span>
     </Container>
   );
 };
