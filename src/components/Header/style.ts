@@ -21,10 +21,6 @@ export const Container = styled.div<HeaderProps>`
         -webkit-box-shadow: none;
         background: transparent;
 
-        nav {
-          display: none;
-        }
-
         button {
           background: ${opacify('0.1', 'rgba(254, 49, 137, 0)')};
           border-radius: 15px;
@@ -69,53 +65,51 @@ export const Container = styled.div<HeaderProps>`
             justify-content: center;
           }
 
-          div {
-            nav {
-              a {
-                padding: 2.8rem 0.6em;
-                font-size: min(1rem, 3vw);
-                text-transform: uppercase;
-                color: var(--white_EAE);
+          nav {
+            a {
+              padding: 2.8rem 0.6em;
+              font-size: min(1rem, 3vw);
+              text-transform: uppercase;
+              color: var(--white_EAE);
 
-                &.hvr-underline-from-center:before {
-                  height: 2px;
-                  background: var(--pink_FE3);
-                }
+              &.hvr-underline-from-center:before {
+                height: 2px;
+                background: var(--pink_FE3);
+              }
 
-                & + a {
-                  margin-left: 5px;
-                }
+              & + a {
+                margin-left: 5px;
+              }
+            }
+          }
+
+          button {
+            border-radius: 0;
+            margin-left: min(3rem, 3.8vw);
+            padding: min(10px, 2vw);
+            transition: 0.5s;
+
+            svg {
+              min-width: 12px;
+              min-height: 12px;
+              max-width: 30px;
+              max-height: 30px;
+              width: 1.9vw;
+              height: 1.9vw;
+            }
+
+            &:hover {
+              background: ${opacify('0.1', 'rgba(254, 49, 137, 0)')};
+              border-radius: 15px;
+
+              svg g {
+                stroke: ${opacify('0.5', 'rgba(254, 49, 137, 0)')};
               }
             }
 
-            button {
-              border-radius: 0;
-              margin-left: min(3rem, 3.8vw);
-              padding: min(10px, 2vw);
-              transition: 0.5s;
-
-              svg {
-                min-width: 12px;
-                min-height: 12px;
-                max-width: 30px;
-                max-height: 30px;
-                width: 1.9vw;
-                height: 1.9vw;
-              }
-
-              &:hover {
-                background: ${opacify('0.1', 'rgba(254, 49, 137, 0)')};
-                border-radius: 15px;
-
-                svg g {
-                  stroke: ${opacify('0.5', 'rgba(254, 49, 137, 0)')};
-                }
-              }
-
-              &:focus {
-                svg g {
-                  stroke: ${opacify('1', 'rgba(254, 49, 137, 0)')};
-                }
+            &:focus {
+              svg g {
+                stroke: ${opacify('1', 'rgba(254, 49, 137, 0)')};
               }
             }
           }

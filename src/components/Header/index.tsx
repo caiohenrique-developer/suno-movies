@@ -20,23 +20,11 @@ export const Header = () => {
 
   return (
     <Container toggleDropDown={toggleHeaderSearchBar}>
-      {/* Header breakpoint */}
+      {/* Header segregation page and breakpoint */}
       <header id={homeID}>
         <div>
-          {/* Mob */}
-          <MediaQuery maxDeviceWidth={767}>
+          {homeID ? (
             <div className='heanderContent'>
-              <div>
-                <nav>
-                  <Link href='/'>
-                    <a className='hvr-underline-from-center'>Início</a>
-                  </Link>
-                  <Link href='/catalogue'>
-                    <a className='hvr-underline-from-center'>Catálogo</a>
-                  </Link>
-                </nav>
-              </div>
-
               <Link href='/'>
                 <a className='hvr-shrink'>
                   <AppLogotipo />
@@ -51,37 +39,78 @@ export const Header = () => {
                 <MagnifyingGlass />
               </button>
             </div>
-          </MediaQuery>
-
-          {/* Tablet and up */}
-          <MediaQuery minDeviceWidth={768}>
+          ) : (
             <div className='heanderContent'>
-              <Link href='/'>
-                <a className='hvr-shrink'>
-                  <AppLogotipo />
-                </a>
-              </Link>
+              {/* Mob */}
+              <MediaQuery maxDeviceWidth={767}>
+                {homeID ? (
+                  <>
+                    <Link href='/'>
+                      <a className='hvr-shrink'>
+                        <AppLogotipo />
+                      </a>
+                    </Link>
 
-              <div>
-                <nav>
+                    <button
+                      className='hvr-grow'
+                      type='button'
+                      onClick={handleHeaderSearchBar}
+                    >
+                      <MagnifyingGlass />
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <button>MENU</button>
+
+                    <Link href='/'>
+                      <a className='hvr-shrink'>
+                        <AppLogotipo />
+                      </a>
+                    </Link>
+
+                    <button
+                      className='hvr-grow'
+                      type='button'
+                      onClick={handleHeaderSearchBar}
+                    >
+                      <MagnifyingGlass />
+                    </button>
+                  </>
+                )}
+              </MediaQuery>
+
+              {/* Tablet and up */}
+              <MediaQuery minDeviceWidth={768}>
+                <>
                   <Link href='/'>
-                    <a className='hvr-underline-from-center'>Início</a>
+                    <a className='hvr-shrink'>
+                      <AppLogotipo />
+                    </a>
                   </Link>
-                  <Link href='/catalogue'>
-                    <a className='hvr-underline-from-center'>Catálogo</a>
-                  </Link>
-                </nav>
 
-                <button
-                  className='hvr-grow'
-                  type='button'
-                  onClick={handleHeaderSearchBar}
-                >
-                  <MagnifyingGlass />
-                </button>
-              </div>
+                  <div>
+                    <nav>
+                      <Link href='/'>
+                        <a className='hvr-underline-from-center'>Início</a>
+                      </Link>
+                      <Link href='/catalogue'>
+                        <a className='hvr-underline-from-center'>Catálogo</a>
+                      </Link>
+                    </nav>
+
+                    <button
+                      className='hvr-grow'
+                      type='button'
+                      onClick={handleHeaderSearchBar}
+                    >
+                      <MagnifyingGlass />
+                    </button>
+                  </div>
+                </>
+              </MediaQuery>
             </div>
-          </MediaQuery>
+          )}
         </div>
 
         <div

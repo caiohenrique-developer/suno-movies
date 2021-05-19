@@ -1,69 +1,76 @@
-// X-Small devices (portrait phones, less than 576px)
-@media (max-width: 575.98px) {
+@media (max-width: 767px) {
   body {
     #__next {
-      > div {
+      > div:first-of-type {
         header {
-          &#home > div .heanderContent {
-            padding: 1rem max(1.25rem, 1.57vw);
-          }
-
           > div {
             .heanderContent {
-              padding: 0 max(1.25rem, 1.57vw);
-
-              nav a {
-                padding: 1.5rem 0.6em;
-              }
+              padding: 1rem max(1.25rem, 1.57vw);
             }
 
             &:last-child {
               margin-top: -1px;
             }
           }
+
+          &:not(#home) {
+            > div {
+              .heanderContent {
+                > a {
+                  margin: 0 2rem;
+                }
+
+                button {
+                  margin: 0;
+                }
+              }
+            }
+          }
         }
       }
 
       main {
-        &:not(#home) {
-          padding: 1.25rem max(1.25rem, 1.57vw);
-        }
-
-        section,
-        aside {
-          display: flex;
-          justify-content: center;
-        }
-
-        section {
-          position: relative;
-          z-index: 1;
-
-          background: #040714;
-          margin-top: -8px;
-
+        &#home {
+          section,
           aside {
-            position: static;
+            display: flex;
+            justify-content: center;
+          }
 
-            align-items: center;
-            flex-direction: column;
+          section {
+            position: relative;
+            z-index: 1;
 
-            text-align: center;
+            background: #040714;
+            margin-top: -8px;
 
-            h1 {
-              font-size: min(4.5vw, 2.75rem);
-            }
+            aside {
+              position: static;
 
-            p {
-              font-size: min(2.7vw, 1.625rem);
-            }
+              align-items: center;
+              flex-direction: column;
 
-            a {
-              min-width: 100%;
-              font-size: min(1rem, 2.3vw);
-              padding: min(1.8rem, 3vw) 20px;
+              text-align: center;
+
+              h1 {
+                font-size: min(4.5vw, 2.75rem);
+              }
+
+              p {
+                font-size: min(2.7vw, 1.625rem);
+              }
+
+              a {
+                min-width: 100%;
+                font-size: min(1rem, 2.3vw);
+                padding: min(1.8rem, 3vw) 20px;
+              }
             }
           }
+        }
+
+        &:not(#home) {
+          padding: 1.25rem max(1.25rem, 1.57vw);
         }
       }
 
@@ -71,35 +78,5 @@
         height: 60px;
       }
     }
-  }
-}
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  body {
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  body {
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  body {
-  }
-}
-
-// X-Large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  body {
-  }
-}
-
-// XX-Large devices (larger desktops, 1400px and up)
-@media (min-width: 1400px) {
-  body {
   }
 }
