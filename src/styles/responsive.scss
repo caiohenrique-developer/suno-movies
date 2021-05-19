@@ -5,7 +5,13 @@
         header {
           > div {
             .heanderContent {
-              padding: 1rem max(1.25rem, 1.57vw);
+              padding: 0 max(1.25rem, 1.57vw);
+              height: 55px;
+              min-height: auto;
+
+              > a {
+                max-width: min(11.25rem, 20.1vw);
+              }
             }
 
             &:last-child {
@@ -70,6 +76,7 @@
         }
 
         &:not(#home) {
+          margin-top: 54px;
           padding: 1.25rem max(1.25rem, 1.57vw);
         }
       }

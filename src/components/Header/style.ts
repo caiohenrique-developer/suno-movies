@@ -86,16 +86,16 @@ export const Container = styled.div<HeaderProps>`
           button {
             border-radius: 0;
             margin-left: min(3rem, 3.8vw);
-            padding: min(10px, 2vw);
+            padding: min(8px, 2vw);
             transition: 0.5s;
 
             svg {
-              min-width: 12px;
-              min-height: 12px;
+              min-width: 14px;
+              min-height: 14px;
               max-width: 30px;
               max-height: 30px;
-              width: 1.9vw;
-              height: 1.9vw;
+              width: 2.9vw;
+              height: 2.9vw;
             }
 
             &:hover {
