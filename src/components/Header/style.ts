@@ -107,7 +107,7 @@ export const Container = styled.div<HeaderProps>`
               }
             }
 
-            &:focus {
+            &.is-active {
               svg g {
                 stroke: ${opacify('1', 'rgba(254, 49, 137, 0)')};
               }

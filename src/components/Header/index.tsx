@@ -28,6 +28,7 @@ export const Header = () => {
       {/* Header segregation page and breakpoint */}
       <header id={homeID}>
         <div>
+          {/* Tablet and up */}
           {homeID ? (
             <div className='heanderContent'>
               <Link href='/'>
@@ -37,7 +38,7 @@ export const Header = () => {
               </Link>
 
               <button
-                className='hvr-grow'
+                className={`hvr-grow  ${toggleHeaderSearchBar && 'is-active'}`}
                 type='button'
                 onClick={handleHeaderSearchBar}
               >
@@ -57,7 +58,9 @@ export const Header = () => {
                     </Link>
 
                     <button
-                      className='hvr-grow'
+                      className={`hvr-grow  ${
+                        toggleHeaderSearchBar && 'is-active'
+                      }`}
                       type='button'
                       onClick={handleHeaderSearchBar}
                     >
@@ -74,6 +77,7 @@ export const Header = () => {
                       type='button'
                       aria-label='Menu'
                       aria-controls='navigation'
+                      disabled={toggleHeaderSearchBar}
                     >
                       <span className='hamburger-box'>
                         <span className='hamburger-inner'></span>
@@ -87,9 +91,12 @@ export const Header = () => {
                     </Link>
 
                     <button
-                      className='hvr-grow'
+                      className={`hvr-grow ${
+                        toggleHeaderSearchBar && 'is-active'
+                      }`}
                       type='button'
                       onClick={handleHeaderSearchBar}
+                      disabled={toggleMenuMob}
                     >
                       <MagnifyingGlass />
                     </button>
@@ -117,7 +124,9 @@ export const Header = () => {
                     </nav>
 
                     <button
-                      className='hvr-grow'
+                      className={`hvr-grow  ${
+                        toggleHeaderSearchBar && 'is-active'
+                      }`}
                       type='button'
                       onClick={handleHeaderSearchBar}
                     >
@@ -151,18 +160,21 @@ export const Header = () => {
               <ul className={`${toggleMenuMob}`}>
                 <li>
                   <Link href='/'>
-                    <a className='hvr-underline-from-center'>Início</a>
+                    <a className='hvr-underline-from-left'>Início</a>
                   </Link>
                 </li>
                 <li>
                   <Link href='/catalogue'>
-                    <a className='hvr-underline-from-center'>Catálogo</a>
+                    <a className='hvr-underline-from-left'>Catálogo</a>
                   </Link>
                 </li>
               </ul>
 
               {/* Header menu-mob overlay */}
-              <span onClick={handleMenuMob}></span>
+              <span
+                className={`${toggleMenuMob}`}
+                onClick={handleMenuMob}
+              ></span>
             </nav>
           )}
         </MediaQuery>

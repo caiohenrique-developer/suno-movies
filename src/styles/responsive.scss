@@ -19,21 +19,33 @@ $hamburger-layer-height: 2px !default;
                 max-width: min(11.25rem, 20.1vw);
               }
 
-              button:first-of-type {
-                &.hamburger {
-                  transform: scale(0.6);
+              button {
+                &:first-of-type {
+                  &.hamburger {
+                    transform: scale(0.6);
 
-                  .hamburger-box {
-                    display: block;
-                    width: 24px;
+                    .hamburger-box {
+                      display: block;
+                      width: 24px;
 
-                    .hamburger-inner {
-                      &,
-                      &:before,
-                      &:after {
-                        width: $hamburger-layer-width;
-                        height: $hamburger-layer-height;
-                        background: $hamburger-layer-color;
+                      .hamburger-inner {
+                        &,
+                        &:before,
+                        &:after {
+                          width: $hamburger-layer-width;
+                          height: $hamburger-layer-height;
+                          background: $hamburger-layer-color;
+                        }
+                      }
+                    }
+
+                    &.is-active {
+                      .hamburger-inner {
+                        &,
+                        &:before,
+                        &:after {
+                          background: var(--pink_FE3);
+                        }
                       }
                     }
                   }
@@ -57,7 +69,15 @@ $hamburger-layer-height: 2px !default;
                   &:first-of-type {
                     border-radius: 0;
                     background: transparent;
-                    padding: 5px 5px 5px 0;
+                    padding: 0;
+                  }
+
+                  &:disabled {
+                    background: transparent;
+
+                    svg g {
+                      stroke: rgb(234, 234, 234);
+                    }
                   }
 
                   margin: 0;
@@ -110,7 +130,7 @@ $hamburger-layer-height: 2px !default;
                 }
               }
 
-              span {
+              span.true {
                 position: fixed;
                 top: 56px;
 
