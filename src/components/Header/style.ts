@@ -35,7 +35,7 @@ export const Container = styled.div<HeaderProps>`
       -webkit-box-shadow: 0px 20px 20px 0px rgb(0 0 0 / 40%);
       box-shadow: 0px 20px 20px 0px rgb(0 0 0 / 40%);
 
-      &:first-child {
+      &:first-of-type {
         border-top: transparent;
 
         .heanderContent {
@@ -116,7 +116,7 @@ export const Container = styled.div<HeaderProps>`
         }
       }
 
-      &:last-child {
+      &:last-of-type {
         width: 100%;
         max-height: 100%;
         border-top: 0;

@@ -79,9 +79,6 @@ export const Header = () => {
                         <span className='hamburger-inner'></span>
                       </span>
                     </button>
-                    {/* <nav id='navigation'> */}
-                    {/* <!--navigation goes here--> */}
-                    {/* </nav> */}
 
                     <Link href='/'>
                       <a className='hvr-shrink'>
@@ -146,9 +143,32 @@ export const Header = () => {
             <span>Resultado_da_pesquisa</span>
           </form>
         </div>
+
+        {/* Mob */}
+        <MediaQuery maxDeviceWidth={767}>
+          {!homeID && (
+            <nav id='navigation'>
+              <ul className={`${toggleMenuMob}`}>
+                <li>
+                  <Link href='/'>
+                    <a className='hvr-underline-from-center'>Início</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href='/catalogue'>
+                    <a className='hvr-underline-from-center'>Catálogo</a>
+                  </Link>
+                </li>
+              </ul>
+
+              {/* Header menu-mob overlay */}
+              <span onClick={handleMenuMob}></span>
+            </nav>
+          )}
+        </MediaQuery>
       </header>
 
-      {/* header overlay */}
+      {/* Header search-bar overlay */}
       <span onClick={handleHeaderSearchBar}></span>
     </Container>
   );
