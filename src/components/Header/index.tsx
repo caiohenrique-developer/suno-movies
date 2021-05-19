@@ -144,6 +144,7 @@ export const Header = () => {
       </header>
 
       {/* header overlay */}
+      <span onClick={handleHeaderSearchBar}></span>
     </Container>
   );
 };
