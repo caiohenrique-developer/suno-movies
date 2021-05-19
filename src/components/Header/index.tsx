@@ -23,6 +23,11 @@ export const Header = () => {
     setToggleMenuMob(!toggleMenuMob);
   };
 
+  const handleCollapse = () => {
+    setToggleHeaderSearchBar(false);
+    setToggleMenuMob(false);
+  };
+
   return (
     <Container toggleDropDown={toggleHeaderSearchBar}>
       {/* Header segregation page and breakpoint */}
@@ -32,7 +37,7 @@ export const Header = () => {
           {homeID ? (
             <div className='heanderContent'>
               <Link href='/'>
-                <a className='hvr-shrink'>
+                <a onClick={handleCollapse} className='hvr-shrink'>
                   <AppLogotipo />
                 </a>
               </Link>
@@ -52,7 +57,7 @@ export const Header = () => {
                 {homeID ? (
                   <>
                     <Link href='/'>
-                      <a className='hvr-shrink'>
+                      <a onClick={handleCollapse} className='hvr-shrink'>
                         <AppLogotipo />
                       </a>
                     </Link>
@@ -85,7 +90,7 @@ export const Header = () => {
                     </button>
 
                     <Link href='/'>
-                      <a className='hvr-shrink'>
+                      <a onClick={handleCollapse} className='hvr-shrink'>
                         <AppLogotipo />
                       </a>
                     </Link>
@@ -108,7 +113,7 @@ export const Header = () => {
               <MediaQuery minDeviceWidth={768}>
                 <>
                   <Link href='/'>
-                    <a className='hvr-shrink'>
+                    <a onClick={handleCollapse} className='hvr-shrink'>
                       <AppLogotipo />
                     </a>
                   </Link>
@@ -116,10 +121,20 @@ export const Header = () => {
                   <div>
                     <nav>
                       <Link href='/'>
-                        <a className='hvr-underline-from-center'>Início</a>
+                        <a
+                          onClick={handleCollapse}
+                          className='hvr-underline-from-center'
+                        >
+                          Início
+                        </a>
                       </Link>
                       <Link href='/catalogue'>
-                        <a className='hvr-underline-from-center'>Catálogo</a>
+                        <a
+                          onClick={handleCollapse}
+                          className='hvr-underline-from-center'
+                        >
+                          Catálogo
+                        </a>
                       </Link>
                     </nav>
 
@@ -160,12 +175,22 @@ export const Header = () => {
               <ul className={`${toggleMenuMob}`}>
                 <li>
                   <Link href='/'>
-                    <a className='hvr-underline-from-left'>Início</a>
+                    <a
+                      onClick={handleCollapse}
+                      className='hvr-underline-from-left'
+                    >
+                      Início
+                    </a>
                   </Link>
                 </li>
                 <li>
                   <Link href='/catalogue'>
-                    <a className='hvr-underline-from-left'>Catálogo</a>
+                    <a
+                      onClick={handleCollapse}
+                      className='hvr-underline-from-left'
+                    >
+                      Catálogo
+                    </a>
                   </Link>
                 </li>
               </ul>
