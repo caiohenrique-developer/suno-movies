@@ -12,12 +12,13 @@ import '@styles/responsive.scss';
 
 import 'hover.css';
 import 'animate.css';
+import 'react-multi-carousel/lib/styles.css';
 
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   return (
     <>
       <Head>
-        {/* Viewport */}
+        {/* Viewport meta tag */}
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
 
