@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { useHomeIndicator } from '@hooks/useHomeIndicator';
 
 import { CatalogueTitle } from '@components/CatalogueTitle';
+import { CardMovie } from '@components/CardMovie';
 
 import { Container } from '@styles/pages/Catalogue';
 
@@ -24,6 +25,17 @@ export default function Catalogue() {
             <CatalogueTitle
               title={[<strong>Lançamentos</strong>, ' da semana']}
             />
+
+            <div>
+              <CardMovie />
+              <CardMovie />
+              <CardMovie />
+              <CardMovie />
+              <CardMovie />
+              <CardMovie />
+              <CardMovie />
+              <CardMovie />
+            </div>
           </div>
 
           <div>
