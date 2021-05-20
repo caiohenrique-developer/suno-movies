@@ -28,13 +28,6 @@ export default function Catalogue() {
 
             <div>
               <CardMovie />
-              <CardMovie />
-              <CardMovie />
-              <CardMovie />
-              <CardMovie />
-              <CardMovie />
-              <CardMovie />
-              <CardMovie />
             </div>
           </div>
 
