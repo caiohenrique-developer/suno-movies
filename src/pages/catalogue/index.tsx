@@ -3,6 +3,8 @@ import Head from 'next/head';
 
 import { useHomeIndicator } from '@hooks/useHomeIndicator';
 
+import { CatalogueTitle } from '@components/CatalogueTitle';
+
 import { Container } from '@styles/pages/Catalogue';
 
 export default function Catalogue() {
@@ -16,7 +18,21 @@ export default function Catalogue() {
         <title>Catálogo | Suno Movies</title>
       </Head>
 
-      <Container>Catalogue</Container>
+      <Container>
+        <section>
+          <div>
+            <CatalogueTitle
+              title={[<strong>Lançamentos</strong>, ' da semana']}
+            />
+          </div>
+
+          <div>
+            <CatalogueTitle title={[<strong>Catálogo</strong>, ' completo']} />
+          </div>
+        </section>
+
+        <section>Vídeos para seleção</section>
+      </Container>
     </>
   );
 }
