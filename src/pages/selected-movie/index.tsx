@@ -4,6 +4,8 @@ import Image from 'next/image';
 
 import { useHomeIndicator } from '@hooks/useHomeIndicator';
 
+import { TiStarFullOutline } from 'react-icons/ti';
+
 import { Container } from '@styles/pages/SelectedMovie';
 
 export default function SelectedMovie() {
@@ -21,13 +23,21 @@ export default function SelectedMovie() {
         <section>
           <div>
             <div>
-              <Image />
+              <Image
+                src='/assets/desk/movie-selected/selected-movie-thumbnail.png'
+                width={334}
+                height={494}
+                objectFit='cover'
+              />
 
               <div>
                 <h1>Solteira Quase Surtando</h1>
 
                 <div>
-                  Comédia <span>svg 8.4</span>
+                  Comédia
+                  <span>
+                    <TiStarFullOutline /> 8.4
+                  </span>
                 </div>
 
                 <div>

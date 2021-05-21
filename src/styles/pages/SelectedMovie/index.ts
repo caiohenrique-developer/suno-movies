@@ -8,6 +8,7 @@ export const Container = styled.main`
     > div {
       max-width: 1200px;
       margin: auto;
+      padding: 0 min(1.25rem, 1.57vw);
     }
 
     /* Section one */
@@ -20,15 +21,73 @@ export const Container = styled.main`
       background-size: cover;
 
       > div > div {
-        /* Conteúdo */
+        display: flex;
+        justify-content: space-between;
+
+        padding: min(7.5rem, 9.4vw) 0 min(10rem, 12.5vw);
+
+        > div {
+          &:last-of-type {
+            max-width: 650px;
+            background: #000;
+
+            margin-left: min(4rem, 5vw);
+
+            h1 {
+              font-size: min(3.8rem, 4.7vw);
+              font-weight: 700;
+              color: var(--white_EAE);
+            }
+
+            > div {
+              &:first-of-type {
+                display: flex;
+                justify-content: space-between;
+
+                font-size: min(1.5rem, 1.9vw);
+                font-weight: 300;
+                color: var(--pink_FE3);
+                margin: min(1.875rem, 2.4vw) 0 min(3.875rem, 4.9vw);
+
+                span {
+                  display: flex;
+
+                  font-size: min(1.7rem, 2vw);
+                  font-weight: 500;
+                  color: var(--white_EAE);
+
+                  svg {
+                    font-size: min(1.9rem, 2.4vw);
+                    color: var(--pink_FE3);
+                    margin: 0 min(1rem, 1.3vw);
+                  }
+                }
+              }
+
+              &:last-of-type {
+                span {
+                  display: block;
+                  font-size: min(1.5rem, 1.9vw);
+                  font-weight: 600;
+                  color: var(--white_EAE);
+                  margin-bottom: min(1.25rem, 1.6vw);
+                }
+
+                p {
+                  font-size: min(1.4rem, 1.8vw);
+                  font-weight: 500;
+                  color: var(--gray_757);
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
 
   /* Section two */
   &:last-of-type {
-    color: tomato;
-
     &:after {
       content: '';
 
