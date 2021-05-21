@@ -15,7 +15,7 @@ export const CardMovie = () => {
         showDots
         infinite
         autoPlay
-        // centerMode
+        centerMode
         responsive={breakpointCfg}
         containerClass='react-multi-carousel-container'
         sliderClass='react-multi-carousel-slider'
