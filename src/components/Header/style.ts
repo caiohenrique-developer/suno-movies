@@ -140,7 +140,7 @@ export const Container = styled.div<HeaderProps>`
           max-width: 1200px;
           width: 100%;
           margin: 0 auto;
-          padding: max(1.25rem, 1.57vw);
+          padding: 1.25rem max(1.25rem, 1.57vw) max(1.9rem, 2.4vw);
 
           input {
             display: block;
