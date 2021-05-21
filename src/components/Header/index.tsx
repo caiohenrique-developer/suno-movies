@@ -35,7 +35,7 @@ export const Header = () => {
         <div>
           {/* Tablet and up */}
           {homeID ? (
-            <div className='heanderContent'>
+            <div className='headerContent'>
               <Link href='/'>
                 <a onClick={handleCollapse} className='hvr-shrink'>
                   <AppLogotipo />
@@ -51,7 +51,7 @@ export const Header = () => {
               </button>
             </div>
           ) : (
-            <div className='heanderContent'>
+            <div className='headerContent'>
               {/* Mob */}
               <MediaQuery maxDeviceWidth={767}>
                 {homeID ? (

@@ -10,41 +10,43 @@ $hamburger-layer-height: 2px !default;
       > div:first-of-type {
         header {
           > div {
-            .heanderContent {
+            &:first-of-type {
               height: 55px;
-              min-height: auto;
-              padding: 0 max(1.25rem, 1.57vw);
 
-              > a {
-                max-width: min(11.25rem, 20.1vw);
-              }
+              .headerContent {
+                padding: 0 max(1.25rem, 1.57vw);
 
-              button {
-                &:first-of-type {
-                  &.hamburger {
-                    transform: scale(0.6);
+                > a {
+                  max-width: min(11.25rem, 20.1vw);
+                }
 
-                    .hamburger-box {
-                      display: block;
-                      width: 24px;
+                button {
+                  &:first-of-type {
+                    &.hamburger {
+                      transform: scale(0.6);
 
-                      .hamburger-inner {
-                        &,
-                        &:before,
-                        &:after {
-                          width: $hamburger-layer-width;
-                          height: $hamburger-layer-height;
-                          background: $hamburger-layer-color;
+                      .hamburger-box {
+                        display: block;
+                        width: 24px;
+
+                        .hamburger-inner {
+                          &,
+                          &:before,
+                          &:after {
+                            width: $hamburger-layer-width;
+                            height: $hamburger-layer-height;
+                            background: $hamburger-layer-color;
+                          }
                         }
                       }
-                    }
 
-                    &.is-active {
-                      .hamburger-inner {
-                        &,
-                        &:before,
-                        &:after {
-                          background: var(--pink_FE3);
+                      &.is-active {
+                        .hamburger-inner {
+                          &,
+                          &:before,
+                          &:after {
+                            background: var(--pink_FE3);
+                          }
                         }
                       }
                     }
@@ -60,7 +62,7 @@ $hamburger-layer-height: 2px !default;
 
           &:not(#home) {
             > div {
-              .heanderContent {
+              .headerContent {
                 > a {
                   margin: 0 2rem;
                 }
@@ -187,7 +189,6 @@ $hamburger-layer-height: 2px !default;
 
         &:not(#home) {
           margin-top: 54px;
-          padding: 1.25rem max(1.25rem, 1.57vw);
         }
       }
 

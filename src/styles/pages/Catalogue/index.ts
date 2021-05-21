@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.main`
-  margin: max(15vw, 8.125rem) auto 0;
-  /* correct the header height and main margin-top */
+  margin: min(9.3vw, 106px) auto 0;
 
   > section {
     background: var(--black_212);
@@ -17,7 +16,6 @@ export const Container = styled.main`
 
       > div {
         padding-top: min(6.3vw, 5rem);
-        background: pink;
 
         > div,
         p {

@@ -36,19 +36,26 @@ export const Container = styled.div<HeaderProps>`
       box-shadow: 0px 20px 20px 0px rgb(0 0 0 / 40%);
 
       &:first-of-type {
+        max-height: 108px;
+        height: min(108px, 10vw);
         border-top: transparent;
 
-        .heanderContent {
+        .headerContent {
           display: flex;
           align-items: center;
           justify-content: space-between;
 
           max-width: 1200px;
           width: 100%;
-          max-height: 112px;
-          min-height: min(8.8vw, 7rem);
           margin: 0 auto;
           padding: 0 min(1.25rem, 1.57vw);
+
+          &,
+          & > div,
+          & > div nav,
+          & > div nav a {
+            height: 100%;
+          }
 
           > a {
             max-width: min(11.25rem, 14.1vw);
@@ -67,7 +74,7 @@ export const Container = styled.div<HeaderProps>`
 
           nav {
             a {
-              padding: 2.8rem 0.6em;
+              padding: 0 0.6em;
               font-size: min(1rem, 3vw);
               text-transform: uppercase;
               color: var(--white_EAE);
