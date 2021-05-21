@@ -8,14 +8,14 @@ export const Container = styled.div`
   .react-multi-carousel-list {
     /* margin: 0 80px; */
     /* padding: 0 80px; */
-    background: yellow;
+    /* background: yellow; */
 
     .react-multi-carousel-item-card {
       /* padding: 0 25px; */
       /* margin: 0 10px 0; */
       /* display: block; */
       /* max-width: 290px; */
-      background: tomato;
+      /* background: tomato; */
     }
   }
 `;

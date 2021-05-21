@@ -25,6 +25,10 @@ export const Container = styled.main`
         }
 
         &:first-of-type {
+          background: url('/assets/carousel-banner-background-dsk.png') center
+            no-repeat;
+          background-size: cover;
+
           &:after {
             content: '';
 
