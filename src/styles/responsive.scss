@@ -211,6 +211,7 @@ $hamburger-layer-height: 2px !default;
 
         &#selected-movie {
           section {
+            // first section
             &:first-of-type {
               padding: 0 max(1.25rem, 1.57vw);
 
@@ -219,15 +220,71 @@ $hamburger-layer-height: 2px !default;
                 padding-top: min(3rem, 13.6vw);
 
                 > div {
-                  margin-left: 0;
-
-                  h1 {
-                    font-size: min(2rem, 8vw);
-                    margin: min(2rem, 8vw) 0 min(0.7rem, 3vw);
+                  &:first-of-type {
+                    display: block !important;
+                    margin: auto !important;
                   }
 
-                  > div {
+                  &:last-of-type {
+                    margin-left: 0;
+
+                    h1 {
+                      font-size: min(2rem, 8vw);
+                      margin: min(2rem, 8vw) 0 min(0.7rem, 3vw);
+                    }
+
+                    > div {
+                      &:first-of-type {
+                        font-size: min(1.2rem, 4.7vw);
+                        margin: min(1.875rem, 2.4vw) 0 min(2.9rem, 11.2vw);
+
+                        span {
+                          align-items: center;
+
+                          font-size: min(1.3rem, 5vw);
+
+                          svg {
+                            font-size: min(1.5rem, 5.5vw);
+                            margin: 0 min(0.8rem, 2.8vw);
+                          }
+                        }
+                      }
+
+                      &:last-of-type {
+                        span {
+                          font-size: min(1.5rem, 5.5vw);
+                        }
+
+                        p {
+                          font-size: min(1.2rem, 4.5vw);
+                        }
+                      }
+                    }
                   }
+                }
+              }
+            }
+
+            // second section
+            &:last-of-type {
+              div {
+                padding: 0;
+
+                h4 {
+                  display: table;
+                  font-size: min(1.5rem, 5.5vw);
+                  padding: min(1.25rem, 1.57vw) max(1.8rem, 7vw);
+
+                  margin-bottom: min(2rem, 8vw);
+
+                  &:after {
+                    margin-top: 4px;
+                    height: min(0.388rem, 0.6vw);
+                  }
+                }
+
+                > a {
+                  font-size: 10px;
                 }
               }
             }

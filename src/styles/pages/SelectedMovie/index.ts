@@ -94,6 +94,9 @@ export const Container = styled.main`
     /* Section two */
     &:last-of-type {
       > div {
+        display: flex;
+        flex-direction: column;
+
         h4 {
           font-size: min(1.9rem, 2.4vw);
           font-weight: 600;
@@ -120,13 +123,13 @@ export const Container = styled.main`
         }
 
         a {
-          display: flex;
+          display: inline-flex;
           align-items: center;
           justify-content: center;
 
-          width: min(10rem, 12.5vw);
-          min-width: min(5rem, 3.1vw);
-          height: min(2.8rem, 3.5vw);
+          min-width: max(5rem, 3.1vw);
+          max-width: max(10rem, 12.5vw);
+          max-height: max(2.8rem, 3.5vw);
 
           font-size: min(0.901rem, 1.1vw);
           font-weight: 600;
@@ -140,7 +143,7 @@ export const Container = styled.main`
           );
           border-radius: min(0.2rem, 0.3vw);
 
-          padding: 5px;
+          padding: min(0.8rem, 1vw) min(3.7rem, 4.6vw);
           margin: min(5.5rem, 6.9vw) auto;
         }
       }
