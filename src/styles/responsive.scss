@@ -148,6 +148,10 @@ $hamburger-layer-height: 2px !default;
       }
 
       main {
+        &:not(#home) {
+          margin-top: 54px;
+        }
+
         &#home {
           section,
           aside {
@@ -187,8 +191,22 @@ $hamburger-layer-height: 2px !default;
           }
         }
 
-        &:not(#home) {
-          margin-top: 54px;
+        &#catalogue {
+          section {
+            &:first-of-type {
+              > div {
+                p {
+                  font-size: min(1rem, 4.5vw);
+                  text-align: center;
+
+                  svg {
+                    min-width: min(0.9rem, 3.5vw);
+                    margin-right: min(1rem, 3.6vw);
+                  }
+                }
+              }
+            }
+          }
         }
       }
 
