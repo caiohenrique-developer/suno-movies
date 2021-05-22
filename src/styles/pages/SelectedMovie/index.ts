@@ -125,7 +125,7 @@ export const Container = styled.main`
           justify-content: center;
 
           width: min(10rem, 12.5vw);
-          min-width: min(2.813rem, 3.5vw);
+          min-width: min(5rem, 3.1vw);
           height: min(2.8rem, 3.5vw);
 
           font-size: min(0.901rem, 1.1vw);

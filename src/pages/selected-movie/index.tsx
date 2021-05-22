@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 
@@ -12,12 +12,39 @@ import { Container } from '@styles/pages/SelectedMovie';
 export default function SelectedMovie() {
   const { addHomeID } = useHomeIndicator();
 
-  addHomeID('');
+  useEffect(() => {
+    addHomeID('');
+
+    new YT.Player('div_YouTube', {
+      videoId: '2-OWmDS88so', // THE VIDEO ID.
+      width: '100%',
+      height: 580,
+      playerVars: {
+        autoplay: 0,
+        controls: 1,
+        showinfo: 0,
+        modestbranding: 0,
+        loop: 1,
+        fs: 0,
+        cc_load_policty: 0,
+        iv_load_policy: 3,
+      },
+      events: {
+        onReady: function (e) {
+          e.target.mute();
+          e.target.setVolume(50); // YOU CAN SET VALUE TO 100 FOR MAX VOLUME.
+        },
+      },
+    });
+  }, []);
 
   return (
     <>
       <Head>
         <title>Assistir ao filme | Suno Movies</title>
+
+        {/* <!--LOAD YouTube "iframe_api" ASYNCHRONOUSLY.--> */}
+        <script async src='https://www.youtube.com/iframe_api'></script>
       </Head>
 
       <Container>
@@ -62,17 +89,7 @@ export default function SelectedMovie() {
           <div>
             <h4>Trailer</h4>
 
-            <video width='100%' height='auto' controls>
-              <source
-                src='https://www.youtube.com/watch?v=2-OWmDS88so&list=RDEMkYt5Wa4ltK2BRo3LgJP41Q&index=27'
-                type='video/mp4'
-              />
-              <source
-                src='https://www.youtube.com/watch?v=2-OWmDS88so&list=RDEMkYt5Wa4ltK2BRo3LgJP41Q&index=27'
-                type='video/ogg'
-              />
-              Your browser does not support the video tag.
-            </video>
+            <div id='div_YouTube'></div>
 
             <CTAButton pageUrl='/catalogue' title='Voltar' />
           </div>
