@@ -1,6 +1,8 @@
-// ButtonBlack
-export interface ButtonBlackProps {
+// CTAButton
+export interface CTAButtonProps {
+  pageUrl: string;
   title: string;
+  icon?: any;
 }
 
 // CatalogueTitle

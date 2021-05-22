@@ -4,9 +4,11 @@ import Image from 'next/image';
 
 import MediaQuery from 'react-responsive';
 import { useHomeIndicator } from '@hooks/useHomeIndicator';
+import { CTAButton } from '@components/CTAButton';
+
+import RightArrow from '@assets/chevron-next-outline.svg';
 
 import { Container } from '@styles/pages/Home';
-import { ButtonBlack } from '@components/ButtonBlack';
 
 export default function Home() {
   const { homeID, addHomeID } = useHomeIndicator();
@@ -63,7 +65,15 @@ export default function Home() {
             </h1>
             <p>Assista de onde quiser.</p>
 
-            <ButtonBlack title="Let's go!?" />
+            <CTAButton
+              pageUrl='/catalogue'
+              title="Let's go!?"
+              icon={
+                <i className='hvr-icon'>
+                  <RightArrow />
+                </i>
+              }
+            />
           </aside>
         </section>
       </Container>

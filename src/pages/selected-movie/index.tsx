@@ -1,14 +1,13 @@
 import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import Link from 'next/link';
 
+import { CTAButton } from '@components/CTAButton';
 import { useHomeIndicator } from '@hooks/useHomeIndicator';
 
 import { TiStarFullOutline } from 'react-icons/ti';
 
 import { Container } from '@styles/pages/SelectedMovie';
-import { ButtonBlack } from '@components/ButtonBlack';
 
 export default function SelectedMovie() {
   const { addHomeID } = useHomeIndicator();
@@ -63,18 +62,19 @@ export default function SelectedMovie() {
           <div>
             <h4>Trailer</h4>
 
-            <Image
-              src='/assets/desk/movie-selected/selected-movie-video.png'
-              width={1033}
-              height={579}
-              objectFit='cover'
-            />
+            <video width='100%' height='auto' controls>
+              <source
+                src='https://www.youtube.com/watch?v=2-OWmDS88so&list=RDEMkYt5Wa4ltK2BRo3LgJP41Q&index=27'
+                type='video/mp4'
+              />
+              <source
+                src='https://www.youtube.com/watch?v=2-OWmDS88so&list=RDEMkYt5Wa4ltK2BRo3LgJP41Q&index=27'
+                type='video/ogg'
+              />
+              Your browser does not support the video tag.
+            </video>
 
-            <ButtonBlack title='Voltar' />
-
-            <Link href='/catalogue'>
-              <a>Voltar</a>
-            </Link>
+            <CTAButton pageUrl='/catalogue' title='Voltar' />
           </div>
         </section>
       </Container>

@@ -114,7 +114,8 @@ export const Container = styled.main`
           }
         }
 
-        > div {
+        > video {
+          display: block;
           width: 100%;
         }
 
