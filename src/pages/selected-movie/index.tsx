@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { useHomeIndicator } from '@hooks/useHomeIndicator';
 
@@ -70,6 +71,10 @@ export default function SelectedMovie() {
             />
 
             <ButtonBlack title='Voltar' />
+
+            <Link href='/catalogue'>
+              <a>Voltar</a>
+            </Link>
           </div>
         </section>
       </Container>

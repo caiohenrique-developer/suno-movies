@@ -21,6 +21,7 @@ export default createGlobalStyle`
 
     --pink_FF5:#FF559E;
     --pink_FE3:#FE3189;
+    --pink_FF0:#FF006E;
   }
 
   * {
