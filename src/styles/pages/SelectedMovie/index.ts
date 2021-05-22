@@ -27,15 +27,20 @@ export const Container = styled.main`
         padding: min(7.5rem, 9.4vw) 0 min(10rem, 12.5vw);
 
         > div {
-          &:last-of-type {
-            max-width: 650px;
-            background: #000;
+          &:first-of-type {
+            min-width: max(15.625rem, 14.5vw);
+            max-width: 334px !important;
+            width: 100%;
+          }
 
+          &:last-of-type {
+            max-width: max(46rem, 58vw);
             margin-left: min(4rem, 5vw);
 
             h1 {
               font-size: min(3.8rem, 4.7vw);
               font-weight: 700;
+              line-height: 113.5%;
               color: var(--white_EAE);
             }
 
@@ -76,6 +81,7 @@ export const Container = styled.main`
                 p {
                   font-size: min(1.4rem, 1.8vw);
                   font-weight: 500;
+                  line-height: 140.5%;
                   color: var(--gray_757);
                 }
               }
@@ -88,6 +94,14 @@ export const Container = styled.main`
 
   /* Section two */
   &:last-of-type {
+    > div {
+      h4 {
+        /* font-size: 29.11px;
+        font-weight: 600;
+        color: var(--white_EAE); */
+      }
+    }
+
     &:after {
       content: '';
 

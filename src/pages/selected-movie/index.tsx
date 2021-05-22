@@ -7,6 +7,7 @@ import { useHomeIndicator } from '@hooks/useHomeIndicator';
 import { TiStarFullOutline } from 'react-icons/ti';
 
 import { Container } from '@styles/pages/SelectedMovie';
+import { ButtonBlack } from '@components/ButtonBlack';
 
 export default function SelectedMovie() {
   const { addHomeID } = useHomeIndicator();
@@ -59,7 +60,16 @@ export default function SelectedMovie() {
 
         <section>
           <div>
-            Player do filme <h4>Trailer</h4>
+            <h4>Trailer</h4>
+
+            <Image
+              src='/assets/desk/movie-selected/selected-movie-video.png'
+              width={1033}
+              height={579}
+              objectFit='cover'
+            />
+
+            <ButtonBlack title='Voltar' />
           </div>
         </section>
       </Container>
