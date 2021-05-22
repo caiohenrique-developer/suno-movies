@@ -10,10 +10,10 @@ import { TiStarFullOutline } from 'react-icons/ti';
 import { Container } from '@styles/pages/SelectedMovie';
 
 export default function SelectedMovie() {
-  const { addHomeID } = useHomeIndicator();
+  const { addHomeID, homeID } = useHomeIndicator();
 
   useEffect(() => {
-    addHomeID('');
+    addHomeID('selected-movie');
 
     new YT.Player('div_YouTube', {
       videoId: '2-OWmDS88so', // THE VIDEO ID.
@@ -47,7 +47,7 @@ export default function SelectedMovie() {
         <script async src='https://www.youtube.com/iframe_api'></script>
       </Head>
 
-      <Container>
+      <Container id={homeID}>
         <section>
           <div>
             <div>

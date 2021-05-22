@@ -9,8 +9,7 @@ export const HomeIDProvider = ({ children }: ChildrenGlobalType) => {
   const [homeID, setHomeID] = useState('');
 
   const addHomeID = (page: string) => {
-    if (page === 'home') setHomeID(page);
-    else setHomeID('');
+    if (page) setHomeID(page);
   };
 
   return (

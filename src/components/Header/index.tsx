@@ -34,7 +34,7 @@ export const Header = () => {
       <header id={homeID}>
         <div>
           {/* Tablet and up */}
-          {homeID ? (
+          {homeID === 'home' ? (
             <div className='headerContent'>
               <Link href='/'>
                 <a onClick={handleCollapse} className='hvr-shrink'>
@@ -54,7 +54,7 @@ export const Header = () => {
             <div className='headerContent'>
               {/* Mob */}
               <MediaQuery maxDeviceWidth={767}>
-                {homeID ? (
+                {homeID === 'home' ? (
                   <>
                     <Link href='/'>
                       <a onClick={handleCollapse} className='hvr-shrink'>
@@ -170,7 +170,7 @@ export const Header = () => {
 
         {/* Mob */}
         <MediaQuery maxDeviceWidth={767}>
-          {!homeID && (
+          {homeID !== 'home' && (
             <nav id='navigation'>
               <ul className={`${toggleMenuMob}`}>
                 <li>

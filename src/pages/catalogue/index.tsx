@@ -9,9 +9,9 @@ import { CardMovie } from '@components/CardMovie';
 import { Container } from '@styles/pages/Catalogue';
 
 export default function Catalogue() {
-  const { addHomeID } = useHomeIndicator();
+  const { addHomeID, homeID } = useHomeIndicator();
 
-  addHomeID('');
+  addHomeID('catalogue');
 
   return (
     <>
@@ -19,7 +19,7 @@ export default function Catalogue() {
         <title>Catálogo | Suno Movies</title>
       </Head>
 
-      <Container>
+      <Container id={homeID}>
         <section>
           <div>
             <CatalogueTitle
