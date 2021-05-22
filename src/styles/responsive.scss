@@ -208,6 +208,31 @@ $hamburger-layer-height: 2px !default;
             }
           }
         }
+
+        &#selected-movie {
+          section {
+            &:first-of-type {
+              padding: 0 max(1.25rem, 1.57vw);
+
+              > div > div {
+                display: block;
+                padding-top: min(3rem, 13.6vw);
+
+                > div {
+                  margin-left: 0;
+
+                  h1 {
+                    font-size: min(2rem, 8vw);
+                    margin: min(2rem, 8vw) 0 min(0.7rem, 3vw);
+                  }
+
+                  > div {
+                  }
+                }
+              }
+            }
+          }
+        }
       }
 
       footer p {
