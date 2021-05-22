@@ -117,9 +117,9 @@ export const Container = styled.main`
           }
         }
 
-        > video {
+        > iframe {
           display: block;
-          width: 100%;
+          max-height: min(36.25rem, 45.3vw);
         }
 
         a {
