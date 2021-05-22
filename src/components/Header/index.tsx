@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 import MediaQuery from 'react-responsive';
@@ -14,6 +14,17 @@ export const Header = () => {
 
   const [toggleHeaderSearchBar, setToggleHeaderSearchBar] = useState(false);
   const [toggleMenuMob, setToggleMenuMob] = useState(false);
+
+  useEffect(() => {
+    const close = (ev) => {
+      if (ev.keyCode === 27) {
+        handleCollapse();
+      }
+    };
+
+    window.addEventListener('keyup', close);
+    return () => window.removeEventListener('keyup', close);
+  }, []);
 
   const handleHeaderSearchBar = () => {
     setToggleHeaderSearchBar(!toggleHeaderSearchBar);
