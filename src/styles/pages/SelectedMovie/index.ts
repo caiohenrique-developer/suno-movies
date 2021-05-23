@@ -120,7 +120,7 @@ export const Container = styled.main`
         > iframe {
           display: block;
           width: 100%;
-          height: min(36.25rem, 45.3vw);
+          max-height: min(36.25rem, 45.3vw);
         }
 
         a {
