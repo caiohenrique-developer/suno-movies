@@ -96,9 +96,7 @@ export default function SelectedMovie() {
               height='315'
               src='https://www.youtube.com/embed/2-OWmDS88so'
               title='YouTube video player'
-              frameborder='0'
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-              allowfullscreen
             ></iframe>
 
             <CTAButton pageUrl='/catalogue' title='Voltar' />
