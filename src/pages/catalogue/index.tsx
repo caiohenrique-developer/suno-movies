@@ -6,6 +6,7 @@ import { useHomeIndicator } from '@hooks/useHomeIndicator';
 import { CatalogueTitle } from '@components/CatalogueTitle';
 import { CardMovie } from '@components/CardMovie';
 
+import { SelectBtn, ActiveIndicator } from '@styles/components/CTAButton';
 import { Container } from '@styles/pages/Catalogue';
 
 export default function Catalogue() {
@@ -41,22 +42,24 @@ export default function Catalogue() {
             <div>
               <div>
                 <form>
-                  <select>
+                  <SelectBtn className='btn-pink'>
                     <option value='volvo'>Volvo</option>
                     <option value='saab'>Saab</option>
                     <option value='fiat'>Fiat</option>
                     <option value='audi'>Audi</option>
-                  </select>
+                  </SelectBtn>
                 </form>
 
-                <span>Mais populares</span>
+                <ActiveIndicator className='btn-pink'>
+                  Mais populares
+                </ActiveIndicator>
               </div>
 
               <form>
-                <select>
+                <SelectBtn className='btn-pink'>
                   <option value='fiat'>Fiat</option>
                   <option value='audi'>Audi</option>
-                </select>
+                </SelectBtn>
               </form>
             </div>
 

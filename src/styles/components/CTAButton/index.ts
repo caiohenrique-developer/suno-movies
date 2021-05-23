@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.a`
+export const BaseBtnStyles = css`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -33,4 +33,16 @@ export const Container = styled.a`
       display: block;
     }
   }
+`;
+
+export const Container = styled.a`
+  ${BaseBtnStyles}
+`;
+
+export const SelectBtn = styled.select`
+  ${BaseBtnStyles}
+`;
+
+export const ActiveIndicator = styled.span`
+  ${BaseBtnStyles}
 `;
