@@ -43,6 +43,7 @@ export default function Catalogue() {
               <div>
                 <form>
                   <SelectBtn className='btn-pink'>
+                    <option value=''>Selecionar opção</option>
                     <option value='volvo'>Volvo</option>
                     <option value='saab'>Saab</option>
                     <option value='fiat'>Fiat</option>

@@ -6,6 +6,7 @@ export const Container = styled.main`
   > section {
     background: var(--black_212);
 
+    /* first section */
     &:first-of-type {
       position: relative;
       z-index: 1;
@@ -48,8 +49,67 @@ export const Container = styled.main`
       }
     }
 
+    /* last section */
     &:last-of-type {
-      font-size: 5rem;
+      > div {
+        max-width: 1200px;
+        margin: auto;
+        padding: min(2.5rem, 3.2vw) min(1.25rem, 1.57vw);
+
+        > div {
+          &:first-of-type {
+            display: flex;
+
+            form select,
+            span {
+              width: min(10rem, 12.8vw);
+              height: 100%;
+
+              font-weight: 600;
+              font-size: min(0.9rem, 1.1vw);
+              text-transform: lowercase;
+              color: var(--white_EAE);
+            }
+
+            > div {
+              display: flex;
+              margin-right: min(1.563rem, 2vw);
+
+              form {
+                select {
+                }
+              }
+
+              span {
+                cursor: unset;
+                border-radius: min(0.2rem, 0.3vw);
+                margin-left: min(1.563rem, 2vw);
+              }
+            }
+
+            form {
+              select {
+                /* For IE10 */
+                &::-ms-expand {
+                  display: none;
+                }
+                appearance: none;
+                /* for Firefox */
+                -moz-appearance: none;
+                /* for Chrome */
+                -webkit-appearance: none;
+
+                text-align-last: center;
+                border-radius: min(0.25rem, 0.3vw);
+              }
+            }
+          }
+
+          &:last-of-type {
+            font-size: 5rem;
+          }
+        }
+      }
     }
   }
 `;

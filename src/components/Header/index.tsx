@@ -140,6 +140,7 @@ export const Header = () => {
                         </a>
                       </Link>
                       <Link href='/selected-movie'>
+                        {/* remove selected-movie and set the correct link */}
                         <a
                           onClick={handleCollapse}
                           className='hvr-underline-from-center'
