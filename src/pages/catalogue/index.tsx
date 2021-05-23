@@ -36,7 +36,33 @@ export default function Catalogue() {
           </div>
         </section>
 
-        <section>Vídeos para seleção</section>
+        <section>
+          <div>
+            <div>
+              <div>
+                <form>
+                  <select>
+                    <option value='volvo'>Volvo</option>
+                    <option value='saab'>Saab</option>
+                    <option value='fiat'>Fiat</option>
+                    <option value='audi'>Audi</option>
+                  </select>
+                </form>
+
+                <span>Mais populares</span>
+              </div>
+
+              <form>
+                <select>
+                  <option value='fiat'>Fiat</option>
+                  <option value='audi'>Audi</option>
+                </select>
+              </form>
+            </div>
+
+            <div>Filmes</div>
+          </div>
+        </section>
       </Container>
     </>
   );

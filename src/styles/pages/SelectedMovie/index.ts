@@ -124,24 +124,11 @@ export const Container = styled.main`
         }
 
         a {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-
-          min-width: max(5rem, 3.1vw);
-          max-width: max(10rem, 12.5vw);
-          max-height: max(2.8rem, 3.5vw);
-
           font-size: min(0.901rem, 1.1vw);
           font-weight: 600;
           text-transform: lowercase;
 
           color: var(--white_EAE);
-          background: linear-gradient(
-            0deg,
-            var(--pink_FE3) 0%,
-            var(--pink_FF0) 100%
-          );
           border-radius: min(0.2rem, 0.3vw);
 
           padding: min(0.8rem, 1vw) min(3.7rem, 4.6vw);

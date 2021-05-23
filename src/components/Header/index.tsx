@@ -139,7 +139,7 @@ export const Header = () => {
                           Início
                         </a>
                       </Link>
-                      <Link href='/catalogue'>
+                      <Link href='/selected-movie'>
                         <a
                           onClick={handleCollapse}
                           className='hvr-underline-from-center'

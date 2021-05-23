@@ -36,6 +36,19 @@ export const Container = styled.main`
         font-size: min(1.7vw, 1.625rem);
         margin: 0.625rem 0 1.25rem;
       }
+
+      a {
+        font-weight: 600;
+        text-transform: uppercase;
+
+        &:hover {
+          background: linear-gradient(
+            80deg,
+            var(--pink_FF5) 0%,
+            var(--pink_FE3) 100%
+          );
+        }
+      }
     }
   }
 `;

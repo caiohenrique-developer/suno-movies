@@ -70,7 +70,11 @@ export default function SelectedMovie() {
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
             ></iframe>
 
-            <CTAButton pageUrl='/catalogue' title='Voltar' />
+            <CTAButton
+              className='btn-pink hvr-shrink '
+              pageUrl='/catalogue'
+              title='Voltar'
+            />
           </div>
         </section>
       </Container>

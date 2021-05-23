@@ -67,6 +67,7 @@ export default function Home() {
 
             <CTAButton
               pageUrl='/catalogue'
+              className='btn-black hvr-shrink hvr-icon-grow hvr-icon-wobble-horizontal'
               title="Let's go!?"
               icon={
                 <i className='hvr-icon'>

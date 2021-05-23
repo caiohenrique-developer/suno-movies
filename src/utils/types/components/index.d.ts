@@ -1,6 +1,7 @@
 // CTAButton
 export interface CTAButtonProps {
-  pageUrl: string;
+  pageUrl?: string;
+  className: string;
   title: string;
   icon?: any;
 }
