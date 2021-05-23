@@ -15,27 +15,27 @@ export default function SelectedMovie() {
   useEffect(() => {
     addHomeID('selected-movie');
 
-    new YT.Player('div_YouTube', {
-      videoId: '2-OWmDS88so', // THE VIDEO ID.
-      width: '100%',
-      height: 580,
-      playerVars: {
-        autoplay: 0,
-        controls: 1,
-        showinfo: 0,
-        modestbranding: 0,
-        loop: 1,
-        fs: 0,
-        cc_load_policty: 0,
-        iv_load_policy: 3,
-      },
-      events: {
-        onReady: function (e) {
-          e.target.mute();
-          e.target.setVolume(50); // YOU CAN SET VALUE TO 100 FOR MAX VOLUME.
-        },
-      },
-    });
+    // new YT.Player('div_YouTube', {
+    //   videoId: '2-OWmDS88so', // THE VIDEO ID.
+    //   width: '100%',
+    //   height: 580,
+    //   playerVars: {
+    //     autoplay: 0,
+    //     controls: 1,
+    //     showinfo: 0,
+    //     modestbranding: 0,
+    //     loop: 1,
+    //     fs: 0,
+    //     cc_load_policty: 0,
+    //     iv_load_policy: 3,
+    //   },
+    //   events: {
+    //     onReady: function (e) {
+    //       e.target.mute();
+    //       e.target.setVolume(50); // YOU CAN SET VALUE TO 100 FOR MAX VOLUME.
+    //     },
+    //   },
+    // });
   }, []);
 
   return (
@@ -89,7 +89,17 @@ export default function SelectedMovie() {
           <div>
             <h4>Trailer</h4>
 
-            <div id='div_YouTube'></div>
+            {/* <div id='div_YouTube'></div> */}
+
+            <iframe
+              width='560'
+              height='315'
+              src='https://www.youtube.com/embed/2-OWmDS88so'
+              title='YouTube video player'
+              frameborder='0'
+              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+              allowfullscreen
+            ></iframe>
 
             <CTAButton pageUrl='/catalogue' title='Voltar' />
           </div>
