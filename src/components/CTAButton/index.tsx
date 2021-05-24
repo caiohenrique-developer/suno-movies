@@ -9,13 +9,15 @@ export const CTAButton = ({
   pageUrl,
   className,
   title,
-  icon,
+  iconBefore,
+  iconAfter,
 }: CTAButtonProps) => {
   return (
     <Link href={pageUrl}>
       <Container className={className}>
+        {iconBefore}
         {title}
-        {icon}
+        {iconAfter}
       </Container>
     </Link>
   );

@@ -3,7 +3,8 @@ export interface CTAButtonProps {
   pageUrl?: string;
   className: string;
   title: string;
-  icon?: any;
+  iconBefore?: any;
+  iconAfter?: any;
 }
 
 // CatalogueTitle

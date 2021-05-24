@@ -69,7 +69,7 @@ export default function Home() {
               pageUrl='/catalogue'
               className='btn-black hvr-shrink hvr-icon-grow hvr-icon-wobble-horizontal'
               title="Let's go!?"
-              icon={
+              iconAfter={
                 <i className='hvr-icon'>
                   <RightArrow />
                 </i>
