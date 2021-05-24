@@ -119,7 +119,7 @@ export const Container = styled.main`
           }
 
           &:last-of-type {
-            font-size: 5rem;
+            margin: min(2.8rem, 3.5vw) 0 min(4.4rem, 5.5vw);
           }
         }
       }

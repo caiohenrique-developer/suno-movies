@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { useHomeIndicator } from '@hooks/useHomeIndicator';
 
 import { CatalogueTitle } from '@components/CatalogueTitle';
+import { CarouselContainer } from '@components/Carousel';
 import { CardMovie } from '@components/CardMovie';
 
 import { SelectBtn, ActiveIndicator } from '@styles/components/CTAButton';
@@ -28,7 +29,7 @@ export default function Catalogue() {
             />
 
             <div>
-              <CardMovie />
+              <CarouselContainer />
             </div>
           </div>
 
@@ -66,7 +67,16 @@ export default function Catalogue() {
               </form>
             </div>
 
-            <div>Filmes</div>
+            <div>
+              <CardMovie />
+              <CardMovie />
+              <CardMovie />
+              <CardMovie />
+              <CardMovie />
+              <CardMovie />
+              <CardMovie />
+              <CardMovie />
+            </div>
           </div>
         </section>
       </Container>

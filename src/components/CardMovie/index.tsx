@@ -1,9 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 
-import Carousel from 'react-multi-carousel';
-import { breakpointCfg } from '@utils/general/carouselBreakpoint';
-
 import { TiStarFullOutline } from 'react-icons/ti';
 
 import { Container } from './style';
@@ -11,154 +8,33 @@ import { Container } from './style';
 export const CardMovie = () => {
   return (
     <Container>
-      <Carousel
-        showDots
-        infinite
-        // autoPlay
-        centerMode
-        responsive={breakpointCfg}
-        containerClass='react-multi-carousel-container'
-        sliderClass='react-multi-carousel-slider'
-        dotListClass='react-multi-carousel-dot-list'
-        itemClass='react-multi-carousel-item-card'
-      >
-        <div>
-          <Image
-            src='/assets/desk/catalogue/carousel-movie-thumbnail.png'
-            alt='Movie thumbnail'
-            width={219}
-            height={329}
-            objectFit='cover'
-          />
-          <div>
-            <h4>Crazy About Her</h4>
-            <h3>Romance, Comédia</h3>
-            <span>
-              <TiStarFullOutline />
-              8.4
-            </span>
-          </div>
-        </div>
-        <div>
-          <Image
-            src='/assets/desk/catalogue/carousel-movie-thumbnail.png'
-            alt='Movie thumbnail'
-            width={219}
-            height={329}
-            objectFit='cover'
-          />
-          <div>
-            <h4>Crazy About Her</h4>
-            <h3>Romance, Comédia</h3>
-            <span>
-              <TiStarFullOutline />
-              8.4
-            </span>
-          </div>
-        </div>
-        <div>
-          <Image
-            src='/assets/desk/catalogue/carousel-movie-thumbnail.png'
-            alt='Movie thumbnail'
-            width={219}
-            height={329}
-            objectFit='cover'
-          />
-          <div>
-            <h4>Crazy About Her</h4>
-            <h3>Romance, Comédia</h3>
-            <span>
-              <TiStarFullOutline />
-              8.4
-            </span>
-          </div>
-        </div>
-        <div>
-          <Image
-            src='/assets/desk/catalogue/carousel-movie-thumbnail.png'
-            alt='Movie thumbnail'
-            width={219}
-            height={329}
-            objectFit='cover'
-          />
-          <div>
-            <h4>Crazy About Her</h4>
-            <h3>Romance, Comédia</h3>
-            <span>
-              <TiStarFullOutline />
-              8.4
-            </span>
-          </div>
-        </div>
-        <div>
-          <Image
-            src='/assets/desk/catalogue/carousel-movie-thumbnail.png'
-            alt='Movie thumbnail'
-            width={219}
-            height={329}
-            objectFit='cover'
-          />
-          <div>
-            <h4>Crazy About Her</h4>
-            <h3>Romance, Comédia</h3>
-            <span>
-              <TiStarFullOutline />
-              8.4
-            </span>
-          </div>
-        </div>
-        <div>
-          <Image
-            src='/assets/desk/catalogue/carousel-movie-thumbnail.png'
-            alt='Movie thumbnail'
-            width={219}
-            height={329}
-            objectFit='cover'
-          />
-          <div>
-            <h4>Crazy About Her</h4>
-            <h3>Romance, Comédia</h3>
-            <span>
-              <TiStarFullOutline />
-              8.4
-            </span>
-          </div>
-        </div>
-        <div>
-          <Image
-            src='/assets/desk/catalogue/carousel-movie-thumbnail.png'
-            alt='Movie thumbnail'
-            width={219}
-            height={329}
-            objectFit='cover'
-          />
-          <div>
-            <h4>Crazy About Her</h4>
-            <h3>Romance, Comédia</h3>
-            <span>
-              <TiStarFullOutline />
-              8.4
-            </span>
-          </div>
-        </div>
-        <div>
-          <Image
-            src='/assets/desk/catalogue/carousel-movie-thumbnail.png'
-            alt='Movie thumbnail'
-            width={219}
-            height={329}
-            objectFit='cover'
-          />
-          <div>
-            <h4>Crazy About Her</h4>
-            <h3>Romance, Comédia</h3>
-            <span>
-              <TiStarFullOutline />
-              8.4
-            </span>
-          </div>
-        </div>
-      </Carousel>
+      <Image
+        src='/assets/desk/catalogue/catalogue-movie-thumbnail.png'
+        alt='Movie thumbnail'
+        width={158}
+        height={233}
+        objectFit='cover'
+      />
+      <div>
+        <h4>Goosebumps 2</h4>
+        <h3>Comédia</h3>
+        <span>
+          <TiStarFullOutline />
+          8.4
+        </span>
+
+        <p>
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English.It is a long established fact that a reader
+          will be distracted by the readable content of a page when looking at
+          its layout. The point of using Lorem Ipsum is that it has a
+          more-or-less normal distribution of letters, as opposed to using
+          'Content here, content here', making it look like readable English.
+        </p>
+      </div>
     </Container>
   );
 };
