@@ -14,7 +14,7 @@ export const CardMovie = () => {
       <Carousel
         showDots
         infinite
-        autoPlay
+        // autoPlay
         centerMode
         responsive={breakpointCfg}
         containerClass='react-multi-carousel-container'

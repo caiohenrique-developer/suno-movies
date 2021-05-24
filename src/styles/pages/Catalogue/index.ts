@@ -11,6 +11,9 @@ export const Container = styled.main`
       position: relative;
       z-index: 1;
 
+      display: none;
+      /* remove displey none */
+
       border-bottom: 2px solid var(--black_000);
       -webkit-box-shadow: 0px 20px 20px 0px rgb(0 0 0 / 40%);
       box-shadow: 0px 20px 20px 0px rgb(0 0 0 / 40%);
@@ -59,15 +62,21 @@ export const Container = styled.main`
         > div {
           &:first-of-type {
             display: flex;
+            justify-content: space-between;
 
             form select,
             span {
+              display: block;
               width: min(10rem, 12.8vw);
               height: 100%;
+              overflow: hidden;
 
               font-weight: 600;
               font-size: min(0.9rem, 1.1vw);
               text-transform: lowercase;
+              text-overflow: ellipsis;
+              line-height: 100%;
+              white-space: nowrap;
               color: var(--white_EAE);
             }
 
@@ -101,6 +110,10 @@ export const Container = styled.main`
 
                 text-align-last: center;
                 border-radius: min(0.25rem, 0.3vw);
+
+                option {
+                  background: var(--black_212);
+                }
               }
             }
           }

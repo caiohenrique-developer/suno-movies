@@ -42,8 +42,10 @@ export default function Catalogue() {
             <div>
               <div>
                 <form>
-                  <SelectBtn className='btn-pink'>
-                    <option value=''>Selecionar opção</option>
+                  <SelectBtn className='btn-black'>
+                    <option disabled selected>
+                      opções
+                    </option>
                     <option value='volvo'>Volvo</option>
                     <option value='saab'>Saab</option>
                     <option value='fiat'>Fiat</option>
@@ -52,14 +54,14 @@ export default function Catalogue() {
                 </form>
 
                 <ActiveIndicator className='btn-pink'>
-                  Mais populares
+                  Mais populares Mais populares
                 </ActiveIndicator>
               </div>
 
               <form>
-                <SelectBtn className='btn-pink'>
-                  <option value='fiat'>Fiat</option>
-                  <option value='audi'>Audi</option>
+                <SelectBtn className='btn-black'>
+                  <option value='grid-layout'>Em grid</option>
+                  <option value='list-layout'>Em lista</option>
                 </SelectBtn>
               </form>
             </div>

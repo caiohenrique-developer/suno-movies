@@ -46,3 +46,7 @@ export const SelectBtn = styled.select`
 export const ActiveIndicator = styled.span`
   ${BaseBtnStyles}
 `;
+
+export const Button = styled.button`
+  ${BaseBtnStyles}
+`;
