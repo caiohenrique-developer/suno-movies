@@ -7,7 +7,11 @@ import { CatalogueTitle } from '@components/CatalogueTitle';
 import { CarouselContainer } from '@components/Carousel';
 import { CardMovie } from '@components/CardMovie';
 
-import { SelectBtn, ActiveIndicator } from '@styles/components/CTAButton';
+import {
+  SelectBtn,
+  ActiveIndicator,
+  Button,
+} from '@styles/components/CTAButton';
 import { Container } from '@styles/pages/Catalogue';
 
 export default function Catalogue() {
@@ -55,7 +59,7 @@ export default function Catalogue() {
                 </form>
 
                 <ActiveIndicator className='btn-pink'>
-                  Mais populares Mais populares
+                  Mais populares
                 </ActiveIndicator>
               </div>
 
@@ -77,6 +81,8 @@ export default function Catalogue() {
               <CardMovie />
               <CardMovie />
             </div>
+
+            <Button className='btn-pink hvr-shrink'>Carregar mais</Button>
           </div>
         </section>
       </Container>

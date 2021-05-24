@@ -71,7 +71,7 @@ export default function SelectedMovie() {
             ></iframe>
 
             <CTAButton
-              className='btn-pink hvr-shrink '
+              className='btn-pink hvr-shrink'
               pageUrl='/catalogue'
               title='Voltar'
             />

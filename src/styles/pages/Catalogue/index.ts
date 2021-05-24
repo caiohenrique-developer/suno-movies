@@ -59,26 +59,32 @@ export const Container = styled.main`
         margin: auto;
         padding: min(2.5rem, 3.2vw) min(1.25rem, 1.57vw);
 
+        form select,
+        > div:first-of-type span,
+        button {
+          display: block;
+          width: min(10rem, 12.8vw);
+          height: 100%;
+          overflow: hidden;
+
+          font-weight: 600;
+          font-size: min(0.9rem, 1.1vw);
+          text-transform: lowercase;
+          text-overflow: ellipsis;
+          line-height: 100%;
+          white-space: nowrap;
+          color: var(--white_EAE);
+        }
+
+        button {
+          margin: 0 auto min(5rem, 6.6vw);
+          border-radius: min(0.2rem, 0.3vw);
+        }
+
         > div {
           &:first-of-type {
             display: flex;
             justify-content: space-between;
-
-            form select,
-            span {
-              display: block;
-              width: min(10rem, 12.8vw);
-              height: 100%;
-              overflow: hidden;
-
-              font-weight: 600;
-              font-size: min(0.9rem, 1.1vw);
-              text-transform: lowercase;
-              text-overflow: ellipsis;
-              line-height: 100%;
-              white-space: nowrap;
-              color: var(--white_EAE);
-            }
 
             > div {
               display: flex;
