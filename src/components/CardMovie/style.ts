@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { backgroundImages, opacify } from 'polished';
 
 export const Container = styled.div`
   display: flex;
@@ -9,9 +10,47 @@ export const Container = styled.div`
 
   > div {
     &:first-of-type {
+      position: relative;
+
       max-width: min(9.875rem, 12.7vw) !important;
       min-width: min(5.5rem, 7.5vw);
       width: 100%;
+
+      cursor: pointer;
+      transition: 0.5s;
+
+      &:after {
+        content: '';
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+
+        background: ${opacify('0.1', 'rgba(254, 49, 137, 0.4)')};
+        ${backgroundImages('url("/assets/play-circle-outline.svg")')}
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: min(4rem, 5.2vw);
+
+        opacity: 0;
+        transition: opacity 0.5s ease-out;
+        -o-transition: opacity 0.5s ease;
+        -ms-transition: opacity 0.5s ease;
+        -moz-transition: opacity 0.5s ease;
+        -webkit-transition: opacity 0.5s ease;
+      }
+
+      &:hover {
+        -webkit-box-shadow: 0px 0px 25px -5px var(--pink_FE3);
+        box-shadow: 0px 0px 25px -5px var(--pink_FE3);
+
+        &:after {
+          opacity: 1;
+        }
+      }
     }
 
     &:last-of-type {
