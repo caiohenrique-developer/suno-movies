@@ -25,9 +25,10 @@ export const FilterButton = ({
   className,
   iconBefore,
   title,
+  onClick,
 }: CTAButtonProps) => {
   return (
-    <Button className={className}>
+    <Button onClick={onClick} className={className}>
       {iconBefore}
       {title}
     </Button>

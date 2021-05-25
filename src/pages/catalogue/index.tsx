@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 
 import { useHomeIndicator } from '@hooks/useHomeIndicator';
@@ -20,7 +20,13 @@ import { Container } from '@styles/pages/Catalogue';
 export default function Catalogue() {
   const { addHomeID, homeID } = useHomeIndicator();
 
+  const [toggleDropDown, setToggleDropDown] = useState(false);
+
   addHomeID('catalogue');
+
+  const handleFilterDropDown = () => {
+    setToggleDropDown(!toggleDropDown);
+  };
 
   return (
     <>
@@ -66,8 +72,9 @@ export default function Catalogue() {
                 </ActiveIndicator>
               </div>
 
-              <div>
+              <div className={`${toggleDropDown}`}>
                 <FilterButton
+                  onClick={handleFilterDropDown}
                   className='btn-black hvr-shrink hvr-icon-hang'
                   title='Em grid'
                   iconBefore={
@@ -77,7 +84,7 @@ export default function Catalogue() {
                   }
                 />
 
-                <div>
+                <div className={'animate__animated animate__fadeInDown'}>
                   <span id='grid-layout'>Em grid</span>
                   <span id='list-layout'>Em lista</span>
                 </div>

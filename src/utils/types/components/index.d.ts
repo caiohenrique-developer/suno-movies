@@ -5,6 +5,7 @@ export interface CTAButtonProps {
   title: string;
   iconBefore?: any;
   iconAfter?: any;
+  onClick(): void;
 }
 
 // CatalogueTitle

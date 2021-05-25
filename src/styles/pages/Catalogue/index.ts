@@ -104,14 +104,26 @@ export const Container = styled.main`
               &:last-of-type {
                 max-width: min(10rem, 12.8vw);
 
+                &.true button i {
+                  transform: translate3d(0, -50%, 0) rotate(180deg);
+                }
+
+                &.false > div {
+                  max-height: 0;
+
+                  &,
+                  span {
+                    padding: 0;
+                    margin: 0;
+
+                    border: 0;
+                    transition: calc(var(--animate-duration) * 0.75)
+                      cubic-bezier(0.15, -0.4, 1, 0.01);
+                  }
+                }
+
                 button {
                   margin: 0;
-
-                  &:hover {
-                    i {
-                      top: -3px;
-                    }
-                  }
 
                   i {
                     position: relative;
@@ -119,19 +131,27 @@ export const Container = styled.main`
 
                     width: min(0.875rem, 1.3vw);
                     margin-right: min(0.75rem, 1.1vw);
+
+                    transform: translate3d(0, -50%, 0) rotate(0deg);
                   }
                 }
 
                 > div {
-                  background-color: var(--black_181);
+                  max-height: 100px;
+
+                  background: var(--black_181);
+
                   padding: min(0.625rem, 1vw);
                   margin-top: 0.313rem;
+
+                  overflow: hidden;
+                  transition: calc(var(--animate-duration) * 0.75);
 
                   span {
                     width: 100%;
                     text-align: center;
                     padding: 5px 0;
-                    background-color: var(--gray_252);
+                    background: var(--gray_252);
                     cursor: pointer;
 
                     & + span {
