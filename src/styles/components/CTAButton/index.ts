@@ -28,9 +28,9 @@ export const BaseBtnStyles = css`
   }
 
   i {
+    display: inline-block;
     width: min(0.6rem, 1vw);
     min-width: 4px;
-    margin-left: min(0.6rem, 1vw);
 
     svg {
       display: block;

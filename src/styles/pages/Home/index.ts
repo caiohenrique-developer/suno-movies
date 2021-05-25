@@ -48,6 +48,10 @@ export const Container = styled.main`
             var(--pink_FE3) 100%
           );
         }
+
+        i {
+          margin-left: min(0.6rem, 1vw);
+        }
       }
     }
   }

@@ -6,6 +6,9 @@ import { useHomeIndicator } from '@hooks/useHomeIndicator';
 import { CatalogueTitle } from '@components/CatalogueTitle';
 import { CarouselContainer } from '@components/Carousel';
 import { CardMovie } from '@components/CardMovie';
+import { FilterButton } from '@components/CTAButton';
+
+import FilterArrow from '@assets/catalogue-arrow-down.svg';
 
 import {
   SelectBtn,
@@ -63,12 +66,22 @@ export default function Catalogue() {
                 </ActiveIndicator>
               </div>
 
-              <form>
-                <SelectBtn className='btn-black'>
-                  <option value='grid-layout'>Em grid</option>
-                  <option value='list-layout'>Em lista</option>
-                </SelectBtn>
-              </form>
+              <div>
+                <FilterButton
+                  className='btn-black hvr-shrink hvr-icon-hang'
+                  title='Em grid'
+                  iconBefore={
+                    <i className='hvr-icon'>
+                      <FilterArrow />
+                    </i>
+                  }
+                />
+
+                <div>
+                  <span id='grid-layout'>Em grid</span>
+                  <span id='list-layout'>Em lista</span>
+                </div>
+              </div>
             </div>
 
             <div>

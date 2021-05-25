@@ -71,7 +71,6 @@ export const Container = styled.main`
           font-size: min(0.9rem, 1.1vw);
           text-transform: lowercase;
           text-overflow: ellipsis;
-          line-height: 100%;
           white-space: nowrap;
           color: var(--white_EAE);
         }
@@ -86,39 +85,59 @@ export const Container = styled.main`
             display: flex;
             justify-content: space-between;
 
+            max-height: min(2.813rem, 3.8vw);
+
             > div {
-              display: flex;
-              margin-right: min(1.563rem, 2vw);
+              &:first-of-type {
+                display: flex;
 
-              form {
-                select {
+                margin-right: min(1.563rem, 2vw);
+
+                span {
+                  cursor: unset;
+                  border-radius: min(0.2rem, 0.3vw);
+                  margin-left: min(1.563rem, 2vw);
+                  line-height: 95%;
                 }
               }
 
-              span {
-                cursor: unset;
-                border-radius: min(0.2rem, 0.3vw);
-                margin-left: min(1.563rem, 2vw);
-              }
-            }
+              &:last-of-type {
+                max-width: min(10rem, 12.8vw);
 
-            form {
-              select {
-                /* For IE10 */
-                &::-ms-expand {
-                  display: none;
+                button {
+                  margin: 0;
+
+                  &:hover {
+                    i {
+                      top: -3px;
+                    }
+                  }
+
+                  i {
+                    position: relative;
+                    top: 0;
+
+                    width: min(0.875rem, 1.3vw);
+                    margin-right: min(0.75rem, 1.1vw);
+                  }
                 }
-                appearance: none;
-                /* for Firefox */
-                -moz-appearance: none;
-                /* for Chrome */
-                -webkit-appearance: none;
 
-                text-align-last: center;
-                border-radius: min(0.25rem, 0.3vw);
+                > div {
+                  background-color: var(--black_181);
+                  padding: min(0.625rem, 1vw);
+                  margin-top: 0.313rem;
 
-                option {
-                  background: var(--black_212);
+                  span {
+                    width: 100%;
+                    text-align: center;
+                    padding: 5px 0;
+                    background-color: var(--gray_252);
+                    cursor: pointer;
+
+                    & + span {
+                      border-top: 1px solid #000;
+                    }
+                  }
                 }
               }
             }
