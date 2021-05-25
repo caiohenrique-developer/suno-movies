@@ -26,6 +26,19 @@ export default function Catalogue() {
 
   const handleFilterDropDown = () => {
     setToggleDropDown(!toggleDropDown);
+
+    const filterLayoutButton = document.querySelector('.filter-layout');
+    const arrowIcon = document.querySelector('.filter-layout i');
+    const optionsList = document.querySelectorAll('.option-item');
+
+    optionsList.forEach((option) => {
+      option.addEventListener('click', () => {
+        filterLayoutButton.innerHTML = option.querySelector('label').innerHTML;
+        filterLayoutButton.prepend(arrowIcon);
+
+        // setToggleDropDown(false);
+      });
+    });
   };
 
   return (
@@ -75,7 +88,7 @@ export default function Catalogue() {
               <div className={`${toggleDropDown}`}>
                 <FilterButton
                   onClick={handleFilterDropDown}
-                  className='btn-black hvr-shrink hvr-icon-hang'
+                  className='btn-black hvr-shrink hvr-icon-hang filter-layout'
                   title='Em grid'
                   iconBefore={
                     <i className='hvr-icon'>
@@ -84,15 +97,32 @@ export default function Catalogue() {
                   }
                 />
 
-                <div className={'animate__animated animate__fadeInDown'}>
-                  <span id='grid-layout'>Em grid</span>
-                  <span id='list-layout'>Em lista</span>
-                </div>
+                <ul className={'animate__animated animate__fadeInDown'}>
+                  <li className='option-item'>
+                    <input
+                      type='radio'
+                      className='radio'
+                      id='grid'
+                      name='category'
+                    />
+                    <label htmlFor='grid'>Em grid</label>
+                  </li>
+
+                  <li className='option-item'>
+                    <input
+                      type='radio'
+                      className='radio'
+                      id='list'
+                      name='category'
+                    />
+                    <label htmlFor='list'>Em lista</label>
+                  </li>
+                </ul>
               </div>
             </div>
 
             <div>
-              <CardMovie />
+              <CardMovie key='8' />
               <CardMovie />
               <CardMovie />
               <CardMovie />

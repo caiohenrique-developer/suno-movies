@@ -61,6 +61,7 @@ export const Container = styled.main`
 
         form select,
         > div:first-of-type span,
+        > div:first-of-type > div:last-of-type ul li,
         button {
           display: block;
           width: min(10rem, 12.8vw);
@@ -108,11 +109,11 @@ export const Container = styled.main`
                   transform: translate3d(0, -50%, 0) rotate(180deg);
                 }
 
-                &.false > div {
+                &.false > ul {
                   max-height: 0;
 
                   &,
-                  span {
+                  li {
                     padding: 0;
                     margin: 0;
 
@@ -136,7 +137,7 @@ export const Container = styled.main`
                   }
                 }
 
-                > div {
+                > ul {
                   max-height: 100px;
 
                   background: var(--black_181);
@@ -147,14 +148,14 @@ export const Container = styled.main`
                   overflow: hidden;
                   transition: calc(var(--animate-duration) * 0.75);
 
-                  span {
+                  li {
                     width: 100%;
                     text-align: center;
                     padding: 5px 0;
                     background: var(--gray_252);
                     cursor: pointer;
 
-                    & + span {
+                    & + li {
                       border-top: 1px solid #000;
                     }
                   }
