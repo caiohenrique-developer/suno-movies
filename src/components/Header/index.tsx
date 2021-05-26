@@ -3,14 +3,14 @@ import Link from 'next/link';
 
 import MediaQuery from 'react-responsive';
 
-import { useHomeIndicator } from '@hooks/useHomeIndicator';
+import { usePageIndicator } from '@hooks/usePageIndicator';
 import { AppLogotipo } from '@components/AppLogotipo';
 import MagnifyingGlass from '@assets/search-outline.svg';
 
 import { Container } from './style';
 
 export const Header = () => {
-  const { homeID } = useHomeIndicator();
+  const { pageID } = usePageIndicator();
 
   const [toggleHeaderSearchBar, setToggleHeaderSearchBar] = useState(false);
   const [toggleMenuMob, setToggleMenuMob] = useState(false);
@@ -42,10 +42,10 @@ export const Header = () => {
   return (
     <Container toggleDropDown={toggleHeaderSearchBar}>
       {/* Header segregation page and breakpoint */}
-      <header id={homeID}>
+      <header id={pageID}>
         <div>
           {/* Tablet and up */}
-          {homeID === 'home' ? (
+          {pageID === 'home' ? (
             <div className='headerContent'>
               <Link href='/'>
                 <a onClick={handleCollapse} className='hvr-shrink'>
@@ -65,7 +65,7 @@ export const Header = () => {
             <div className='headerContent'>
               {/* Mob */}
               <MediaQuery maxDeviceWidth={767}>
-                {homeID === 'home' ? (
+                {pageID === 'home' ? (
                   <>
                     <Link href='/'>
                       <a onClick={handleCollapse} className='hvr-shrink'>
@@ -182,7 +182,7 @@ export const Header = () => {
 
         {/* Mob */}
         <MediaQuery maxDeviceWidth={767}>
-          {homeID !== 'home' && (
+          {pageID !== 'home' && (
             <nav id='navigation'>
               <ul className={`${toggleMenuMob}`}>
                 <li>

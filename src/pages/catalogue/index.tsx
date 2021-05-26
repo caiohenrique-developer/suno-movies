@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 
-import { useHomeIndicator } from '@hooks/useHomeIndicator';
+import { usePageIndicator } from '@hooks/usePageIndicator';
 
 import { CatalogueTitle } from '@components/CatalogueTitle';
 import { CarouselContainer } from '@components/Carousel';
@@ -15,14 +15,14 @@ import { ActiveIndicator, Button } from '@styles/components/ButtonStyles';
 import { Container } from '@styles/pages/Catalogue';
 
 export default function Catalogue() {
-  const { addHomeID, homeID } = useHomeIndicator();
-
   const [toggleLayout, setToggleLayout] = useState(false);
   const [toggleGenre, setToggleGenre] = useState(false);
   const [layoutType, setLayoutType] = useState('grid');
   const [genre, setGenre] = useState('Opções');
 
-  addHomeID('catalogue');
+  const { addPageID, pageID } = usePageIndicator();
+
+  addPageID('catalogue');
 
   const handleFilterLayoutButton = () => {
     setToggleLayout(!toggleLayout);
@@ -72,7 +72,7 @@ export default function Catalogue() {
         <title>Catálogo | Suno Movies</title>
       </Head>
 
-      <Container id={homeID}>
+      <Container id={pageID}>
         <section>
           <div>
             <CatalogueTitle

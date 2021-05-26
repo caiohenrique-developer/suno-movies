@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 
 import MediaQuery from 'react-responsive';
-import { useHomeIndicator } from '@hooks/useHomeIndicator';
+import { usePageIndicator } from '@hooks/usePageIndicator';
 import { CTAButton } from '@components/CTAButton';
 
 import RightArrow from '@assets/chevron-next-outline.svg';
@@ -11,9 +11,9 @@ import RightArrow from '@assets/chevron-next-outline.svg';
 import { Container } from '@styles/pages/Home';
 
 export default function Home() {
-  const { homeID, addHomeID } = useHomeIndicator();
+  const { pageID, addPageID } = usePageIndicator();
 
-  addHomeID('home');
+  addPageID('home');
 
   return (
     <>
@@ -21,7 +21,7 @@ export default function Home() {
         <title>Home | Suno Movies</title>
       </Head>
 
-      <Container id={homeID}>
+      <Container id={pageID}>
         {/* Home background breakpoint */}
         <>
           {/* Mob */}

@@ -3,16 +3,16 @@ import Head from 'next/head';
 import Image from 'next/image';
 
 import { CTAButton } from '@components/CTAButton';
-import { useHomeIndicator } from '@hooks/useHomeIndicator';
+import { usePageIndicator } from '@hooks/usePageIndicator';
 
 import { TiStarFullOutline } from 'react-icons/ti';
 
 import { Container } from '@styles/pages/SelectedMovie';
 
 export default function SelectedMovie() {
-  const { addHomeID, homeID } = useHomeIndicator();
+  const { addPageID, pageID } = usePageIndicator();
 
-  addHomeID('selected-movie');
+  addPageID('selected-movie');
 
   return (
     <>
@@ -20,7 +20,7 @@ export default function SelectedMovie() {
         <title>Assistir ao filme | Suno Movies</title>
       </Head>
 
-      <Container id={homeID}>
+      <Container id={pageID}>
         <section>
           <div>
             <div>
