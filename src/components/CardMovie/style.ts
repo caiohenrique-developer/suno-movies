@@ -12,7 +12,6 @@ export const Container = styled.div`
     &:first-of-type {
       position: relative;
 
-      max-width: min(9.875rem, 12.7vw) !important;
       min-width: min(5.5rem, 7.5vw);
       width: 100%;
 

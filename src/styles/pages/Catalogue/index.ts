@@ -119,9 +119,20 @@ export const Container = styled.main`
               grid-template-columns: repeat(2, 1fr);
               gap: min(2.5rem, 3.3vw) min(1.875rem, 2.5vw);
 
-              > div > div:last-of-type {
-                width: 70%;
+              > div {
+                & + div {
+                  margin-top: 0;
+                }
+
+                > div:last-of-type {
+                  width: 70%;
+                }
               }
+            }
+
+            > div > div:first-of-type {
+              max-width: min(9.875rem, 12.7vw) !important;
+              max-height: min(14.375rem, 18.5vw);
             }
           }
         }
