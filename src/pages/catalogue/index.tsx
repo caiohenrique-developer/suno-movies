@@ -8,7 +8,8 @@ import { CarouselContainer } from '@components/Carousel';
 import { CardMovie } from '@components/CardMovie';
 import { FilterButton } from '@components/CTAButton';
 
-import FilterArrow from '@assets/catalogue-arrow-down.svg';
+import FilterArrowDown from '@assets/catalogue-arrow-down.svg';
+import FilterArrowUp from '@assets/catalogue-arrow-up.svg';
 
 import {
   SelectBtn,
@@ -88,11 +89,11 @@ export default function Catalogue() {
               <div className={`${toggleDropDown}`}>
                 <FilterButton
                   onClick={handleFilterDropDown}
-                  className='btn-black hvr-shrink hvr-icon-hang filter-layout'
+                  className={`btn-black hvr-shrink hvr-icon-hang filter-layout`}
                   title='Em grid'
                   iconBefore={
                     <i className='hvr-icon'>
-                      <FilterArrow />
+                      {toggleDropDown ? <FilterArrowUp /> : <FilterArrowDown />}
                     </i>
                   }
                 />

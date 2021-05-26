@@ -105,10 +105,6 @@ export const Container = styled.main`
               &:last-of-type {
                 max-width: min(10rem, 12.8vw);
 
-                &.true button i {
-                  transform: translate3d(0, -50%, 0) rotate(180deg);
-                }
-
                 &.false > ul {
                   max-height: 0;
 
@@ -126,14 +122,18 @@ export const Container = styled.main`
                 button {
                   margin: 0;
 
+                  &:hover,
+                  &:focus {
+                    i {
+                      top: -4px;
+                    }
+                  }
+
                   i {
                     position: relative;
-                    top: 0;
 
                     width: min(0.875rem, 1.3vw);
                     margin-right: min(0.75rem, 1.1vw);
-
-                    transform: translate3d(0, -50%, 0) rotate(0deg);
                   }
                 }
 
@@ -150,10 +150,20 @@ export const Container = styled.main`
 
                   li {
                     width: 100%;
-                    text-align: center;
-                    padding: 5px 0;
-                    background: var(--gray_252);
-                    cursor: pointer;
+
+                    input {
+                      display: none;
+                    }
+
+                    label {
+                      display: block;
+                      width: 100%;
+
+                      text-align: center;
+                      padding: 5px 0;
+                      cursor: pointer;
+                      background: var(--gray_252);
+                    }
 
                     & + li {
                       border-top: 1px solid #000;
