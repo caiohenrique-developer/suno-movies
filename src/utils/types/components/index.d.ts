@@ -12,3 +12,8 @@ export interface CTAButtonProps {
 export interface CatalogueTitleProps {
   title: (string | any)[];
 }
+
+// CardMovie
+interface CardMovieProps {
+  className: string;
+}

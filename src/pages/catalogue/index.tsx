@@ -125,15 +125,64 @@ export default function Catalogue() {
               </div>
             </div>
 
-            <div className={`${layoutType}`}>
-              <CardMovie key='8' />
-              <CardMovie />
-              <CardMovie />
-              <CardMovie />
-              <CardMovie />
-              <CardMovie />
-              <CardMovie />
-              <CardMovie />
+            <div className={layoutType}>
+              <CardMovie
+                key='8'
+                className={`animate__animated ${
+                  layoutType === 'grid'
+                    ? `animate__backInDown`
+                    : `animate__fadeInDownBig`
+                }`}
+              />
+              <CardMovie
+                className={`animate__animated ${
+                  layoutType === 'grid'
+                    ? `animate__backInDown`
+                    : `animate__fadeInDownBig`
+                }`}
+              />
+              <CardMovie
+                className={`animate__animated ${
+                  layoutType === 'grid'
+                    ? `animate__backInDown`
+                    : `animate__fadeInDownBig`
+                }`}
+              />
+              <CardMovie
+                className={`animate__animated ${
+                  layoutType === 'grid'
+                    ? `animate__backInDown`
+                    : `animate__fadeInDownBig`
+                }`}
+              />
+              <CardMovie
+                className={`animate__animated ${
+                  layoutType === 'grid'
+                    ? `animate__backInDown`
+                    : `animate__fadeInDownBig`
+                }`}
+              />
+              <CardMovie
+                className={`animate__animated ${
+                  layoutType === 'grid'
+                    ? `animate__backInDown`
+                    : `animate__fadeInDownBig`
+                }`}
+              />
+              <CardMovie
+                className={`animate__animated ${
+                  layoutType === 'grid'
+                    ? `animate__backInDown`
+                    : `animate__fadeInDownBig`
+                }`}
+              />
+              <CardMovie
+                className={`animate__animated ${
+                  layoutType === 'grid'
+                    ? `animate__backInDown`
+                    : `animate__fadeInDownBig`
+                }`}
+              />
             </div>
 
             <Button className='btn-pink hvr-shrink'>Carregar mais</Button>

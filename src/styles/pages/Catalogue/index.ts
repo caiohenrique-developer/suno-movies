@@ -83,6 +83,10 @@ export const Container = styled.main`
 
         > div {
           &:first-of-type {
+            position: relative;
+            top: 0;
+            z-index: 1;
+
             display: flex;
             justify-content: space-between;
 
@@ -176,6 +180,8 @@ export const Container = styled.main`
 
           &:last-of-type {
             margin: min(2.8rem, 3.5vw) 0 min(4.4rem, 5.5vw);
+
+            overflow: hidden;
 
             &.grid {
               display: grid;

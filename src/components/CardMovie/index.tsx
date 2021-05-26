@@ -5,9 +5,11 @@ import { TiStarFullOutline } from 'react-icons/ti';
 
 import { Container } from './style';
 
-export const CardMovie = () => {
+import { CardMovieProps } from '@utils/types/components';
+
+export const CardMovie = ({ className }: CardMovieProps) => {
   return (
-    <Container>
+    <Container className={className}>
       <Image
         src='/assets/desk/catalogue/catalogue-movie-thumbnail.png'
         alt='Movie thumbnail'
