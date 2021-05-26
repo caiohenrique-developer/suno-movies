@@ -8,6 +8,14 @@ export interface CTAButtonProps {
   onClick?(): void;
 }
 
+// FilterButton
+export interface FilterButtonProps {
+  className: string;
+  iconBefore?: any;
+  title: string;
+  onClick?(): void;
+}
+
 // CatalogueTitle
 export interface CatalogueTitleProps {
   title: (string | any)[];

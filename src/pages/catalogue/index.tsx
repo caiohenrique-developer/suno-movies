@@ -6,12 +6,12 @@ import { useHomeIndicator } from '@hooks/useHomeIndicator';
 import { CatalogueTitle } from '@components/CatalogueTitle';
 import { CarouselContainer } from '@components/Carousel';
 import { CardMovie } from '@components/CardMovie';
-import { FilterButton } from '@components/CTAButton';
+import { FilterButton } from '@components/FilterButton';
 
 import FilterArrowDown from '@assets/catalogue-arrow-down.svg';
 import FilterArrowUp from '@assets/catalogue-arrow-up.svg';
 
-import { ActiveIndicator, Button } from '@styles/components/CTAButton';
+import { ActiveIndicator, Button } from '@styles/components/ButtonStyles';
 import { Container } from '@styles/pages/Catalogue';
 
 export default function Catalogue() {
