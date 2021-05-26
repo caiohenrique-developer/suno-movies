@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import { Container, Button } from '@styles/components/CTAButton';
+import { Container, Button, OptionsList } from '@styles/components/CTAButton';
 
 import { CTAButtonProps } from '@utils/types/components';
 
@@ -45,7 +45,7 @@ export const FilterButton = ({
         {title}
       </Button>
 
-      <ul className='animate__animated animate__fadeInDown'>
+      <OptionsList className='animate__animated animate__fadeInDown'>
         {className.includes('filter-layout') ? (
           ulLayoutValues.map(({ inputID, labelHtmlFor, labelContent }) => (
             <li key={inputID} className='option-item'>
@@ -73,7 +73,7 @@ export const FilterButton = ({
         ) : (
           <></>
         )}
-      </ul>
+      </OptionsList>
     </>
   );
 };

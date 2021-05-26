@@ -11,11 +11,7 @@ import { FilterButton } from '@components/CTAButton';
 import FilterArrowDown from '@assets/catalogue-arrow-down.svg';
 import FilterArrowUp from '@assets/catalogue-arrow-up.svg';
 
-import {
-  SelectBtn,
-  ActiveIndicator,
-  Button,
-} from '@styles/components/CTAButton';
+import { ActiveIndicator, Button } from '@styles/components/CTAButton';
 import { Container } from '@styles/pages/Catalogue';
 
 export default function Catalogue() {
@@ -72,19 +68,7 @@ export default function Catalogue() {
           <div>
             <div>
               <div>
-                {/* <form>
-                  <SelectBtn className='btn-black'>
-                    <option disabled selected>
-                      opções
-                    </option>
-                    <option value='volvo'>Volvo</option>
-                    <option value='saab'>Saab</option>
-                    <option value='fiat'>Fiat</option>
-                    <option value='audi'>Audi</option>
-                  </SelectBtn>
-                </form> */}
-
-                <div className={`TST ${toggleDropDown}`}>
+                <div className={`${toggleDropDown}`}>
                   <FilterButton
                     onClick={handleFilterDropDown}
                     className='btn-black hvr-shrink hvr-icon-hang filter-genre'

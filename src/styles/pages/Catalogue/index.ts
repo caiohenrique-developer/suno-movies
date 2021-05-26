@@ -59,26 +59,8 @@ export const Container = styled.main`
         margin: auto;
         padding: min(2.5rem, 3.2vw) min(1.25rem, 1.57vw);
 
-        form select,
-        > div:first-of-type span,
-        > div:first-of-type > div:last-of-type ul li,
-        button {
-          display: block;
-          width: min(10rem, 12.8vw);
-          height: 100%;
-          overflow: hidden;
-
-          font-weight: 600;
-          font-size: min(0.9rem, 1.1vw);
-          text-transform: lowercase;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          color: var(--white_EAE);
-        }
-
-        button {
+        > button {
           margin: 0 auto min(5rem, 6.6vw);
-          border-radius: min(0.2rem, 0.3vw);
         }
 
         > div {
@@ -93,7 +75,20 @@ export const Container = styled.main`
             max-height: min(2.813rem, 3.8vw);
 
             > div {
-              background: tomato;
+              &:first-of-type .false > ul,
+              &.false > ul {
+                max-height: 0;
+
+                &,
+                li {
+                  padding: 0;
+                  margin: 0;
+
+                  border: 0;
+                  transition: calc(var(--animate-duration) * 0.75)
+                    cubic-bezier(0.15, -0.4, 1, 0.01);
+                }
+              }
 
               &:first-of-type {
                 display: flex;
@@ -110,80 +105,13 @@ export const Container = styled.main`
 
               &:last-of-type {
                 max-width: min(10rem, 12.8vw);
-
-                &.false > ul {
-                  max-height: 0;
-
-                  &,
-                  li {
-                    padding: 0;
-                    margin: 0;
-
-                    border: 0;
-                    transition: calc(var(--animate-duration) * 0.75)
-                      cubic-bezier(0.15, -0.4, 1, 0.01);
-                  }
-                }
-
-                button {
-                  margin: 0;
-
-                  &:hover,
-                  &:focus {
-                    i {
-                      top: -4px;
-                    }
-                  }
-
-                  i {
-                    position: relative;
-
-                    width: min(0.875rem, 1.3vw);
-                    margin-right: min(0.75rem, 1.1vw);
-                  }
-                }
-
-                > ul {
-                  max-height: 100px;
-
-                  background: var(--black_181);
-
-                  padding: min(0.625rem, 1vw);
-                  margin-top: 0.313rem;
-
-                  overflow: hidden;
-                  transition: calc(var(--animate-duration) * 0.75);
-
-                  li {
-                    width: 100%;
-
-                    input {
-                      display: none;
-                    }
-
-                    label {
-                      display: block;
-                      width: 100%;
-
-                      text-align: center;
-                      padding: 5px 0;
-                      cursor: pointer;
-                      background: var(--gray_252);
-                    }
-
-                    & + li {
-                      border-top: 1px solid #000;
-                    }
-                  }
-                }
               }
             }
           }
 
           &:last-of-type {
-            margin: min(2.8rem, 3.5vw) 0 min(4.4rem, 5.5vw);
-
             overflow: hidden;
+            margin: min(2.8rem, 3.5vw) 0 min(4.4rem, 5.5vw);
 
             &.grid {
               display: grid;
