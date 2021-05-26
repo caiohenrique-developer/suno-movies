@@ -16,7 +16,6 @@ export const FilterButton = ({
   ];
 
   const genreValues = [
-    { inputID: 'tst', labelHtmlFor: 'tst', labelContent: 'Teste' },
     { inputID: 'genre', labelHtmlFor: 'genre', labelContent: 'Gênero' },
     { inputID: 'comedy', labelHtmlFor: 'comedy', labelContent: 'Comédia' },
   ];

@@ -99,6 +99,7 @@ export const Container = styled.main`
                   cursor: unset;
                   border-radius: min(0.2rem, 0.3vw);
                   margin-left: min(1.563rem, 2vw);
+                  text-align: center;
                   line-height: 95%;
                 }
               }
