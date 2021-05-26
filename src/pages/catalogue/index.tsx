@@ -22,6 +22,7 @@ export default function Catalogue() {
   const { addHomeID, homeID } = useHomeIndicator();
 
   const [toggleDropDown, setToggleDropDown] = useState(false);
+  const [layoutType, setLayoutType] = useState('grid');
 
   addHomeID('catalogue');
 
@@ -34,10 +35,12 @@ export default function Catalogue() {
 
     optionsList.forEach((option) => {
       option.addEventListener('click', () => {
-        filterLayoutButton.innerHTML = option.querySelector('label').innerHTML;
+        const layoutType = option.querySelector('label').getAttribute('for');
+
         filterLayoutButton.prepend(arrowIcon);
 
-        // setToggleDropDown(false);
+        setLayoutType(layoutType);
+        setToggleDropDown(false);
       });
     });
   };
@@ -90,7 +93,7 @@ export default function Catalogue() {
                 <FilterButton
                   onClick={handleFilterDropDown}
                   className={`btn-black hvr-shrink hvr-icon-hang filter-layout`}
-                  title='Em grid'
+                  title={`Em ${layoutType}`}
                   iconBefore={
                     <i className='hvr-icon'>
                       {toggleDropDown ? <FilterArrowUp /> : <FilterArrowDown />}
@@ -116,13 +119,13 @@ export default function Catalogue() {
                       id='list'
                       name='category'
                     />
-                    <label htmlFor='list'>Em lista</label>
+                    <label htmlFor='lista'>Em lista</label>
                   </li>
                 </ul>
               </div>
             </div>
 
-            <div>
+            <div className={`${layoutType}`}>
               <CardMovie key='8' />
               <CardMovie />
               <CardMovie />

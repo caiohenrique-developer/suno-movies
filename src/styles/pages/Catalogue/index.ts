@@ -176,6 +176,16 @@ export const Container = styled.main`
 
           &:last-of-type {
             margin: min(2.8rem, 3.5vw) 0 min(4.4rem, 5.5vw);
+
+            &.grid {
+              display: grid;
+              grid-template-columns: repeat(2, 1fr);
+              gap: min(2.5rem, 3.3vw) min(1.875rem, 2.5vw);
+
+              > div > div:last-of-type {
+                width: 70%;
+              }
+            }
           }
         }
       }
