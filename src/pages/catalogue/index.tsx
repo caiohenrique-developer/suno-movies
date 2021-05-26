@@ -72,7 +72,7 @@ export default function Catalogue() {
           <div>
             <div>
               <div>
-                <form>
+                {/* <form>
                   <SelectBtn className='btn-black'>
                     <option disabled selected>
                       opções
@@ -82,7 +82,24 @@ export default function Catalogue() {
                     <option value='fiat'>Fiat</option>
                     <option value='audi'>Audi</option>
                   </SelectBtn>
-                </form>
+                </form> */}
+
+                <div className={`TST ${toggleDropDown}`}>
+                  <FilterButton
+                    onClick={handleFilterDropDown}
+                    className='btn-black hvr-shrink hvr-icon-hang filter-genre'
+                    title='Opções'
+                    iconBefore={
+                      <i className='hvr-icon'>
+                        {toggleDropDown ? (
+                          <FilterArrowUp />
+                        ) : (
+                          <FilterArrowDown />
+                        )}
+                      </i>
+                    }
+                  />
+                </div>
 
                 <ActiveIndicator className='btn-pink'>
                   Mais populares
@@ -92,7 +109,7 @@ export default function Catalogue() {
               <div className={`${toggleDropDown}`}>
                 <FilterButton
                   onClick={handleFilterDropDown}
-                  className={`btn-black hvr-shrink hvr-icon-hang filter-layout`}
+                  className='btn-black hvr-shrink hvr-icon-hang filter-layout'
                   title={`Em ${layoutType}`}
                   iconBefore={
                     <i className='hvr-icon'>
@@ -100,28 +117,6 @@ export default function Catalogue() {
                     </i>
                   }
                 />
-
-                <ul className={'animate__animated animate__fadeInDown'}>
-                  <li className='option-item'>
-                    <input
-                      type='radio'
-                      className='radio'
-                      id='grid'
-                      name='category'
-                    />
-                    <label htmlFor='grid'>Em grid</label>
-                  </li>
-
-                  <li className='option-item'>
-                    <input
-                      type='radio'
-                      className='radio'
-                      id='list'
-                      name='category'
-                    />
-                    <label htmlFor='lista'>Em lista</label>
-                  </li>
-                </ul>
               </div>
             </div>
 

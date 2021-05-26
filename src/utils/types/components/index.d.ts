@@ -14,6 +14,6 @@ export interface CatalogueTitleProps {
 }
 
 // CardMovie
-interface CardMovieProps {
+export interface CardMovieProps {
   className: string;
 }

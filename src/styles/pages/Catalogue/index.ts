@@ -93,6 +93,8 @@ export const Container = styled.main`
             max-height: min(2.813rem, 3.8vw);
 
             > div {
+              background: tomato;
+
               &:first-of-type {
                 display: flex;
 
