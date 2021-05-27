@@ -39,7 +39,10 @@ export const CardMovie = ({ className }: CardMovieProps) => {
             of using Lorem Ipsum is that it has a more-or-less normal
             distribution of letters, as opposed to using 'Content here, content
             here', making it look like readable English.It is a long established
-            fact that a reader
+            fact that a reader... Lorem ipsum dolor sit amet consectetur,
+            adipisicing elit. Eligendi, molestias velit neque similique cumque,
+            aut expedita impedit aspernatur doloribus soluta sint magnam
+            perspiciatis iste nihil nobis a, totam autem voluptates!
           </p>
         </div>
       </MediaQuery>

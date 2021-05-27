@@ -212,8 +212,9 @@ $hamburger-layer-height: 2px !default;
               > div {
                 padding: min(1.875rem, 5vw) max(1.25rem, 1.57vw);
 
-                button,
-                span {
+                > div:first-of-type > div > div button,
+                > div:first-of-type > div span,
+                > button {
                   width: 7.75rem;
                   font-size: min(0.75rem, 4vw);
                   padding: 0.625rem min(1.25rem, 2vw);
@@ -229,6 +230,8 @@ $hamburger-layer-height: 2px !default;
                       width: 100%;
                       max-width: 100%;
                       height: min(2.125rem, 10vw);
+
+                      margin-right: 0;
 
                       > div {
                         margin-right: max(1.25rem, 1.57vw);
@@ -269,6 +272,10 @@ $hamburger-layer-height: 2px !default;
                   &:last-of-type {
                     grid-template-columns: 1fr;
                     margin: min(2.25rem, 10.8vw) 0 min(5rem, 22.9vw);
+
+                    > div + div {
+                      margin-top: min(2.5rem, 12vw);
+                    }
                   }
                 }
               }

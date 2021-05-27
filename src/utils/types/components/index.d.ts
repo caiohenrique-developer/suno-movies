@@ -3,7 +3,6 @@ export interface CTAButtonProps {
   pageUrl?: string;
   className: string;
   title: string;
-  iconBefore?: any;
   iconAfter?: any;
   onClick?(): void;
 }
