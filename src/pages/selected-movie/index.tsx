@@ -17,7 +17,7 @@ export default function SelectedMovie() {
   return (
     <>
       <Head>
-        <title>Assistir ao filme | Suno Movies</title>
+        <title>Assistir ao vídeo | Suno Movies</title>
       </Head>
 
       <Container id={pageID}>
@@ -65,7 +65,7 @@ export default function SelectedMovie() {
             <iframe
               width='100%'
               height='580'
-              src='https://www.youtube.com/embed/2-OWmDS88so'
+              src='https://www.youtube.com/embed/fJ9rUzIMcZQ'
               title='YouTube video player'
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
             ></iframe>

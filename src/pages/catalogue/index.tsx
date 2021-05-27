@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
+import MediaQuery from 'react-responsive';
 
 import { usePageIndicator } from '@hooks/usePageIndicator';
 
@@ -109,18 +110,21 @@ export default function Catalogue() {
                 <ActiveIndicator className='btn-pink'>{genre}</ActiveIndicator>
               </div>
 
-              <div className={`${toggleLayout}`}>
-                <FilterButton
-                  onClick={handleFilterLayoutButton}
-                  className='btn-black hvr-shrink hvr-icon-hang filter-layout'
-                  title={`Em ${layoutType}`}
-                  iconBefore={
-                    <i className='hvr-icon'>
-                      {toggleLayout ? <FilterArrowUp /> : <FilterArrowDown />}
-                    </i>
-                  }
-                />
-              </div>
+              {/* Tablet and up */}
+              <MediaQuery minDeviceWidth={768}>
+                <div className={`${toggleLayout}`}>
+                  <FilterButton
+                    onClick={handleFilterLayoutButton}
+                    className='btn-black hvr-shrink hvr-icon-hang filter-layout'
+                    title={`Em ${layoutType}`}
+                    iconBefore={
+                      <i className='hvr-icon'>
+                        {toggleLayout ? <FilterArrowUp /> : <FilterArrowDown />}
+                      </i>
+                    }
+                  />
+                </div>
+              </MediaQuery>
             </div>
 
             <div className={layoutType}>
