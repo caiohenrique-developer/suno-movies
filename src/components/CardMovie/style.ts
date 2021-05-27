@@ -55,6 +55,43 @@ export const Container = styled.div`
     &:last-of-type {
       margin-left: min(1.75rem, 2.8vw);
 
+      background: tomato;
+
+      &#mob {
+        width: 100%;
+        max-width: 100% !important;
+        max-height: 100%;
+        margin-top: 80px;
+
+        > div {
+          display: flex;
+
+          > div {
+            &:first-of-type {
+              max-width: 130px !important;
+              max-height: 184px;
+            }
+
+            &:last-of-type {
+              margin-left: 10px;
+
+              h4 {
+              }
+
+              h3 {
+              }
+
+              span {
+              }
+            }
+          }
+        }
+
+        p {
+          margin-top: 20px;
+        }
+      }
+
       h4 {
         font-size: min(1.4rem, 1.8vw);
         color: var(--white_EAE);
