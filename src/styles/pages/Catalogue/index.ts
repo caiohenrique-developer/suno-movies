@@ -11,9 +11,6 @@ export const Container = styled.main`
       position: relative;
       z-index: 1;
 
-      display: none;
-      /* remove displey none */
-
       border-bottom: 2px solid var(--black_000);
       -webkit-box-shadow: 0px 20px 20px 0px rgb(0 0 0 / 40%);
       box-shadow: 0px 20px 20px 0px rgb(0 0 0 / 40%);
