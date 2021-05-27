@@ -212,56 +212,62 @@ $hamburger-layer-height: 2px !default;
               > div {
                 padding: min(1.875rem, 5vw) max(1.25rem, 1.57vw);
 
-                > div:first-of-type {
-                  max-height: 100%;
+                button,
+                span {
+                  width: 7.75rem;
+                  font-size: min(0.75rem, 4vw);
+                  padding: 0.625rem min(1.25rem, 2vw);
+                }
 
-                  > div {
-                    justify-content: center;
-
-                    width: 100%;
-                    max-width: 100%;
-                    height: min(2.125rem, 10vw);
+                > div {
+                  &:first-of-type {
+                    max-height: 100%;
 
                     > div {
-                      margin-right: max(1.25rem, 1.57vw);
+                      justify-content: center;
 
-                      &.false {
+                      width: 100%;
+                      max-width: 100%;
+                      height: min(2.125rem, 10vw);
+
+                      > div {
+                        margin-right: max(1.25rem, 1.57vw);
+
+                        &.false {
+                          ul {
+                            padding: 0;
+                            margin: 0;
+                          }
+                        }
+
+                        button {
+                          &:hover i,
+                          &:focus i {
+                            top: -2px;
+                          }
+
+                          i {
+                            top: 2px;
+                            padding: 2px;
+                            width: min(1rem, 4.5vw);
+                          }
+                        }
+
                         ul {
-                          padding: 0;
-                          margin: 0;
-                        }
-                      }
+                          margin-top: 2px;
+                          padding: min(0.625rem, 2vw);
+                          padding-right: min(0.375rem, 0.8vw);
 
-                      button {
-                        &:hover i,
-                        &:focus i {
-                          top: -2px;
-                        }
-
-                        i {
-                          top: 2px;
-                          padding: 2px;
-                          width: min(1rem, 4.5vw);
-                        }
-                      }
-
-                      ul {
-                        margin-top: 2px;
-                        padding: min(0.625rem, 2vw);
-                        padding-right: min(0.375rem, 0.8vw);
-
-                        label {
-                          font-size: min(0.625rem, 3vw);
+                          label {
+                            font-size: min(0.625rem, 3vw);
+                          }
                         }
                       }
                     }
+                  }
 
-                    button,
-                    span {
-                      width: 7.75rem;
-                      font-size: min(0.75rem, 4vw);
-                      padding: 0.625rem min(1.25rem, 2vw);
-                    }
+                  &:last-of-type {
+                    margin: min(2.25rem, 10.8vw) 0 min(5rem, 22.9vw);
                   }
                 }
               }
