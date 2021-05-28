@@ -19,7 +19,7 @@ export const Container = styled.main`
         padding-top: min(6.3vw, 5rem);
 
         > div {
-          max-width: 1280px;
+          max-width: 1333px;
         }
 
         p {

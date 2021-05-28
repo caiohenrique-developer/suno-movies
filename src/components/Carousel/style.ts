@@ -5,43 +5,25 @@ export const Container = styled.div`
 
   margin: min(3vw, 2.375rem) 0 min(10.3vw, 8.25rem);
 
-  /* .carousel-button-group { */
-
   .carousel-arrow {
-    /* position: relative; */
-
     position: absolute;
     top: 40%;
     transform: translateY(-60%);
 
-    /* display: flex;
-    justify-content: space-between; */
-
-    /* width: 100%; */
-
-    /* display: block; */
     width: min(1.563rem, 2vw);
     cursor: pointer;
 
     &.carousel-arrow-left {
       left: -10px;
-      /* left: -0px; */
     }
     &.carousel-arrow-right {
-      /* right: -40px; */
       right: -10px;
     }
   }
-  /* } */
 
   .react-multi-carousel-container {
-    /* z-index: 1; */
     max-width: 1210px;
     margin: auto;
-  }
-
-  .react-multi-carousel-slider {
-    /* padding-left: 100px; */
   }
 
   .react-multi-carousel-list {
@@ -53,6 +35,9 @@ export const Container = styled.div`
 
         > div {
           &:first-of-type {
+            &:after {
+              background-size: 5rem;
+            }
           }
 
           &:last-of-type {

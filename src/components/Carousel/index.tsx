@@ -34,7 +34,6 @@ export const CarouselContainer = () => {
   return (
     <Container>
       <Carousel
-        showDots
         infinite
         // autoPlay
         arrows={false}
