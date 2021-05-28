@@ -195,6 +195,63 @@ $hamburger-layer-height: 2px !default;
             // first section
             &:first-of-type {
               > div {
+                &:first-of-type {
+                  > div > div {
+                    max-width: 220px;
+                    margin: min(3vw, 2.375rem) auto min(10.3vw, 8.25rem);
+
+                    .carousel-arrow {
+                      width: 0.938rem;
+
+                      &.carousel-arrow-left {
+                        left: -40px;
+                      }
+
+                      &.carousel-arrow-right {
+                        right: -40px;
+                      }
+                    }
+
+                    #mob > div {
+                      display: block;
+
+                      > div {
+                        &:first-of-type {
+                          width: 100%;
+                          max-width: 100% !important;
+                          max-height: 100%;
+
+                          &:after {
+                            background-size: 5.5rem;
+                          }
+                        }
+
+                        &:last-of-type {
+                          max-width: 100%;
+                          margin-left: 0;
+
+                          h4 {
+                            font-size: 1.25rem;
+                          }
+
+                          h3 {
+                            font-size: 0.875rem;
+                            margin: 0;
+                          }
+
+                          span {
+                            font-size: 0.875rem;
+
+                            svg {
+                              font-size: 1rem;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+
                 p {
                   font-size: min(1rem, 4.5vw);
                   text-align: center;
