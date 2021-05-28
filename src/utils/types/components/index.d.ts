@@ -22,5 +22,5 @@ export interface CatalogueTitleProps {
 
 // CardMovie
 export interface CardMovieProps {
-  className: string;
+  className?: string;
 }

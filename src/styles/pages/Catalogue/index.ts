@@ -18,9 +18,16 @@ export const Container = styled.main`
       > div {
         padding-top: min(6.3vw, 5rem);
 
-        > div,
+        > div {
+          max-width: 1280px;
+        }
+
         p {
           max-width: 1200px;
+        }
+
+        > div,
+        p {
           margin: auto;
           padding: 0 min(1.25rem, 1.57vw);
         }
