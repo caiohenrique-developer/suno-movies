@@ -43,6 +43,8 @@ export default createGlobalStyle`
 
     body, input, textarea, select, button { font-weight: 400; }
 
+    scroll-behavior: smooth;
+
     body {
       font-family: 'Poppins', sans-serif;
       background: var(--background);

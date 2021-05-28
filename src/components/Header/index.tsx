@@ -39,6 +39,20 @@ export const Header = () => {
     setToggleMenuMob(false);
   };
 
+  const handleScrollDownAnchor = () => {
+    const catalogueListAnchor = document.getElementById('catalogue-list');
+
+    catalogueListAnchor.addEventListener('click', () => {
+      catalogueListAnchor.scrollIntoView({
+        behavior: 'smooth', // Defines the transition animation. default: auto
+        block: 'start', // Defines vertical alignment. default: start
+        inline: 'center', // Defines horizontal alignment. default: nearest
+      });
+    });
+
+    handleCollapse();
+  };
+
   return (
     <Container toggleDropDown={toggleHeaderSearchBar}>
       {/* Header segregation page and breakpoint */}
@@ -139,10 +153,9 @@ export const Header = () => {
                           Início
                         </a>
                       </Link>
-                      <Link href='/selected-movie'>
-                        {/* remove selected-movie and set the correct link */}
+                      <Link href='#catalogue-list'>
                         <a
-                          onClick={handleCollapse}
+                          onClick={handleScrollDownAnchor}
                           className='hvr-underline-from-center'
                         >
                           Catálogo
