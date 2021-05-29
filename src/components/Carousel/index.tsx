@@ -29,7 +29,7 @@ export const CarouselContainer = () => {
     <Container>
       <Carousel
         infinite
-        autoPlay
+        // autoPlay
         arrows={false}
         renderButtonGroupOutside
         customButtonGroup={<ButtonGroup />}

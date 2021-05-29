@@ -1,4 +1,6 @@
-import React from 'react';
+import { fetchMovies } from 'services/api';
+
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 
 import MediaQuery from 'react-responsive';
@@ -10,6 +12,14 @@ import { Container } from './style';
 import { CardMovieProps } from '@utils/types/components';
 
 export const CardMovie = ({ className }: CardMovieProps) => {
+  useEffect(() => {
+    const tst = async () => {
+      console.log(await fetchMovies());
+    };
+
+    tst();
+  }, []);
+
   return (
     <Container className={className}>
       {/* Mob */}

@@ -10,4 +10,8 @@ module.exports = {
 
     return config;
   },
+  env: {
+    // # TMDB api key | https://www.themoviedb.org/
+    API_KEY: process.env.API_KEY
+  },
 };
