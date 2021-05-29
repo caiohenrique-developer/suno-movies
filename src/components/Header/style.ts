@@ -169,11 +169,25 @@ export const Container = styled.div<HeaderProps>`
 
           span {
             display: block;
-            display: none;
-
-            margin-top: 30px;
+            max-height: 60vh;
             font-size: 2rem;
             color: var(--white_EAE);
+            margin-top: 1.875rem;
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+              width: 6px;
+              height: 0;
+            }
+
+            &::-webkit-scrollbar-track {
+              box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            }
+
+            &::-webkit-scrollbar-thumb {
+              background: var(--gray_9F9);
+              border-radius: 5px;
+            }
           }
         }
       }

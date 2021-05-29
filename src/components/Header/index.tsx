@@ -4,7 +4,10 @@ import Link from 'next/link';
 import MediaQuery from 'react-responsive';
 
 import { usePageIndicator } from '@hooks/usePageIndicator';
+
 import { AppLogotipo } from '@components/AppLogotipo';
+import { CardMovie } from '@components/CardMovie';
+
 import MagnifyingGlass from '@assets/search-outline.svg';
 
 import { Container } from './style';
@@ -189,7 +192,11 @@ export const Header = () => {
           <form>
             <input type='text' placeholder='O que deseja assistir agora?' />
 
-            <span>Resultado_da_pesquisa</span>
+            <span>
+              <CardMovie />
+              <CardMovie />
+              <CardMovie />
+            </span>
           </form>
         </div>
 
@@ -209,7 +216,7 @@ export const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href='/catalogue'>
+                  <Link href='#catalogue-list'>
                     <a
                       onClick={handleCollapse}
                       className='hvr-underline-from-left'
