@@ -128,7 +128,7 @@ export default function Catalogue() {
             </div>
 
             <div className={layoutType}>
-              <CardMovie
+              {/* <CardMovie
                 key='8'
                 className={`animate__animated ${
                   layoutType === 'grid'
@@ -184,7 +184,7 @@ export default function Catalogue() {
                     ? `animate__backInDown`
                     : `animate__fadeInDownBig`
                 }`}
-              />
+              /> */}
             </div>
 
             <Button className='btn-pink hvr-shrink'>Carregar mais</Button>
