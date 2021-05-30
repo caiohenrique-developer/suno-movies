@@ -1,6 +1,6 @@
-import { fetchMovies } from 'services/api';
+import { fetchMovieDiscover } from 'services/api';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 import MediaQuery from 'react-responsive';
@@ -10,14 +10,19 @@ import { TiStarFullOutline } from 'react-icons/ti';
 import { Container } from './style';
 
 import { CardMovieProps } from '@utils/types/components';
+import { fetchMovieDiscoverProps } from '@utils/types/services';
 
 export const CardMovie = ({ className }: CardMovieProps) => {
+  const [movieDiscover, setMovieDiscover] = useState<fetchMovieDiscoverProps[]>(
+    [],
+  );
+
   useEffect(() => {
-    const tst = async () => {
-      console.log(await fetchMovies());
+    const Movies = async () => {
+      setMovieDiscover(await fetchMovieDiscover());
     };
 
-    tst();
+    Movies();
   }, []);
 
   return (

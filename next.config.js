@@ -10,6 +10,9 @@ module.exports = {
 
     return config;
   },
+  images: {
+    domains: ['image.tmdb.org'],
+  },
   env: {
     // # TMDB api key | https://www.themoviedb.org/
     API_KEY: process.env.API_KEY
