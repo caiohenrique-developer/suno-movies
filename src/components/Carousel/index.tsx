@@ -1,4 +1,4 @@
-import { fetchMovieDiscover } from 'services/api';
+import { fetchMovieDiscover } from '@services/api';
 
 import React, { useEffect, useState } from 'react';
 
@@ -44,7 +44,7 @@ export const CarouselContainer = () => {
     <Container>
       <Carousel
         infinite
-        // autoPlay
+        autoPlay
         arrows={false}
         renderButtonGroupOutside
         customButtonGroup={<ButtonGroup />}
@@ -55,7 +55,13 @@ export const CarouselContainer = () => {
         itemClass='react-multi-carousel-item-card'
       >
         {movieDiscover.map(({ id, title, poster, description, average }) => (
-          <CardMovie key={id} poster={poster} />
+          <CardMovie
+            key={id}
+            poster={poster}
+            title={title}
+            description={description}
+            average={average}
+          />
         ))}
       </Carousel>
     </Container>

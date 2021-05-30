@@ -23,7 +23,8 @@ export interface CatalogueTitleProps {
 }
 
 // CardMovie
-export interface CardMovieProps {
+type MovieDiscoverExtends = Omit<FetchMovieDiscoverProps, 'id' | 'genreIDs'>;
+
+export interface CardMovieProps extends MovieDiscoverExtends {
   className?: string;
-  poster: string;
 }

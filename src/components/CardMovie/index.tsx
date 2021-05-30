@@ -9,7 +9,13 @@ import { Container } from './style';
 
 import { CardMovieProps } from '@utils/types/components';
 
-export const CardMovie = ({ className, poster }: CardMovieProps) => {
+export const CardMovie = ({
+  className,
+  poster,
+  title,
+  description,
+  average,
+}: CardMovieProps) => {
   return (
     <Container className={className}>
       {/* Mob */}
@@ -17,7 +23,7 @@ export const CardMovie = ({ className, poster }: CardMovieProps) => {
         <section id='mob'>
           <div>
             <Image
-              src='/assets/desk/catalogue/catalogue-movie-thumbnail.png'
+              src='/assets/poster-placeholder.png'
               alt='Movie thumbnail'
               width={218}
               height={422}
@@ -50,44 +56,24 @@ export const CardMovie = ({ className, poster }: CardMovieProps) => {
       {/* Tablet and up */}
       <MediaQuery minDeviceWidth={768}>
         <section>
-          {poster !== '' ? (
+          {poster !== '' && (
             <Image
-              src='/assets/desk/catalogue/catalogue-movie-thumbnail.png'
-              // src={poster}
-              alt='Movie thumbnail'
-              width={218}
-              height={422}
-              objectFit='cover'
-            />
-          ) : (
-            <Image
-              src='/assets/desk/catalogue/catalogue-movie-thumbnail.png'
-              alt='Movie thumbnail'
+              src={poster || '/assets/poster-placeholder.png'}
+              alt={title}
               width={218}
               height={422}
               objectFit='cover'
             />
           )}
           <div>
-            <h4>Goosebumps 2</h4>
+            <h4>{title}</h4>
             <h3>Comédia</h3>
             <span>
               <TiStarFullOutline />
-              8.4
+              {average}
             </span>
 
-            <p>
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout. The
-              point of using Lorem Ipsum is that it has a more-or-less normal
-              distribution of letters, as opposed to using 'Content here,
-              content here', making it look like readable English.It is a long
-              established fact that a reader... Lorem ipsum dolor sit amet
-              consectetur, adipisicing elit. Eligendi, molestias velit neque
-              similique cumque, aut expedita impedit aspernatur doloribus soluta
-              sint magnam perspiciatis iste nihil nobis a, totam autem
-              voluptates!
-            </p>
+            <p>{description}</p>
           </div>
         </section>
       </MediaQuery>
