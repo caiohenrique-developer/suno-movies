@@ -192,7 +192,7 @@ $hamburger-layer-height: 2px !default;
         }
 
         &#catalogue {
-          section {
+          > section {
             // first section
             &:first-of-type {
               > div {
@@ -330,8 +330,6 @@ $hamburger-layer-height: 2px !default;
                   &:last-of-type {
                     grid-template-columns: 1fr;
                     margin: min(2.25rem, 10.8vw) 0 min(5rem, 22.9vw);
-
-                    background: green;
 
                     > div + div {
                       margin-top: min(2.5rem, 12vw);

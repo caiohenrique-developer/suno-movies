@@ -30,7 +30,7 @@ export const Container = styled.div`
     .react-multi-carousel-item-card {
       padding: 0 min(1.563rem, 2.5vw);
 
-      > div section {
+      > div > section {
         display: block;
 
         > div {
