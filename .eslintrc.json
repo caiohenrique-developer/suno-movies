@@ -53,6 +53,7 @@
       {
         "newlinesBetween": "always",
         "groups": [
+          "/^@services/",
           "/^react/",
           "module",
           "/^@assets/",
