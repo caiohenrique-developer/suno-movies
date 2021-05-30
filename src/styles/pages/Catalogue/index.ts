@@ -128,13 +128,13 @@ export const Container = styled.main`
                   margin-top: 0;
                 }
 
-                > div:last-of-type {
+                section > div:last-of-type {
                   width: 70%;
                 }
               }
             }
 
-            > div > div:first-of-type {
+            > div section > div:first-of-type {
               max-width: min(9.875rem, 12.7vw) !important;
               max-height: min(14.375rem, 18.5vw);
             }
