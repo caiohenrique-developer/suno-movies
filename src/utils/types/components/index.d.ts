@@ -1,3 +1,5 @@
+import { FetchMovieDiscoverProps } from '@utils/types/services';
+
 // CTAButton
 export interface CTAButtonProps {
   pageUrl?: string;
@@ -23,4 +25,5 @@ export interface CatalogueTitleProps {
 // CardMovie
 export interface CardMovieProps {
   className?: string;
+  poster: string;
 }

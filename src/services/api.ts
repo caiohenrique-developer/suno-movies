@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { fetchMovieDiscoverProps } from '@utils/types/services';
+import { FetchMovieDiscoverProps } from '@utils/types/services';
 
 const api = axios.create({
   baseURL: 'https://api.themoviedb.org/3',
@@ -18,14 +18,14 @@ const voteAverage = 'vote_average.desc';
 const apiKey = process.env.API_KEY;
 
 export const fetchMovieDiscover = async (): Promise<
-  fetchMovieDiscoverProps[]
+  FetchMovieDiscoverProps[]
 > => {
   try {
     const { data: result } = await api.get(movieDiscover, {
       params: {
         api_key: apiKey,
         language: ptBR,
-        page: 1,
+        page: 8,
       },
     });
 

@@ -1,9 +1,9 @@
 // fetchMovieDiscover
-export interface fetchMovieDiscoverProps {
-  id: number;
+export interface FetchMovieDiscoverProps {
+  id?: number;
   title: string;
   poster: string;
   description: string;
-  genreIDs: [key: number];
+  genreIDs?: [key: number];
   average: number;
 }

@@ -127,8 +127,8 @@ export default function Catalogue() {
               </MediaQuery>
             </div>
 
-            <div className={layoutType}>
-              <CardMovie
+            {/* <div className={layoutType}> */}
+            {/* <CardMovie
                 key='8'
                 className={`animate__animated ${
                   layoutType === 'grid'
@@ -183,9 +183,9 @@ export default function Catalogue() {
                   layoutType === 'grid'
                     ? `animate__backInDown`
                     : `animate__fadeInDownBig`
-                }`}
-              />
-            </div>
+                }`} */}
+            {/* /> */}
+            {/* </div> */}
 
             <Button className='btn-pink hvr-shrink'>Carregar mais</Button>
           </div>
