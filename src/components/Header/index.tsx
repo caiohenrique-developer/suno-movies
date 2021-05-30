@@ -193,9 +193,9 @@ export const Header = () => {
             <input type='text' placeholder='O que deseja assistir agora?' />
 
             <span>
+              {/* <CardMovie />
               <CardMovie />
-              <CardMovie />
-              <CardMovie />
+              <CardMovie /> */}
             </span>
           </form>
         </div>
