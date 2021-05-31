@@ -1,6 +1,9 @@
 import axios from 'axios';
 
-import { FetchMovieDiscoverProps } from '@utils/types/services';
+import {
+  FetchGenreProps,
+  FetchMovieDiscoverProps,
+} from '@utils/types/services';
 
 const api = axios.create({
   baseURL: 'https://api.themoviedb.org/3',
@@ -42,7 +45,25 @@ export const fetchMovieDiscover = async (): Promise<
   }
 };
 
-export const fetchName = async () => {
+export const fetchGenres = async (): Promise<FetchGenreProps[]> => {
+  try {
+    const { data: result } = await api.get(genres, {
+      params: {
+        api_key: apiKey,
+        language: ptBR,
+      },
+    });
+
+    return result['genres'].map((genre) => ({
+      id: genre['id'],
+      genreName: genre['name'],
+    }));
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export const fetchName = async (): Promise<void> => {
   try {
   } catch (err) {
     console.error(err);

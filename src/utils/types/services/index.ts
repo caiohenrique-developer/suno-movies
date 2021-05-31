@@ -7,3 +7,9 @@ export interface FetchMovieDiscoverProps {
   genreIDs: [key: number];
   average: number;
 }
+
+// fetchGenres
+export interface FetchGenreProps {
+  id: number;
+  genreName: string;
+}

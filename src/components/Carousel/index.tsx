@@ -1,4 +1,4 @@
-import { fetchMovieDiscover } from '@services/api';
+import { fetchGenres, fetchMovieDiscover } from '@services/api';
 
 import React, { useEffect, useState } from 'react';
 
@@ -7,7 +7,10 @@ import Carousel from 'react-multi-carousel';
 import { CardMovie } from '@components/CardMovie';
 
 import { breakpointCfg } from '@utils/general/carouselBreakpoint';
-import { FetchMovieDiscoverProps } from '@utils/types/services';
+import {
+  FetchMovieDiscoverProps,
+  FetchGenreProps,
+} from '@utils/types/services';
 
 import ArrowRight from '@assets/carousel-arrow-right.svg';
 import ArrowLeft from '@assets/carousel-arrow-left.svg';
@@ -31,20 +34,25 @@ export const CarouselContainer = () => {
   const [movieDiscover, setMovieDiscover] = useState<FetchMovieDiscoverProps[]>(
     [],
   );
+  const [genre, setGenre] = useState<FetchGenreProps[]>([]);
+
+  console.log('Aqui tem os gêneros');
+  console.log(genre);
 
   useEffect(() => {
-    const Movies = async () => {
+    const apiRequests = async () => {
       setMovieDiscover(await fetchMovieDiscover());
+      setGenre(await fetchGenres());
     };
 
-    Movies();
+    apiRequests();
   }, []);
 
   return (
     <Container>
       <Carousel
         infinite
-        autoPlay
+        // autoPlay
         arrows={false}
         renderButtonGroupOutside
         customButtonGroup={<ButtonGroup />}
@@ -54,15 +62,19 @@ export const CarouselContainer = () => {
         dotListClass='react-multi-carousel-dot-list'
         itemClass='react-multi-carousel-item-card'
       >
-        {movieDiscover.map(({ id, title, poster, description, average }) => (
-          <CardMovie
-            key={id}
-            poster={poster}
-            title={title}
-            description={description}
-            average={average}
-          />
-        ))}
+        {movieDiscover.map(
+          ({ id, genreIDs, title, poster, description, average }) => {
+            return (
+              <CardMovie
+                key={id}
+                poster={poster}
+                title={title}
+                description={description}
+                average={average}
+              />
+            );
+          },
+        )}
       </Carousel>
     </Container>
   );
