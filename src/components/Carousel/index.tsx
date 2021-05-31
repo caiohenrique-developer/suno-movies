@@ -31,21 +31,19 @@ const ButtonGroup = (props) => (
 );
 
 export const CarouselContainer = () => {
-  const [movieDiscover, setMovieDiscover] = useState<FetchMovieDiscoverProps[]>(
-    [],
-  );
-  const [genre, setGenre] = useState<FetchGenreProps[]>([]);
-
-  console.log('Aqui tem os gêneros');
-  console.log(genre);
+  const [movieDiscoverApi, setMovieDiscoverApi] = useState<
+    FetchMovieDiscoverProps[]
+  >([]);
+  const [genreApi, setGenreApi] = useState<FetchGenreProps[]>([]);
+  const [genre, setGenre] = useState('');
 
   useEffect(() => {
-    const apiRequests = async () => {
-      setMovieDiscover(await fetchMovieDiscover());
-      setGenre(await fetchGenres());
+    const apiReq = async () => {
+      setMovieDiscoverApi(await fetchMovieDiscover());
+      setGenreApi(await fetchGenres());
     };
 
-    apiRequests();
+    apiReq();
   }, []);
 
   return (
@@ -62,8 +60,13 @@ export const CarouselContainer = () => {
         dotListClass='react-multi-carousel-dot-list'
         itemClass='react-multi-carousel-item-card'
       >
-        {movieDiscover.map(
+        {movieDiscoverApi.map(
           ({ id, genreIDs, title, poster, description, average }) => {
+            // genreApi.filter(
+            //   ({ id, genreName }) =>
+            //     genreIDs.includes(id) && setGenre(genreName),
+            // );
+
             return (
               <CardMovie
                 key={id}
