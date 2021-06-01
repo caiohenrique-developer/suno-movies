@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import MediaQuery from 'react-responsive';
 
+import { useReqApi } from '@hooks/useReqApi';
 import { usePageIndicator } from '@hooks/usePageIndicator';
 
 import { CatalogueTitle } from '@components/CatalogueTitle';
@@ -16,6 +17,8 @@ import { ActiveIndicator, Button } from '@styles/components/ButtonStyles';
 import { Container } from '@styles/pages/Catalogue';
 
 export default function Catalogue() {
+  const { movieDiscoverApi } = useReqApi();
+
   const [toggleLayout, setToggleLayout] = useState(false);
   const [toggleGenre, setToggleGenre] = useState(false);
   const [layoutType, setLayoutType] = useState('grid');
@@ -128,63 +131,24 @@ export default function Catalogue() {
             </div>
 
             <div className={layoutType}>
-              {/* <CardMovie
-                key='8'
-                className={`animate__animated ${
-                  layoutType === 'grid'
-                    ? `animate__backInDown`
-                    : `animate__fadeInDownBig`
-                }`}
-              />
-              <CardMovie
-                className={`animate__animated ${
-                  layoutType === 'grid'
-                    ? `animate__backInDown`
-                    : `animate__fadeInDownBig`
-                }`}
-              />
-              <CardMovie
-                className={`animate__animated ${
-                  layoutType === 'grid'
-                    ? `animate__backInDown`
-                    : `animate__fadeInDownBig`
-                }`}
-              />
-              <CardMovie
-                className={`animate__animated ${
-                  layoutType === 'grid'
-                    ? `animate__backInDown`
-                    : `animate__fadeInDownBig`
-                }`}
-              />
-              <CardMovie
-                className={`animate__animated ${
-                  layoutType === 'grid'
-                    ? `animate__backInDown`
-                    : `animate__fadeInDownBig`
-                }`}
-              />
-              <CardMovie
-                className={`animate__animated ${
-                  layoutType === 'grid'
-                    ? `animate__backInDown`
-                    : `animate__fadeInDownBig`
-                }`}
-              />
-              <CardMovie
-                className={`animate__animated ${
-                  layoutType === 'grid'
-                    ? `animate__backInDown`
-                    : `animate__fadeInDownBig`
-                }`}
-              />
-              <CardMovie
-                className={`animate__animated ${
-                  layoutType === 'grid'
-                    ? `animate__backInDown`
-                    : `animate__fadeInDownBig`
-                }`}
-              /> */}
+              {movieDiscoverApi.map(
+                ({ id, genreIDs, title, poster, description, average }) => {
+                  return (
+                    <CardMovie
+                      key={id}
+                      className={`animate__animated ${
+                        layoutType === 'grid'
+                          ? `animate__backInDown`
+                          : `animate__fadeInDownBig`
+                      }`}
+                      poster={poster}
+                      title={title}
+                      description={description}
+                      average={average}
+                    />
+                  );
+                },
+              )}
             </div>
 
             <Button className='btn-pink hvr-shrink'>Carregar mais</Button>

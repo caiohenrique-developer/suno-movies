@@ -2,6 +2,7 @@ import React from 'react';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 
+import { ReqApiProvider } from '@hooks/useReqApi';
 import { PageIDProvider } from '@hooks/usePageIndicator';
 
 import { Header } from '@components/Header';
@@ -22,11 +23,13 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
 
-      <PageIDProvider>
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
-      </PageIDProvider>
+      <ReqApiProvider>
+        <PageIDProvider>
+          <Header />
+          <Component {...pageProps} />
+          <Footer />
+        </PageIDProvider>
+      </ReqApiProvider>
 
       <GlobalStyles />
     </>

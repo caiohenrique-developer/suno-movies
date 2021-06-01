@@ -1,16 +1,12 @@
-import { fetchGenres, fetchMovieDiscover } from '@services/api';
-
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import Carousel from 'react-multi-carousel';
+
+import { useReqApi } from '@hooks/useReqApi';
 
 import { CardMovie } from '@components/CardMovie';
 
 import { breakpointCfg } from '@utils/general/carouselBreakpoint';
-import {
-  FetchMovieDiscoverProps,
-  FetchGenreProps,
-} from '@utils/types/services';
 
 import ArrowRight from '@assets/carousel-arrow-right.svg';
 import ArrowLeft from '@assets/carousel-arrow-left.svg';
@@ -31,20 +27,7 @@ const ButtonGroup = (props) => (
 );
 
 export const CarouselContainer = () => {
-  const [movieDiscoverApi, setMovieDiscoverApi] = useState<
-    FetchMovieDiscoverProps[]
-  >([]);
-  const [genreApi, setGenreApi] = useState<FetchGenreProps[]>([]);
-  const [genre, setGenre] = useState('');
-
-  useEffect(() => {
-    const apiReq = async () => {
-      setMovieDiscoverApi(await fetchMovieDiscover());
-      setGenreApi(await fetchGenres());
-    };
-
-    apiReq();
-  }, []);
+  const { movieDiscoverApi } = useReqApi();
 
   return (
     <Container>
@@ -62,11 +45,6 @@ export const CarouselContainer = () => {
       >
         {movieDiscoverApi.map(
           ({ id, genreIDs, title, poster, description, average }) => {
-            // genreApi.filter(
-            //   ({ id, genreName }) =>
-            //     genreIDs.includes(id) && setGenre(genreName),
-            // );
-
             return (
               <CardMovie
                 key={id}
