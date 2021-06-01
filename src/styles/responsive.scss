@@ -58,6 +58,18 @@ $hamburger-layer-height: 2px !default;
 
             &:last-of-type {
               margin-top: -1px;
+
+              form > span > div {
+                padding: max(1.25rem, 1.57vw);
+
+                > #mob {
+                  display: flex;
+
+                  > div > div {
+                    max-width: 76%;
+                  }
+                }
+              }
             }
           }
 

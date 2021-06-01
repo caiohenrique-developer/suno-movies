@@ -167,11 +167,12 @@ export const Container = styled.div<HeaderProps>`
             }
           }
 
-          span {
-            display: block;
+          > span {
+            display: grid;
+            gap: min(2.5rem, 3.5vw) min(1.25rem, 1.57vw);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
             max-height: 60vh;
-            font-size: 2rem;
-            color: var(--white_EAE);
             margin-top: 1.875rem;
             overflow-y: scroll;
 
@@ -187,6 +188,33 @@ export const Container = styled.div<HeaderProps>`
             &::-webkit-scrollbar-thumb {
               background: var(--gray_9F9);
               border-radius: 5px;
+            }
+
+            > div {
+              background: var(--black_252);
+              border: 1px solid var(--gray_313);
+              border-radius: 5px;
+              padding: min(1.25rem, 1.57vw);
+
+              & + div {
+                margin-top: 0;
+              }
+
+              section > div {
+                &:first-of-type {
+                  max-width: min(6.25rem, 8.3vw) !important;
+                  max-height: min(9.25rem, 12vw);
+                  border-radius: 5px;
+                }
+
+                &:last-of-type {
+                  margin-left: min(1.27rem, 1.59vw);
+
+                  h3 {
+                    margin: min(0.625rem) 0;
+                  }
+                }
+              }
             }
           }
         }

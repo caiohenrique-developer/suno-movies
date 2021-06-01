@@ -15,6 +15,7 @@ export default createGlobalStyle`
     --gray_757:#757575;
 
     --black_212:#212125;
+    --black_252:#252529;
     --black_181:#18181C;
     --background:#1B1B1F;
     --black_000:#000000;
