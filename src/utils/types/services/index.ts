@@ -13,3 +13,9 @@ export interface FetchGenreProps {
   id: number;
   genreName: string;
 }
+
+// fetchSearchMovie
+export type FetchSearchMovieProps = Omit<
+  FetchMovieDiscoverProps,
+  'description'
+>;

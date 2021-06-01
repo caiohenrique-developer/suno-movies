@@ -3,6 +3,7 @@ import axios from 'axios';
 import {
   FetchGenreProps,
   FetchMovieDiscoverProps,
+  FetchSearchMovieProps,
 } from '@utils/types/services';
 
 const api = axios.create({
@@ -11,6 +12,7 @@ const api = axios.create({
 
 // route
 const movieDiscover = 'discover/movie';
+const searchMovie = 'search/movie';
 const nowPlaying = 'movie/now_playing';
 const topRated = 'movie/top_rated';
 const genres = 'genre/movie/list';
@@ -57,6 +59,30 @@ export const fetchGenres = async (): Promise<FetchGenreProps[]> => {
     return result['genres'].map((genre) => ({
       id: genre['id'],
       genreName: genre['name'],
+    }));
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export const fetchSearchMovie = async (
+  search: string,
+): Promise<FetchSearchMovieProps[]> => {
+  try {
+    const { data: result } = await api.get(searchMovie, {
+      params: {
+        api_key: apiKey,
+        language: ptBR,
+        query: search,
+      },
+    });
+
+    return result['results'].map((movie) => ({
+      id: movie['id'],
+      title: movie['title'],
+      poster: `https://image.tmdb.org/t/p/original${movie['poster_path']}`,
+      genreIDs: movie['genre_ids'],
+      average: movie['vote_average'],
     }));
   } catch (err) {
     console.error(err);

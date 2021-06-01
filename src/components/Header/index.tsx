@@ -1,3 +1,5 @@
+import { fetchSearchMovie } from '@services/api';
+
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 
@@ -12,11 +14,17 @@ import MagnifyingGlass from '@assets/search-outline.svg';
 
 import { Container } from './style';
 
+import { FetchSearchMovieProps } from '@utils/types/services';
+
 export const Header = () => {
   const { pageID } = usePageIndicator();
 
   const [toggleHeaderSearchBar, setToggleHeaderSearchBar] = useState(false);
   const [toggleMenuMob, setToggleMenuMob] = useState(false);
+  const [searchMovieApi, setSearchMovieApi] = useState<FetchSearchMovieProps[]>(
+    [],
+  );
+  const [inputSearchMovie, setInputSearchMovie] = useState('');
 
   useEffect(() => {
     const close = (ev) => {
@@ -28,6 +36,10 @@ export const Header = () => {
     window.addEventListener('keyup', close);
     return () => window.removeEventListener('keyup', close);
   }, []);
+
+  const searchMovie = async () => {
+    setSearchMovieApi(await fetchSearchMovie(inputSearchMovie));
+  };
 
   const handleHeaderSearchBar = () => {
     setToggleHeaderSearchBar(!toggleHeaderSearchBar);
@@ -55,6 +67,19 @@ export const Header = () => {
 
     handleCollapse();
   };
+
+  const handleGetInputSearchVal = (ev) => {
+    ev.preventDefault();
+
+    setInputSearchMovie(ev.target.value);
+
+    if (inputSearchMovie) {
+      searchMovie();
+    }
+  };
+
+  console.log('Encontrado');
+  console.log(searchMovieApi);
 
   return (
     <Container toggleDropDown={toggleHeaderSearchBar}>
@@ -190,7 +215,12 @@ export const Header = () => {
           }`}
         >
           <form>
-            <input type='text' placeholder='O que deseja assistir agora?' />
+            <input
+              type='text'
+              placeholder='O que deseja assistir agora?'
+              value={inputSearchMovie}
+              onChange={handleGetInputSearchVal}
+            />
 
             <span>
               {/* <CardMovie />
