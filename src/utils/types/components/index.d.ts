@@ -1,5 +1,10 @@
 import { FetchMovieDiscoverProps } from '@utils/types/services';
 
+// Header
+export interface HeaderProps {
+  keyCode: number;
+}
+
 // CTAButton
 export interface CTAButtonProps {
   pageUrl?: string;
@@ -24,7 +29,7 @@ export interface CatalogueTitleProps {
 
 // CardMovie
 type MovieDiscoverExtends = Omit<FetchMovieDiscoverProps, 'id' | 'genreIDs'>;
-
 export interface CardMovieProps extends MovieDiscoverExtends {
   className?: string;
+  description?: string;
 }

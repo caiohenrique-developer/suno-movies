@@ -15,6 +15,7 @@ import MagnifyingGlass from '@assets/search-outline.svg';
 import { Container } from './style';
 
 import { FetchSearchMovieProps } from '@utils/types/services';
+import { HeaderProps } from '@utils/types/components';
 
 export const Header = () => {
   const { pageID } = usePageIndicator();
@@ -27,7 +28,7 @@ export const Header = () => {
   const [inputSearchMovie, setInputSearchMovie] = useState('');
 
   useEffect(() => {
-    const close = (ev) => {
+    const close = (ev: HeaderProps) => {
       if (ev.keyCode === 27) {
         handleCollapse();
       }
@@ -52,6 +53,11 @@ export const Header = () => {
   const handleCollapse = () => {
     setToggleHeaderSearchBar(false);
     setToggleMenuMob(false);
+
+    setTimeout(() => {
+      setInputSearchMovie('');
+      setSearchMovieApi([]);
+    }, 888);
   };
 
   const handleScrollDownAnchor = () => {
@@ -68,18 +74,15 @@ export const Header = () => {
     handleCollapse();
   };
 
-  const handleGetInputSearchVal = (ev) => {
+  const handleGetInputSearchVal = (ev: React.ChangeEvent<HTMLInputElement>) => {
     ev.preventDefault();
 
-    setInputSearchMovie(ev.target.value);
+    setInputSearchMovie(ev.currentTarget.value);
 
     if (inputSearchMovie) {
       searchMovie();
     }
   };
-
-  console.log('Encontrado');
-  console.log(searchMovieApi);
 
   return (
     <Container toggleDropDown={toggleHeaderSearchBar}>
@@ -223,9 +226,18 @@ export const Header = () => {
             />
 
             <span>
-              {/* <CardMovie />
-              <CardMovie />
-              <CardMovie /> */}
+              {searchMovieApi.map(
+                ({ id, genreIDs, title, poster, average }) => {
+                  return (
+                    <CardMovie
+                      key={id}
+                      poster={poster}
+                      title={title}
+                      average={average}
+                    />
+                  );
+                },
+              )}
             </span>
           </form>
         </div>
