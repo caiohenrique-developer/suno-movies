@@ -77,13 +77,15 @@ export const Header = () => {
   const handleScrollDownAnchor = () => {
     const catalogueListAnchor = document.getElementById('catalogue-list');
 
-    catalogueListAnchor.addEventListener('click', () => {
-      catalogueListAnchor.scrollIntoView({
-        behavior: 'smooth', // Defines the transition animation. default: auto
-        block: 'start', // Defines vertical alignment. default: start
-        inline: 'center', // Defines horizontal alignment. default: nearest
+    if (pageID === 'catalogue') {
+      catalogueListAnchor.addEventListener('click', () => {
+        catalogueListAnchor.scrollIntoView({
+          behavior: 'smooth', // Defines the transition animation. default: auto
+          block: 'start', // Defines vertical alignment. default: start
+          inline: 'center', // Defines horizontal alignment. default: nearest
+        });
       });
-    });
+    }
 
     handleCollapse();
   };
@@ -188,7 +190,13 @@ export const Header = () => {
                           Início
                         </a>
                       </Link>
-                      <Link href='#catalogue-list'>
+                      <Link
+                        href={
+                          pageID === 'catalogue'
+                            ? '#catalogue-list'
+                            : 'catalogue'
+                        }
+                      >
                         <a
                           onClick={handleScrollDownAnchor}
                           className='hvr-underline-from-center'
@@ -262,7 +270,11 @@ export const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href='#catalogue-list'>
+                  <Link
+                    href={
+                      pageID === 'catalogue' ? '#catalogue-list' : 'catalogue'
+                    }
+                  >
                     <a
                       onClick={handleCollapse}
                       className='hvr-underline-from-left'
