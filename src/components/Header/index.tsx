@@ -42,12 +42,26 @@ export const Header = () => {
     setSearchMovieApi(await fetchSearchMovie(inputSearchMovie));
   };
 
+  const handleGetInputSearchVal = (ev: React.ChangeEvent<HTMLInputElement>) => {
+    ev.preventDefault();
+
+    setInputSearchMovie(ev.currentTarget.value);
+
+    if (inputSearchMovie) {
+      searchMovie();
+    }
+  };
+
   const handleHeaderSearchBar = () => {
     setToggleHeaderSearchBar(!toggleHeaderSearchBar);
+
+    if (toggleHeaderSearchBar === true) handleCollapse();
   };
 
   const handleMenuMob = () => {
     setToggleMenuMob(!toggleMenuMob);
+
+    if (toggleMenuMob === true) handleCollapse();
   };
 
   const handleCollapse = () => {
@@ -72,16 +86,6 @@ export const Header = () => {
     });
 
     handleCollapse();
-  };
-
-  const handleGetInputSearchVal = (ev: React.ChangeEvent<HTMLInputElement>) => {
-    ev.preventDefault();
-
-    setInputSearchMovie(ev.currentTarget.value);
-
-    if (inputSearchMovie) {
-      searchMovie();
-    }
   };
 
   return (

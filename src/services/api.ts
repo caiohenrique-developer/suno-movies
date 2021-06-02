@@ -34,14 +34,30 @@ export const fetchMovieDiscover = async (): Promise<
       },
     });
 
-    return result['results'].map((movie) => ({
-      id: movie['id'],
-      title: movie['title'],
-      poster: `https://image.tmdb.org/t/p/original${movie['poster_path']}`,
-      description: movie['overview'],
-      genreIDs: movie['genre_ids'],
-      average: movie['vote_average'],
-    }));
+    return result['results'].map((movie) => {
+      const dataMounted = {
+        id: movie['id'],
+        title: movie['title'],
+        description: movie['overview'],
+        genreIDs: movie['genre_ids'],
+        average: movie['vote_average'],
+      };
+
+      if (
+        movie['poster_path'] == null ||
+        movie['poster_path'] == undefined ||
+        movie['poster_path'] == ''
+      )
+        return {
+          ...dataMounted,
+          poster: '/assets/poster-placeholder.png',
+        };
+      else
+        return {
+          ...dataMounted,
+          poster: `https://image.tmdb.org/t/p/original${movie['poster_path']}`,
+        };
+    });
   } catch (err) {
     console.error(err);
   }
@@ -77,13 +93,29 @@ export const fetchSearchMovie = async (
       },
     });
 
-    return result['results'].map((movie) => ({
-      id: movie['id'],
-      title: movie['title'],
-      poster: `https://image.tmdb.org/t/p/original${movie['poster_path']}`,
-      genreIDs: movie['genre_ids'],
-      average: movie['vote_average'],
-    }));
+    return result['results'].map((movie) => {
+      const dataMounted = {
+        id: movie['id'],
+        title: movie['title'],
+        genreIDs: movie['genre_ids'],
+        average: movie['vote_average'],
+      };
+
+      if (
+        movie['poster_path'] == null ||
+        movie['poster_path'] == undefined ||
+        movie['poster_path'] == ''
+      )
+        return {
+          ...dataMounted,
+          poster: '/assets/poster-placeholder.png',
+        };
+      else
+        return {
+          ...dataMounted,
+          poster: `https://image.tmdb.org/t/p/original${movie['poster_path']}`,
+        };
+    });
   } catch (err) {
     console.error(err);
   }
