@@ -1,3 +1,9 @@
+import {
+  FetchMovieDiscoverProps,
+  FetchMovieDiscoverWithGenreProps,
+  FetchGenreProps,
+} from '@utils/types/services';
+
 // usePageIndicator
 export interface PageIDContextProps {
   pageID: string;
@@ -5,7 +11,9 @@ export interface PageIDContextProps {
 }
 
 // useReqApi
-export interface contextVal {
+export interface contextValue {
   movieDiscoverApi: FetchMovieDiscoverProps[];
+  movieDiscoverWithGenreApi: FetchMovieDiscoverWithGenreProps[];
   genreApi: FetchGenreProps[];
+  reqMovieDiscoverWithGenreApi(genre_id: number): void;
 }

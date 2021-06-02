@@ -5,8 +5,12 @@ export interface FetchMovieDiscoverProps {
   poster: string;
   description: string;
   genreIDs: [key: number];
-  average: number;
+  rating: number;
 }
+
+// fetchMovieDiscoverWithGenre
+export interface FetchMovieDiscoverWithGenreProps
+  extends FetchMovieDiscoverProps {}
 
 // fetchGenres
 export interface FetchGenreProps {

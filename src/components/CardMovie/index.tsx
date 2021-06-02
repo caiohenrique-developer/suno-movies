@@ -14,7 +14,7 @@ export const CardMovie = ({
   poster,
   title,
   description,
-  average,
+  rating,
 }: CardMovieProps) => {
   return (
     <Container className={className}>
@@ -36,7 +36,7 @@ export const CardMovie = ({
               <h3>Comédia</h3>
               <span>
                 <TiStarFullOutline />
-                {average}
+                {rating}
               </span>
             </div>
           </div>
@@ -62,7 +62,7 @@ export const CardMovie = ({
             <h3>Comédia</h3>
             <span>
               <TiStarFullOutline />
-              {average}
+              {rating}
             </span>
 
             <p>{description}</p>

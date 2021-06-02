@@ -17,16 +17,16 @@ import { ActiveIndicator, Button } from '@styles/components/ButtonStyles';
 import { Container } from '@styles/pages/Catalogue';
 
 export default function Catalogue() {
-  const { movieDiscoverApi } = useReqApi();
+  const { addPageID, pageID } = usePageIndicator();
+  const { movieDiscoverWithGenreApi, reqMovieDiscoverWithGenreApi } =
+    useReqApi();
+
+  addPageID('catalogue');
 
   const [toggleLayout, setToggleLayout] = useState(false);
   const [toggleGenre, setToggleGenre] = useState(false);
   const [layoutType, setLayoutType] = useState('grid');
   const [genre, setGenre] = useState('Opções');
-
-  const { addPageID, pageID } = usePageIndicator();
-
-  addPageID('catalogue');
 
   const handleFilterLayoutButton = () => {
     setToggleLayout(!toggleLayout);
@@ -61,8 +61,13 @@ export default function Catalogue() {
     optionsList.forEach((option) => {
       option.addEventListener('click', () => {
         const genreCategory = option.querySelector('label').innerText;
+        const genreCategoryID = option
+          .querySelector('input')
+          .getAttribute('id');
 
         filterGenreButton.prepend(arrowIcon);
+
+        reqMovieDiscoverWithGenreApi(+genreCategoryID);
 
         setGenre(genreCategory);
         setToggleGenre(false);
@@ -101,7 +106,7 @@ export default function Catalogue() {
                   <FilterButton
                     onClick={handleFilterGenreButton}
                     className='btn-black hvr-shrink hvr-icon-hang filter-genre'
-                    title={`${genre}`}
+                    title={genre}
                     iconBefore={
                       <i className='hvr-icon'>
                         {toggleGenre ? <FilterArrowUp /> : <FilterArrowDown />}
@@ -131,8 +136,8 @@ export default function Catalogue() {
             </div>
 
             <div className={layoutType}>
-              {movieDiscoverApi.map(
-                ({ id, genreIDs, title, poster, description, average }) => {
+              {movieDiscoverWithGenreApi.map(
+                ({ id, genreIDs, title, poster, description, rating }) => {
                   return (
                     <CardMovie
                       key={id}
@@ -144,7 +149,7 @@ export default function Catalogue() {
                       poster={poster}
                       title={title}
                       description={description}
-                      average={average}
+                      rating={rating}
                     />
                   );
                 },

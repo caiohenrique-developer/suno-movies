@@ -3,6 +3,7 @@ import axios from 'axios';
 import {
   FetchGenreProps,
   FetchMovieDiscoverProps,
+  FetchMovieDiscoverWithGenreProps,
   FetchSearchMovieProps,
 } from '@utils/types/services';
 
@@ -19,7 +20,6 @@ const genres = 'genre/movie/list';
 
 // route params
 const ptBR = 'pt-BR';
-const voteAverage = 'vote_average.desc';
 const apiKey = process.env.API_KEY;
 
 export const fetchMovieDiscover = async (): Promise<
@@ -28,9 +28,10 @@ export const fetchMovieDiscover = async (): Promise<
   try {
     const { data: result } = await api.get(movieDiscover, {
       params: {
+        page: 8,
         api_key: apiKey,
         language: ptBR,
-        page: 8,
+        include_adult: false,
       },
     });
 
@@ -40,7 +41,49 @@ export const fetchMovieDiscover = async (): Promise<
         title: movie['title'],
         description: movie['overview'],
         genreIDs: movie['genre_ids'],
-        average: movie['vote_average'],
+        rating: movie['vote_average'],
+      };
+
+      if (
+        movie['poster_path'] == null ||
+        movie['poster_path'] == undefined ||
+        movie['poster_path'] == ''
+      )
+        return {
+          ...dataMounted,
+          poster: '/assets/poster-placeholder.png',
+        };
+      else
+        return {
+          ...dataMounted,
+          poster: `https://image.tmdb.org/t/p/original${movie['poster_path']}`,
+        };
+    });
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export const fetchMovieDiscoverWithGenre = async (
+  genre_id: number,
+): Promise<FetchMovieDiscoverWithGenreProps[]> => {
+  try {
+    const { data: result } = await api.get(movieDiscover, {
+      params: {
+        api_key: apiKey,
+        language: ptBR,
+        with_genres: genre_id,
+        include_adult: false,
+      },
+    });
+
+    return result['results'].map((movie) => {
+      const dataMounted = {
+        id: movie['id'],
+        title: movie['title'],
+        description: movie['overview'],
+        genreIDs: movie['genre_ids'],
+        rating: movie['vote_average'],
       };
 
       if (
@@ -90,6 +133,7 @@ export const fetchSearchMovie = async (
         api_key: apiKey,
         language: ptBR,
         query: search,
+        include_adult: false,
       },
     });
 
@@ -98,7 +142,7 @@ export const fetchSearchMovie = async (
         id: movie['id'],
         title: movie['title'],
         genreIDs: movie['genre_ids'],
-        average: movie['vote_average'],
+        rating: movie['vote_average'],
       };
 
       if (
@@ -116,13 +160,6 @@ export const fetchSearchMovie = async (
           poster: `https://image.tmdb.org/t/p/original${movie['poster_path']}`,
         };
     });
-  } catch (err) {
-    console.error(err);
-  }
-};
-
-export const fetchName = async (): Promise<void> => {
-  try {
   } catch (err) {
     console.error(err);
   }

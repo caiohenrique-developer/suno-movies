@@ -238,18 +238,16 @@ export const Header = () => {
             />
 
             <span>
-              {searchMovieApi.map(
-                ({ id, genreIDs, title, poster, average }) => {
-                  return (
-                    <CardMovie
-                      key={id}
-                      poster={poster}
-                      title={title}
-                      average={average}
-                    />
-                  );
-                },
-              )}
+              {searchMovieApi.map(({ id, genreIDs, title, poster, rating }) => {
+                return (
+                  <CardMovie
+                    key={id}
+                    poster={poster}
+                    title={title}
+                    rating={rating}
+                  />
+                );
+              })}
             </span>
           </form>
         </div>

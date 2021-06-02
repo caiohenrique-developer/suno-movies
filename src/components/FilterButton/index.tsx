@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { useReqApi } from '@hooks/useReqApi';
+
 import { Button, OptionsList } from '@styles/components/ButtonStyles';
 
 import { FilterButtonProps } from '@utils/types/components';
@@ -10,14 +12,17 @@ export const FilterButton = ({
   title,
   onClick,
 }: FilterButtonProps) => {
+  const { genreApi } = useReqApi();
+
+  const genreValues = genreApi.map(({ id, genreName }) => ({
+    inputID: id,
+    labelHtmlFor: id,
+    labelContent: genreName,
+  }));
+
   const layoutValues = [
     { inputID: 'grid', labelHtmlFor: 'grid', labelContent: 'Em grid' },
     { inputID: 'lista', labelHtmlFor: 'lista', labelContent: 'Em lista' },
-  ];
-
-  const genreValues = [
-    { inputID: 'genre', labelHtmlFor: 'genre', labelContent: 'Gênero' },
-    { inputID: 'comedy', labelHtmlFor: 'comedy', labelContent: 'Comédia' },
   ];
 
   return (
@@ -46,10 +51,10 @@ export const FilterButton = ({
               <input
                 type='radio'
                 className='radio'
-                id={inputID}
+                id={String(inputID)}
                 name='category'
               />
-              <label htmlFor={labelHtmlFor}>{labelContent}</label>
+              <label htmlFor={String(labelHtmlFor)}>{labelContent}</label>
             </li>
           ))
         ) : (

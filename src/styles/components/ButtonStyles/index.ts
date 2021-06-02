@@ -105,9 +105,18 @@ export const OptionsList = styled.ul`
     text-overflow: ellipsis;
     white-space: nowrap;
     color: var(--white_EAE);
+    background: var(--gray_252);
+    transition: 0.3s;
 
     & + li {
       border-top: 1px solid #000;
+    }
+
+    &:hover {
+      font-weight: 700;
+      color: var(--gray_252);
+      background: var(--white_EAE);
+      opacity: 0.5;
     }
 
     input {
@@ -120,7 +129,6 @@ export const OptionsList = styled.ul`
       text-align: center;
       padding: 5px 0;
       cursor: pointer;
-      background: var(--gray_252);
     }
   }
 `;
