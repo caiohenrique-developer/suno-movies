@@ -2,7 +2,7 @@ import {
   FetchMovieDiscoverProps,
   FetchMovieDiscoverWithGenreProps,
   FetchGenreProps,
-} from '@utils/types/services';
+} from '@utils/types/api';
 
 // usePageIndicator
 export interface PageIDContextProps {

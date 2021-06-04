@@ -1,4 +1,4 @@
-import { FetchMovieDiscoverProps } from '@utils/types/services';
+import { FetchMovieDiscoverProps } from '@utils/types/api';
 
 // Header
 export interface HeaderProps {

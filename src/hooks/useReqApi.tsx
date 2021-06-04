@@ -2,7 +2,7 @@ import {
   fetchGenres,
   fetchMovieDiscover,
   fetchMovieDiscoverWithGenre,
-} from '@services/api';
+} from '@pages/api';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
@@ -12,7 +12,7 @@ import {
   FetchMovieDiscoverProps,
   FetchGenreProps,
   FetchMovieDiscoverWithGenreProps,
-} from '@utils/types/services';
+} from '@utils/types/api';
 import { ChildrenGlobalType } from '@utils/types/GlobalTypes';
 import { contextValue } from '@utils/types/hooks';
 

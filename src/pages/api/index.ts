@@ -5,7 +5,7 @@ import {
   FetchMovieDiscoverProps,
   FetchMovieDiscoverWithGenreProps,
   FetchSearchMovieProps,
-} from '@utils/types/services';
+} from '@utils/types/api';
 
 const api = axios.create({
   baseURL: 'https://api.themoviedb.org/3',

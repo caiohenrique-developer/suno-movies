@@ -1,4 +1,4 @@
-import { fetchSearchMovie } from '@services/api';
+import { fetchSearchMovie } from '@pages/api';
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -14,7 +14,7 @@ import MagnifyingGlass from '@assets/search-outline.svg';
 
 import { Container } from './style';
 
-import { FetchSearchMovieProps } from '@utils/types/services';
+import { FetchSearchMovieProps } from '@utils/types/api';
 import { HeaderProps } from '@utils/types/components';
 
 export const Header = () => {
