@@ -29,8 +29,6 @@ export default function Catalogue() {
   const [genre, setGenre] = useState('Ação');
 
   const handleFilterLayoutButton = () => {
-    setToggleLayout(!toggleLayout);
-
     const filterLayoutButton = document.querySelector('.filter-layout');
     const arrowIcon = document.querySelector('.filter-layout i');
     const optionsList = document
@@ -54,11 +52,12 @@ export default function Catalogue() {
         setToggleLayout(false);
       });
     }
+
+    setToggleLayout(!toggleLayout);
+    setToggleGenre(false);
   };
 
   const handleFilterGenreButton = () => {
-    setToggleGenre(!toggleGenre);
-
     const filterGenreButton = document.querySelector('.filter-genre');
     const arrowIcon = document.querySelector('.filter-genre i');
     const optionsList = document
@@ -86,6 +85,9 @@ export default function Catalogue() {
         setToggleGenre(false);
       });
     }
+
+    setToggleGenre(!toggleGenre);
+    setToggleLayout(false);
   };
 
   return (
