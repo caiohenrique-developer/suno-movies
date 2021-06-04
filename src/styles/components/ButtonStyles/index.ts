@@ -119,6 +119,13 @@ export const OptionsList = styled.ul`
       opacity: 0.5;
     }
 
+    &.selected {
+      font-weight: 700;
+      color: var(--gray_252);
+      background: var(--white_EAE);
+      opacity: 0.8;
+    }
+
     input {
       display: none;
     }

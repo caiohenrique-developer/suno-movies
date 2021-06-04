@@ -26,7 +26,7 @@ export default function Catalogue() {
   const [toggleLayout, setToggleLayout] = useState(false);
   const [toggleGenre, setToggleGenre] = useState(false);
   const [layoutType, setLayoutType] = useState('grid');
-  const [genre, setGenre] = useState('Opções');
+  const [genre, setGenre] = useState('Ação');
 
   const handleFilterLayoutButton = () => {
     setToggleLayout(!toggleLayout);
@@ -37,16 +37,23 @@ export default function Catalogue() {
       .querySelector('.filter-layout')
       .nextElementSibling.querySelectorAll('.option-item');
 
-    optionsList.forEach((option) => {
-      option.addEventListener('click', () => {
-        const layoutType = option.querySelector('label').getAttribute('for');
+    for (let i = 0; i < optionsList.length; i++) {
+      optionsList[i].addEventListener('click', function () {
+        const layoutType = this.querySelector('label').getAttribute('for');
+        const current = document
+          .querySelector('.filter-layout')
+          .nextElementSibling.getElementsByClassName('selected');
+
+        current[0].className = current[0].className.replace('selected', '');
+
+        this.className += 'selected';
 
         filterLayoutButton.prepend(arrowIcon);
 
         setLayoutType(layoutType);
         setToggleLayout(false);
       });
-    });
+    }
   };
 
   const handleFilterGenreButton = () => {
@@ -58,21 +65,27 @@ export default function Catalogue() {
       .querySelector('.filter-genre')
       .nextElementSibling.querySelectorAll('.option-item');
 
-    optionsList.forEach((option) => {
-      option.addEventListener('click', () => {
-        const genreCategory = option.querySelector('label').innerText;
-        const genreCategoryID = option
-          .querySelector('input')
-          .getAttribute('id');
+    for (let i = 0; i < optionsList.length; i++) {
+      optionsList[i].addEventListener('click', function () {
+        const genreCategory = this.querySelector('label').innerText;
+        const genreCategoryID = this.querySelector('input').getAttribute('id');
+        const current = document
+          .querySelector('.filter-genre')
+          .nextElementSibling.getElementsByClassName('selected');
+
+        current[0].className = current[0].className.replace('selected', '');
+
+        this.className += 'selected';
 
         filterGenreButton.prepend(arrowIcon);
 
+        // The plus sign turns another format into a number
         reqMovieDiscoverWithGenreApi(+genreCategoryID);
 
         setGenre(genreCategory);
         setToggleGenre(false);
       });
-    });
+    }
   };
 
   return (

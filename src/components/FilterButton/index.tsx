@@ -35,7 +35,10 @@ export const FilterButton = ({
       <OptionsList className='animate__animated animate__fadeInDown'>
         {className.includes('filter-layout') ? (
           layoutValues.map(({ inputID, labelHtmlFor, labelContent }) => (
-            <li key={inputID} className='option-item'>
+            <li
+              key={inputID}
+              className={`option-item ${inputID === 'grid' ? 'selected' : ''}`}
+            >
               <input
                 type='radio'
                 className='radio'
@@ -47,7 +50,10 @@ export const FilterButton = ({
           ))
         ) : className.includes('filter-genre') ? (
           genreValues.map(({ inputID, labelHtmlFor, labelContent }) => (
-            <li key={inputID} className='option-item'>
+            <li
+              key={inputID}
+              className={`option-item ${inputID === 28 ? 'selected' : ''}`}
+            >
               <input
                 type='radio'
                 className='radio'
