@@ -29,65 +29,55 @@ export default function Catalogue() {
   const [genre, setGenre] = useState('Ação');
 
   const handleFilterLayoutButton = () => {
-    const filterLayoutButton = document.querySelector('.filter-layout');
-    const arrowIcon = document.querySelector('.filter-layout i');
     const optionsList = document
       .querySelector('.filter-layout')
       .nextElementSibling.querySelectorAll('.option-item');
 
-    for (let i = 0; i < optionsList.length; i++) {
-      optionsList[i].addEventListener('click', function () {
-        const layoutType = this.querySelector('label').getAttribute('for');
-        const current = document
-          .querySelector('.filter-layout')
-          .nextElementSibling.getElementsByClassName('selected');
-
-        current[0].className = current[0].className.replace('selected', '');
-
-        this.className += 'selected';
-
-        filterLayoutButton.prepend(arrowIcon);
-
-        setLayoutType(layoutType);
-        setToggleLayout(false);
-      });
-    }
+    handleFilteredOption(optionsList);
 
     setToggleLayout(!toggleLayout);
     setToggleGenre(false);
   };
 
   const handleFilterGenreButton = () => {
-    const filterGenreButton = document.querySelector('.filter-genre');
-    const arrowIcon = document.querySelector('.filter-genre i');
     const optionsList = document
       .querySelector('.filter-genre')
       .nextElementSibling.querySelectorAll('.option-item');
 
-    for (let i = 0; i < optionsList.length; i++) {
-      optionsList[i].addEventListener('click', function () {
-        const genreCategory = this.querySelector('label').innerText;
-        const genreCategoryID = this.querySelector('input').getAttribute('id');
-        const current = document
-          .querySelector('.filter-genre')
-          .nextElementSibling.getElementsByClassName('selected');
-
-        current[0].className = current[0].className.replace('selected', '');
-
-        this.className += 'selected';
-
-        filterGenreButton.prepend(arrowIcon);
-
-        // The plus sign turns another format into a number
-        reqMovieDiscoverWithGenreApi(+genreCategoryID);
-
-        setGenre(genreCategory);
-        setToggleGenre(false);
-      });
-    }
+    handleFilteredOption(optionsList);
 
     setToggleGenre(!toggleGenre);
     setToggleLayout(false);
+  };
+
+  const handleFilteredOption = (filteredOption: NodeListOf<Element>) => {
+    for (let i = 0; i < filteredOption.length; i++) {
+      filteredOption[i].addEventListener('click', function () {
+        const filterButton = this.closest('ul').previousSibling;
+        const current = this.parentElement.getElementsByClassName('selected');
+
+        current[0].className = current[0].className.replace('selected', '');
+
+        if (!this.classList.contains('selected')) this.className += 'selected';
+
+        if (filterButton.classList.contains('filter-layout')) {
+          const layoutType = this.querySelector('label').getAttribute('for');
+
+          setLayoutType(layoutType);
+          setToggleLayout(false);
+        } else if (filterButton.classList.contains('filter-genre')) {
+          const genreCategory = this.querySelector('label').innerText;
+          const genreCategoryID =
+            this.querySelector('input').getAttribute('id');
+
+          // The plus sign turns another format into a number
+          reqMovieDiscoverWithGenreApi(+genreCategoryID);
+
+          setGenre(genreCategory);
+          setToggleGenre(false);
+        }
+      });
+    }
   };
 
   return (

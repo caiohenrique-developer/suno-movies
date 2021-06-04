@@ -112,6 +112,7 @@ export const OptionsList = styled.ul`
       border-top: 1px solid #000;
     }
 
+    &.selected,
     &:hover {
       font-weight: 700;
       color: var(--gray_252);
@@ -120,9 +121,6 @@ export const OptionsList = styled.ul`
     }
 
     &.selected {
-      font-weight: 700;
-      color: var(--gray_252);
-      background: var(--white_EAE);
       opacity: 0.8;
     }
 
