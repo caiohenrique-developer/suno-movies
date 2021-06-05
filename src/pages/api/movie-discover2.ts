@@ -9,7 +9,7 @@ const ptBR = 'pt-BR';
 const apiKey = process.env.API_KEY;
 
 // fetchMovieDiscover
-export default async function (
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<void> {
