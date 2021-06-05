@@ -161,7 +161,9 @@ export default function Catalogue() {
               )}
             </div>
 
-            <Button className='btn-pink hvr-shrink'>Carregar mais</Button>
+            <Button className='btn-pink hvr-shrink'>
+              <a href='selected-movie'>Carregar mais</a>
+            </Button>
           </div>
         </section>
       </Container>

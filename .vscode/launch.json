@@ -7,9 +7,10 @@
     {
       "type": "pwa-chrome",
       "request": "launch",
-      "name": "Debug Suno Movies",
+      "name": "Suno Movie Debugger",
       "url": "http://localhost:3000",
-      "webRoot": "${workspaceFolder}"
+      "webRoot": "${workspaceFolder}/src",
+      "trace": true
     }
   ]
 }

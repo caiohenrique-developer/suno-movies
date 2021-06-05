@@ -12,6 +12,13 @@ export const Container = styled.div`
 
     width: min(1.563rem, 2vw);
     cursor: pointer;
+    opacity: 0.5;
+    transition: 0.3s;
+
+    &:hover,
+    &.active {
+      opacity: 1;
+    }
 
     &.carousel-arrow-left {
       left: -10px;
