@@ -16,7 +16,7 @@ export default async function fetchMovieDiscover(
     const { data: result } = await api.get(movieDiscover, {
       params: {
         page: 8,
-        api_key: '4187889f19ab87479fdbfad7e23fa800',
+        api_key: apiKey,
         language: ptBR,
         include_adult: false,
       },
