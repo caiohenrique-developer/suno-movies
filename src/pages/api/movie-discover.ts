@@ -8,8 +8,7 @@ const movieDiscover = 'discover/movie';
 const ptBR = 'pt-BR';
 const apiKey = process.env.API_KEY;
 
-// fetchMovieDiscover
-export default async function (
+export default async function fetchMovieDiscover(
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<void> {
@@ -23,7 +22,7 @@ export default async function (
       },
     });
 
-    const resultMounted = result['results'].map((movie) => {
+    const resultMounted = await result['results'].map((movie) => {
       const dataMounted = {
         id: movie['id'],
         title: movie['title'],
