@@ -15,7 +15,6 @@ export const api = axios.create({
 const movieDiscover = 'discover/movie';
 const searchMovie = 'search/movie';
 const topRated = 'movie/top_rated';
-// https://api.themoviedb.org/3/movie/top_rated?api_key=key
 const genres = 'genre/movie/list';
 
 // route params
