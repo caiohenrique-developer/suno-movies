@@ -16,13 +16,13 @@ export default async function fetchMovieDiscover(
     const { data: result } = await api.get(movieDiscover, {
       params: {
         page: 8,
-        api_key: apiKey,
+        api_key: '4187889f19ab87479fdbfad7e23fa800',
         language: ptBR,
         include_adult: false,
       },
     });
 
-    const resultMounted = await result['results'].map((movie) => {
+    const resultMounted = result['results'].map((movie) => {
       const dataMounted = {
         id: movie['id'],
         title: movie['title'],
