@@ -15,23 +15,8 @@ import { Container } from './style';
 
 const ButtonGroup = (props) => {
   const handleArrowClick = (ev: Event & { currentTarget: Element }) => {
-    const leftArrow = ev.currentTarget.classList.contains(
-      'carousel-arrow-left',
-    );
-    const rightArrow = ev.currentTarget
-      .getAttribute('class')
-      .includes('carousel-arrow-right');
-
     if (ev.currentTarget.classList.contains('carousel-arrow-right')) {
       props.next();
-
-      console.log(rightArrow);
-      console.log(ev.currentTarget);
-      ev.currentTarget.className += 'active';
-      ev.currentTarget
-        .getAttribute('class')
-        .includes('carousel-arrow-right')
-        .replace('active', '');
     } else {
       props.previous();
     }
