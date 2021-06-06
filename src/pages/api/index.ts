@@ -27,37 +27,42 @@ export const fetchMovieDiscover = async (): Promise<
   try {
     const { data: result } = await api.get(movieDiscover, {
       params: {
-        page: 8,
+        page: 1,
         api_key: apiKey,
         language: ptBR,
         include_adult: false,
       },
     });
 
-    return result['results'].map((movie) => {
-      const dataMounted = {
-        id: movie['id'],
-        title: movie['title'],
-        description: movie['overview'],
-        genreIDs: movie['genre_ids'],
-        rating: movie['vote_average'],
-      };
+    return result['results'].map(
+      ({
+        id,
+        title,
+        overview,
+        genre_ids,
+        vote_average,
+        poster_path: poster,
+      }) => {
+        const dataMounted = {
+          id,
+          title,
+          description: overview,
+          genreIDs: genre_ids,
+          rating: vote_average,
+        };
 
-      if (
-        movie['poster_path'] == null ||
-        movie['poster_path'] == undefined ||
-        movie['poster_path'] == ''
-      )
-        return {
-          ...dataMounted,
-          poster: '/assets/poster-placeholder.png',
-        };
-      else
-        return {
-          ...dataMounted,
-          poster: `https://image.tmdb.org/t/p/original${movie['poster_path']}`,
-        };
-    });
+        if (poster == null || poster == undefined || poster == '')
+          return {
+            ...dataMounted,
+            poster: '/assets/poster-placeholder.png',
+          };
+        else
+          return {
+            ...dataMounted,
+            poster: `https://image.tmdb.org/t/p/original${poster}`,
+          };
+      },
+    );
   } catch (err) {
     console.error(err);
   }
@@ -76,30 +81,35 @@ export const fetchMovieDiscoverWithGenre = async (
       },
     });
 
-    return result['results'].map((movie) => {
-      const dataMounted = {
-        id: movie['id'],
-        title: movie['title'],
-        description: movie['overview'],
-        genreIDs: movie['genre_ids'],
-        rating: movie['vote_average'],
-      };
+    return result['results'].map(
+      ({
+        id,
+        title,
+        overview,
+        genre_ids,
+        vote_average,
+        poster_path: poster,
+      }) => {
+        const dataMounted = {
+          id,
+          title,
+          description: overview,
+          genreIDs: genre_ids,
+          rating: vote_average,
+        };
 
-      if (
-        movie['poster_path'] == null ||
-        movie['poster_path'] == undefined ||
-        movie['poster_path'] == ''
-      )
-        return {
-          ...dataMounted,
-          poster: '/assets/poster-placeholder.png',
-        };
-      else
-        return {
-          ...dataMounted,
-          poster: `https://image.tmdb.org/t/p/original${movie['poster_path']}`,
-        };
-    });
+        if (poster == null || poster == undefined || poster == '')
+          return {
+            ...dataMounted,
+            poster: '/assets/poster-placeholder.png',
+          };
+        else
+          return {
+            ...dataMounted,
+            poster: `https://image.tmdb.org/t/p/original${poster}`,
+          };
+      },
+    );
   } catch (err) {
     console.error(err);
   }
@@ -114,9 +124,9 @@ export const fetchGenres = async (): Promise<FetchGenreProps[]> => {
       },
     });
 
-    return result['genres'].map((genre) => ({
-      id: genre['id'],
-      genreName: genre['name'],
+    return result['genres'].map(({ id, name: genreName }) => ({
+      id,
+      genreName,
     }));
   } catch (err) {
     console.error(err);
@@ -136,29 +146,27 @@ export const fetchSearchMovie = async (
       },
     });
 
-    return result['results'].map((movie) => {
-      const dataMounted = {
-        id: movie['id'],
-        title: movie['title'],
-        genreIDs: movie['genre_ids'],
-        rating: movie['vote_average'],
-      };
+    return result['results'].map(
+      ({ id, title, genre_ids, vote_average, poster_path: poster }) => {
+        const dataMounted = {
+          id,
+          title,
+          genreIDs: genre_ids,
+          rating: vote_average,
+        };
 
-      if (
-        movie['poster_path'] == null ||
-        movie['poster_path'] == undefined ||
-        movie['poster_path'] == ''
-      )
-        return {
-          ...dataMounted,
-          poster: '/assets/poster-placeholder.png',
-        };
-      else
-        return {
-          ...dataMounted,
-          poster: `https://image.tmdb.org/t/p/original${movie['poster_path']}`,
-        };
-    });
+        if (poster == null || poster == undefined || poster == '')
+          return {
+            ...dataMounted,
+            poster: '/assets/poster-placeholder.png',
+          };
+        else
+          return {
+            ...dataMounted,
+            poster: `https://image.tmdb.org/t/p/original${poster}`,
+          };
+      },
+    );
   } catch (err) {
     console.error(err);
   }

@@ -31,5 +31,4 @@ export interface CatalogueTitleProps {
 type MovieDiscoverExtends = Omit<FetchMovieDiscoverProps, 'id' | 'genreIDs'>;
 export interface CardMovieProps extends MovieDiscoverExtends {
   className?: string;
-  description?: string;
 }
