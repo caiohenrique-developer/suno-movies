@@ -38,17 +38,17 @@ export const fetchMovieDiscover = async (): Promise<
       ({
         id,
         title,
-        overview,
-        genre_ids,
-        vote_average,
+        overview: description,
+        genre_ids: genreIDs,
+        vote_average: rating,
         poster_path: poster,
       }) => {
         const dataMounted = {
           id,
           title,
-          description: overview,
-          genreIDs: genre_ids,
-          rating: vote_average,
+          description,
+          genreIDs,
+          rating,
         };
 
         if (poster == null || poster == undefined || poster == '')
@@ -85,17 +85,17 @@ export const fetchMovieDiscoverWithGenre = async (
       ({
         id,
         title,
-        overview,
-        genre_ids,
-        vote_average,
+        overview: description,
+        genre_ids: genreIDs,
+        vote_average: rating,
         poster_path: poster,
       }) => {
         const dataMounted = {
           id,
           title,
-          description: overview,
-          genreIDs: genre_ids,
-          rating: vote_average,
+          description,
+          genreIDs,
+          rating,
         };
 
         if (poster == null || poster == undefined || poster == '')
@@ -147,12 +147,18 @@ export const fetchSearchMovie = async (
     });
 
     return result['results'].map(
-      ({ id, title, genre_ids, vote_average, poster_path: poster }) => {
+      ({
+        id,
+        title,
+        genre_ids: genreIDs,
+        vote_average: rating,
+        poster_path: poster,
+      }) => {
         const dataMounted = {
           id,
           title,
-          genreIDs: genre_ids,
-          rating: vote_average,
+          genreIDs,
+          rating,
         };
 
         if (poster == null || poster == undefined || poster == '')
