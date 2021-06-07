@@ -97,7 +97,7 @@ export default function Catalogue() {
           </div>
 
           <div id='catalogue-list'>
-            <CatalogueTitle title={[<strong>Catálogo</strong>, ' completo']} />
+            <CatalogueTitle title={[<strong>Teste</strong>, ' completo']} />
           </div>
         </section>
 
