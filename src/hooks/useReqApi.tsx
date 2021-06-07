@@ -36,7 +36,7 @@ export const ReqApiProvider = ({ children }: ChildrenGlobalType) => {
         console.log('Resultado reqApi');
 
         const { data: action } = await axios.get(
-          'http://localhost:3000/api/movie-discover-with-genre/28',
+          'https://suno-movies.vercel.app/api/movie-discover-with-genre/28',
         );
 
         setMovieDiscoverWithGenreApi(action);
@@ -55,7 +55,7 @@ export const ReqApiProvider = ({ children }: ChildrenGlobalType) => {
       // setMovieDiscoverWithGenreApi(await fetchMovieDiscoverWithGenre(genre_id));
 
       const { data: genreFiltered } = await axios.get(
-        `http://localhost:3000/api/movie-discover-with-genre/${genre_id}`,
+        `https://suno-movies.vercel.app/api/movie-discover-with-genre/${genre_id}`,
       );
 
       setMovieDiscoverWithGenreApi(genreFiltered);
