@@ -68,52 +68,19 @@ export const fetchMovieDiscover = async (): Promise<
   }
 };
 
-// export const fetchMovieDiscoverWithGenre = async (
-//   genre_id: number,
-// ): Promise<FetchMovieDiscoverWithGenreProps[]> => {
-//   try {
-//     const { data: result } = await api.get(movieDiscover, {
-//       params: {
-//         api_key: apiKey,
-//         language: ptBR,
-//         with_genres: genre_id,
-//         include_adult: false,
-//       },
-//     });
+export const fetchMovieDiscoverWithGenre = async (
+  genre_id: number,
+): Promise<FetchMovieDiscoverWithGenreProps[]> => {
+  try {
+    const { data: filteredGenre } = await axios.get(
+      `http://localhost:3000/api/movie-discover-with-genre/${genre_id}`,
+    );
 
-//     return result['results'].map(
-//       ({
-//         id,
-//         title,
-//         overview: description,
-//         genre_ids: genreIDs,
-//         vote_average: rating,
-//         poster_path: poster,
-//       }) => {
-//         const dataMounted = {
-//           id,
-//           title,
-//           description,
-//           genreIDs,
-//           rating,
-//         };
-
-//         if (poster == null || poster == undefined || poster == '')
-//           return {
-//             ...dataMounted,
-//             poster: '/assets/poster-placeholder.png',
-//           };
-//         else
-//           return {
-//             ...dataMounted,
-//             poster: `https://image.tmdb.org/t/p/original${poster}`,
-//           };
-//       },
-//     );
-//   } catch (err) {
-//     console.error(err);
-//   }
-// };
+    return filteredGenre;
+  } catch (err) {
+    console.error(err);
+  }
+};
 
 export const fetchGenres = async (): Promise<FetchGenreProps[]> => {
   try {

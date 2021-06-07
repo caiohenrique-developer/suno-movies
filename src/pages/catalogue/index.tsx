@@ -18,8 +18,7 @@ import { Container } from '@styles/pages/Catalogue';
 
 export default function Catalogue() {
   const { addPageID, pageID } = usePageIndicator();
-  const { movieDiscoverWithGenreApi, reqMovieDiscoverWithGenreApi } =
-    useReqApi();
+  const { movieDiscoverWithGenreApi, reqApi } = useReqApi();
 
   addPageID('catalogue');
 
@@ -71,8 +70,7 @@ export default function Catalogue() {
             this.querySelector('input').getAttribute('id');
 
           // The plus sign turns another format into a number
-          reqMovieDiscoverWithGenreApi(+genreCategoryID);
-
+          reqApi(+genreCategoryID);
           setGenre(genreCategory);
           setToggleGenre(false);
         }

@@ -15,5 +15,5 @@ export interface contextValue {
   movieDiscoverApi: FetchMovieDiscoverProps[];
   movieDiscoverWithGenreApi: FetchMovieDiscoverWithGenreProps[];
   genreApi: FetchGenreProps[];
-  reqMovieDiscoverWithGenreApi(genre_id: number): void;
+  reqApi(genre_id?: number): void;
 }

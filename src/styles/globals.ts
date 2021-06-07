@@ -65,6 +65,7 @@ export default createGlobalStyle`
       }
 
       button {
+        font-family: 'Poppins', sans-serif;
         cursor: pointer;
         background: transparent
       }
