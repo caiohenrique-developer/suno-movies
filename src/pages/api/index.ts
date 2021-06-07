@@ -7,7 +7,7 @@ import {
   FetchSearchMovieProps,
 } from '@utils/types/api';
 
-export const api = axios.create({
+const api = axios.create({
   baseURL: 'https://api.themoviedb.org/3',
 });
 
@@ -68,52 +68,52 @@ export const fetchMovieDiscover = async (): Promise<
   }
 };
 
-export const fetchMovieDiscoverWithGenre = async (
-  genre_id: number,
-): Promise<FetchMovieDiscoverWithGenreProps[]> => {
-  try {
-    const { data: result } = await api.get(movieDiscover, {
-      params: {
-        api_key: apiKey,
-        language: ptBR,
-        with_genres: genre_id,
-        include_adult: false,
-      },
-    });
+// export const fetchMovieDiscoverWithGenre = async (
+//   genre_id: number,
+// ): Promise<FetchMovieDiscoverWithGenreProps[]> => {
+//   try {
+//     const { data: result } = await api.get(movieDiscover, {
+//       params: {
+//         api_key: apiKey,
+//         language: ptBR,
+//         with_genres: genre_id,
+//         include_adult: false,
+//       },
+//     });
 
-    return result['results'].map(
-      ({
-        id,
-        title,
-        overview: description,
-        genre_ids: genreIDs,
-        vote_average: rating,
-        poster_path: poster,
-      }) => {
-        const dataMounted = {
-          id,
-          title,
-          description,
-          genreIDs,
-          rating,
-        };
+//     return result['results'].map(
+//       ({
+//         id,
+//         title,
+//         overview: description,
+//         genre_ids: genreIDs,
+//         vote_average: rating,
+//         poster_path: poster,
+//       }) => {
+//         const dataMounted = {
+//           id,
+//           title,
+//           description,
+//           genreIDs,
+//           rating,
+//         };
 
-        if (poster == null || poster == undefined || poster == '')
-          return {
-            ...dataMounted,
-            poster: '/assets/poster-placeholder.png',
-          };
-        else
-          return {
-            ...dataMounted,
-            poster: `https://image.tmdb.org/t/p/original${poster}`,
-          };
-      },
-    );
-  } catch (err) {
-    console.error(err);
-  }
-};
+//         if (poster == null || poster == undefined || poster == '')
+//           return {
+//             ...dataMounted,
+//             poster: '/assets/poster-placeholder.png',
+//           };
+//         else
+//           return {
+//             ...dataMounted,
+//             poster: `https://image.tmdb.org/t/p/original${poster}`,
+//           };
+//       },
+//     );
+//   } catch (err) {
+//     console.error(err);
+//   }
+// };
 
 export const fetchGenres = async (): Promise<FetchGenreProps[]> => {
   try {
@@ -176,4 +176,17 @@ export const fetchSearchMovie = async (
   } catch (err) {
     console.error(err);
   }
+};
+
+export {
+  // baseURL
+  api,
+  // route
+  movieDiscover,
+  searchMovie,
+  topRated,
+  genres,
+  // route params
+  ptBR,
+  apiKey,
 };

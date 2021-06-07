@@ -1,10 +1,11 @@
 import {
   fetchGenres,
   fetchMovieDiscover,
-  fetchMovieDiscoverWithGenre,
+  // fetchMovieDiscoverWithGenre,
 } from '@pages/api';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import axios from 'axios';
 
 const ReqApiContext = createContext({} as contextValue);
 
@@ -27,16 +28,40 @@ export const ReqApiProvider = ({ children }: ChildrenGlobalType) => {
 
   useEffect(() => {
     const reqApi = async () => {
-      setMovieDiscoverApi(await fetchMovieDiscover());
-      setMovieDiscoverWithGenreApi(await fetchMovieDiscoverWithGenre(28));
-      setGenreApi(await fetchGenres());
+      try {
+        setMovieDiscoverApi(await fetchMovieDiscover());
+        // setMovieDiscoverWithGenreApi(await fetchMovieDiscoverWithGenre(28));
+        setGenreApi(await fetchGenres());
+
+        console.log('Resultado reqApi');
+
+        const { data: action } = await axios.get(
+          'http://localhost:3000/api/movie-discover-with-genre/28',
+        );
+
+        setMovieDiscoverWithGenreApi(action);
+      } catch (err) {
+        console.error(err);
+      }
     };
 
     reqApi();
   }, []);
 
   const reqMovieDiscoverWithGenreApi = async (genre_id: number) => {
-    setMovieDiscoverWithGenreApi(await fetchMovieDiscoverWithGenre(genre_id));
+    console.log('Resultado reqMovieDiscoverWithGenreApi');
+
+    try {
+      // setMovieDiscoverWithGenreApi(await fetchMovieDiscoverWithGenre(genre_id));
+
+      const { data: genreFiltered } = await axios.get(
+        `http://localhost:3000/api/movie-discover-with-genre/${genre_id}`,
+      );
+
+      setMovieDiscoverWithGenreApi(genreFiltered);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const valCtx = {

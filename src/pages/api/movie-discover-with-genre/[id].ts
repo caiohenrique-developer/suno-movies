@@ -1,24 +1,18 @@
-import { api } from '.';
 import type { NextApiRequest, NextApiResponse } from 'next';
-
-// route
-const movieDiscover = 'discover/movie';
-
-// route params
-const ptBR = 'pt-BR';
-const apiKey = process.env.API_KEY;
+import { api, apiKey, movieDiscover, ptBR } from '../';
 
 export default async function fetchMovieDiscoverWithGenre(
   req: NextApiRequest,
   res: NextApiResponse,
-  genre_id: number,
 ): Promise<void> {
+  const { id } = req.query;
+
   try {
     const { data: result } = await api.get(movieDiscover, {
       params: {
         api_key: apiKey,
         language: ptBR,
-        with_genres: genre_id,
+        with_genres: id,
         include_adult: false,
       },
     });
