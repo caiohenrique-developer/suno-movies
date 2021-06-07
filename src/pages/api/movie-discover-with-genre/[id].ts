@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { api, apiKey, movieDiscover, ptBR } from '../';
+import { tmdbApi, apiKey, movieDiscover, ptBR } from '../';
 
 export default async function fetchMovieDiscoverWithGenre(
   req: NextApiRequest,
@@ -8,7 +8,7 @@ export default async function fetchMovieDiscoverWithGenre(
   const { id } = req.query;
 
   try {
-    const { data: result } = await api.get(movieDiscover, {
+    const { data: result } = await tmdbApi.get(movieDiscover, {
       params: {
         api_key: apiKey,
         language: ptBR,

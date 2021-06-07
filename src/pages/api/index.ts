@@ -7,9 +7,16 @@ import {
   FetchSearchMovieProps,
 } from '@utils/types/api';
 
-const api = axios.create({
-  baseURL: 'https://api.themoviedb.org/3',
-});
+const { tmdbApi, smEnv } = {
+  tmdbApi: axios.create({
+    baseURL: 'https://api.themoviedb.org/3',
+  }),
+  smEnv: axios.create({
+    baseURL: !process.env.HOST_ENV
+      ? 'http://localhost:3000/api'
+      : 'https://suno-movies.vercel.app/api',
+  }),
+};
 
 // route
 const movieDiscover = 'discover/movie';
@@ -25,7 +32,7 @@ export const fetchMovieDiscover = async (): Promise<
   FetchMovieDiscoverProps[]
 > => {
   try {
-    const { data: result } = await api.get(movieDiscover, {
+    const { data: result } = await tmdbApi.get(movieDiscover, {
       params: {
         page: 1,
         api_key: apiKey,
@@ -72,8 +79,8 @@ export const fetchMovieDiscoverWithGenre = async (
   genre_id: number,
 ): Promise<FetchMovieDiscoverWithGenreProps[]> => {
   try {
-    const { data: filteredGenre } = await axios.get(
-      `https://suno-movies.vercel.app/api/movie-discover-with-genre/${genre_id}`,
+    const { data: filteredGenre } = await smEnv.get(
+      `movie-discover-with-genre/${genre_id}`,
     );
 
     return filteredGenre;
@@ -84,7 +91,7 @@ export const fetchMovieDiscoverWithGenre = async (
 
 export const fetchGenres = async (): Promise<FetchGenreProps[]> => {
   try {
-    const { data: result } = await api.get(genres, {
+    const { data: result } = await tmdbApi.get(genres, {
       params: {
         api_key: apiKey,
         language: ptBR,
@@ -104,7 +111,7 @@ export const fetchSearchMovie = async (
   search: string,
 ): Promise<FetchSearchMovieProps[]> => {
   try {
-    const { data: result } = await api.get(searchMovie, {
+    const { data: result } = await tmdbApi.get(searchMovie, {
       params: {
         api_key: apiKey,
         language: ptBR,
@@ -147,13 +154,14 @@ export const fetchSearchMovie = async (
 
 export {
   // baseURL
-  api,
+  tmdbApi,
+  smEnv,
   // route
   movieDiscover,
   searchMovie,
   topRated,
   genres,
   // route params
-  ptBR,
   apiKey,
+  ptBR,
 };
