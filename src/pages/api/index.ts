@@ -73,7 +73,7 @@ export const fetchMovieDiscoverWithGenre = async (
 ): Promise<FetchMovieDiscoverWithGenreProps[]> => {
   try {
     const { data: filteredGenre } = await axios.get(
-      `http://localhost:3000/api/movie-discover-with-genre/${genre_id}`,
+      `https://suno-movies.vercel.app/api/movie-discover-with-genre/${genre_id}`,
     );
 
     return filteredGenre;
