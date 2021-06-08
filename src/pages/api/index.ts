@@ -12,9 +12,10 @@ const { tmdbApi, smEnv } = {
     baseURL: 'https://api.themoviedb.org/3',
   }),
   smEnv: axios.create({
-    baseURL: !process.env.HOST_ENV
-      ? 'http://localhost:3000/api'
-      : 'https://suno-movies.vercel.app/api',
+    baseURL:
+      process.env.NODE_ENV !== 'production'
+        ? 'http://localhost:3000/api'
+        : 'https://suno-movies.vercel.app/api',
   }),
 };
 
