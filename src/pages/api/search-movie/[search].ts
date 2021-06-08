@@ -1,18 +1,18 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { tmdbApi, apiKey, movieDiscover, ptBR } from '@pages/api';
+import { tmdbApi, apiKey, searchMovie, ptBR } from '@pages/api';
 
 export default async function fetchMovieDiscoverWithGenre(
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<void> {
-  const { id } = req.query;
-
   try {
-    const { data: result } = await tmdbApi.get(movieDiscover, {
+    const { search } = req.query;
+
+    const { data: result } = await tmdbApi.get(searchMovie, {
       params: {
         api_key: apiKey,
         language: ptBR,
-        with_genres: id,
+        query: search,
         include_adult: false,
       },
     });
@@ -21,7 +21,6 @@ export default async function fetchMovieDiscoverWithGenre(
       ({
         id,
         title,
-        overview: description,
         genre_ids: genreIDs,
         vote_average: rating,
         poster_path: poster,
@@ -29,7 +28,6 @@ export default async function fetchMovieDiscoverWithGenre(
         const dataMounted = {
           id,
           title,
-          description,
           genreIDs,
           rating,
         };

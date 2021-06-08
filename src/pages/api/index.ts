@@ -7,15 +7,15 @@ import {
   FetchSearchMovieProps,
 } from '@utils/types/api';
 
-const { tmdbApi, smEnv } = {
+const { tmdbApi, hostEnv } = {
   tmdbApi: axios.create({
     baseURL: 'https://api.themoviedb.org/3',
   }),
-  smEnv: axios.create({
+  hostEnv: axios.create({
     baseURL:
       process.env.NODE_ENV !== 'production'
-        ? 'http://localhost:3000/api'
-        : 'https://suno-movies.vercel.app/api',
+        ? 'http://localhost:3000/api' // development
+        : 'https://suno-movies.vercel.app/api', // production
   }),
 };
 
@@ -33,44 +33,9 @@ export const fetchMovieDiscover = async (): Promise<
   FetchMovieDiscoverProps[]
 > => {
   try {
-    const { data: result } = await tmdbApi.get(movieDiscover, {
-      params: {
-        page: 1,
-        api_key: apiKey,
-        language: ptBR,
-        include_adult: false,
-      },
-    });
+    const { data: movie } = await hostEnv.get('movie-discover');
 
-    return result['results'].map(
-      ({
-        id,
-        title,
-        overview: description,
-        genre_ids: genreIDs,
-        vote_average: rating,
-        poster_path: poster,
-      }) => {
-        const dataMounted = {
-          id,
-          title,
-          description,
-          genreIDs,
-          rating,
-        };
-
-        if (poster == null || poster == undefined || poster == '')
-          return {
-            ...dataMounted,
-            poster: '/assets/poster-placeholder.png',
-          };
-        else
-          return {
-            ...dataMounted,
-            poster: `https://image.tmdb.org/t/p/original${poster}`,
-          };
-      },
-    );
+    return movie;
   } catch (err) {
     console.error(err);
   }
@@ -80,7 +45,7 @@ export const fetchMovieDiscoverWithGenre = async (
   genre_id: number,
 ): Promise<FetchMovieDiscoverWithGenreProps[]> => {
   try {
-    const { data: filteredGenre } = await smEnv.get(
+    const { data: filteredGenre } = await hostEnv.get(
       `movie-discover-with-genre/${genre_id}`,
     );
 
@@ -92,17 +57,9 @@ export const fetchMovieDiscoverWithGenre = async (
 
 export const fetchGenres = async (): Promise<FetchGenreProps[]> => {
   try {
-    const { data: result } = await tmdbApi.get(genres, {
-      params: {
-        api_key: apiKey,
-        language: ptBR,
-      },
-    });
+    const { data: genres } = await hostEnv.get('genres');
 
-    return result['genres'].map(({ id, name: genreName }) => ({
-      id,
-      genreName,
-    }));
+    return genres;
   } catch (err) {
     console.error(err);
   }
@@ -112,42 +69,9 @@ export const fetchSearchMovie = async (
   search: string,
 ): Promise<FetchSearchMovieProps[]> => {
   try {
-    const { data: result } = await tmdbApi.get(searchMovie, {
-      params: {
-        api_key: apiKey,
-        language: ptBR,
-        query: search,
-        include_adult: false,
-      },
-    });
+    const { data: foundMovie } = await hostEnv.get(`search-movie/${search}`);
 
-    return result['results'].map(
-      ({
-        id,
-        title,
-        genre_ids: genreIDs,
-        vote_average: rating,
-        poster_path: poster,
-      }) => {
-        const dataMounted = {
-          id,
-          title,
-          genreIDs,
-          rating,
-        };
-
-        if (poster == null || poster == undefined || poster == '')
-          return {
-            ...dataMounted,
-            poster: '/assets/poster-placeholder.png',
-          };
-        else
-          return {
-            ...dataMounted,
-            poster: `https://image.tmdb.org/t/p/original${poster}`,
-          };
-      },
-    );
+    return foundMovie;
   } catch (err) {
     console.error(err);
   }
@@ -156,7 +80,7 @@ export const fetchSearchMovie = async (
 export {
   // baseURL
   tmdbApi,
-  smEnv,
+  hostEnv,
   // route
   movieDiscover,
   searchMovie,
