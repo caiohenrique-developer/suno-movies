@@ -26,6 +26,7 @@ export default function Catalogue() {
   const [toggleGenre, setToggleGenre] = useState(false);
   const [layoutType, setLayoutType] = useState('grid');
   const [genre, setGenre] = useState('Populares');
+  const [movieVisible, setMovieVisible] = useState(6);
 
   const handleFilterLayoutButton = () => {
     const optionsList = document
@@ -76,6 +77,10 @@ export default function Catalogue() {
         }
       });
     }
+  };
+
+  const loadMore = () => {
+    setMovieVisible(movieVisible + 6);
   };
 
   return (
@@ -137,17 +142,17 @@ export default function Catalogue() {
                 </div>
               </MediaQuery>
             </div>
-
             <div className={layoutType}>
-              {movieWithGenreApi.map(
-                ({ id, genreIDs, title, poster, description, rating }) => {
+              {movieWithGenreApi
+                .slice(0, movieVisible)
+                .map(({ id, genreIDs, title, poster, description, rating }) => {
                   return (
                     <CardMovie
                       key={id}
                       className={`animate__animated ${
                         layoutType === 'grid'
-                          ? `animate__backInDown`
-                          : `animate__fadeInDownBig`
+                          ? 'animate__backInDown'
+                          : 'animate__fadeInDownBig'
                       }`}
                       poster={poster}
                       title={title}
@@ -155,13 +160,14 @@ export default function Catalogue() {
                       rating={rating}
                     />
                   );
-                },
-              )}
+                })}
             </div>
 
-            <Button className='btn-pink hvr-shrink'>
-              <a href='selected-movie'>Carregar mais</a>
-            </Button>
+            {movieVisible < movieWithGenreApi.length && (
+              <Button onClick={loadMore} className='btn-pink hvr-shrink'>
+                Carregar mais
+              </Button>
+            )}
           </div>
         </section>
       </Container>
