@@ -83,7 +83,7 @@ export const OptionsList = styled.ul`
 
   overflow: hidden;
   overflow-y: scroll;
-  transition: calc(var(--animate-duration) * 0.75);
+  transition: 0.4s;
 
   &::-webkit-scrollbar {
     width: 4px;
