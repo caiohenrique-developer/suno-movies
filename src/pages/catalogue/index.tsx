@@ -37,6 +37,7 @@ export default function Catalogue() {
 
     setToggleLayout(!toggleLayout);
     setToggleGenre(false);
+    setMovieVisible(6);
   };
 
   const handleFilterGenreButton = () => {
