@@ -14,7 +14,7 @@ import MagnifyingGlass from '@assets/search-outline.svg';
 
 import { Container } from './style';
 
-import { FetchSearchMovieProps } from '@utils/types/api';
+import { FetchMovieProps } from '@utils/types/api';
 import { HeaderProps } from '@utils/types/components';
 
 export const Header = () => {
@@ -22,9 +22,7 @@ export const Header = () => {
 
   const [toggleHeaderSearchBar, setToggleHeaderSearchBar] = useState(false);
   const [toggleMenuMob, setToggleMenuMob] = useState(false);
-  const [searchMovieApi, setSearchMovieApi] = useState<FetchSearchMovieProps[]>(
-    [],
-  );
+  const [searchMovieApi, setSearchMovieApi] = useState<FetchMovieProps[]>([]);
   const [inputSearchMovie, setInputSearchMovie] = useState('');
 
   useEffect(() => {
