@@ -18,7 +18,9 @@ export default async function fetchMovieDiscoverWithGenre(
       genreName,
     }));
 
-    return res.status(200).json(resultMounted);
+    const newValue = [{ id: 8, genreName: 'Populares' }, ...resultMounted];
+
+    return res.status(200).json(newValue);
   } catch (err) {
     console.error(err);
   }

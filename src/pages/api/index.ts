@@ -1,11 +1,6 @@
 import axios from 'axios';
 
-import {
-  FetchGenreProps,
-  FetchMovieDiscoverProps,
-  FetchMovieDiscoverWithGenreProps,
-  FetchSearchMovieProps,
-} from '@utils/types/api';
+import { FetchGenreProps, FetchMovieProps } from '@utils/types/api';
 
 const { tmdbApi, hostEnv } = {
   tmdbApi: axios.create({
@@ -29,9 +24,7 @@ const genres = 'genre/movie/list';
 const ptBR = 'pt-BR';
 const apiKey = process.env.API_KEY;
 
-export const fetchMovieDiscover = async (): Promise<
-  FetchMovieDiscoverProps[]
-> => {
+const fetchMovieDiscover = async (): Promise<FetchMovieProps[]> => {
   try {
     const { data: movie } = await hostEnv.get('movie-discover');
 
@@ -41,9 +34,19 @@ export const fetchMovieDiscover = async (): Promise<
   }
 };
 
-export const fetchMovieDiscoverWithGenre = async (
+const fetchMovieTopRated = async (): Promise<FetchMovieProps[]> => {
+  try {
+    const { data: movieTopRated } = await hostEnv.get('movie-top-rated');
+
+    return movieTopRated;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+const fetchMovieDiscoverWithGenre = async (
   genre_id: number,
-): Promise<FetchMovieDiscoverWithGenreProps[]> => {
+): Promise<FetchMovieProps[]> => {
   try {
     const { data: filteredGenre } = await hostEnv.get(
       `movie-discover-with-genre/${genre_id}`,
@@ -55,7 +58,7 @@ export const fetchMovieDiscoverWithGenre = async (
   }
 };
 
-export const fetchGenres = async (): Promise<FetchGenreProps[]> => {
+const fetchGenres = async (): Promise<FetchGenreProps[]> => {
   try {
     const { data: genres } = await hostEnv.get('genres');
 
@@ -65,11 +68,9 @@ export const fetchGenres = async (): Promise<FetchGenreProps[]> => {
   }
 };
 
-export const fetchSearchMovie = async (
-  search: string,
-): Promise<FetchSearchMovieProps[]> => {
+const fetchSearchMovie = async (search: string): Promise<FetchMovieProps[]> => {
   try {
-    const { data: foundMovie } = await hostEnv.get(`search-movie/${search}`);
+    const { data: foundMovie } = await hostEnv.get(`movie-search/${search}`);
 
     return foundMovie;
   } catch (err) {
@@ -89,4 +90,10 @@ export {
   // route params
   apiKey,
   ptBR,
+  // entry point requests
+  fetchMovieDiscover,
+  fetchMovieTopRated,
+  fetchMovieDiscoverWithGenre,
+  fetchGenres,
+  fetchSearchMovie,
 };

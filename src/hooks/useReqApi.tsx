@@ -2,26 +2,23 @@ import {
   fetchGenres,
   fetchMovieDiscover,
   fetchMovieDiscoverWithGenre,
+  fetchMovieTopRated,
 } from '@pages/api';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-const ReqApiContext = createContext({} as contextValue);
+const ReqApiContext = createContext({} as ReqApiValCtx);
 
-import {
-  FetchMovieDiscoverProps,
-  FetchGenreProps,
-  FetchMovieDiscoverWithGenreProps,
-} from '@utils/types/api';
+import { FetchMovieProps, FetchGenreProps } from '@utils/types/api';
 import { ChildrenGlobalType } from '@utils/types/GlobalTypes';
-import { contextValue } from '@utils/types/hooks';
+import { ReqApiValCtx } from '@utils/types/hooks';
 
 export const ReqApiProvider = ({ children }: ChildrenGlobalType) => {
-  const [movieDiscoverApi, setMovieDiscoverApi] = useState<
-    FetchMovieDiscoverProps[]
-  >([]);
+  const [movieDiscoverApi, setMovieDiscoverApi] = useState<FetchMovieProps[]>(
+    [],
+  );
   const [movieDiscoverWithGenreApi, setMovieDiscoverWithGenreApi] = useState<
-    FetchMovieDiscoverWithGenreProps[]
+    FetchMovieProps[]
   >([]);
   const [genreApi, setGenreApi] = useState<FetchGenreProps[]>([]);
 
@@ -33,6 +30,9 @@ export const ReqApiProvider = ({ children }: ChildrenGlobalType) => {
     setMovieDiscoverWithGenreApi(
       await fetchMovieDiscoverWithGenre(genre_id ? genre_id : 28),
     );
+    // setMovieDiscoverWithGenreApi(
+    //   await fetchMovieTopRated(genre_id ? genre_id : 28),
+    // );
 
     setMovieDiscoverApi(await fetchMovieDiscover());
     setGenreApi(await fetchGenres());

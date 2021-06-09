@@ -1,4 +1,4 @@
-import { FetchMovieDiscoverProps } from '@utils/types/api';
+import { FetchMovieProps } from '@utils/types/api';
 
 // Header
 export interface HeaderProps {
@@ -28,7 +28,7 @@ export interface CatalogueTitleProps {
 }
 
 // CardMovie
-type MovieDiscoverExtends = Omit<FetchMovieDiscoverProps, 'id' | 'genreIDs'>;
+type MovieDiscoverExtends = Omit<FetchMovieProps, 'id' | 'genreIDs'>;
 export interface CardMovieProps extends MovieDiscoverExtends {
   className?: string;
 }

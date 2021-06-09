@@ -1,9 +1,9 @@
 import React, { createContext, useContext, useState } from 'react';
 
 import { ChildrenGlobalType } from '@utils/types/GlobalTypes';
-import { PageIDContextProps } from '@utils/types/hooks';
+import { PageIDCtxProps } from '@utils/types/hooks';
 
-const PageIDContext = createContext({} as PageIDContextProps);
+const PageIDContext = createContext({} as PageIDCtxProps);
 
 export const PageIDProvider = ({ children }: ChildrenGlobalType) => {
   const [pageID, setPageID] = useState('');
@@ -19,6 +19,6 @@ export const PageIDProvider = ({ children }: ChildrenGlobalType) => {
   );
 };
 
-export const usePageIndicator = (): PageIDContextProps => {
+export const usePageIndicator = (): PageIDCtxProps => {
   return useContext(PageIDContext);
 };
