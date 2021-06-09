@@ -34,9 +34,13 @@ const fetchMovieDiscover = async (): Promise<FetchMovieProps[]> => {
   }
 };
 
-const fetchMovieTopRated = async (): Promise<FetchMovieProps[]> => {
+const fetchMovieTopRated = async (
+  genre_id: number,
+): Promise<FetchMovieProps[]> => {
   try {
-    const { data: movieTopRated } = await hostEnv.get('movie-top-rated');
+    const { data: movieTopRated } = await hostEnv.get(
+      `movie-top-rated/${genre_id}`,
+    );
 
     return movieTopRated;
   } catch (err) {

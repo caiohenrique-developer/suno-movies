@@ -17,22 +17,21 @@ export const ReqApiProvider = ({ children }: ChildrenGlobalType) => {
   const [movieDiscoverApi, setMovieDiscoverApi] = useState<FetchMovieProps[]>(
     [],
   );
-  const [movieDiscoverWithGenreApi, setMovieDiscoverWithGenreApi] = useState<
-    FetchMovieProps[]
-  >([]);
+  const [movieWithGenreApi, setMovieWithGenreApi] = useState<FetchMovieProps[]>(
+    [],
+  );
   const [genreApi, setGenreApi] = useState<FetchGenreProps[]>([]);
 
   useEffect(() => {
-    reqApi();
+    reqApi(8);
   }, []);
 
   const reqApi = async (genre_id?: number) => {
-    setMovieDiscoverWithGenreApi(
-      await fetchMovieDiscoverWithGenre(genre_id ? genre_id : 28),
-    );
-    // setMovieDiscoverWithGenreApi(
-    //   await fetchMovieTopRated(genre_id ? genre_id : 28),
-    // );
+    if (genre_id !== 8) {
+      setMovieWithGenreApi(await fetchMovieDiscoverWithGenre(genre_id));
+    } else {
+      setMovieWithGenreApi(await fetchMovieTopRated(genre_id));
+    }
 
     setMovieDiscoverApi(await fetchMovieDiscover());
     setGenreApi(await fetchGenres());
@@ -40,7 +39,7 @@ export const ReqApiProvider = ({ children }: ChildrenGlobalType) => {
 
   const valCtx = {
     movieDiscoverApi,
-    movieDiscoverWithGenreApi,
+    movieWithGenreApi,
     genreApi,
     reqApi,
   };

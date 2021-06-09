@@ -18,14 +18,14 @@ import { Container } from '@styles/pages/Catalogue';
 
 export default function Catalogue() {
   const { addPageID, pageID } = usePageIndicator();
-  const { movieDiscoverWithGenreApi, reqApi } = useReqApi();
+  const { movieWithGenreApi, reqApi } = useReqApi();
 
   addPageID('catalogue');
 
   const [toggleLayout, setToggleLayout] = useState(false);
   const [toggleGenre, setToggleGenre] = useState(false);
   const [layoutType, setLayoutType] = useState('grid');
-  const [genre, setGenre] = useState('Ação');
+  const [genre, setGenre] = useState('Populares');
 
   const handleFilterLayoutButton = () => {
     const optionsList = document
@@ -139,7 +139,7 @@ export default function Catalogue() {
             </div>
 
             <div className={layoutType}>
-              {movieDiscoverWithGenreApi.map(
+              {movieWithGenreApi.map(
                 ({ id, genreIDs, title, poster, description, rating }) => {
                   return (
                     <CardMovie

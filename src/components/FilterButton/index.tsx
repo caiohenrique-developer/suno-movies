@@ -52,7 +52,7 @@ export const FilterButton = ({
           genreValues.map(({ inputID, labelHtmlFor, labelContent }) => (
             <li
               key={inputID}
-              className={`option-item ${inputID === 28 ? 'selected' : ''}`}
+              className={`option-item ${inputID === 8 ? 'selected' : ''}`}
             >
               <input
                 type='radio'
