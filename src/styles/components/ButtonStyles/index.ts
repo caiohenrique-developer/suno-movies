@@ -76,10 +76,9 @@ export const Button = styled.button`
 export const OptionsList = styled.ul`
   max-height: 400px;
 
-  padding: min(0.625rem, 1vw);
-  padding-right: min(0.375rem, 0.6vw);
   margin-top: 0.313rem;
   background: var(--black_181);
+  border: min(0.625rem, 1vw) solid var(--black_000);
 
   overflow: hidden;
   overflow-y: scroll;
