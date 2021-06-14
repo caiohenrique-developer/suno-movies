@@ -3,6 +3,7 @@ import {
   fetchMovieDiscover,
   fetchMovieDiscoverWithGenre,
   fetchMovieTopRated,
+  fetchMovieDetail,
 } from '@pages/api';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
@@ -32,6 +33,12 @@ export const ReqApiProvider = ({ children }: ChildrenGlobalType) => {
     } else {
       setMovieWithGenreApi(await fetchMovieTopRated(genre_id));
     }
+
+    const movieDetailed = await fetchMovieDetail(337404);
+
+    console.log('Mostra');
+
+    console.log(movieDetailed);
 
     setMovieDiscoverApi(await fetchMovieDiscover());
     setGenreApi(await fetchGenres());

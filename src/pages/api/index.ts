@@ -15,7 +15,9 @@ const { tmdbApi, hostEnv } = {
 };
 
 // route
+const movie = 'movie';
 const movieDiscover = 'discover/movie';
+const movieVideos = 'movie/:id/videos';
 const searchMovie = 'search/movie';
 const topRated = 'movie/top_rated';
 const genres = 'genre/movie/list';
@@ -82,12 +84,26 @@ const fetchSearchMovie = async (search: string): Promise<FetchMovieProps[]> => {
   }
 };
 
+const fetchMovieDetail = async (movie_id: number): Promise<FetchMovieProps> => {
+  try {
+    const { data: movieDetailed } = await hostEnv.get(
+      `movie-detail/${movie_id}`,
+    );
+
+    return movieDetailed;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 export {
   // baseURL
   tmdbApi,
   hostEnv,
   // route
+  movie,
   movieDiscover,
+  movieVideos,
   searchMovie,
   topRated,
   genres,
@@ -100,4 +116,5 @@ export {
   fetchMovieDiscoverWithGenre,
   fetchGenres,
   fetchSearchMovie,
+  fetchMovieDetail,
 };
