@@ -96,7 +96,11 @@ export default function Catalogue() {
         <section>
           <div>
             <CatalogueTitle
-              title={[<strong>Lançamentos</strong>, ' da semana']}
+              title={
+                <>
+                  <strong>Lançamentos</strong> da semana
+                </>
+              }
             />
 
             <div>
@@ -105,7 +109,13 @@ export default function Catalogue() {
           </div>
 
           <div id='catalogue-list'>
-            <CatalogueTitle title={[<strong>Catálogo</strong>, ' completo']} />
+            <CatalogueTitle
+              title={
+                <>
+                  <strong>Catálogo</strong> completo
+                </>
+              }
+            />
           </div>
         </section>
 

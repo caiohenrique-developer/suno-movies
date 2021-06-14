@@ -24,7 +24,7 @@ export interface FilterButtonProps {
 
 // CatalogueTitle
 export interface CatalogueTitleProps {
-  title: (string | any)[];
+  title: any;
 }
 
 // CardMovie
