@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import MediaQuery from 'react-responsive';
 
@@ -20,7 +20,9 @@ export default function Catalogue() {
   const { addPageID, pageID } = usePageIndicator();
   const { movieWithGenreApi, reqApi } = useReqApi();
 
-  addPageID('catalogue');
+  useEffect(() => {
+    addPageID('catalogue');
+  }, []);
 
   const [toggleLayout, setToggleLayout] = useState(false);
   const [toggleGenre, setToggleGenre] = useState(false);

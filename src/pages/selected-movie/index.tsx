@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 
@@ -12,7 +12,9 @@ import { Container } from '@styles/pages/SelectedMovie';
 export default function SelectedMovie() {
   const { addPageID, pageID } = usePageIndicator();
 
-  addPageID('selected-movie');
+  useEffect(() => {
+    addPageID('selected-movie');
+  }, []);
 
   return (
     <>

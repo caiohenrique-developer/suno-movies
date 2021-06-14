@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 
@@ -13,7 +13,9 @@ import { Container } from '@styles/pages/Home';
 export default function Home() {
   const { pageID, addPageID } = usePageIndicator();
 
-  addPageID('home');
+  useEffect(() => {
+    addPageID('home');
+  }, []);
 
   return (
     <>
