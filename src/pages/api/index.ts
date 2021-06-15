@@ -86,11 +86,9 @@ const fetchSearchMovie = async (search: string): Promise<FetchMovieProps[]> => {
 
 const fetchMovieDetail = async (movie_id: number): Promise<FetchMovieProps> => {
   try {
-    const { data: movieDetailed } = await hostEnv.get(
-      `movie-detail/${movie_id}`,
-    );
+    const { data: movieDetail } = await hostEnv.get(`movie-detail/${movie_id}`);
 
-    return movieDetailed;
+    return movieDetail;
   } catch (err) {
     console.error(err);
   }

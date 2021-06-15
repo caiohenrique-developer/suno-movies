@@ -10,6 +10,7 @@ export interface PageIDCtxProps {
 export interface ReqApiValCtx {
   movieDiscoverApi: FetchMovieProps[];
   movieWithGenreApi: FetchMovieProps[];
+  movieDetailApi: FetchMovieProps;
   genreApi: FetchGenreProps[];
   reqApi(genre_id?: number): void;
 }

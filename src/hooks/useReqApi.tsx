@@ -22,6 +22,9 @@ export const ReqApiProvider = ({ children }: ChildrenGlobalType) => {
     [],
   );
   const [genreApi, setGenreApi] = useState<FetchGenreProps[]>([]);
+  const [movieDetailApi, setMovieDetailApi] = useState<FetchMovieProps>(
+    {} as FetchMovieProps,
+  );
 
   useEffect(() => {
     reqApi(8);
@@ -29,17 +32,14 @@ export const ReqApiProvider = ({ children }: ChildrenGlobalType) => {
 
   const reqApi = async (genre_id?: number) => {
     if (genre_id !== 8) {
+      // Filtered by all other genres
       setMovieWithGenreApi(await fetchMovieDiscoverWithGenre(genre_id));
     } else {
+      // Filtered by "Populares" genre
       setMovieWithGenreApi(await fetchMovieTopRated(genre_id));
     }
 
-    const movieDetailed = await fetchMovieDetail(337404);
-
-    console.log('Mostra');
-
-    console.log(movieDetailed);
-
+    setMovieDetailApi(await fetchMovieDetail(337404));
     setMovieDiscoverApi(await fetchMovieDiscover());
     setGenreApi(await fetchGenres());
   };
@@ -47,6 +47,7 @@ export const ReqApiProvider = ({ children }: ChildrenGlobalType) => {
   const valCtx = {
     movieDiscoverApi,
     movieWithGenreApi,
+    movieDetailApi,
     genreApi,
     reqApi,
   };

@@ -5,14 +5,14 @@ export default async function fetchMovieDiscoverWithGenre(
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<void> {
-  const { id } = req.query;
+  const { genre_id } = req.query;
 
   try {
     const { data: result } = await tmdbApi.get(movieDiscover, {
       params: {
         api_key: apiKey,
         language: ptBR,
-        with_genres: id,
+        with_genres: genre_id,
         include_adult: false,
       },
     });

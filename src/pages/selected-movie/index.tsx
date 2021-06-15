@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 
+import { useReqApi } from '@hooks/useReqApi';
 import { CTAButton } from '@components/CTAButton';
 import { usePageIndicator } from '@hooks/usePageIndicator';
 
@@ -10,6 +11,10 @@ import { TiStarFullOutline } from 'react-icons/ti';
 import { Container } from '@styles/pages/SelectedMovie';
 
 export default function SelectedMovie() {
+  const {
+    movieDetailApi: { id, title, description, poster, posterBkg, rating },
+    reqApi,
+  } = useReqApi();
   const { addPageID, pageID } = usePageIndicator();
 
   useEffect(() => {
@@ -19,7 +24,7 @@ export default function SelectedMovie() {
   return (
     <>
       <Head>
-        <title>Assistir ao vídeo | Suno Movies</title>
+        <title>{title} | Suno Movies</title>
       </Head>
 
       <Container id={pageID}>
@@ -27,33 +32,26 @@ export default function SelectedMovie() {
           <div>
             <div>
               <Image
-                src='/assets/desk/movie-selected/selected-movie-thumbnail.png'
+                src={poster || '/assets/poster-placeholder.png'}
                 width={334}
                 height={494}
                 objectFit='cover'
               />
 
               <div>
-                <h1>Solteira Quase Surtando</h1>
+                <h1>{title}</h1>
 
                 <div>
                   Comédia
                   <span>
-                    <TiStarFullOutline /> 8.4
+                    <TiStarFullOutline /> {rating}
                   </span>
                 </div>
 
                 <div>
                   <span>Sinopse</span>
 
-                  <p>
-                    It is a long established fact that a reader will be
-                    distracted by the readable content of a page when looking at
-                    its layout. The point of using Lorem Ipsum is that it has a
-                    more-or-less normal distribution of letters, as opposed to
-                    using 'Content here, content here', making it look like
-                    readable English.
-                  </p>
+                  <p>{description}</p>
                 </div>
               </div>
             </div>

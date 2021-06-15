@@ -5,10 +5,10 @@ export default async function fetchMovieDiscoverWithGenre(
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<void> {
-  const { id } = req.query;
+  const { top_rated } = req.query;
 
   try {
-    if (id === '8') {
+    if (top_rated === '8') {
       const { data: result } = await tmdbApi.get(topRated, {
         params: {
           page: 1,
