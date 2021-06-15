@@ -1,6 +1,10 @@
 import axios from 'axios';
 
-import { FetchGenreProps, FetchMovieProps } from '@utils/types/api';
+import {
+  FetchGenreProps,
+  FetchMovieProps,
+  FetchMovieDetailProps,
+} from '@utils/types/api';
 
 const { tmdbApi, hostEnv } = {
   tmdbApi: axios.create({
@@ -84,7 +88,9 @@ const fetchSearchMovie = async (search: string): Promise<FetchMovieProps[]> => {
   }
 };
 
-const fetchMovieDetail = async (movie_id: number): Promise<FetchMovieProps> => {
+const fetchMovieDetail = async (
+  movie_id: number,
+): Promise<FetchMovieDetailProps> => {
   try {
     const { data: movieDetail } = await hostEnv.get(`movie-detail/${movie_id}`);
 

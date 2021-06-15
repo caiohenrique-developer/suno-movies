@@ -1,4 +1,8 @@
-import { FetchMovieProps, FetchGenreProps } from '@utils/types/api';
+import {
+  FetchMovieProps,
+  FetchGenreProps,
+  // FetchMovieDetailProps,
+} from '@utils/types/api';
 
 // usePageIndicator
 export interface PageIDCtxProps {
@@ -10,7 +14,7 @@ export interface PageIDCtxProps {
 export interface ReqApiValCtx {
   movieDiscoverApi: FetchMovieProps[];
   movieWithGenreApi: FetchMovieProps[];
-  movieDetailApi: FetchMovieProps;
+  movieDetailApi: FetchMovieDetailProps;
   genreApi: FetchGenreProps[];
   reqApi(genre_id?: number): void;
 }

@@ -12,8 +12,15 @@ import { Container } from '@styles/pages/SelectedMovie';
 
 export default function SelectedMovie() {
   const {
-    movieDetailApi: { id, title, description, poster, posterBkg, rating },
-    reqApi,
+    movieDetailApi: {
+      id,
+      title,
+      description,
+      genres,
+      poster,
+      posterBkg,
+      rating,
+    },
   } = useReqApi();
   const { addPageID, pageID } = usePageIndicator();
 
@@ -41,8 +48,8 @@ export default function SelectedMovie() {
               <div>
                 <h1>{title}</h1>
 
-                <div>
-                  Comédia
+                <div id='genres'>
+                  {genres?.map(({ name }) => `${name}, `)}
                   <span>
                     <TiStarFullOutline /> {rating}
                   </span>

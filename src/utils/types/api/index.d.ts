@@ -3,10 +3,15 @@ export interface FetchMovieProps {
   id: number;
   title: string;
   poster: string;
-  posterBkg?: string;
   description?: string;
   genreIDs: [key: number];
   rating: number;
+}
+
+// fetchMovieDetail
+export interface FetchMovieDetailProps extends FetchMovieProps {
+  posterBkg: string;
+  genres: [{ name: string }];
 }
 
 // fetchGenres
