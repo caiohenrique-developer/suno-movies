@@ -27,43 +27,46 @@ export const Container = styled.div`
           content: none;
         }
 
-        > a > div {
-          max-height: 11.5rem;
+        > a {
           width: 100%;
           max-width: 8.125rem !important;
+          max-height: 11.5rem;
 
-          transition: 0.5s;
-
-          &:after {
-            content: '';
-
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 1;
-
-            background: ${opacify('0.1', 'rgba(254, 49, 137, 0.4)')};
-            ${backgroundImages('url("/assets/play-circle-outline.svg")')}
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: min(12rem, 14.2vw);
-
-            opacity: 0;
-            transition: opacity 0.5s ease-out;
-            -o-transition: opacity 0.5s ease;
-            -ms-transition: opacity 0.5s ease;
-            -moz-transition: opacity 0.5s ease;
-            -webkit-transition: opacity 0.5s ease;
-          }
-
-          &:hover {
-            -webkit-box-shadow: 0px 0px 25px -5px var(--pink_FE3);
-            box-shadow: 0px 0px 18px -5px var(--pink_FE3);
+          > div {
+            max-height: 11.5rem;
+            transition: 0.5s;
 
             &:after {
-              opacity: 1;
+              content: '';
+
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              z-index: 1;
+
+              background: ${opacify('0.1', 'rgba(254, 49, 137, 0.4)')};
+              ${backgroundImages('url("/assets/play-circle-outline.svg")')}
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: min(12rem, 14.2vw);
+
+              opacity: 0;
+              transition: opacity 0.5s ease-out;
+              -o-transition: opacity 0.5s ease;
+              -ms-transition: opacity 0.5s ease;
+              -moz-transition: opacity 0.5s ease;
+              -webkit-transition: opacity 0.5s ease;
+            }
+
+            &:hover {
+              -webkit-box-shadow: 0px 0px 25px -5px var(--pink_FE3);
+              box-shadow: 0px 0px 18px -5px var(--pink_FE3);
+
+              &:after {
+                opacity: 1;
+              }
             }
           }
         }
