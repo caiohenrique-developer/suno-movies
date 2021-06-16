@@ -240,6 +240,7 @@ export const Header = () => {
                 return (
                   <CardMovie
                     key={id}
+                    movieID={id}
                     poster={poster}
                     title={title}
                     rating={rating}

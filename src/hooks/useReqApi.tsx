@@ -27,10 +27,10 @@ export const ReqApiProvider = ({ children }: ChildrenGlobalType) => {
   );
 
   useEffect(() => {
-    reqApi(8);
+    reqApi(8, undefined);
   }, []);
 
-  const reqApi = async (genre_id?: number) => {
+  const reqApi = async (genre_id?: number, movie_id?: number) => {
     if (genre_id !== 8) {
       // Filtered by all other genres
       setMovieWithGenreApi(await fetchMovieDiscoverWithGenre(genre_id));
@@ -39,7 +39,10 @@ export const ReqApiProvider = ({ children }: ChildrenGlobalType) => {
       setMovieWithGenreApi(await fetchMovieTopRated(genre_id));
     }
 
-    setMovieDetailApi(await fetchMovieDetail(337404));
+    if (movie_id) {
+      setMovieDetailApi(await fetchMovieDetail(movie_id));
+    }
+
     setMovieDiscoverApi(await fetchMovieDiscover());
     setGenreApi(await fetchGenres());
   };

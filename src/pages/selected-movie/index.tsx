@@ -46,19 +46,22 @@ export default function SelectedMovie() {
               />
 
               <div>
-                <h1>{title}</h1>
+                <h1>{title || 'Undefined'}</h1>
 
                 <div id='genres'>
-                  {genres?.map(({ name }) => `${name}, `)}
+                  {genres?.map(({ name }) => `${name}, `) || 'Undefined'}
                   <span>
-                    <TiStarFullOutline /> {rating}
+                    <TiStarFullOutline /> {rating || 0.0}
                   </span>
                 </div>
 
                 <div>
                   <span>Sinopse</span>
 
-                  <p>{description}</p>
+                  <p>
+                    {description ||
+                      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, possimus. Aspernatur, minus commodi recusandae laudantium consequuntur deleniti totam voluptatum eius sint consequatur placeat blanditiis debitis perferendis consectetur quaerat est id?'}
+                  </p>
                 </div>
               </div>
             </div>

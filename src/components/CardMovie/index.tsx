@@ -4,6 +4,8 @@ import Link from 'next/link';
 
 import MediaQuery from 'react-responsive';
 
+import { useReqApi } from '@hooks/useReqApi';
+
 import { TiStarFullOutline } from 'react-icons/ti';
 
 import { Container } from './style';
@@ -11,12 +13,15 @@ import { Container } from './style';
 import { CardMovieProps } from '@utils/types/components';
 
 export const CardMovie = ({
+  movieID,
   className,
   poster,
   title,
   description,
   rating,
 }: CardMovieProps) => {
+  const { reqApi } = useReqApi();
+
   return (
     <Container className={className}>
       {/* Mob */}
@@ -25,7 +30,7 @@ export const CardMovie = ({
           <div>
             {poster !== '' && (
               <Link href='/selected-movie'>
-                <a>
+                <a onClick={() => reqApi(8, movieID)}>
                   <Image
                     src={poster || '/assets/poster-placeholder.png'}
                     alt={title}
@@ -55,7 +60,7 @@ export const CardMovie = ({
         <section>
           {poster !== '' && (
             <Link href='/selected-movie'>
-              <a>
+              <a onClick={() => reqApi(8, movieID)}>
                 <Image
                   src={poster || '/assets/poster-placeholder.png'}
                   alt={title}

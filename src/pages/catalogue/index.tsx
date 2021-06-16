@@ -162,6 +162,7 @@ export default function Catalogue() {
                   return (
                     <CardMovie
                       key={id}
+                      movieID={id}
                       className={`animate__animated ${
                         layoutType === 'grid'
                           ? 'animate__backInDown'
