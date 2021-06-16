@@ -39,38 +39,34 @@ export const Container = styled.div`
       > div > section {
         display: block;
 
+        > a > div:after {
+          background-size: 5rem;
+        }
+
         > div {
-          &:first-of-type {
-            &:after {
-              background-size: 5rem;
-            }
+          margin-top: min(1rem, 1.5vw);
+          margin-left: 0;
+
+          h4,
+          h3 {
+            word-break: break-word;
           }
 
-          &:last-of-type {
-            margin-top: min(1rem, 1.5vw);
-            margin-left: 0;
+          h4 {
+            font-size: min(1.4rem, 2vw);
+          }
 
-            h4,
-            h3 {
-              word-break: break-word;
-            }
+          h3 {
+            font-size: min(1rem, 1.5vw);
+          }
 
-            h4 {
-              font-size: min(1.4rem, 2vw);
-            }
+          span {
+            font-size: min(1rem, 1.5vw);
+            margin: 0;
 
-            h3 {
-              font-size: min(1rem, 1.5vw);
-            }
-
-            span {
-              font-size: min(1rem, 1.5vw);
-              margin: 0;
-
-              svg {
-                position: relative;
-                top: 0.125rem;
-              }
+            svg {
+              position: relative;
+              top: 0.125rem;
             }
           }
         }
