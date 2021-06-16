@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import MediaQuery from 'react-responsive';
 
@@ -49,13 +50,17 @@ export const CardMovie = ({
       <MediaQuery minDeviceWidth={768}>
         <section>
           {poster !== '' && (
-            <Image
-              src={poster || '/assets/poster-placeholder.png'}
-              alt={title}
-              width={218}
-              height={422}
-              objectFit='cover'
-            />
+            <Link href='/selected-movie'>
+              <a>
+                <Image
+                  src={poster || '/assets/poster-placeholder.png'}
+                  alt={title}
+                  width={218}
+                  height={422}
+                  objectFit='cover'
+                />
+              </a>
+            </Link>
           )}
           <div>
             <h4>{title}</h4>

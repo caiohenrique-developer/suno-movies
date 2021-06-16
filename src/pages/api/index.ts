@@ -114,7 +114,7 @@ export {
   // route params
   apiKey,
   ptBR,
-  // entry point requests
+  // entrypoint requests
   fetchMovieDiscover,
   fetchMovieTopRated,
   fetchMovieDiscoverWithGenre,

@@ -134,7 +134,7 @@ export const Container = styled.main`
               }
             }
 
-            > div section > div:first-of-type {
+            > div section > a > div:first-of-type {
               max-width: min(9.875rem, 12.7vw) !important;
               max-height: min(14.375rem, 18.5vw);
             }
