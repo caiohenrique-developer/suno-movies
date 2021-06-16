@@ -174,6 +174,7 @@ export const Container = styled.div<HeaderProps>`
 
             max-height: 60vh;
             margin-top: 1.875rem;
+            padding-right: min(1.25rem, 1.57vw);
             overflow-y: scroll;
 
             &::-webkit-scrollbar {
@@ -200,14 +201,14 @@ export const Container = styled.div<HeaderProps>`
                 margin-top: 0;
               }
 
-              section > div {
-                &:first-of-type {
+              section {
+                > a > div {
                   max-width: min(6.25rem, 8.3vw) !important;
                   max-height: min(9.25rem, 12vw);
                   border-radius: 5px;
                 }
 
-                &:last-of-type {
+                > div {
                   margin-left: min(1.27rem, 1.59vw);
 
                   h3 {
