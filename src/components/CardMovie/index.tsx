@@ -24,13 +24,17 @@ export const CardMovie = ({
         <section id='mob'>
           <div>
             {poster !== '' && (
-              <Image
-                src={poster || '/assets/poster-placeholder.png'}
-                alt={title}
-                width={218}
-                height={422}
-                objectFit='cover'
-              />
+              <Link href='/selected-movie'>
+                <a>
+                  <Image
+                    src={poster || '/assets/poster-placeholder.png'}
+                    alt={title}
+                    width={218}
+                    height={422}
+                    objectFit='cover'
+                  />
+                </a>
+              </Link>
             )}
             <div>
               <h4>{title}</h4>

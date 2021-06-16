@@ -27,73 +27,71 @@ export const Container = styled.div`
           content: none;
         }
 
-        > div {
-          &:first-of-type {
-            max-width: 8.125rem !important;
-            width: 100%;
-            max-height: 11.5rem;
+        > a > div {
+          max-height: 11.5rem;
+          width: 100%;
+          max-width: 8.125rem !important;
 
-            transition: 0.5s;
+          transition: 0.5s;
 
-            &:after {
-              content: '';
+          &:after {
+            content: '';
 
-              position: absolute;
-              top: 0;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              z-index: 1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
 
-              background: ${opacify('0.1', 'rgba(254, 49, 137, 0.4)')};
-              ${backgroundImages('url("/assets/play-circle-outline.svg")')}
-              background-repeat: no-repeat;
-              background-position: center;
-              background-size: min(12rem, 14.2vw);
+            background: ${opacify('0.1', 'rgba(254, 49, 137, 0.4)')};
+            ${backgroundImages('url("/assets/play-circle-outline.svg")')}
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: min(12rem, 14.2vw);
 
-              opacity: 0;
-              transition: opacity 0.5s ease-out;
-              -o-transition: opacity 0.5s ease;
-              -ms-transition: opacity 0.5s ease;
-              -moz-transition: opacity 0.5s ease;
-              -webkit-transition: opacity 0.5s ease;
-            }
-
-            &:hover {
-              -webkit-box-shadow: 0px 0px 25px -5px var(--pink_FE3);
-              box-shadow: 0px 0px 18px -5px var(--pink_FE3);
-
-              &:after {
-                opacity: 1;
-              }
-            }
+            opacity: 0;
+            transition: opacity 0.5s ease-out;
+            -o-transition: opacity 0.5s ease;
+            -ms-transition: opacity 0.5s ease;
+            -moz-transition: opacity 0.5s ease;
+            -webkit-transition: opacity 0.5s ease;
           }
 
-          &:last-of-type {
-            max-width: 62%;
-            width: 100%;
-            margin-left: 0.825rem;
+          &:hover {
+            -webkit-box-shadow: 0px 0px 25px -5px var(--pink_FE3);
+            box-shadow: 0px 0px 18px -5px var(--pink_FE3);
 
-            h4 {
-              font-size: min(1.25rem, 5vw);
+            &:after {
+              opacity: 1;
             }
+          }
+        }
 
-            h3 {
-              font-size: min(0.75rem, 3.5vw);
-              word-break: break-word;
-              margin: min(0.625rem, 3.5vw) 0;
-            }
+        > div {
+          max-width: 62%;
+          width: 100%;
+          margin-left: 0.825rem;
 
-            span {
-              font-size: min(0.75rem, 3.5vw);
+          h4 {
+            font-size: min(1.25rem, 5vw);
+          }
 
-              svg {
-                position: relative;
-                top: 2px;
+          h3 {
+            font-size: min(0.75rem, 3.5vw);
+            word-break: break-word;
+            margin: min(0.625rem, 3.5vw) 0;
+          }
 
-                font-size: 0.9rem;
-                margin-right: min(0.625rem, 3.5vw);
-              }
+          span {
+            font-size: min(0.75rem, 3.5vw);
+
+            svg {
+              position: relative;
+              top: 2px;
+
+              font-size: 0.9rem;
+              margin-right: min(0.625rem, 3.5vw);
             }
           }
         }
