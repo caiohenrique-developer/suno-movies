@@ -12,15 +12,7 @@ import { Container } from '@styles/pages/SelectedMovie';
 
 export default function SelectedMovie() {
   const {
-    movieDetailApi: {
-      id,
-      title,
-      description,
-      genres,
-      poster,
-      posterBkg,
-      rating,
-    },
+    movieDetailApi: { title, description, genres, poster, posterBkg, rating },
   } = useReqApi();
   const { addPageID, pageID } = usePageIndicator();
 
@@ -49,7 +41,7 @@ export default function SelectedMovie() {
                 <h1>{title || 'Undefined'}</h1>
 
                 <div id='genres'>
-                  {genres?.map(({ name }) => `${name}, `) || 'Undefined'}
+                  {genres?.map(({ name }) => `${name} `) || 'Undefined'}
                   <span>
                     <TiStarFullOutline /> {rating || 0.0}
                   </span>
