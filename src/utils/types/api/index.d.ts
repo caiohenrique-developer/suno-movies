@@ -14,6 +14,13 @@ export interface FetchMovieDetailProps extends FetchMovieProps {
   genres: [{ name: string }];
 }
 
+// fetchMovieVideo
+export interface FetchMovieVideoProps {
+  key: string;
+  name: string;
+  type: string;
+}
+
 // fetchGenres
 export interface FetchGenreProps {
   id: number;

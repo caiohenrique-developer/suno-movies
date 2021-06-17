@@ -4,6 +4,7 @@ import {
   FetchGenreProps,
   FetchMovieProps,
   FetchMovieDetailProps,
+  FetchMovieVideoProps,
 } from '@utils/types/api';
 
 const { tmdbApi, hostEnv } = {
@@ -99,6 +100,18 @@ const fetchMovieDetail = async (
   }
 };
 
+const fetchMovieVideo = async (
+  movie_id: number,
+): Promise<FetchMovieVideoProps> => {
+  try {
+    const { data: trailer } = await hostEnv.get(`movie-video/${movie_id}`);
+
+    return trailer;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 export {
   // baseURL
   tmdbApi,
@@ -119,4 +132,5 @@ export {
   fetchGenres,
   fetchSearchMovie,
   fetchMovieDetail,
+  fetchMovieVideo,
 };
