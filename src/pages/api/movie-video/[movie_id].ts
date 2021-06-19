@@ -15,13 +15,9 @@ export default async function fetchMovieDetail(
       },
     });
 
-    const resultMounted = result['results'].map(({ key, name, type }) => ({
-      key,
-      name,
-      type,
-    }));
+    const { key: movieID, name: trailer, type } = result['results'][0];
 
-    return res.status(200).json(resultMounted);
+    return res.status(200).json({ movieID, trailer, type });
   } catch (err) {
     console.error(err);
   }

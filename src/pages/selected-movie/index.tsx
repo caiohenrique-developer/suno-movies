@@ -12,7 +12,16 @@ import { Container } from '@styles/pages/SelectedMovie';
 
 export default function SelectedMovie() {
   const {
-    movieDetailApi: { title, description, genres, poster, posterBkg, rating },
+    movieDetailApi: {
+      title,
+      description,
+      genres,
+      poster,
+      posterBkg,
+      rating,
+      movieID,
+      trailer,
+    },
   } = useReqApi();
   const { addPageID, pageID } = usePageIndicator();
 
@@ -62,12 +71,12 @@ export default function SelectedMovie() {
 
         <section>
           <div>
-            <h4>Trailer</h4>
+            <h4>{trailer}</h4>
 
             <iframe
               width='100%'
               height='580'
-              src='https://www.youtube.com/embed/fJ9rUzIMcZQ'
+              src={`https://www.youtube.com/embed/${movieID}`}
               title='YouTube video player'
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
             ></iframe>

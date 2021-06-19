@@ -4,7 +4,6 @@ import {
   FetchGenreProps,
   FetchMovieProps,
   FetchMovieDetailProps,
-  FetchMovieVideoProps,
 } from '@utils/types/api';
 
 const { tmdbApi, hostEnv } = {
@@ -92,21 +91,16 @@ const fetchMovieDetail = async (
   movie_id: number,
 ): Promise<FetchMovieDetailProps> => {
   try {
-    const { data: movieDetail } = await hostEnv.get(`movie-detail/${movie_id}`);
+    const fetchResponse = await axios.all([
+      hostEnv.get(`movie-detail/${movie_id}`),
+      hostEnv.get(`movie-video/${movie_id}`),
+    ]);
+
+    const dataRes = fetchResponse.map(({ data: result }) => result);
+
+    var movieDetail = { ...dataRes[0], ...dataRes[1] };
 
     return movieDetail;
-  } catch (err) {
-    console.error(err);
-  }
-};
-
-const fetchMovieVideo = async (
-  movie_id: number,
-): Promise<FetchMovieVideoProps> => {
-  try {
-    const { data: trailer } = await hostEnv.get(`movie-video/${movie_id}`);
-
-    return trailer;
   } catch (err) {
     console.error(err);
   }
@@ -132,5 +126,4 @@ export {
   fetchGenres,
   fetchSearchMovie,
   fetchMovieDetail,
-  fetchMovieVideo,
 };
