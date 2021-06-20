@@ -35,8 +35,15 @@ export default function SelectedMovie() {
         <title>{title} | Suno Movies</title>
       </Head>
 
-      <Container id={pageID}>
+      <Container id={pageID} posterBkg={posterBkg}>
         <section>
+          <Image
+            src={posterBkg || '/assets/carousel-banner-background-dsk.png'}
+            width={334}
+            height={494}
+            objectFit='cover'
+          />
+
           <div>
             <div>
               <Image
@@ -71,7 +78,7 @@ export default function SelectedMovie() {
 
         <section>
           <div>
-            <h4>{trailer}</h4>
+            <h4>{trailer || 'Trailer'}</h4>
 
             <iframe
               width='100%'

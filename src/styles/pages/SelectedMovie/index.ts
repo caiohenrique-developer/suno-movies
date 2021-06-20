@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { ContainerProps } from '@utils/types/styles';
 
-export const Container = styled.main`
+export const Container = styled.main<ContainerProps>`
   margin: min(9.3vw, 106px) auto 0;
   background: var(--background);
 
@@ -16,73 +17,91 @@ export const Container = styled.main`
       position: relative;
       z-index: 1;
 
-      background: url('/assets/carousel-banner-background-dsk.png') center
-        no-repeat;
-      background-size: cover;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
 
-      > div > div {
-        display: flex;
-        justify-content: space-between;
+      > div {
+        width: 100%;
 
-        padding: min(7.5rem, 9.4vw) 0 min(10rem, 12.5vw);
+        &:first-of-type {
+          ${({ posterBkg }) =>
+            posterBkg !== undefined &&
+            css`
+              opacity: 0.1;
+              filter: brightness(0.8) blur(2px);
+            `}
+        }
+
+        &:last-of-type {
+          position: absolute;
+          top: 0;
+        }
 
         > div {
-          &:first-of-type {
-            min-width: max(15.625rem, 14.5vw);
-            max-width: 334px !important;
-            width: 100%;
-          }
+          display: flex;
+          justify-content: space-between;
 
-          &:last-of-type {
-            max-width: max(46rem, 58vw);
-            margin-left: min(4rem, 5vw);
+          padding: min(7.5rem, 9.4vw) 0 min(10rem, 12.5vw);
 
-            h1 {
-              font-size: min(3.8rem, 4.7vw);
-              font-weight: 700;
-              line-height: 113.5%;
-              color: var(--white_EAE);
+          > div {
+            &:first-of-type {
+              min-width: max(15.625rem, 14.5vw);
+              max-width: 334px !important;
+              width: 100%;
             }
 
-            > div {
-              &:first-of-type {
-                display: flex;
-                justify-content: space-between;
+            &:last-of-type {
+              max-width: max(46rem, 58vw);
+              margin-left: min(4rem, 5vw);
 
-                font-size: min(1.5rem, 1.9vw);
-                font-weight: 300;
-                color: var(--pink_FE3);
-                margin: min(1.875rem, 2.4vw) 0 min(3.875rem, 4.9vw);
-
-                span {
-                  display: flex;
-
-                  font-size: min(1.7rem, 2vw);
-                  font-weight: 500;
-                  color: var(--white_EAE);
-
-                  svg {
-                    font-size: min(1.9rem, 2.4vw);
-                    color: var(--pink_FE3);
-                    margin: 0 min(1rem, 1.3vw);
-                  }
-                }
+              h1 {
+                font-size: min(3.8rem, 4.7vw);
+                font-weight: 700;
+                line-height: 113.5%;
+                color: var(--white_EAE);
               }
 
-              &:last-of-type {
-                span {
-                  display: block;
+              > div {
+                &:first-of-type {
+                  display: flex;
+                  justify-content: space-between;
+
                   font-size: min(1.5rem, 1.9vw);
-                  font-weight: 600;
-                  color: var(--white_EAE);
-                  margin-bottom: min(1.25rem, 1.6vw);
+                  font-weight: 300;
+                  color: var(--pink_FE3);
+                  margin: min(1.875rem, 2.4vw) 0 min(3.875rem, 4.9vw);
+
+                  span {
+                    display: flex;
+
+                    font-size: min(1.7rem, 2vw);
+                    font-weight: 500;
+                    color: var(--white_EAE);
+
+                    svg {
+                      font-size: min(1.9rem, 2.4vw);
+                      color: var(--pink_FE3);
+                      margin: 0 min(1rem, 1.3vw);
+                    }
+                  }
                 }
 
-                p {
-                  font-size: min(1.4rem, 1.8vw);
-                  font-weight: 500;
-                  line-height: 140.5%;
-                  color: var(--gray_757);
+                &:last-of-type {
+                  span {
+                    display: block;
+                    font-size: min(1.5rem, 1.9vw);
+                    font-weight: 600;
+                    color: var(--white_EAE);
+                    margin-bottom: min(1.25rem, 1.6vw);
+                  }
+
+                  p {
+                    font-size: min(1.4rem, 1.8vw);
+                    font-weight: 500;
+                    line-height: 140.5%;
+                    color: var(--gray_757);
+                  }
                 }
               }
             }
