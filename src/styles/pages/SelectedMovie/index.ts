@@ -7,6 +7,8 @@ export const Container = styled.main<ContainerProps>`
 
   > section {
     > div {
+      z-index: 1;
+
       max-width: 1200px;
       margin: auto;
       padding: 0 min(1.25rem, 1.57vw);
@@ -21,87 +23,94 @@ export const Container = styled.main<ContainerProps>`
       align-items: center;
       flex-direction: column;
 
-      > div {
+      margin-bottom: min(1.25rem, 1.6vw);
+      overflow: hidden;
+
+      &:before {
+        content: '';
+
+        position: absolute;
+        top: 0;
+
+        display: block;
         width: 100%;
+        height: 100%;
 
-        &:first-of-type {
-          ${({ posterBkg }) =>
-            posterBkg !== undefined &&
-            css`
-              opacity: 0.1;
-              filter: brightness(0.8) blur(2px);
-            `}
-        }
+        background: url('/assets/carousel-banner-background-dsk.png') center /
+          cover no-repeat;
 
-        &:last-of-type {
-          position: absolute;
-          top: 0;
-        }
+        ${({ posterBkg }) =>
+          posterBkg !== undefined &&
+          css`
+            opacity: 0.1;
+            filter: brightness(0.8) blur(2px);
+            background: url(${posterBkg}) center / cover no-repeat;
+          `}
+      }
+
+      > div > div {
+        display: flex;
+        justify-content: space-between;
+
+        padding: min(7.5rem, 9.4vw) 0 min(10rem, 12.5vw);
 
         > div {
-          display: flex;
-          justify-content: space-between;
+          &:first-of-type {
+            min-width: max(15.625rem, 14.5vw);
+            max-width: 334px !important;
+            width: 100%;
+          }
 
-          padding: min(7.5rem, 9.4vw) 0 min(10rem, 12.5vw);
+          &:last-of-type {
+            max-width: max(46rem, 58vw);
+            margin-left: min(4rem, 5vw);
 
-          > div {
-            &:first-of-type {
-              min-width: max(15.625rem, 14.5vw);
-              max-width: 334px !important;
-              width: 100%;
+            h1 {
+              font-size: min(3.8rem, 4.7vw);
+              font-weight: 700;
+              line-height: 113.5%;
+              color: var(--white_EAE);
             }
 
-            &:last-of-type {
-              max-width: max(46rem, 58vw);
-              margin-left: min(4rem, 5vw);
+            > div {
+              &:first-of-type {
+                display: flex;
+                justify-content: space-between;
 
-              h1 {
-                font-size: min(3.8rem, 4.7vw);
-                font-weight: 700;
-                line-height: 113.5%;
-                color: var(--white_EAE);
-              }
+                font-size: min(1.5rem, 1.9vw);
+                font-weight: 300;
+                color: var(--pink_FE3);
+                margin: min(1.875rem, 2.4vw) 0 min(3.875rem, 4.9vw);
 
-              > div {
-                &:first-of-type {
+                span {
                   display: flex;
-                  justify-content: space-between;
 
-                  font-size: min(1.5rem, 1.9vw);
-                  font-weight: 300;
-                  color: var(--pink_FE3);
-                  margin: min(1.875rem, 2.4vw) 0 min(3.875rem, 4.9vw);
+                  font-size: min(1.7rem, 2vw);
+                  font-weight: 500;
+                  color: var(--white_EAE);
 
-                  span {
-                    display: flex;
-
-                    font-size: min(1.7rem, 2vw);
-                    font-weight: 500;
-                    color: var(--white_EAE);
-
-                    svg {
-                      font-size: min(1.9rem, 2.4vw);
-                      color: var(--pink_FE3);
-                      margin: 0 min(1rem, 1.3vw);
-                    }
+                  svg {
+                    font-size: min(1.9rem, 2.4vw);
+                    color: var(--pink_FE3);
+                    margin: 0 min(1rem, 1.3vw);
                   }
                 }
+              }
 
-                &:last-of-type {
-                  span {
-                    display: block;
-                    font-size: min(1.5rem, 1.9vw);
-                    font-weight: 600;
-                    color: var(--white_EAE);
-                    margin-bottom: min(1.25rem, 1.6vw);
-                  }
+              &:last-of-type {
+                span {
+                  display: block;
+                  font-size: min(1.5rem, 1.9vw);
+                  font-weight: 600;
+                  color: var(--white_EAE);
+                  margin-bottom: min(1.25rem, 1.6vw);
+                }
 
-                  p {
-                    font-size: min(1.4rem, 1.8vw);
-                    font-weight: 500;
-                    line-height: 140.5%;
-                    color: var(--gray_757);
-                  }
+                p {
+                  font-size: min(1.4rem, 1.8vw);
+                  font-weight: 500;
+                  line-height: 140.5%;
+                  color: var(--gray_757);
                 }
               }
             }

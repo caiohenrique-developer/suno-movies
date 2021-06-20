@@ -37,13 +37,6 @@ export default function SelectedMovie() {
 
       <Container id={pageID} posterBkg={posterBkg}>
         <section>
-          <Image
-            src={posterBkg || '/assets/carousel-banner-background-dsk.png'}
-            width={334}
-            height={494}
-            objectFit='cover'
-          />
-
           <div>
             <div>
               <Image
