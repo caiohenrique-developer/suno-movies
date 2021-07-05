@@ -42,7 +42,7 @@ export const Container = styled.main<ContainerProps>`
         ${({ posterBkg }) =>
           posterBkg !== undefined &&
           css`
-            opacity: 0.1;
+            opacity: 0.2;
             filter: brightness(0.8) blur(2px);
             background: url(${posterBkg}) center / cover no-repeat;
           `}

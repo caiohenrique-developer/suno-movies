@@ -1,4 +1,5 @@
 import { FetchMovieProps } from '@utils/types/api';
+import { ChildrenGlobalType } from '@utils/types/GlobalTypes';
 
 // Header
 export interface HeaderProps {
@@ -10,21 +11,21 @@ export interface CTAButtonProps {
   pageUrl?: string;
   className: string;
   title: string;
-  iconAfter?: any;
+  iconAfter?: ChildrenGlobalType.children;
   onClick?(): void;
 }
 
 // FilterButton
 export interface FilterButtonProps {
   className: string;
-  iconBefore?: any;
+  iconBefore?: ChildrenGlobalType.children;
   title: string;
   onClick?(): void;
 }
 
 // CatalogueTitle
 export interface CatalogueTitleProps {
-  title: any;
+  title: ChildrenGlobalType.children;
 }
 
 // CardMovie
