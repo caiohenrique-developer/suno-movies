@@ -8,8 +8,6 @@ import {
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-const ReqApiContext = createContext({} as ReqApiValCtx);
-
 import {
   FetchMovieProps,
   FetchGenreProps,
@@ -17,6 +15,8 @@ import {
 } from '@utils/types/api';
 import { ChildrenGlobalType } from '@utils/types/GlobalTypes';
 import { ReqApiValCtx } from '@utils/types/hooks';
+
+const ReqApiContext = createContext({} as ReqApiValCtx);
 
 export const ReqApiProvider = ({ children }: ChildrenGlobalType) => {
   const [movieDiscoverApi, setMovieDiscoverApi] = useState<FetchMovieProps[]>(
@@ -57,7 +57,7 @@ export const ReqApiProvider = ({ children }: ChildrenGlobalType) => {
     movieDetailApi,
     genreApi,
     reqApi,
-  };
+  } as ReqApiValCtx;
 
   return (
     <ReqApiContext.Provider value={valCtx}>{children}</ReqApiContext.Provider>

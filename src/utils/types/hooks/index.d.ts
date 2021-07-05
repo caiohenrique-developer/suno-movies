@@ -1,7 +1,7 @@
 import {
   FetchMovieProps,
   FetchGenreProps,
-  // FetchMovieDetailProps,
+  FetchMovieDetailProps,
 } from '@utils/types/api';
 
 // usePageIndicator

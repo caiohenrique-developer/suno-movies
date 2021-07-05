@@ -11,6 +11,7 @@ import { TiStarFullOutline } from 'react-icons/ti';
 import { Container } from '@styles/pages/SelectedMovie';
 
 export default function SelectedMovie() {
+  const { addPageID, pageID } = usePageIndicator();
   const {
     movieDetailApi: {
       title,
@@ -23,10 +24,32 @@ export default function SelectedMovie() {
       trailer,
     },
   } = useReqApi();
-  const { addPageID, pageID } = usePageIndicator();
 
   useEffect(() => {
     addPageID('selected-movie');
+
+    const movieSelectedInfo = {
+      title,
+      description,
+      genres,
+      poster,
+      posterBkg,
+      rating,
+      movieID,
+      trailer,
+    };
+
+    // console.log('Salvar por aqui mesmo');
+    console.log(movieSelectedInfo);
+
+    localStorage.setItem(
+      '@SunoMoveis:movie-selected',
+      JSON.stringify(movieSelectedInfo),
+    );
+
+    const movie = localStorage.getItem('@SunoMoveis:movie-selected');
+
+    console.log(movie);
   }, []);
 
   return (
