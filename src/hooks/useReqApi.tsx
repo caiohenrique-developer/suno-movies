@@ -44,7 +44,14 @@ export const ReqApiProvider = ({ children }: ChildrenGlobalType) => {
     }
 
     if (movie_id) {
-      setMovieDetailApi(await fetchMovieDetail(movie_id));
+      const movieDetailSelected = await fetchMovieDetail(movie_id);
+
+      localStorage.setItem(
+        '@SunoMoveis:movie-selected',
+        JSON.stringify(movieDetailSelected),
+      );
+
+      setMovieDetailApi(movieDetailSelected);
     }
 
     setMovieDiscoverApi(await fetchMovieDiscover());

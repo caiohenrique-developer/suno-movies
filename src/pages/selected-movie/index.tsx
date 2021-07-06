@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 
@@ -9,6 +9,7 @@ import { usePageIndicator } from '@hooks/usePageIndicator';
 import { TiStarFullOutline } from 'react-icons/ti';
 
 import { Container } from '@styles/pages/SelectedMovie';
+import { FetchMovieDetailProps } from '@utils/types/api';
 
 export default function SelectedMovie() {
   const { addPageID, pageID } = usePageIndicator();
@@ -25,32 +26,19 @@ export default function SelectedMovie() {
     },
   } = useReqApi();
 
+  const [movie, setMovie] = useState({} as FetchMovieDetailProps);
+
   useEffect(() => {
     addPageID('selected-movie');
+  }, []);
 
-    const movieSelectedInfo = {
-      title,
-      description,
-      genres,
-      poster,
-      posterBkg,
-      rating,
-      movieID,
-      trailer,
-    };
-
-    // console.log('Salvar por aqui mesmo');
-    console.log(movieSelectedInfo);
-
-    localStorage.setItem(
-      '@SunoMoveis:movie-selected',
-      JSON.stringify(movieSelectedInfo),
+  if (process.browser) {
+    const movieSelected = JSON.parse(
+      localStorage.getItem('@SunoMoveis:movie-selected'),
     );
 
-    const movie = localStorage.getItem('@SunoMoveis:movie-selected');
-
-    console.log(movie);
-  }, []);
+    console.log(movieSelected);
+  }
 
   return (
     <>
