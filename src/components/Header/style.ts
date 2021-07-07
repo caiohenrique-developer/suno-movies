@@ -177,6 +177,14 @@ export const Container = styled.div<HeaderProps>`
             padding-right: min(1.25rem, 1.57vw);
             overflow-y: scroll;
 
+            &.movie-result {
+              overflow-y: unset;
+
+              > div {
+                max-width: min(31.25rem, 64vw);
+              }
+            }
+
             &::-webkit-scrollbar {
               width: 6px;
               height: 0;

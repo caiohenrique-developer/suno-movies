@@ -41,13 +41,28 @@ export const Header = () => {
   ) => {
     ev.preventDefault();
 
+    const movieResultContainer = document.querySelector(
+      'header > div:last-of-type form > span',
+    );
     const { value: textVal } = ev.currentTarget;
 
     setInputSearchMovie(textVal);
 
-    textVal
-      ? setSearchMovieApi(await fetchSearchMovie(textVal))
-      : setSearchMovieApi([]);
+    const movieResultCard = await fetchSearchMovie(textVal);
+    textVal ? setSearchMovieApi(movieResultCard || []) : setSearchMovieApi([]);
+
+    if (textVal !== '' && movieResultCard.length === 1) {
+      const vw = Math.max(
+        document.documentElement.clientWidth || 0,
+        window.innerWidth || 0,
+      );
+
+      if (vw >= 768) {
+        movieResultContainer.className = 'movie-result';
+      }
+    } else {
+      movieResultContainer.removeAttribute('class');
+    }
   };
 
   const handleHeaderSearchBar = () => {
