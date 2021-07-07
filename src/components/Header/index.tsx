@@ -1,6 +1,6 @@
 import { fetchSearchMovie } from '@pages/api';
 
-import React, { useEffect, useState } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 import Link from 'next/link';
 
 import MediaQuery from 'react-responsive';
@@ -36,16 +36,18 @@ export const Header = () => {
     return () => window.removeEventListener('keyup', close);
   }, []);
 
-  const searchMovie = async () => {
-    setSearchMovieApi(await fetchSearchMovie(inputSearchMovie));
-  };
-
-  const handleGetInputSearchVal = (ev: React.ChangeEvent<HTMLInputElement>) => {
+  const handleGetInputSearchVal = async (
+    ev: React.ChangeEvent<HTMLInputElement>,
+  ) => {
     ev.preventDefault();
 
-    setInputSearchMovie(ev.currentTarget.value);
+    const { value: textVal } = ev.currentTarget;
 
-    if (inputSearchMovie) searchMovie();
+    setInputSearchMovie(textVal);
+
+    textVal
+      ? setSearchMovieApi(await fetchSearchMovie(textVal))
+      : setSearchMovieApi([]);
   };
 
   const handleHeaderSearchBar = () => {
@@ -229,7 +231,7 @@ export const Header = () => {
               : `animate__flipOutX ${toggleHeaderSearchBar}`
           }`}
         >
-          <form>
+          <form onSubmit={(ev: FormEvent) => ev.preventDefault()}>
             <input
               required
               autoFocus
