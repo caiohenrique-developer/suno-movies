@@ -52,7 +52,7 @@ export const Header = () => {
 
   const handleHeaderSearchBar = () => {
     setTimeout(() => {
-      document.getElementById('input-focus').focus();
+      document.getElementById('input-search').focus();
     }, 888);
 
     setToggleHeaderSearchBar(!toggleHeaderSearchBar);
@@ -236,7 +236,7 @@ export const Header = () => {
               required
               autoFocus
               type='text'
-              id='input-focus'
+              id='input-search'
               value={inputSearchMovie}
               onChange={handleGetInputSearchVal}
               placeholder='O que deseja assistir agora?'
