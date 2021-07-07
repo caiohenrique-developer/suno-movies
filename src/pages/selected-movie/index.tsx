@@ -43,7 +43,7 @@ export default function SelectedMovie() {
   return (
     <>
       <Head>
-        <title>{title} | Suno Movies</title>
+        <title>{title || 'Undefined'} | Suno Movies</title>
       </Head>
 
       <Container id={pageID} posterBkg={posterBkg}>

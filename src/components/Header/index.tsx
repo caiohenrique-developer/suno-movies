@@ -45,12 +45,12 @@ export const Header = () => {
 
     setInputSearchMovie(ev.currentTarget.value);
 
-    if (inputSearchMovie) {
-      searchMovie();
-    }
+    if (inputSearchMovie) searchMovie();
   };
 
   const handleHeaderSearchBar = () => {
+    document.getElementById('input-focus').focus();
+
     setToggleHeaderSearchBar(!toggleHeaderSearchBar);
 
     if (toggleHeaderSearchBar === true) handleCollapse();
@@ -229,10 +229,13 @@ export const Header = () => {
         >
           <form>
             <input
+              required
+              autoFocus
               type='text'
-              placeholder='O que deseja assistir agora?'
+              id='input-focus'
               value={inputSearchMovie}
               onChange={handleGetInputSearchVal}
+              placeholder='O que deseja assistir agora?'
             />
 
             <span>
