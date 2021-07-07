@@ -49,7 +49,9 @@ export const Header = () => {
   };
 
   const handleHeaderSearchBar = () => {
-    document.getElementById('input-focus').focus();
+    setTimeout(() => {
+      document.getElementById('input-focus').focus();
+    }, 888);
 
     setToggleHeaderSearchBar(!toggleHeaderSearchBar);
 
