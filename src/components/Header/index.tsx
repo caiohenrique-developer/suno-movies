@@ -57,12 +57,10 @@ export const Header = () => {
         window.innerWidth || 0,
       );
 
-      if (vw >= 768) {
-        movieResultContainer.className = 'movie-result';
-      }
-    } else {
-      movieResultContainer.removeAttribute('class');
-    }
+      movieResultContainer.className = 'one-result';
+
+      if (vw >= 768) movieResultContainer.classList.add('movie-card-max-vw');
+    } else movieResultContainer.removeAttribute('class');
   };
 
   const handleHeaderSearchBar = () => {

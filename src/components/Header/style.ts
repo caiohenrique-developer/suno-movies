@@ -177,12 +177,14 @@ export const Container = styled.div<HeaderProps>`
             padding-right: min(1.25rem, 1.57vw);
             overflow-y: scroll;
 
-            &.movie-result {
+            &.one-result {
               overflow-y: unset;
+              padding-right: 0;
+            }
 
-              > div {
-                max-width: min(31.25rem, 64vw);
-              }
+            &.movie-card-max-vw > div {
+              max-width: min(31.25rem, 64vw);
+              width: max-content;
             }
 
             &::-webkit-scrollbar {
