@@ -19,8 +19,14 @@ export const CardMovie = ({
   title,
   description,
   rating,
+  movieClicked,
 }: CardMovieProps) => {
   const { reqApi } = useReqApi();
+
+  const handleMovieSelected = () => {
+    reqApi(8, movieID);
+    movieClicked();
+  };
 
   return (
     <Container className={className}>
@@ -30,7 +36,7 @@ export const CardMovie = ({
           <div>
             {poster !== '' && (
               <Link href='/selected-movie'>
-                <a onClick={() => reqApi(8, movieID)}>
+                <a onClick={handleMovieSelected}>
                   <Image
                     src={poster || '/assets/poster-placeholder.png'}
                     alt={title}
@@ -60,7 +66,7 @@ export const CardMovie = ({
         <section>
           {poster !== '' && (
             <Link href='/selected-movie'>
-              <a onClick={() => reqApi(8, movieID)}>
+              <a onClick={handleMovieSelected}>
                 <Image
                   src={poster || '/assets/poster-placeholder.png'}
                   alt={title}
