@@ -41,17 +41,22 @@ export const Header = () => {
   ) => {
     ev.preventDefault();
 
+    const { value: textVal } = ev.currentTarget;
     const movieResultContainer = document.querySelector(
       'header > div:last-of-type form > span',
     );
-    const { value: textVal } = ev.currentTarget;
 
     setInputSearchMovie(textVal);
 
     const movieResultCard = await fetchSearchMovie(textVal);
-    textVal ? setSearchMovieApi(movieResultCard || []) : setSearchMovieApi([]);
 
-    if (textVal !== '' && movieResultCard.length === 1) {
+    setSearchMovieApi(movieResultCard || []);
+
+    if (
+      textVal !== '' &&
+      movieResultContainer !== null &&
+      movieResultCard.length === 1
+    ) {
       const vw = Math.max(
         document.documentElement.clientWidth || 0,
         window.innerWidth || 0,
@@ -60,7 +65,12 @@ export const Header = () => {
       movieResultContainer.className = 'one-result';
 
       if (vw >= 768) movieResultContainer.classList.add('movie-card-max-vw');
-    } else movieResultContainer.removeAttribute('class');
+    } else if (
+      textVal !== '' &&
+      movieResultContainer !== null &&
+      movieResultCard.length > 1
+    )
+      movieResultContainer.removeAttribute('class');
   };
 
   const handleHeaderSearchBar = () => {
@@ -255,20 +265,24 @@ export const Header = () => {
               placeholder='O que deseja assistir agora?'
             />
 
-            <span>
-              {searchMovieApi.map(({ id, genreIDs, title, poster, rating }) => {
-                return (
-                  <CardMovie
-                    key={id}
-                    movieID={id}
-                    poster={poster}
-                    title={title}
-                    rating={rating}
-                    movieClicked={handleCollapse}
-                  />
-                );
-              })}
-            </span>
+            {inputSearchMovie && (
+              <span>
+                {searchMovieApi.map(
+                  ({ id, genreIDs, title, poster, rating }) => {
+                    return (
+                      <CardMovie
+                        key={id}
+                        movieID={id}
+                        poster={poster}
+                        title={title}
+                        rating={rating}
+                        movieClicked={handleCollapse}
+                      />
+                    );
+                  },
+                )}
+              </span>
+            )}
           </form>
         </div>
 
