@@ -76,13 +76,13 @@ export const Button = styled.button`
 export const OptionsList = styled.ul`
   max-height: 400px;
 
-  margin-top: 0.313rem;
+  margin-top: 1.111rem;
   background: var(--black_181);
-  border: min(0.625rem, 1vw) solid var(--black_000);
+  outline: min(0.625rem, 1vw) solid var(--black_181);
 
   overflow: hidden;
   overflow-y: scroll;
-  transition: 0.4s;
+  transition: 0.4s linear;
 
   &::-webkit-scrollbar {
     width: 4px;

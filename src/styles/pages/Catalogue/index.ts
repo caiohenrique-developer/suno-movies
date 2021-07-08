@@ -82,13 +82,12 @@ export const Container = styled.main`
               &:first-of-type .false > ul,
               &.false > ul {
                 max-height: 0;
+                outline-width: 0;
 
                 &,
                 li {
                   padding: 0;
                   margin: 0;
-
-                  border: 0;
                   transition: calc(var(--animate-duration) * 0.75)
                     cubic-bezier(0.15, -0.4, 1, 0.01);
                 }
