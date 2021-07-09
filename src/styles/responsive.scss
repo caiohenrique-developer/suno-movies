@@ -308,7 +308,7 @@ $hamburger-layer-height: 2px !default;
                           ul {
                             padding: 0;
                             margin: 0;
-                            outline-width: 0;
+                            border-width: 0;
                           }
                         }
 
@@ -326,8 +326,8 @@ $hamburger-layer-height: 2px !default;
                         }
 
                         ul {
-                          margin-top: 14px;
-                          outline: min(0.625rem, 2vw) solid var(--black_181);
+                          margin-top: 4px;
+                          border-width: min(0.625rem, 2vw);
 
                           label {
                             font-size: min(0.625rem, 3vw);
