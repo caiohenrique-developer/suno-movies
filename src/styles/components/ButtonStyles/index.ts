@@ -86,7 +86,7 @@ export const OptionsList = styled.ul`
   border: min(0.625rem, 1vw) solid var(--black_181);
 
   overflow: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   transition: 0.4s linear;
 
   &::-webkit-scrollbar {
