@@ -81,12 +81,12 @@ export const Container = styled.main`
             > div {
               &:first-of-type {
                 display: flex;
-                margin-right: min(1.563rem, 2vw);
+                margin-right: min(1.563rem, 3vw);
 
                 span {
                   cursor: unset;
                   border-radius: min(0.2rem, 0.3vw);
-                  margin-left: min(1.563rem, 2vw);
+                  margin-left: min(1.563rem, 3vw);
                 }
               }
 
@@ -137,6 +137,8 @@ export const Container = styled.main`
 
             > div section > a {
               max-width: min(9.875rem, 12.7vw) !important;
+              min-width: 111px;
+              width: 100%;
 
               > div:first-of-type {
                 max-height: min(14.375rem, 18.5vw);
