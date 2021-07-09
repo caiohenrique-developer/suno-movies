@@ -74,9 +74,11 @@ export const Button = styled.button`
 `;
 
 export const OptionsList = styled.ul`
+  max-width: min(8.8rem, 10.8vw);
   max-height: 400px;
 
-  margin-top: 1.111rem;
+  margin-top: min(1.111rem, 1.6vw);
+  margin-left: min(0.625rem, 1vw);
   background: var(--black_181);
   outline: min(0.625rem, 1vw) solid var(--black_181);
 
