@@ -1,12 +1,17 @@
 import styled, { css } from 'styled-components';
 
 const TypeBtnColors = css`
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
 
-  min-width: 50px;
-  padding: min(0.8rem, 2vw) min(1.25rem, 2vw);
+  max-width: min(10rem, 12.8vw);
+  min-width: 111px;
+  width: 100vw;
+  max-height: min(2.813rem, 3.8vw);
+  min-height: 30px;
+  height: 100vh;
+
   cursor: pointer;
   border: 2px solid;
   border-radius: 8px;
@@ -39,17 +44,14 @@ const TypeBtnColors = css`
 `;
 
 const BaseBtnFilters = css`
-  display: block;
-  width: min(10rem, 12.8vw);
-  height: 100%;
-  overflow: hidden;
-
   font-weight: 600;
   font-size: min(0.9rem, 1.1vw);
   text-transform: lowercase;
   text-overflow: ellipsis;
   white-space: nowrap;
   color: var(--white_EAE);
+
+  overflow: hidden;
 `;
 
 export const Button = styled.button`
@@ -74,13 +76,11 @@ export const Button = styled.button`
 `;
 
 export const OptionsList = styled.ul`
-  max-width: min(8.8rem, 10.8vw);
   max-height: 400px;
 
-  margin-top: min(1.111rem, 1.6vw);
-  margin-left: min(0.625rem, 1vw);
+  margin-top: min(0.5rem, 0.8vw);
   background: var(--black_181);
-  outline: min(0.625rem, 1vw) solid var(--black_181);
+  border: min(0.625rem, 1vw) solid var(--black_181);
 
   overflow: hidden;
   overflow-y: scroll;
@@ -110,7 +110,7 @@ export const OptionsList = styled.ul`
     transition: 0.3s;
 
     & + li {
-      border-top: 1px solid #000;
+      border-top: 1px solid var(--black_000);
     }
 
     &.selected,

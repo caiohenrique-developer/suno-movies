@@ -82,12 +82,12 @@ export const Container = styled.main`
               &:first-of-type .false > ul,
               &.false > ul {
                 max-height: 0;
-                outline-width: 0;
+                border-width: 0;
 
                 &,
                 li {
-                  padding: 0;
                   margin: 0;
+                  padding: 0;
                   transition: calc(var(--animate-duration) * 0.75)
                     cubic-bezier(0.15, -0.4, 1, 0.01);
                 }
@@ -95,15 +95,12 @@ export const Container = styled.main`
 
               &:first-of-type {
                 display: flex;
-
                 margin-right: min(1.563rem, 2vw);
 
                 span {
                   cursor: unset;
                   border-radius: min(0.2rem, 0.3vw);
                   margin-left: min(1.563rem, 2vw);
-                  text-align: center;
-                  line-height: 95%;
                 }
               }
 
