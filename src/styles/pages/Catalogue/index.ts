@@ -79,20 +79,6 @@ export const Container = styled.main`
             max-height: min(2.813rem, 3.8vw);
 
             > div {
-              &:first-of-type .false > ul,
-              &.false > ul {
-                max-height: 0;
-                border-width: 0;
-
-                &,
-                li {
-                  margin: 0;
-                  padding: 0;
-                  transition: calc(var(--animate-duration) * 0.75)
-                    cubic-bezier(0.15, -0.4, 1, 0.01);
-                }
-              }
-
               &:first-of-type {
                 display: flex;
                 margin-right: min(1.563rem, 2vw);
@@ -106,6 +92,25 @@ export const Container = styled.main`
 
               &:last-of-type {
                 max-width: min(10rem, 12.8vw);
+              }
+
+              & .false ul,
+              &.false ul {
+                max-height: 0;
+                border-width: 0;
+
+                &,
+                li {
+                  margin: 0;
+                  padding: 0;
+                  transition: calc(var(--animate-duration) * 0.75)
+                    cubic-bezier(0.15, -0.4, 1, 0.01);
+                }
+              }
+
+              & div:not(.false) > button,
+              &:not(.false) > button {
+                transform: unset;
               }
             }
           }
