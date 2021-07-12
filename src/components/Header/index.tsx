@@ -276,7 +276,7 @@ export const Header = () => {
                         poster={poster}
                         title={title}
                         rating={rating}
-                        movieClicked={handleCollapse}
+                        handleResetHeaderValues={handleCollapse}
                       />
                     );
                   },

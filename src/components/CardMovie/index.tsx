@@ -19,13 +19,14 @@ export const CardMovie = ({
   title,
   description,
   rating,
-  movieClicked,
+  handleResetHeaderValues,
 }: CardMovieProps) => {
   const { reqApi } = useReqApi();
 
   const handleMovieSelected = () => {
     reqApi(8, movieID);
-    movieClicked();
+
+    handleResetHeaderValues && handleResetHeaderValues();
   };
 
   return (
