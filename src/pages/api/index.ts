@@ -98,7 +98,7 @@ const fetchMovieDetail = async (
 
     const dataRes = fetchResponse.map(({ data: result }) => result);
 
-    var movieDetail = { ...dataRes[0], ...dataRes[1] };
+    const movieDetail = { ...dataRes[0], ...dataRes[1] };
 
     return movieDetail;
   } catch (err) {

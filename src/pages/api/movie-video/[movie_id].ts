@@ -15,9 +15,24 @@ export default async function fetchMovieVideo(
       },
     });
 
-    const { key: movieID, name: trailer, type } = result['results'][0];
+    if (result['results'].length === 0) {
+      const { data: result } = await tmdbApi.get(
+        `${movie}/${movie_id}/videos`,
+        {
+          params: {
+            api_key: apiKey,
+          },
+        },
+      );
 
-    return res.status(200).json({ movieID, trailer, type });
+      const { key: movieVideoID, name: trailer } = result['results']?.[0] || {};
+
+      return res.status(200).json({ movieVideoID, trailer });
+    }
+
+    const { key: movieVideoID, name: trailer } = result['results']?.[0] || {};
+
+    return res.status(200).json({ movieVideoID, trailer });
   } catch (err) {
     console.error(err);
   }

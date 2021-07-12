@@ -37,7 +37,7 @@ export default function SelectedMovie() {
       localStorage.getItem('@SunoMoveis:movie-selected'),
     );
 
-    console.log(movieSelected);
+    // console.log(movieSelected);
   }
 
   return (
@@ -90,7 +90,7 @@ export default function SelectedMovie() {
               src={`https://www.youtube.com/embed/${movieID}`}
               title='YouTube video player'
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-            ></iframe>
+            />
 
             <CTAButton
               className='btn-pink hvr-shrink'
