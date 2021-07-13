@@ -175,10 +175,9 @@ export const Container = styled.div<HeaderProps>`
             max-height: 60vh;
             margin-top: 1.875rem;
             padding-right: min(1.25rem, 1.57vw);
-            overflow-y: scroll;
+            overflow-y: auto;
 
             &.one-result {
-              overflow-y: unset;
               padding-right: 0;
             }
 
