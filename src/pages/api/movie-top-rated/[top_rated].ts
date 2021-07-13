@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { tmdbApi, apiKey, topRated, ptBR } from '@pages/api';
 
-export default async function fetchMovieDiscoverWithGenre(
+export default async function fetchMovieTopRated(
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<void> {
