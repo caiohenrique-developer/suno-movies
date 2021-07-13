@@ -26,28 +26,20 @@ export const Header = () => {
   const [inputSearchMovie, setInputSearchMovie] = useState('');
 
   useEffect(() => {
-    const close = (ev: HeaderProps) => {
-      if (ev.key === 'Escape') {
-        handleCollapse();
-      }
-    };
-
-    window.addEventListener('keyup', close);
-    return () => window.removeEventListener('keyup', close);
-  }, []);
-
-  useEffect(() => {
-    const open = (ev: HeaderProps) => {
+    const handleInputSearchViewShortcut = (ev: HeaderProps) => {
       if (
         (ev.ctrlKey && ev.shiftKey && ev.key === 'f') ||
         (ev.ctrlKey && ev.shiftKey && ev.key === 'F')
       ) {
-        setToggleHeaderSearchBar(true);
+        handleHeaderSearchBar();
       }
+
+      if (ev.key === 'Escape') handleCollapse();
     };
 
-    window.addEventListener('keyup', open);
-    return () => window.removeEventListener('keyup', open);
+    window.addEventListener('keyup', handleInputSearchViewShortcut);
+    return () =>
+      window.removeEventListener('keyup', handleInputSearchViewShortcut);
   }, []);
 
   const handleGetInputSearchVal = async (
@@ -88,13 +80,13 @@ export const Header = () => {
   };
 
   const handleHeaderSearchBar = () => {
-    setTimeout(() => {
-      document.getElementById('input-search').focus();
-    }, 888);
-
     setToggleHeaderSearchBar(!toggleHeaderSearchBar);
 
     if (toggleHeaderSearchBar === true) handleCollapse();
+
+    setTimeout(() => {
+      document.getElementById('input-search').focus();
+    }, 888);
   };
 
   const handleMenuMob = () => {
@@ -110,6 +102,7 @@ export const Header = () => {
     setTimeout(() => {
       setInputSearchMovie('');
       setSearchMovieApi([]);
+      document.getElementById('input-search').blur();
     }, 888);
   };
 
