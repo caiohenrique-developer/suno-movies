@@ -38,13 +38,23 @@ export default createGlobalStyle`
   }
 
   html {
+    scroll-behavior: smooth;
+
     @media(max-width: 1080px) { font-size: 93.75%; }
 
     @media(max-width: 720px) { font-size: 87.5%; }
 
-    body, input, textarea, select, button { font-weight: 400; }
+    body, input, textarea, select, button {
+      font-weight: 400;
 
-    scroll-behavior: smooth;
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 1000px #ffffff00 inset;
+        transition: 5000s ease-in-out 0s;
+      }
+    }
 
     body {
       font-family: 'Poppins', sans-serif;
