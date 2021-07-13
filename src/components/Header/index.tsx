@@ -27,13 +27,27 @@ export const Header = () => {
 
   useEffect(() => {
     const close = (ev: HeaderProps) => {
-      if (ev.keyCode === 27) {
+      if (ev.key === 'Escape') {
         handleCollapse();
       }
     };
 
     window.addEventListener('keyup', close);
     return () => window.removeEventListener('keyup', close);
+  }, []);
+
+  useEffect(() => {
+    const open = (ev: HeaderProps) => {
+      if (
+        (ev.ctrlKey && ev.shiftKey && ev.key === 'f') ||
+        (ev.ctrlKey && ev.shiftKey && ev.key === 'F')
+      ) {
+        setToggleHeaderSearchBar(true);
+      }
+    };
+
+    window.addEventListener('keyup', open);
+    return () => window.removeEventListener('keyup', open);
   }, []);
 
   const handleGetInputSearchVal = async (

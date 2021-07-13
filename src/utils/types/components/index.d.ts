@@ -3,7 +3,9 @@ import { ChildrenGlobalType } from '@utils/types/GlobalTypes';
 
 // Header
 export interface HeaderProps {
-  keyCode: number;
+  ctrlKey: boolean;
+  shiftKey: boolean;
+  key: string;
 }
 
 // CTAButton
