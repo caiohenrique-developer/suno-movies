@@ -39,13 +39,21 @@ export const Container = styled.div`
       > div > section {
         display: block;
 
-        > a > div:after {
-          background-size: 5rem;
+        > a > div {
+          border-radius: 5px;
+
+          &:after {
+            background-size: 5rem;
+          }
         }
 
         > div {
           margin-top: min(1rem, 1.5vw);
           margin-left: 0;
+
+          > a > div {
+            border-radius: 5px;
+          }
 
           h4,
           h3 {

@@ -211,6 +211,10 @@ export const Container = styled.div<HeaderProps>`
               }
 
               section {
+                &#mob > div > a > div {
+                  border-radius: 5px;
+                }
+
                 > a > div {
                   max-width: min(6.25rem, 8.3vw) !important;
                   max-height: min(9.25rem, 12vw);
