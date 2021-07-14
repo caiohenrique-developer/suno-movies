@@ -109,8 +109,8 @@ export const Container = styled.div`
     > a > div {
       position: relative;
 
+      width: 100vw;
       min-width: min(5.5rem, 7.5vw);
-      width: 100%;
       transition: 0.5s;
 
       &:after {
@@ -153,6 +153,7 @@ export const Container = styled.div`
       h4 {
         font-size: min(1.4rem, 1.8vw);
         color: var(--white_EAE);
+        line-height: 113.5%;
       }
 
       h3 {
