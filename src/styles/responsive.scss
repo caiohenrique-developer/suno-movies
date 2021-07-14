@@ -18,7 +18,7 @@ $hamburger-layer-height: 2px !default;
                 padding: 0 max(1.25rem, 1.57vw);
 
                 > a {
-                  max-width: min(11.25rem, 20.1vw);
+                  max-width: 150px;
                 }
 
                 button {
@@ -221,14 +221,15 @@ $hamburger-layer-height: 2px !default;
                     }
 
                     #mob > div {
-                      display: block;
+                      flex-direction: column;
 
-                      > a > div {
-                        width: 100%;
-                        max-width: 100% !important;
+                      > a {
+                        width: 100vw;
+                        max-width: 100%;
                         max-height: 100%;
+                        margin: 0.625rem 0 1.25rem;
 
-                        &:after {
+                        > div:after {
                           background-size: 5.5rem;
                         }
                       }
