@@ -17,7 +17,7 @@ export const Container = styled.div`
         justify-content: space-between;
 
         width: 100%;
-        max-width: 100% !important;
+        max-width: 100%;
         max-height: 100%;
 
         box-shadow: none;
@@ -29,11 +29,11 @@ export const Container = styled.div`
 
         > a {
           width: 100%;
-          max-width: 8.125rem !important;
+          max-width: 8.125rem;
           max-height: 11.5rem;
 
           > div {
-            max-height: 11.5rem;
+            max-height: 100%;
             transition: 0.5s;
 
             &:after {

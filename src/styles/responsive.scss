@@ -362,7 +362,10 @@ $hamburger-layer-height: 2px !default;
                 > div {
                   &:first-of-type {
                     display: block !important;
+
                     margin: auto !important;
+                    max-width: 100% !important;
+                    max-height: 29.375rem;
                   }
 
                   &:last-of-type {

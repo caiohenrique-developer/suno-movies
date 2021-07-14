@@ -59,6 +59,7 @@ export const Container = styled.main<ContainerProps>`
             min-width: max(15.625rem, 14.5vw);
             max-width: 334px !important;
             width: 100%;
+            max-height: min(30.875rem, 40vw);
           }
 
           &:last-of-type {
