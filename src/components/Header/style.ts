@@ -91,6 +91,8 @@ export const Container = styled.div<HeaderProps>`
           }
 
           button {
+            display: flex;
+
             border-radius: 0;
             margin-left: min(3rem, 3.8vw);
             padding: min(8px, 2vw);
@@ -109,14 +111,25 @@ export const Container = styled.div<HeaderProps>`
               background: ${opacify('0.1', 'rgba(254, 49, 137, 0)')};
               border-radius: 15px;
 
+              .hamburger-inner,
+              .hamburger-inner:before,
+              .hamburger-inner:after,
               svg g {
                 stroke: ${opacify('0.5', 'rgba(254, 49, 137, 0)')};
+                background: ${opacify(
+                  '0.5',
+                  'rgba(254, 49, 137, 0)',
+                )} !important;
               }
             }
 
             &.is-active {
+              .hamburger-inner,
+              .hamburger-inner:before,
+              .hamburger-inner:after,
               svg g {
                 stroke: ${opacify('1', 'rgba(254, 49, 137, 0)')};
+                background: ${opacify('1', 'rgba(254, 49, 137, 0)')} !important;
               }
             }
           }

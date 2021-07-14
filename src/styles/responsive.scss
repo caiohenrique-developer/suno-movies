@@ -22,35 +22,45 @@ $hamburger-layer-height: 2px !default;
                 }
 
                 button {
-                  &:first-of-type {
-                    &.hamburger {
-                      transform: scale(0.6);
+                  &:disabled {
+                    .hamburger-inner,
+                    .hamburger-inner:before,
+                    .hamburger-inner:after,
+                    svg g {
+                      stroke: rgb(234, 234, 234);
+                      background: rgb(234, 234, 234) !important;
+                    }
+                  }
 
-                      .hamburger-box {
-                        display: block;
-                        width: 24px;
+                  &.hamburger {
+                    border-radius: 0;
+                    padding: min(16px, 3vw) min(16px, 3vw) min(16px, 3vw)
+                      0.25rem;
+                    transform: scale(0.6);
 
-                        .hamburger-inner {
-                          &,
-                          &:before,
-                          &:after {
-                            width: $hamburger-layer-width;
-                            height: $hamburger-layer-height;
-                            background: $hamburger-layer-color;
-                          }
-                        }
-                      }
+                    &:hover,
+                    &.is-active {
+                      transform: scale(0.7);
+                    }
 
-                      &.is-active {
-                        .hamburger-inner {
-                          &,
-                          &:before,
-                          &:after {
-                            background: var(--pink_FE3);
-                          }
+                    .hamburger-box {
+                      display: block;
+                      width: 24px;
+
+                      .hamburger-inner {
+                        &,
+                        &:before,
+                        &:after {
+                          width: $hamburger-layer-width;
+                          height: $hamburger-layer-height;
+                          background: $hamburger-layer-color;
                         }
                       }
                     }
+                  }
+
+                  &:not(&.hamburger) {
+                    margin-right: min(1.25rem, 1.57vw);
                   }
                 }
               }
@@ -74,29 +84,14 @@ $hamburger-layer-height: 2px !default;
           }
 
           &:not(#home) {
-            > div {
-              .headerContent {
-                > a {
-                  margin: 0 2rem;
-                }
+            > div .headerContent {
+              > a {
+                margin: 0 2rem;
+              }
 
-                button {
-                  &:first-of-type {
-                    border-radius: 0;
-                    background: transparent;
-                    padding: 0;
-                  }
-
-                  &:disabled {
-                    background: transparent;
-
-                    svg g {
-                      stroke: rgb(234, 234, 234);
-                    }
-                  }
-
-                  margin: 0;
-                }
+              button {
+                margin: 0;
+                background: transparent;
               }
             }
 
