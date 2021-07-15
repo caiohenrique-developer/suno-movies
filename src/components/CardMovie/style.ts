@@ -14,23 +14,15 @@ export const Container = styled.div`
 
       > div {
         display: flex;
-        justify-content: space-between;
 
         width: 100%;
-        max-width: 100%;
-        max-height: 100%;
-
-        box-shadow: none;
         margin-left: 0;
 
-        &:after {
-          content: none;
-        }
-
         > a {
-          width: 100%;
+          /* width: 100%;
           max-width: 8.125rem;
-          max-height: 11.5rem;
+          max-height: 11.5rem; */
+          /* border: 11px solid pink !important; */
 
           > div {
             max-height: 100%;
@@ -72,8 +64,8 @@ export const Container = styled.div`
         }
 
         > div {
-          max-width: 62%;
-          width: 100%;
+          /* max-width: 62%; */
+          /* width: 100%; */
           margin-left: 0.825rem;
 
           h4 {
@@ -107,9 +99,11 @@ export const Container = styled.div`
     }
 
     > a > div {
-      position: relative;
-
+      /* style the card to all sections */
       width: 100vw;
+
+      border: 11px solid red;
+
       min-width: min(5.5rem, 7.5vw);
       transition: 0.5s;
 
@@ -149,11 +143,12 @@ export const Container = styled.div`
 
     > div {
       margin-left: min(1.75rem, 2.8vw);
+      /* border: 11px solid red; */
 
       h4 {
         font-size: min(1.4rem, 1.8vw);
         color: var(--white_EAE);
-        line-height: 113.5%;
+        line-height: 132.5%;
       }
 
       h3 {

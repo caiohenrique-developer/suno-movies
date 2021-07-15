@@ -130,7 +130,8 @@ export const Container = styled.main`
                 }
 
                 section > div:last-of-type {
-                  width: 70%;
+                  border: 11px solid orange !important;
+                  /* width: 70%; */
                 }
               }
             }
@@ -142,6 +143,7 @@ export const Container = styled.main`
 
               > div:first-of-type {
                 max-height: min(14.375rem, 18.5vw);
+                /* border: 11px solid red !important; */
               }
             }
           }

@@ -37,9 +37,10 @@ export const Container = styled.div`
       padding: 0 min(1.563rem, 2.5vw);
 
       > div > section {
-        display: block;
+        flex-direction: column;
 
         > a > div {
+          border: 11px solid yellow !important;
           border-radius: 5px;
 
           &:after {
@@ -52,6 +53,7 @@ export const Container = styled.div`
           margin-left: 0;
 
           > a > div {
+            border: 11px solid yellow !important;
             border-radius: 5px;
           }
 

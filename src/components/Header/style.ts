@@ -185,7 +185,7 @@ export const Container = styled.div<HeaderProps>`
             gap: min(2.5rem, 3.5vw) min(1.25rem, 1.57vw);
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 
-            max-height: 60vh;
+            max-height: 50vh;
             margin-top: 1.875rem;
             padding-right: min(1.25rem, 1.57vw);
             overflow-y: auto;
@@ -225,12 +225,14 @@ export const Container = styled.div<HeaderProps>`
 
               section {
                 &#mob > div > a > div {
+                  border: 11px solid green !important;
                   border-radius: 5px;
                 }
 
                 > a > div {
-                  max-width: min(6.25rem, 8.3vw) !important;
-                  max-height: min(9.25rem, 12vw);
+                  /* max-width: min(6.25rem, 8.3vw) !important;
+                  max-height: min(9.25rem, 12vw); */
+                  border: 11px solid green !important;
                   border-radius: 5px;
                 }
 
