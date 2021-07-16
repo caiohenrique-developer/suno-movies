@@ -75,9 +75,16 @@ $hamburger-layer-height: 2px !default;
                 > #mob {
                   display: flex;
 
-                  > div > div {
-                    // max-width: 76%;
-                    border: 11px solid pink !important;
+                  > div {
+                    > a > div {
+                      border: 11px solid pink !important;
+                      border-radius: 5px;
+                    }
+
+                    > div {
+                      // max-width: 76%;
+                      border: 11px solid pink !important;
+                    }
                   }
                 }
               }
@@ -201,6 +208,89 @@ $hamburger-layer-height: 2px !default;
 
         &#catalogue {
           > section {
+            #mob {
+              // border: 11px solid greenyellow;
+              display: block;
+
+              > div {
+                display: flex;
+
+                width: 100%;
+                margin-left: 0;
+
+                > a {
+                  > div {
+                    max-height: 100%;
+                    transition: 0.5s;
+
+                    &:after {
+                      content: '';
+
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      right: 0;
+                      bottom: 0;
+                      z-index: 1;
+
+                      background-repeat: no-repeat;
+                      background-position: center;
+                      background-size: min(12rem, 14.2vw);
+
+                      opacity: 0;
+                      transition: opacity 0.5s ease-out;
+                      -o-transition: opacity 0.5s ease;
+                      -ms-transition: opacity 0.5s ease;
+                      -moz-transition: opacity 0.5s ease;
+                      -webkit-transition: opacity 0.5s ease;
+                    }
+
+                    &:hover {
+                      -webkit-box-shadow: 0px 0px 25px -5px var(--pink_FE3);
+                      box-shadow: 0px 0px 18px -5px var(--pink_FE3);
+
+                      &:after {
+                        opacity: 1;
+                      }
+                    }
+                  }
+                }
+
+                > div {
+                  /* max-width: 62%; */
+                  /* width: 100%; */
+                  margin-left: 0.825rem;
+
+                  h4 {
+                    font-size: min(1.25rem, 5vw);
+                  }
+
+                  h3 {
+                    font-size: min(0.75rem, 3.5vw);
+                    word-break: break-word;
+                    margin: min(0.625rem, 3.5vw) 0;
+                  }
+
+                  span {
+                    font-size: min(0.75rem, 3.5vw);
+
+                    svg {
+                      position: relative;
+                      top: 2px;
+
+                      font-size: 0.9rem;
+                      margin-right: min(0.625rem, 3.5vw);
+                    }
+                  }
+                }
+              }
+
+              p {
+                font-size: min(0.75rem, 3.5vw);
+                margin-top: max(1.25rem, 1.57vw);
+              }
+            }
+
             // first section
             &:first-of-type {
               > div {
@@ -221,39 +311,48 @@ $hamburger-layer-height: 2px !default;
                       }
                     }
 
-                    #mob > div {
-                      flex-direction: column;
-
-                      > a {
-                        // width: 100vw;
-                        // max-width: 100%;
-                        // max-height: 100%;
-                        margin: 0.625rem 0 1.25rem;
-                        border: 11px solid salmon !important;
-
-                        > div:after {
-                          background-size: 5.5rem;
-                        }
-                      }
+                    #mob {
+                      // aqui é apenas o carrosel
+                      // border: 11px solid greenyellow !important;
 
                       > div {
-                        max-width: 100%;
-                        margin-left: 0;
+                        flex-direction: column;
 
-                        h4 {
-                          font-size: 1.25rem;
+                        > a {
+                          // width: 100vw;
+                          // max-width: 100%;
+                          // max-height: 100%;
+                          margin: 0.625rem 0 1.25rem;
+                          border: 11px solid salmon !important;
+
+                          > div {
+                            border-radius: 5px;
+
+                            &:after {
+                              background-size: 5.5rem;
+                            }
+                          }
                         }
 
-                        h3 {
-                          font-size: 0.875rem;
-                          margin: 0;
-                        }
+                        > div {
+                          max-width: 100%;
+                          margin-left: 0;
 
-                        span {
-                          font-size: 0.875rem;
+                          h4 {
+                            font-size: 1.25rem;
+                          }
 
-                          svg {
-                            font-size: 1rem;
+                          h3 {
+                            font-size: 0.875rem;
+                            margin: 0;
+                          }
+
+                          span {
+                            font-size: 0.875rem;
+
+                            svg {
+                              font-size: 1rem;
+                            }
                           }
                         }
                       }

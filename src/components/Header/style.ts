@@ -224,10 +224,10 @@ export const Container = styled.div<HeaderProps>`
               }
 
               section {
-                &#mob > div > a > div {
+                /* &#mob > div > a > div {
                   border: 11px solid green !important;
                   border-radius: 5px;
-                }
+                } */
 
                 > a > div {
                   /* max-width: min(6.25rem, 8.3vw) !important;
@@ -237,6 +237,7 @@ export const Container = styled.div<HeaderProps>`
                 }
 
                 > div {
+                  border: 11px solid green !important;
                   margin-left: min(1.27rem, 1.59vw);
 
                   h3 {

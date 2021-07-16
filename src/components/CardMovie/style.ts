@@ -10,13 +10,14 @@ export const Container = styled.div`
     display: flex;
 
     &#mob {
-      display: block;
+      /* border: 11px solid blue; */
+      /* display: block; */
 
       > div {
-        display: flex;
+        /* display: flex;
 
         width: 100%;
-        margin-left: 0;
+        margin-left: 0; */
 
         > a {
           /* width: 100%;
@@ -25,22 +26,23 @@ export const Container = styled.div`
           /* border: 11px solid pink !important; */
 
           > div {
-            max-height: 100%;
-            transition: 0.5s;
+            /* max-height: 100%;
+            transition: 0.5s; */
 
             &:after {
-              content: '';
+              /* content: '';
 
               position: absolute;
               top: 0;
               left: 0;
               right: 0;
               bottom: 0;
-              z-index: 1;
+              z-index: 1; */
 
               background: ${opacify('0.1', 'rgba(254, 49, 137, 0.4)')};
-              ${backgroundImages('url("/assets/play-circle-outline.svg")')}
-              background-repeat: no-repeat;
+              ${backgroundImages(
+                'url("/assets/play-circle-outline.svg")',
+              )}/* background-repeat: no-repeat;
               background-position: center;
               background-size: min(12rem, 14.2vw);
 
@@ -49,24 +51,24 @@ export const Container = styled.div`
               -o-transition: opacity 0.5s ease;
               -ms-transition: opacity 0.5s ease;
               -moz-transition: opacity 0.5s ease;
-              -webkit-transition: opacity 0.5s ease;
+              -webkit-transition: opacity 0.5s ease; */
             }
 
-            &:hover {
+            /* &:hover {
               -webkit-box-shadow: 0px 0px 25px -5px var(--pink_FE3);
               box-shadow: 0px 0px 18px -5px var(--pink_FE3);
 
               &:after {
                 opacity: 1;
               }
-            }
+            } */
           }
         }
 
         > div {
           /* max-width: 62%; */
           /* width: 100%; */
-          margin-left: 0.825rem;
+          /* margin-left: 0.825rem;
 
           h4 {
             font-size: min(1.25rem, 5vw);
@@ -88,14 +90,14 @@ export const Container = styled.div`
               font-size: 0.9rem;
               margin-right: min(0.625rem, 3.5vw);
             }
-          }
+          } */
         }
       }
 
-      p {
+      /* p {
         font-size: min(0.75rem, 3.5vw);
         margin-top: max(1.25rem, 1.57vw);
-      }
+      } */
     }
 
     > a > div {

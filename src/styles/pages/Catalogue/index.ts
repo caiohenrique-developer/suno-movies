@@ -140,10 +140,11 @@ export const Container = styled.main`
               max-width: min(9.875rem, 12.7vw) !important;
               min-width: 111px;
               width: 100%;
+              border: 11px solid brown;
 
               > div:first-of-type {
                 max-height: min(14.375rem, 18.5vw);
-                /* border: 11px solid red !important; */
+                border: 11px solid red !important;
               }
             }
           }
