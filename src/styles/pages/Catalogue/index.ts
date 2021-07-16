@@ -141,6 +141,7 @@ export const Container = styled.main`
               min-width: 111px;
               width: 100%;
               border: 11px solid brown;
+              margin-right: min(1.75rem, 2.8vw);
 
               > div:first-of-type {
                 max-height: min(14.375rem, 18.5vw);

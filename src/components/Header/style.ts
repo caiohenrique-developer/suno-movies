@@ -153,7 +153,7 @@ export const Container = styled.div<HeaderProps>`
           max-width: 1200px;
           width: 100%;
           margin: 0 auto;
-          padding: 1.25rem max(1.25rem, 1.57vw) max(1.9rem, 2.4vw);
+          padding: 1.25rem min(1.25rem, 1.57vw) max(1.9rem, 2.4vw);
 
           input {
             display: block;
@@ -224,25 +224,16 @@ export const Container = styled.div<HeaderProps>`
               }
 
               section {
-                /* &#mob > div > a > div {
-                  border: 11px solid green !important;
+                > a {
+                  max-width: min(6.25rem, 8.3vw);
+                  max-height: min(9.25rem, 12vw);
+                  margin-right: min(1.27rem, 1.59vw);
                   border-radius: 5px;
-                } */
-
-                > a > div {
-                  /* max-width: min(6.25rem, 8.3vw) !important;
-                  max-height: min(9.25rem, 12vw); */
-                  border: 11px solid green !important;
-                  border-radius: 5px;
+                  overflow: hidden;
                 }
 
-                > div {
-                  border: 11px solid green !important;
-                  margin-left: min(1.27rem, 1.59vw);
-
-                  h3 {
-                    margin: min(0.625rem) 0;
-                  }
+                > div h3 {
+                  margin: min(0.625rem) 0;
                 }
               }
             }

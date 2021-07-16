@@ -40,7 +40,6 @@ export const Container = styled.div`
         flex-direction: column;
 
         > a > div {
-          border: 11px solid yellow !important;
           border-radius: 5px;
 
           &:after {
@@ -50,13 +49,6 @@ export const Container = styled.div`
 
         > div {
           margin-top: min(1rem, 1.5vw);
-          margin-left: 0;
-          border: 11px solid yellow !important;
-
-          /* > a > div {
-            border: 11px solid yellow !important;
-            border-radius: 5px;
-          } */
 
           h4,
           h3 {
