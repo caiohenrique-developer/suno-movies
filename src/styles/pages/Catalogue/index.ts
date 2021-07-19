@@ -76,7 +76,7 @@ export const Container = styled.main`
             display: flex;
             justify-content: space-between;
 
-            max-height: min(2.813rem, 3.8vw);
+            max-height: min(2.813rem, 4vw);
 
             > div {
               &:first-of-type {
@@ -85,13 +85,9 @@ export const Container = styled.main`
 
                 span {
                   cursor: unset;
-                  border-radius: min(0.2rem, 0.3vw);
+                  border-radius: 0.2rem;
                   margin-left: min(1.563rem, 3vw);
                 }
-              }
-
-              &:last-of-type {
-                max-width: min(10rem, 12.8vw);
               }
 
               & .false ul,
@@ -133,7 +129,7 @@ export const Container = styled.main`
 
             > div section > a {
               max-width: min(9.875rem, 12.7vw) !important;
-              min-width: 111px;
+              min-width: 124px;
               max-height: min(14.375rem, 18.5vw);
               margin-right: min(1.75rem, 2.8vw);
             }

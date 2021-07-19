@@ -9,8 +9,6 @@ $hamburger-layer-height: 2px !default;
   body {
     #__next {
       #mob {
-        // border: 11px solid pink;
-
         > div {
           display: flex;
 
@@ -340,6 +338,7 @@ $hamburger-layer-height: 2px !default;
             &:last-of-type {
               > div {
                 padding: min(1.875rem, 5vw) max(1.25rem, 1.57vw);
+                max-width: 95%;
 
                 > div:first-of-type > div > div button,
                 > div:first-of-type > div span,
@@ -348,51 +347,54 @@ $hamburger-layer-height: 2px !default;
                 }
 
                 > div {
-                  border: 11px solid greenyellow;
+                  max-height: 100%;
 
-                  &:first-of-type {
-                    max-height: 100%;
+                  &:first-of-type > div {
+                    justify-content: center;
+
+                    width: 100%;
+                    max-width: 100%;
+                    max-height: min(2.525rem, 11vw);
+
+                    margin-right: 0;
+
+                    span,
+                    > div,
+                    > div ul,
+                    > div button {
+                      width: 100%;
+                      max-width: unset;
+                      margin-left: 0;
+                    }
 
                     > div {
-                      justify-content: center;
+                      margin-right: 2rem;
 
-                      width: 100%;
-                      max-width: 100%;
-                      height: min(2.125rem, 10vw);
+                      &.false ul {
+                        padding: 0;
+                        margin: 0;
+                        border-width: 0;
+                      }
 
-                      margin-right: 0;
-
-                      > div {
-                        margin-right: max(1.25rem, 1.57vw);
-
-                        &.false {
-                          ul {
-                            padding: 0;
-                            margin: 0;
-                            border-width: 0;
-                          }
+                      button {
+                        &:hover i,
+                        &:focus i {
+                          top: -2px;
                         }
 
-                        button {
-                          &:hover i,
-                          &:focus i {
-                            top: -2px;
-                          }
-
-                          i {
-                            top: 2px;
-                            padding: 2px;
-                            width: min(1rem, 4.5vw);
-                          }
+                        i {
+                          top: 2px;
+                          padding: 2px;
+                          width: min(1rem, 4.5vw);
                         }
+                      }
 
-                        ul {
-                          margin-top: 4px;
-                          border-width: min(0.625rem, 2vw);
+                      ul {
+                        margin-top: 4px;
+                        border-width: min(0.625rem, 2vw);
 
-                          label {
-                            font-size: min(0.625rem, 3vw);
-                          }
+                        label {
+                          font-size: min(0.625rem, 3vw);
                         }
                       }
                     }
@@ -404,6 +406,31 @@ $hamburger-layer-height: 2px !default;
 
                     > div + div {
                       margin-top: min(2.5rem, 12vw);
+                    }
+
+                    #mob {
+                      display: block;
+
+                      > div {
+                        > a,
+                        > div {
+                          width: 50%;
+                        }
+
+                        > a {
+                          max-height: min(28rem, 55.3vw);
+                          margin-right: 2.1rem;
+
+                          &:hover > div {
+                            border-radius: 5px;
+                          }
+
+                          > div {
+                            width: 100%;
+                            border-radius: unset;
+                          }
+                        }
+                      }
                     }
                   }
                 }

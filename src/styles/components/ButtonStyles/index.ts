@@ -6,10 +6,10 @@ const TypeBtnColors = css`
   justify-content: center;
 
   max-width: min(10rem, 12.8vw);
-  min-width: 111px;
+  min-width: 124px;
   width: 100vw;
   max-height: min(2.813rem, 3.8vw);
-  min-height: 30px;
+  min-height: 35px;
   height: 100vh;
 
   cursor: pointer;
@@ -58,7 +58,7 @@ export const Button = styled.button`
   ${TypeBtnColors}
   ${BaseBtnFilters}
 
-  border-radius: min(0.2rem, 0.3vw);
+  border-radius: 0.2rem;
 
   &:hover,
   &:focus {
@@ -77,7 +77,7 @@ export const Button = styled.button`
 
 export const OptionsList = styled.ul`
   max-width: min(10rem, 12.8vw);
-  min-width: 111px;
+  min-width: 124px;
   width: 100vw;
   max-height: 400px;
 

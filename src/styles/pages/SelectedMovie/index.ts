@@ -158,7 +158,7 @@ export const Container = styled.main<ContainerProps>`
           text-transform: lowercase;
 
           color: var(--white_EAE);
-          border-radius: min(0.2rem, 0.3vw);
+          border-radius: 0.2rem;
 
           padding: min(0.8rem, 1vw) min(3.7rem, 4.6vw);
           margin: min(5.5rem, 6.9vw) auto;
