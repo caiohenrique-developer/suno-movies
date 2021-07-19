@@ -128,25 +128,14 @@ export const Container = styled.main`
                 & + div {
                   margin-top: 0;
                 }
-
-                section > div:last-of-type {
-                  border: 11px solid orange !important;
-                  /* width: 70%; */
-                }
               }
             }
 
             > div section > a {
               max-width: min(9.875rem, 12.7vw) !important;
               min-width: 111px;
-              width: 100%;
-              border: 11px solid brown;
+              max-height: min(14.375rem, 18.5vw);
               margin-right: min(1.75rem, 2.8vw);
-
-              > div:first-of-type {
-                max-height: min(14.375rem, 18.5vw);
-                border: 11px solid red !important;
-              }
             }
           }
         }

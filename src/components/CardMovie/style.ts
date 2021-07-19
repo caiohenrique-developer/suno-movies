@@ -46,6 +46,7 @@ export const Container = styled.div`
       &:hover {
         -webkit-box-shadow: 0px 0px 25px -5px var(--pink_FE3);
         box-shadow: 0px 0px 25px -5px var(--pink_FE3);
+        border-radius: 5px;
 
         &:after {
           opacity: 1;
