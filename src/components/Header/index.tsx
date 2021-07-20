@@ -27,10 +27,7 @@ export const Header = () => {
 
   useEffect(() => {
     const handleInputSearchViewShortcut = (ev: HeaderProps) => {
-      if (
-        (ev.ctrlKey && ev.shiftKey && ev.key === 'f') ||
-        (ev.ctrlKey && ev.shiftKey && ev.key === 'F')
-      ) {
+      if (ev.ctrlKey && ev.shiftKey && 'F' === 'f'.toUpperCase()) {
         handleHeaderSearchBar();
       }
 
