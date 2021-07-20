@@ -49,7 +49,7 @@ export const Header = () => {
 
     const { value: textVal } = ev.currentTarget;
     const movieResultContainer = document.querySelector(
-      'header > div:last-of-type form > span',
+      'header > div:last-of-type form span',
     );
 
     setInputSearchMovie(textVal);
@@ -59,7 +59,7 @@ export const Header = () => {
     setSearchMovieApi(movieResultCard || []);
 
     if (
-      textVal !== '' &&
+      textVal &&
       movieResultContainer !== null &&
       movieResultCard.length === 1
     ) {
@@ -72,7 +72,7 @@ export const Header = () => {
 
       if (vw >= 768) movieResultContainer.classList.add('movie-card-max-vw');
     } else if (
-      textVal !== '' &&
+      textVal &&
       movieResultContainer !== null &&
       movieResultCard.length > 1
     )
@@ -272,7 +272,7 @@ export const Header = () => {
               placeholder='O que deseja assistir agora?'
             />
 
-            {inputSearchMovie && (
+            {searchMovieApi.length > 0 && (
               <span>
                 {searchMovieApi.map(
                   ({ id, genreIDs, title, poster, rating }) => {
