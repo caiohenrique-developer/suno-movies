@@ -61,7 +61,8 @@ export default function SelectedMovie() {
                 <h1>{title || 'Undefined'}</h1>
 
                 <div id='genres'>
-                  {genres?.map(({ name }) => `${name} `) || 'Undefined'}
+                  {genres?.map(({ name }) => `${name}`).join(' - ') ||
+                    'Undefined'}
                   <span>
                     <TiStarFullOutline /> {rating || 0.0}
                   </span>
