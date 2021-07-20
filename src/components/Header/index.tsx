@@ -79,11 +79,12 @@ export const Header = () => {
   const handleHeaderSearchBar = () => {
     setToggleHeaderSearchBar(!toggleHeaderSearchBar);
 
-    if (toggleHeaderSearchBar === true) handleCollapse();
-
-    setTimeout(() => {
-      document.getElementById('input-search').focus();
-    }, 888);
+    if (toggleHeaderSearchBar) handleCollapse();
+    else {
+      setTimeout(() => {
+        document.getElementById('input-search').focus();
+      }, 888);
+    }
   };
 
   const handleMenuMob = () => {
@@ -97,8 +98,8 @@ export const Header = () => {
     setToggleMenuMob(false);
 
     setTimeout(() => {
-      setInputSearchMovie('');
       setSearchMovieApi([]);
+      setInputSearchMovie('');
       document.getElementById('input-search').blur();
     }, 888);
   };
