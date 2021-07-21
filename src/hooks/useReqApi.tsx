@@ -2,7 +2,6 @@ import {
   fetchGenres,
   fetchMovieDiscover,
   fetchMovieDiscoverWithGenre,
-  fetchMovieTopRated,
   fetchMovieDetail,
 } from '@pages/api';
 
@@ -35,12 +34,9 @@ export const ReqApiProvider = ({ children }: ChildrenGlobalType) => {
   }, []);
 
   const reqApi = async (genre_id?: number, movie_id?: number) => {
-    if (genre_id !== 8) {
-      // Filtered by all other genres
+    if (genre_id) {
+      // Filtered by genre
       setMovieWithGenreApi(await fetchMovieDiscoverWithGenre(genre_id));
-    } else {
-      // Filtered by "Populares" genre
-      setMovieWithGenreApi(await fetchMovieTopRated(genre_id));
     }
 
     if (movie_id) {

@@ -55,40 +55,17 @@ const fetchMovieDiscover = async (): Promise<FetchMovieProps[]> => {
   }
 };
 
-const fetchMovieTopRated = async (
-  genre_id: number,
-): Promise<FetchMovieProps[]> => {
-  try {
-    const fetchResponse = await axios.all([
-      hostEnv.get(`movie-top-rated/${genre_id}`),
-      hostEnv.get('genres'),
-    ]);
-
-    const dataRes = fetchResponse.map(({ data: result }) => result);
-
-    const movieTopRated = dataRes[0].map(
-      ({ id, genreIDs, title, poster, rating, description }) => {
-        const genres = dataRes[1]
-          .filter(({ id }) => genreIDs.includes(id))
-          .map(({ genreName }) => genreName)
-          .join(', ');
-
-        return { id, genres, title, poster, rating, description };
-      },
-    );
-
-    return movieTopRated;
-  } catch (err) {
-    console.error(err);
-  }
-};
-
 const fetchMovieDiscoverWithGenre = async (
   genre_id: number,
 ): Promise<FetchMovieProps[]> => {
   try {
+    const entrypointUrl =
+      genre_id === 8
+        ? `movie-top-rated/${genre_id}`
+        : `movie-discover-with-genre/${genre_id}`;
+
     const fetchResponse = await axios.all([
-      hostEnv.get(`movie-discover-with-genre/${genre_id}`),
+      hostEnv.get(entrypointUrl),
       hostEnv.get('genres'),
     ]);
 
@@ -181,7 +158,6 @@ export {
   ptBR,
   // entrypoint requests
   fetchMovieDiscover,
-  fetchMovieTopRated,
   fetchMovieDiscoverWithGenre,
   fetchGenres,
   fetchSearchMovie,
