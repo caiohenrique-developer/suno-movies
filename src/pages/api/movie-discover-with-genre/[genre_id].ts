@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { tmdbApi, apiKey, movieDiscover, ptBR } from '@pages/api';
+import { tmdbApi, apiKey, movieDiscover, topRated, ptBR } from '@pages/api';
 
 export default async function fetchMovieDiscoverWithGenre(
   req: NextApiRequest,
@@ -8,12 +8,14 @@ export default async function fetchMovieDiscoverWithGenre(
   const { genre_id } = req.query;
 
   try {
-    const { data: result } = await tmdbApi.get(movieDiscover, {
+    const entrypointUrl = genre_id === '8' ? topRated : movieDiscover;
+
+    const { data: result } = await tmdbApi.get(entrypointUrl, {
       params: {
         api_key: apiKey,
         language: ptBR,
-        with_genres: genre_id,
         include_adult: false,
+        ...(genre_id !== '8' ? { with_genres: genre_id } : {}),
       },
     });
 

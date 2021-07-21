@@ -59,13 +59,8 @@ const fetchMovieDiscoverWithGenre = async (
   genre_id: number,
 ): Promise<FetchMovieProps[]> => {
   try {
-    const entrypointUrl =
-      genre_id === 8
-        ? `movie-top-rated/${genre_id}`
-        : `movie-discover-with-genre/${genre_id}`;
-
     const fetchResponse = await axios.all([
-      hostEnv.get(entrypointUrl),
+      hostEnv.get(`movie-discover-with-genre/${genre_id}`),
       hostEnv.get('genres'),
     ]);
 
