@@ -18,7 +18,7 @@ import { Container } from '@styles/pages/Catalogue';
 
 export default function Catalogue() {
   const { addPageID, pageID } = usePageIndicator();
-  const { movieWithGenreApi, reqApi } = useReqApi();
+  const { movieWithGenreApi, reqApi, genreApi } = useReqApi();
 
   useEffect(() => {
     addPageID('catalogue');
@@ -159,6 +159,11 @@ export default function Catalogue() {
               {movieWithGenreApi
                 .slice(0, movieVisible)
                 .map(({ id, genreIDs, title, poster, description, rating }) => {
+                  const genres = genreApi
+                    .filter(({ id }) => genreIDs.includes(id))
+                    .map(({ genreName }) => genreName)
+                    .join(', ');
+
                   return (
                     <CardMovie
                       key={id}
@@ -170,6 +175,7 @@ export default function Catalogue() {
                       }`}
                       poster={poster}
                       title={title}
+                      genres={genres}
                       description={description}
                       rating={rating}
                     />

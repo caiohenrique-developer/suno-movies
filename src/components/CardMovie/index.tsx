@@ -17,6 +17,7 @@ export const CardMovie = ({
   className,
   poster,
   title,
+  genres,
   description,
   rating,
   handleResetHeaderValues,
@@ -50,7 +51,7 @@ export const CardMovie = ({
             )}
             <div>
               <h4>{title}</h4>
-              {/* <h3>Comédia</h3> */}
+              <h3>{genres}</h3>
               <span>
                 <TiStarFullOutline />
                 {rating}
@@ -80,7 +81,7 @@ export const CardMovie = ({
           )}
           <div>
             <h4>{title}</h4>
-            {/* <h3>Comédia</h3> */}
+            <h3>{genres}</h3>
             <span>
               <TiStarFullOutline />
               {rating}
