@@ -35,12 +35,11 @@ export const ReqApiProvider = ({ children }: ChildrenGlobalType) => {
 
   const reqApi = async (genre_id?: number, movie_id?: number) => {
     if (genre_id) {
-      // Filtered by genre
-      setMovieWithGenreApi(await fetchMovieDiscoverWithGenre(genre_id));
+      setMovieWithGenreApi(await fetchMovieDiscoverWithGenre(genre_id)); // Filtered by genre
     }
 
     if (movie_id) {
-      const movieDetailSelected = await fetchMovieDetail(movie_id);
+      const movieDetailSelected = await fetchMovieDetail(movie_id); // Get details by selected movie
 
       localStorage.setItem(
         '@SunoMoveis:movie-selected',
@@ -50,8 +49,8 @@ export const ReqApiProvider = ({ children }: ChildrenGlobalType) => {
       setMovieDetailApi(movieDetailSelected);
     }
 
-    setMovieDiscoverApi(await fetchMovieDiscover());
-    setGenreApi(await fetchGenres());
+    setMovieDiscoverApi(await fetchMovieDiscover()); // List movies
+    setGenreApi(await fetchGenres()); // Get genre categories
   };
 
   const valCtx = {
