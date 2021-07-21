@@ -5,7 +5,6 @@ import Link from 'next/link';
 
 import MediaQuery from 'react-responsive';
 
-import { useReqApi } from '@hooks/useReqApi';
 import { usePageIndicator } from '@hooks/usePageIndicator';
 
 import { AppLogotipo } from '@components/AppLogotipo';
@@ -19,7 +18,6 @@ import { FetchMovieProps } from '@utils/types/api';
 import { HeaderProps } from '@utils/types/components';
 
 export const Header = () => {
-  const { genreApi } = useReqApi();
   const { pageID } = usePageIndicator();
 
   const [toggleHeaderSearchBar, setToggleHeaderSearchBar] = useState(false);
@@ -274,26 +272,17 @@ export const Header = () => {
 
             {searchMovieApi.length > 0 && (
               <span>
-                {searchMovieApi.map(
-                  ({ id, genreIDs, title, poster, rating }) => {
-                    const genres = genreApi
-                      .filter(({ id }) => genreIDs.includes(id))
-                      .map(({ genreName }) => genreName)
-                      .join(', ');
-
-                    return (
-                      <CardMovie
-                        key={id}
-                        movieID={id}
-                        poster={poster}
-                        title={title}
-                        genres={genres}
-                        rating={rating}
-                        handleResetHeaderValues={handleCollapse}
-                      />
-                    );
-                  },
-                )}
+                {searchMovieApi.map(({ id, genres, title, poster, rating }) => (
+                  <CardMovie
+                    key={id}
+                    movieID={id}
+                    poster={poster}
+                    title={title}
+                    genres={genres}
+                    rating={rating}
+                    handleResetHeaderValues={handleCollapse}
+                  />
+                ))}
               </span>
             )}
           </form>

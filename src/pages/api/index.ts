@@ -31,7 +31,23 @@ const apiKey = process.env.API_KEY;
 
 const fetchMovieDiscover = async (): Promise<FetchMovieProps[]> => {
   try {
-    const { data: movie } = await hostEnv.get('movie-discover');
+    const fetchResponse = await axios.all([
+      hostEnv.get('movie-discover'),
+      hostEnv.get('genres'),
+    ]);
+
+    const dataRes = fetchResponse.map(({ data: result }) => result);
+
+    const movie = dataRes[0].map(
+      ({ id, genreIDs, title, poster, rating, description }) => {
+        const genres = dataRes[1]
+          .filter(({ id }) => genreIDs.includes(id))
+          .map(({ genreName }) => genreName)
+          .join(', ');
+
+        return { id, genres, title, poster, rating, description };
+      },
+    );
 
     return movie;
   } catch (err) {
@@ -43,8 +59,22 @@ const fetchMovieTopRated = async (
   genre_id: number,
 ): Promise<FetchMovieProps[]> => {
   try {
-    const { data: movieTopRated } = await hostEnv.get(
-      `movie-top-rated/${genre_id}`,
+    const fetchResponse = await axios.all([
+      hostEnv.get(`movie-top-rated/${genre_id}`),
+      hostEnv.get('genres'),
+    ]);
+
+    const dataRes = fetchResponse.map(({ data: result }) => result);
+
+    const movieTopRated = dataRes[0].map(
+      ({ id, genreIDs, title, poster, rating, description }) => {
+        const genres = dataRes[1]
+          .filter(({ id }) => genreIDs.includes(id))
+          .map(({ genreName }) => genreName)
+          .join(', ');
+
+        return { id, genres, title, poster, rating, description };
+      },
     );
 
     return movieTopRated;
@@ -57,8 +87,22 @@ const fetchMovieDiscoverWithGenre = async (
   genre_id: number,
 ): Promise<FetchMovieProps[]> => {
   try {
-    const { data: filteredGenre } = await hostEnv.get(
-      `movie-discover-with-genre/${genre_id}`,
+    const fetchResponse = await axios.all([
+      hostEnv.get(`movie-discover-with-genre/${genre_id}`),
+      hostEnv.get('genres'),
+    ]);
+
+    const dataRes = fetchResponse.map(({ data: result }) => result);
+
+    const filteredGenre = dataRes[0].map(
+      ({ id, genreIDs, title, poster, rating, description }) => {
+        const genres = dataRes[1]
+          .filter(({ id }) => genreIDs.includes(id))
+          .map(({ genreName }) => genreName)
+          .join(', ');
+
+        return { id, genres, title, poster, rating, description };
+      },
     );
 
     return filteredGenre;
@@ -79,7 +123,23 @@ const fetchGenres = async (): Promise<FetchGenreProps[]> => {
 
 const fetchSearchMovie = async (search: string): Promise<FetchMovieProps[]> => {
   try {
-    const { data: foundMovie } = await hostEnv.get(`movie-search/${search}`);
+    const fetchResponse = await axios.all([
+      hostEnv.get(`movie-search/${search}`),
+      hostEnv.get('genres'),
+    ]);
+
+    const dataRes = fetchResponse.map(({ data: result }) => result);
+
+    const foundMovie = dataRes[0].map(
+      ({ id, genreIDs, title, poster, rating, description }) => {
+        const genres = dataRes[1]
+          .filter(({ id }) => genreIDs.includes(id))
+          .map(({ genreName }) => genreName)
+          .join(', ');
+
+        return { id, genres, title, poster, rating, description };
+      },
+    );
 
     return foundMovie;
   } catch (err) {

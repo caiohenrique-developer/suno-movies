@@ -18,7 +18,7 @@ import { Container } from '@styles/pages/Catalogue';
 
 export default function Catalogue() {
   const { addPageID, pageID } = usePageIndicator();
-  const { movieWithGenreApi, reqApi, genreApi } = useReqApi();
+  const { movieWithGenreApi, reqApi } = useReqApi();
 
   useEffect(() => {
     addPageID('catalogue');
@@ -158,29 +158,22 @@ export default function Catalogue() {
             <div className={layoutType}>
               {movieWithGenreApi
                 .slice(0, movieVisible)
-                .map(({ id, genreIDs, title, poster, description, rating }) => {
-                  const genres = genreApi
-                    .filter(({ id }) => genreIDs.includes(id))
-                    .map(({ genreName }) => genreName)
-                    .join(', ');
-
-                  return (
-                    <CardMovie
-                      key={id}
-                      movieID={id}
-                      className={`animate__animated ${
-                        layoutType === 'grid'
-                          ? 'animate__backInDown'
-                          : 'animate__fadeInDownBig'
-                      }`}
-                      poster={poster}
-                      title={title}
-                      genres={genres}
-                      description={description}
-                      rating={rating}
-                    />
-                  );
-                })}
+                .map(({ id, genres, title, poster, description, rating }) => (
+                  <CardMovie
+                    key={id}
+                    movieID={id}
+                    className={`animate__animated ${
+                      layoutType === 'grid'
+                        ? 'animate__backInDown'
+                        : 'animate__fadeInDownBig'
+                    }`}
+                    poster={poster}
+                    title={title}
+                    genres={genres}
+                    description={description}
+                    rating={rating}
+                  />
+                ))}
             </div>
 
             {movieVisible < movieWithGenreApi.length && (

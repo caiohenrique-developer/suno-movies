@@ -37,7 +37,7 @@ const ButtonGroup = (props) => {
 };
 
 export const CarouselContainer = () => {
-  const { movieDiscoverApi, genreApi } = useReqApi();
+  const { movieDiscoverApi } = useReqApi();
 
   return (
     <Container>
@@ -54,24 +54,17 @@ export const CarouselContainer = () => {
         itemClass='react-multi-carousel-item-card'
       >
         {movieDiscoverApi.map(
-          ({ id, genreIDs, title, poster, description, rating }) => {
-            const genres = genreApi
-              .filter(({ id }) => genreIDs.includes(id))
-              .map(({ genreName }) => genreName)
-              .join(', ');
-
-            return (
-              <CardMovie
-                key={id}
-                movieID={id}
-                poster={poster}
-                title={title}
-                genres={genres}
-                description={description}
-                rating={rating}
-              />
-            );
-          },
+          ({ id, genres, title, poster, description, rating }) => (
+            <CardMovie
+              key={id}
+              movieID={id}
+              poster={poster}
+              title={title}
+              genres={genres}
+              description={description}
+              rating={rating}
+            />
+          ),
         )}
       </Carousel>
     </Container>

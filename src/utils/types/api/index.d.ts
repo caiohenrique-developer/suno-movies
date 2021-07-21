@@ -4,7 +4,7 @@ export interface FetchMovieProps {
   title: string;
   poster: string;
   description?: string;
-  genreIDs: [key: number];
+  genres: string;
   rating: number;
 }
 
