@@ -8,7 +8,14 @@ export default async function fetchMovieDetail(
   const { movie_id } = req.query;
 
   try {
-    const { data: result } = await tmdbApi.get(`${movie}/${movie_id}`, {
+    const { data: movieDetail } = await tmdbApi.get(`${movie}/${movie_id}`, {
+      params: {
+        api_key: apiKey,
+        language: ptBR,
+      },
+    });
+
+    const { data: video } = await tmdbApi.get(`${movie}/${movie_id}/videos`, {
       params: {
         api_key: apiKey,
         language: ptBR,
@@ -23,7 +30,9 @@ export default async function fetchMovieDetail(
       vote_average: rating,
       overview: description,
       backdrop_path: posterBkg,
-    } = result;
+    } = movieDetail;
+
+    const { key: movieVideoID, name: trailer } = video['results']?.[0] || {};
 
     let resultMounted = {
       id,
@@ -33,6 +42,8 @@ export default async function fetchMovieDetail(
       poster,
       posterBkg,
       description,
+      movieVideoID,
+      trailer,
     };
 
     if (poster == null || poster == undefined || poster == '')

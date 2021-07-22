@@ -123,14 +123,7 @@ const fetchMovieDetail = async (
   movie_id: number,
 ): Promise<FetchMovieDetailProps> => {
   try {
-    const fetchResponse = await axios.all([
-      hostEnv.get(`movie-detail/${movie_id}`),
-      hostEnv.get(`movie-video/${movie_id}`),
-    ]);
-
-    const dataRes = fetchResponse.map(({ data: result }) => result);
-
-    const movieDetail = { ...dataRes[0], ...dataRes[1] };
+    const { data: movieDetail } = await hostEnv.get(`movie-detail/${movie_id}`);
 
     return movieDetail;
   } catch (err) {
