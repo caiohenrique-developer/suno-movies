@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { tmdbApi, apiKey, movie, ptBR } from '@pages/api';
+import axios from 'axios';
 
 export default async function fetchMovieDetail(
   req: NextApiRequest,
@@ -8,19 +9,23 @@ export default async function fetchMovieDetail(
   const { movie_id } = req.query;
 
   try {
-    const { data: movieDetail } = await tmdbApi.get(`${movie}/${movie_id}`, {
-      params: {
-        api_key: apiKey,
-        language: ptBR,
-      },
-    });
+    const fetchResponse = await axios.all([
+      tmdbApi.get(`${movie}/${movie_id}`, {
+        params: {
+          api_key: apiKey,
+          language: ptBR,
+        },
+      }),
+      tmdbApi.get(`${movie}/${movie_id}/videos`, {
+        params: {
+          api_key: apiKey,
+          language: ptBR,
+        },
+      }),
+    ]);
 
-    const { data: video } = await tmdbApi.get(`${movie}/${movie_id}/videos`, {
-      params: {
-        api_key: apiKey,
-        language: ptBR,
-      },
-    });
+    const movieDetail = fetchResponse[0]['data'];
+    const video = fetchResponse[1]['data'];
 
     const {
       id,
