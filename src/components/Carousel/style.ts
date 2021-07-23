@@ -61,7 +61,23 @@ export const Container = styled.div`
             }
 
             h4 {
+              white-space: nowrap;
+              overflow: auto;
               font-size: min(1.4rem, 2vw);
+
+              &::-webkit-scrollbar {
+                width: 0;
+                height: 2px;
+              }
+
+              &::-webkit-scrollbar-track {
+                box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+              }
+
+              &::-webkit-scrollbar-thumb {
+                background: var(--white_EAE);
+                border-radius: 5px;
+              }
             }
 
             h3 {
