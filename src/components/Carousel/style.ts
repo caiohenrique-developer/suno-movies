@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   position: relative;
 
-  margin: min(3vw, 2.375rem) 0 min(10.3vw, 8.25rem);
+  margin-bottom: min(10.3vw, 8.25rem);
 
   .carousel-arrow {
     position: absolute;
@@ -30,52 +30,58 @@ export const Container = styled.div`
   .react-multi-carousel-container {
     max-width: 1210px;
     margin: auto;
-  }
+    padding: 2.5rem 0;
 
-  .react-multi-carousel-list {
-    .react-multi-carousel-item-card {
-      padding: 0 min(1.563rem, 2.5vw);
+    .react-multi-carousel-track {
+      .react-multi-carousel-item-card {
+        padding: 0 min(1.563rem, 2.5vw);
 
-      > div > section {
-        flex-direction: column;
+        > div > section {
+          flex-direction: column;
+          transition: 0.3s;
 
-        > a > div {
-          border-radius: 5px;
-
-          &:after {
-            background-size: 5rem;
-          }
-        }
-
-        > div {
-          margin-top: min(1rem, 1.5vw);
-
-          h4,
-          h3 {
-            word-break: break-word;
+          &:hover {
+            transform: scale(1.1);
           }
 
-          h4 {
-            font-size: min(1.4rem, 2vw);
-          }
+          > a > div {
+            border-radius: 5px;
 
-          h3 {
-            font-size: min(1rem, 1.5vw);
-          }
-
-          span {
-            font-size: min(1rem, 1.5vw);
-            margin: 0;
-
-            svg {
-              position: relative;
-              top: 0.125rem;
+            &:after {
+              background-size: 5rem;
             }
           }
-        }
 
-        p {
-          display: none;
+          > div {
+            margin-top: min(1rem, 1.5vw);
+
+            h4,
+            h3 {
+              word-break: break-word;
+            }
+
+            h4 {
+              font-size: min(1.4rem, 2vw);
+            }
+
+            h3 {
+              font-size: min(1rem, 1.5vw);
+            }
+
+            span {
+              font-size: min(1rem, 1.5vw);
+              margin: 0;
+
+              svg {
+                position: relative;
+                top: 0.125rem;
+              }
+            }
+          }
+
+          p {
+            display: none;
+          }
         }
       }
     }

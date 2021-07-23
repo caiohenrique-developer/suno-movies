@@ -8,6 +8,7 @@ $hamburger-layer-height: 2px !default;
 @media (max-width: 767px) {
   body {
     #__next {
+      // Card movie
       #mob {
         > div {
           display: flex;
@@ -289,31 +290,41 @@ $hamburger-layer-height: 2px !default;
                       }
                     }
 
-                    .react-multi-carousel-item-card {
+                    .react-multi-carousel-container {
                       padding: 0;
 
-                      #mob > div {
-                        flex-direction: column;
+                      .react-multi-carousel-item-card {
+                        padding: 0;
 
-                        > a {
-                          margin: 0.625rem 0 1.25rem;
-                        }
-
-                        > div {
-                          h4 {
-                            font-size: 1.25rem;
+                        #mob {
+                          &:hover {
+                            transform: unset;
                           }
 
-                          h3 {
-                            font-size: 0.875rem;
-                            margin: 0;
-                          }
+                          > div {
+                            flex-direction: column;
 
-                          span {
-                            font-size: 0.875rem;
+                            > a {
+                              margin: 0.625rem 0 1.25rem;
+                            }
 
-                            svg {
-                              font-size: 1rem;
+                            > div {
+                              h4 {
+                                font-size: 1.25rem;
+                              }
+
+                              h3 {
+                                font-size: 0.875rem;
+                                margin: 0;
+                              }
+
+                              span {
+                                font-size: 0.875rem;
+
+                                svg {
+                                  font-size: 1rem;
+                                }
+                              }
                             }
                           }
                         }
