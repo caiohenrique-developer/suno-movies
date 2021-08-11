@@ -306,6 +306,10 @@ $hamburger-layer-height: 2px !default;
 
                             > a {
                               margin: 0.625rem 0 1.25rem;
+
+                              > div {
+                                padding: 0.625rem 1.875rem;
+                              }
                             }
 
                             > div {
