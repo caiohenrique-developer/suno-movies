@@ -466,7 +466,8 @@ $hamburger-layer-height: 2px !default;
 
                     margin: auto !important;
                     max-width: 100% !important;
-                    max-height: 29.375rem;
+                    max-height: 100vh;
+                    height: 100vh;
                   }
 
                   &:last-of-type {
