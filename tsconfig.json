@@ -1,8 +1,5 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
     "rootDir": ".",
     "baseUrl": "./src",
     "outDir": "./dist",
@@ -11,10 +8,14 @@
       "@components/*": ["components/*"],
       "@hooks/*": ["hooks/*"],
       "@pages/*": ["pages/*"],
-      "@api/*": ["api/*"],
+      "@api/*": ["pages/api/*"],
       "@styles/*": ["styles/*"],
       "@utils/*": ["utils/*"]
     },
+
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
@@ -30,9 +31,9 @@
     "src",
     "public",
     "next-env.d.ts",
+    "**/*.js",
     "**/*.ts",
-    "**/*.tsx",
-    "**/*.*.js"
+    "**/*.tsx"
   ],
   "exclude": ["node_modules"]
 }

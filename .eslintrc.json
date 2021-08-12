@@ -5,7 +5,6 @@
   },
   "extends": [
     "airbnb",
-    "prettier",
     "plugin:react/recommended",
     "plugin:prettier/recommended",
     "plugin:@typescript-eslint/recommended"
@@ -13,8 +12,7 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
-      "jsx": true,
-      "tsx": true
+      "jsx": true
     },
     "ecmaVersion": 12,
     "project": "./tsconfig.json",
@@ -32,13 +30,19 @@
     "prettier/prettier": "error",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
+    "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "Link" ],
+      "specialLink": ["hrefLeft", "hrefRight"],
+      "aspects": ["invalidHref", "preferButton"]
+    }],
+    // c
     "react/jsx-filename-extension": [
       1,
-      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+      { "extensions": [".tsx"] }
     ],
     "import/prefer-default-export": "off",
     // caso tenha algum aviso na importação do React ou variável/constante
-    // "no-use-before-define": "off",
+    "no-use-before-define": "off",
     // para que as importações de arquivos .tsx não precise da extensão
     "import/extensions": [
       "error",
@@ -53,13 +57,14 @@
       {
         "newlinesBetween": "always",
         "groups": [
-          "/^@api/",
           "/^react/",
+          "/^next/",
           "module",
-          "/^@assets/",
+          "/^@api/",
+          "/^@pages/",
           "/^@components/",
           "/^@hooks/",
-          "/^@pages/",
+          "/^@assets/",
           "/^@styles/",
           "/^@utils/",
           ["parent", "sibling", "index"]

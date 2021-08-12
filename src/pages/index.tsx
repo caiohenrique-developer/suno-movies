@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
+import { Container } from '@styles/pages/Home';
 
 import MediaQuery from 'react-responsive';
 import { usePageIndicator } from '@hooks/usePageIndicator';
 import { CTAButton } from '@components/CTAButton';
 
 import RightArrow from '@assets/chevron-next-outline.svg';
+import React, { useEffect } from 'react';
 
-import { Container } from '@styles/pages/Home';
 
 export default function Home() {
   const { pageID, addPageID } = usePageIndicator();
