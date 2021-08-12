@@ -1,16 +1,15 @@
 import React from 'react';
+import { TiStarFullOutline } from 'react-icons/ti';
+import MediaQuery from 'react-responsive';
+
 import Image from 'next/image';
 import Link from 'next/link';
 
-import MediaQuery from 'react-responsive';
-
 import { useReqApi } from '@hooks/useReqApi';
 
-import { TiStarFullOutline } from 'react-icons/ti';
+import { CardMovieProps } from '@utils/types/components';
 
 import { Container } from './style';
-
-import { CardMovieProps } from '@utils/types/components';
 
 export const CardMovie = ({
   movieID,
@@ -21,13 +20,13 @@ export const CardMovie = ({
   description,
   rating,
   handleResetHeaderValues,
-}: CardMovieProps) => {
+}: CardMovieProps): JSX.Element => {
   const { reqApi } = useReqApi();
 
   const handleMovieSelected = () => {
     reqApi(8, movieID);
 
-    handleResetHeaderValues && handleResetHeaderValues();
+    if (handleResetHeaderValues) handleResetHeaderValues();
   };
 
   return (
