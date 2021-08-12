@@ -5,7 +5,9 @@ import { PageIDCtxProps } from '@utils/types/hooks';
 
 const PageIDContext = createContext({} as PageIDCtxProps);
 
-export const PageIDProvider = ({ children }: ChildrenGlobalType) => {
+export const PageIDProvider = ({
+  children,
+}: ChildrenGlobalType): JSX.Element => {
   const [pageID, setPageID] = useState('');
 
   const addPageID = (page: string) => {

@@ -1,11 +1,11 @@
+import React, { createContext, useContext, useEffect, useState } from 'react';
+
 import {
   fetchGenres,
   fetchMovieDiscover,
   fetchMovieDiscoverWithGenre,
   fetchMovieDetail,
 } from '@pages/api';
-
-import React, { createContext, useContext, useEffect, useState } from 'react';
 
 import {
   FetchMovieProps,
@@ -17,7 +17,9 @@ import { ReqApiValCtx } from '@utils/types/hooks';
 
 const ReqApiContext = createContext({} as ReqApiValCtx);
 
-export const ReqApiProvider = ({ children }: ChildrenGlobalType) => {
+export const ReqApiProvider = ({
+  children,
+}: ChildrenGlobalType): JSX.Element => {
   const [movieDiscoverApi, setMovieDiscoverApi] = useState<FetchMovieProps[]>(
     [],
   );
@@ -33,13 +35,13 @@ export const ReqApiProvider = ({ children }: ChildrenGlobalType) => {
     reqApi(8, undefined);
   }, []);
 
-  const reqApi = async (genre_id?: number, movie_id?: number) => {
-    if (genre_id) {
-      setMovieWithGenreApi(await fetchMovieDiscoverWithGenre(genre_id)); // Filtered by genre
+  const reqApi = async (genreID?: number, movieID?: number) => {
+    if (genreID) {
+      setMovieWithGenreApi(await fetchMovieDiscoverWithGenre(genreID)); // Filtered by genre
     }
 
-    if (movie_id) {
-      const movieDetailSelected = await fetchMovieDetail(movie_id); // Get details by selected movie
+    if (movieID) {
+      const movieDetailSelected = await fetchMovieDetail(movieID); // Get details by selected movie
 
       localStorage.setItem(
         '@SunoMoveis:movie-selected',
@@ -66,6 +68,6 @@ export const ReqApiProvider = ({ children }: ChildrenGlobalType) => {
   );
 };
 
-export const useReqApi = () => {
+export const useReqApi = (): ReqApiValCtx => {
   return useContext(ReqApiContext);
 };
