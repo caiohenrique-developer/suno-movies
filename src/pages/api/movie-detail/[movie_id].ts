@@ -1,22 +1,24 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { tmdbApi, apiKey, movie, ptBR } from '@pages/api';
+
 import axios from 'axios';
+
+import { tmdbApi, apiKey, movie, ptBR } from '@pages/api';
 
 export default async function fetchMovieDetail(
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<void> {
-  const { movie_id } = req.query;
+  const { movieID } = req.query;
 
   try {
     const fetchResponse = await axios.all([
-      tmdbApi.get(`${movie}/${movie_id}`, {
+      tmdbApi.get(`${movie}/${movieID}`, {
         params: {
           api_key: apiKey,
           language: ptBR,
         },
       }),
-      tmdbApi.get(`${movie}/${movie_id}/videos`, {
+      tmdbApi.get(`${movie}/${movieID}/videos`, {
         params: {
           api_key: apiKey,
           language: ptBR,
@@ -24,8 +26,8 @@ export default async function fetchMovieDetail(
       }),
     ]);
 
-    const movieDetail = fetchResponse[0]['data'];
-    const video = fetchResponse[1]['data'];
+    const movieDetail = fetchResponse[0].data;
+    const video = fetchResponse[1].data;
 
     const {
       id,
@@ -37,7 +39,7 @@ export default async function fetchMovieDetail(
       backdrop_path: posterBkg,
     } = movieDetail;
 
-    const { key: movieVideoID, name: trailer } = video['results']?.[0] || {};
+    const { key: movieVideoID, name: trailer } = video.results?.[0] || {};
 
     let resultMounted = {
       id,
@@ -51,21 +53,22 @@ export default async function fetchMovieDetail(
       trailer,
     };
 
-    if (poster == null || poster == undefined || poster == '')
+    if (poster === null || poster === undefined || poster === '') {
       resultMounted = {
         ...resultMounted,
         poster: '/assets/poster-placeholder.png',
         posterBkg: '/assets/poster-placeholder.png',
       };
-    else
+    } else {
       resultMounted = {
         ...resultMounted,
         poster: `https://image.tmdb.org/t/p/original${poster}`,
         posterBkg: `https://image.tmdb.org/t/p/original${posterBkg}`,
       };
+    }
 
     return res.status(200).json(resultMounted);
   } catch (err) {
-    console.error(err);
+    throw new Error(err);
   }
 }

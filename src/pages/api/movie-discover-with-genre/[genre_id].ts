@@ -1,25 +1,26 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+
 import { tmdbApi, apiKey, movieDiscover, topRated, ptBR } from '@pages/api';
 
 export default async function fetchMovieDiscoverWithGenre(
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<void> {
-  const { genre_id } = req.query;
+  const { genreID } = req.query;
 
   try {
-    const entrypointUrl = genre_id === '8' ? topRated : movieDiscover;
+    const entrypointUrl = genreID === '8' ? topRated : movieDiscover;
 
     const { data: result } = await tmdbApi.get(entrypointUrl, {
       params: {
         api_key: apiKey,
         language: ptBR,
         include_adult: false,
-        ...(genre_id !== '8' ? { with_genres: genre_id } : {}),
+        ...(genreID !== '8' ? { with_genres: genreID } : {}),
       },
     });
 
-    const resultMounted = result['results'].map(
+    const resultMounted = result.results.map(
       ({
         id,
         title,
@@ -36,21 +37,20 @@ export default async function fetchMovieDiscoverWithGenre(
           rating,
         };
 
-        if (poster == null || poster == undefined || poster == '')
+        if (poster === null || poster === undefined || poster === '')
           return {
             ...dataMounted,
             poster: '/assets/poster-placeholder.png',
           };
-        else
-          return {
-            ...dataMounted,
-            poster: `https://image.tmdb.org/t/p/original${poster}`,
-          };
+        return {
+          ...dataMounted,
+          poster: `https://image.tmdb.org/t/p/original${poster}`,
+        };
       },
     );
 
     return res.status(200).json(resultMounted);
   } catch (err) {
-    console.error(err);
+    throw new Error(err);
   }
 }

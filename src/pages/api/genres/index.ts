@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+
 import { tmdbApi, apiKey, genres, ptBR } from '@pages/api';
 
 export default async function fetchGenres(
@@ -13,7 +14,7 @@ export default async function fetchGenres(
       },
     });
 
-    const resultMounted = result['genres'].map(({ id, name: genreName }) => ({
+    const resultMounted = result.genres.map(({ id, name: genreName }) => ({
       id,
       genreName,
     }));
@@ -22,6 +23,6 @@ export default async function fetchGenres(
 
     return res.status(200).json(newValue);
   } catch (err) {
-    console.error(err);
+    throw new Error(err);
   }
 }

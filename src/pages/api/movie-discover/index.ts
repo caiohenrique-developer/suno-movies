@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+
 import { tmdbApi, apiKey, movieDiscover, ptBR } from '@pages/api';
 
 export default async function fetchMovieDiscover(
@@ -15,7 +16,7 @@ export default async function fetchMovieDiscover(
       },
     });
 
-    const resultMounted = result['results'].map(
+    const resultMounted = result.results.map(
       ({
         id,
         title,
@@ -32,21 +33,22 @@ export default async function fetchMovieDiscover(
           rating,
         };
 
-        if (poster == null || poster == undefined || poster == '')
+        if (poster === null || poster === undefined || poster === '') {
           return {
             ...dataMounted,
             poster: '/assets/poster-placeholder.png',
           };
-        else
-          return {
-            ...dataMounted,
-            poster: `https://image.tmdb.org/t/p/original${poster}`,
-          };
+        }
+
+        return {
+          ...dataMounted,
+          poster: `https://image.tmdb.org/t/p/original${poster}`,
+        };
       },
     );
 
     return res.status(200).json(resultMounted);
   } catch (err) {
-    console.error(err);
+    throw new Error(err);
   }
 }

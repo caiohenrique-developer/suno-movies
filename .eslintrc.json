@@ -41,6 +41,7 @@
       { "extensions": [".tsx"] }
     ],
     "no-nested-ternary": "off",
+    "dot-notation": "off",
     "import/prefer-default-export": "off",
     // caso tenha algum aviso na importação do React ou variável/constante
     "no-use-before-define": "off",
