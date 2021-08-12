@@ -16,5 +16,5 @@ export interface ReqApiValCtx {
   movieWithGenreApi: FetchMovieProps[];
   movieDetailApi: FetchMovieDetailProps;
   genreApi: FetchGenreProps[];
-  reqApi(genre_id?: number, movie_id?: number): void;
+  reqApi(genreID?: number, movieID?: number): void;
 }
