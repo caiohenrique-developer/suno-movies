@@ -42,6 +42,7 @@
     ],
     "no-nested-ternary": "off",
     "dot-notation": "off",
+    "react/jsx-props-no-spreading": "off",
     "import/prefer-default-export": "off",
     // caso tenha algum aviso na importação do React ou variável/constante
     "no-use-before-define": "off",

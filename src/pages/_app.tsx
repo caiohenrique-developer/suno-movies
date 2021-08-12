@@ -1,12 +1,13 @@
 import React from 'react';
+
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 
-import { ReqApiProvider } from '@hooks/useReqApi';
-import { PageIDProvider } from '@hooks/usePageIndicator';
-
-import { Header } from '@components/Header';
 import { Footer } from '@components/Footer';
+import { Header } from '@components/Header';
+
+import { PageIDProvider } from '@hooks/usePageIndicator';
+import { ReqApiProvider } from '@hooks/useReqApi';
 
 import GlobalStyles from '@styles/globals';
 import '@styles/responsive.scss';

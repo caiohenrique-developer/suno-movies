@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import Head from 'next/head';
 import MediaQuery from 'react-responsive';
 
-import { useReqApi } from '@hooks/useReqApi';
-import { usePageIndicator } from '@hooks/usePageIndicator';
+import Head from 'next/head';
 
-import { CatalogueTitle } from '@components/CatalogueTitle';
-import { CarouselContainer } from '@components/Carousel';
 import { CardMovie } from '@components/CardMovie';
+import { CarouselContainer } from '@components/Carousel';
+import { CatalogueTitle } from '@components/CatalogueTitle';
 import { FilterButton } from '@components/FilterButton';
+
+import { usePageIndicator } from '@hooks/usePageIndicator';
+import { useReqApi } from '@hooks/useReqApi';
 
 import FilterArrowDown from '@assets/catalogue-arrow-down.svg';
 import FilterArrowUp from '@assets/catalogue-arrow-up.svg';
@@ -16,13 +17,13 @@ import FilterArrowUp from '@assets/catalogue-arrow-up.svg';
 import { ActiveIndicator, Button } from '@styles/components/ButtonStyles';
 import { Container } from '@styles/pages/Catalogue';
 
-export default function Catalogue() {
+export default function Catalogue(): JSX.Element {
   const { addPageID, pageID } = usePageIndicator();
   const { movieWithGenreApi, reqApi } = useReqApi();
 
   useEffect(() => {
     addPageID('catalogue');
-  }, []);
+  }, [addPageID]);
 
   const [toggleLayout, setToggleLayout] = useState(false);
   const [toggleGenre, setToggleGenre] = useState(false);

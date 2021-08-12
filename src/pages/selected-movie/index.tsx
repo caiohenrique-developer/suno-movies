@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import { TiStarFullOutline } from 'react-icons/ti';
+
 import Head from 'next/head';
 import Image from 'next/image';
 
-import { useReqApi } from '@hooks/useReqApi';
 import { CTAButton } from '@components/CTAButton';
-import { usePageIndicator } from '@hooks/usePageIndicator';
 
-import { TiStarFullOutline } from 'react-icons/ti';
+import { usePageIndicator } from '@hooks/usePageIndicator';
+import { useReqApi } from '@hooks/useReqApi';
 
 import { Container } from '@styles/pages/SelectedMovie';
+
 import { FetchMovieDetailProps } from '@utils/types/api';
 
-export default function SelectedMovie() {
+export default function SelectedMovie(): JSX.Element {
   const { addPageID, pageID } = usePageIndicator();
   const {
     movieDetailApi: {
@@ -30,14 +32,14 @@ export default function SelectedMovie() {
 
   useEffect(() => {
     addPageID('selected-movie');
-  }, []);
+  }, [addPageID]);
 
   if (process.browser) {
     const movieSelected = JSON.parse(
       localStorage.getItem('@SunoMoveis:movie-selected'),
     );
 
-    // console.log(movieSelected);
+    console.log(movieSelected);
   }
 
   return (

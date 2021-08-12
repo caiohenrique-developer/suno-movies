@@ -1,20 +1,23 @@
+import React, { useEffect } from 'react';
+import MediaQuery from 'react-responsive';
+
 import Head from 'next/head';
 import Image from 'next/image';
-import { Container } from '@styles/pages/Home';
 
-import MediaQuery from 'react-responsive';
-import { usePageIndicator } from '@hooks/usePageIndicator';
 import { CTAButton } from '@components/CTAButton';
 
-import RightArrow from '@assets/chevron-next-outline.svg';
-import React, { useEffect } from 'react';
+import { usePageIndicator } from '@hooks/usePageIndicator';
 
-export default function Home() {
+import RightArrow from '@assets/chevron-next-outline.svg';
+
+import { Container } from '@styles/pages/Home';
+
+export default function Home(): JSX.Element {
   const { pageID, addPageID } = usePageIndicator();
 
   useEffect(() => {
     addPageID('home');
-  }, []);
+  }, [addPageID]);
 
   return (
     <>
