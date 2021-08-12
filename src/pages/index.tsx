@@ -9,7 +9,6 @@ import { CTAButton } from '@components/CTAButton';
 import RightArrow from '@assets/chevron-next-outline.svg';
 import React, { useEffect } from 'react';
 
-
 export default function Home() {
   const { pageID, addPageID } = usePageIndicator();
 

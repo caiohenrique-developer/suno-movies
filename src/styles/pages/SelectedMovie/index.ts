@@ -149,7 +149,7 @@ export const Container = styled.main<ContainerProps>`
         > iframe {
           display: block;
           width: 100%;
-          max-height: min(36.25rem,70vw);
+          max-height: min(36.25rem, 70vw);
         }
 
         a {
