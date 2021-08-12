@@ -1,23 +1,23 @@
-import { fetchSearchMovie } from '@pages/api';
-
 import React, { FormEvent, useEffect, useState } from 'react';
-import Link from 'next/link';
-
 import MediaQuery from 'react-responsive';
 
-import { usePageIndicator } from '@hooks/usePageIndicator';
+import Link from 'next/link';
+
+import { fetchSearchMovie } from '@pages/api';
 
 import { AppLogotipo } from '@components/AppLogotipo';
 import { CardMovie } from '@components/CardMovie';
 
-import MagnifyingGlass from '@assets/search-outline.svg';
+import { usePageIndicator } from '@hooks/usePageIndicator';
 
-import { Container } from './style';
+import MagnifyingGlass from '@assets/search-outline.svg';
 
 import { FetchMovieProps } from '@utils/types/api';
 import { HeaderProps } from '@utils/types/components';
 
-export const Header = () => {
+import { Container } from './style';
+
+export const Header = (): JSX.Element => {
   const { pageID } = usePageIndicator();
 
   const [toggleHeaderSearchBar, setToggleHeaderSearchBar] = useState(false);
@@ -27,7 +27,7 @@ export const Header = () => {
 
   useEffect(() => {
     const handleInputSearchViewShortcut = (ev: HeaderProps) => {
-      if (ev.ctrlKey && ev.shiftKey && 'F' === 'f'.toUpperCase()) {
+      if (ev.ctrlKey && ev.shiftKey && 'f'.toUpperCase() === 'F') {
         handleHeaderSearchBar();
       }
 
@@ -177,7 +177,7 @@ export const Header = () => {
                       disabled={toggleHeaderSearchBar}
                     >
                       <span className='hamburger-box'>
-                        <span className='hamburger-inner'></span>
+                        <span className='hamburger-inner' />
                       </span>
                     </button>
 
@@ -320,17 +320,14 @@ export const Header = () => {
               </ul>
 
               {/* Header menu-mob overlay */}
-              <span
-                className={`${toggleMenuMob}`}
-                onClick={handleMenuMob}
-              ></span>
+              <span className={`${toggleMenuMob}`} onClick={handleMenuMob} />
             </nav>
           )}
         </MediaQuery>
       </header>
 
       {/* Header search-bar overlay */}
-      <span onClick={handleHeaderSearchBar}></span>
+      <span onClick={handleHeaderSearchBar} />
     </Container>
   );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Link from 'next/link';
 
 import { Container } from '@styles/components/ButtonStyles';
@@ -10,7 +11,7 @@ export const CTAButton = ({
   className,
   title,
   iconAfter,
-}: CTAButtonProps) => {
+}: CTAButtonProps): JSX.Element => {
   return (
     <Link href={pageUrl}>
       <Container className={className}>

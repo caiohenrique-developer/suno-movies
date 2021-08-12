@@ -1,15 +1,14 @@
 import React from 'react';
-
 import Carousel from 'react-multi-carousel';
-
-import { useReqApi } from '@hooks/useReqApi';
 
 import { CardMovie } from '@components/CardMovie';
 
-import { breakpointCfg } from '@utils/general/carouselBreakpoint';
+import { useReqApi } from '@hooks/useReqApi';
 
-import ArrowRight from '@assets/carousel-arrow-right.svg';
 import ArrowLeft from '@assets/carousel-arrow-left.svg';
+import ArrowRight from '@assets/carousel-arrow-right.svg';
+
+import { breakpointCfg } from '@utils/general/carouselBreakpoint';
 
 import { Container } from './style';
 
@@ -36,7 +35,7 @@ const ButtonGroup = (props) => {
   );
 };
 
-export const CarouselContainer = () => {
+export const CarouselContainer = (): JSX.Element => {
   const { movieDiscoverApi } = useReqApi();
 
   return (

@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
 import { opacify } from 'polished';
+import styled, { css } from 'styled-components';
 
 import { HeaderProps } from '@utils/types/styles';
 

@@ -11,7 +11,7 @@ export const FilterButton = ({
   iconBefore,
   title,
   onClick,
-}: FilterButtonProps) => {
+}: FilterButtonProps): JSX.Element => {
   const { genreApi } = useReqApi();
 
   const genreValues = genreApi.map(({ id, genreName }) => ({

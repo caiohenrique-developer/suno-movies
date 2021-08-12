@@ -2,11 +2,11 @@ import React from 'react';
 
 import CatalogueTitleEllipse from '@assets/ellipse.svg';
 
-import { Container } from './style';
-
 import { CatalogueTitleProps } from '@utils/types/components';
 
-export const CatalogueTitle = ({ title }: CatalogueTitleProps) => {
+import { Container } from './style';
+
+export const CatalogueTitle = ({ title }: CatalogueTitleProps): JSX.Element => {
   return (
     <Container>
       <CatalogueTitleEllipse />
