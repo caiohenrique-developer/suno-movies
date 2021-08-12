@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
 import { opacify } from 'polished';
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   /* Root variables */
@@ -51,7 +51,7 @@ export default createGlobalStyle`
       &:-webkit-autofill:hover,
       &:-webkit-autofill:focus,
       &:-webkit-autofill:active {
-        -webkit-box-shadow: 0 0 0 1000px #ffffff00 inset;
+        box-shadow: 0 0 0 1000px #ffffff00 inset;
         transition: 5000s ease-in-out 0s;
       }
     }
