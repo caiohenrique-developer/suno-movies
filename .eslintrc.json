@@ -4,10 +4,10 @@
     "es2021": true
   },
   "extends": [
-    "airbnb",
     "plugin:react/recommended",
-    "plugin:prettier/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "airbnb",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -15,14 +15,14 @@
       "jsx": true
     },
     "ecmaVersion": 12,
-    "project": "./tsconfig.json",
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": "./tsconfig.json"
   },
   "plugins": [
     "react",
-    "prettier",
-    "react-hooks",
     "@typescript-eslint",
+    "react-hooks",
+    "prettier",
     "eslint-plugin-import-helpers"
   ],
   "rules": {
@@ -30,19 +30,16 @@
     "prettier/prettier": "error",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+    "import/prefer-default-export": "off",
+    "react/jsx-props-no-spreading": "off",
+    "no-nested-ternary": "off",
     "jsx-a11y/anchor-is-valid": [ "error", {
       "components": [ "Link" ],
       "specialLink": ["hrefLeft", "hrefRight"],
-      "aspects": ["noHref", "invalidHref", "preferButton"]
+      "aspects": ["invalidHref", "preferButton"]
     }],
-    "react/jsx-filename-extension": [
-      1,
-      { "extensions": [".tsx"] }
-    ],
-    "no-nested-ternary": "off",
     "dot-notation": "off",
-    "react/jsx-props-no-spreading": "off",
-    "import/prefer-default-export": "off",
     // caso tenha algum aviso na importação do React ou variável/constante
     "no-use-before-define": "off",
     // para que as importações de arquivos .tsx não precise da extensão
