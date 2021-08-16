@@ -12,6 +12,7 @@ import { breakpointCfg } from '@utils/general/carouselBreakpoint';
 
 import { Container } from './style';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ButtonGroup = (props: any) => {
   const handleArrowClick = (ev: Event & { currentTarget: Element }) => {
     if (ev.currentTarget.classList.contains('carousel-arrow-right')) {
