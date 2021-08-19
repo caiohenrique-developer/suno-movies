@@ -10,8 +10,8 @@ module.exports = {
       name: '🎨 [style]: Changes that do not affect the meaning of the code\n (white-space, formatting, missing semi-colons, etc)',
     },
     {
-      value: '♻️⠀⠀[refactor]',
-      name: '♻️⠀⠀[refactor]: A code change that neither fixes a bug nor adds a feature',
+      value: '♻️⠀[refactor]',
+      name: '♻️⠀[refactor]: A code change that neither fixes a bug nor adds a feature',
     },
     {
       value: '🛸 [perf]',
