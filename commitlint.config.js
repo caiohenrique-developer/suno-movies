@@ -5,7 +5,7 @@ module.exports = {
   * Any rules defined here will override rules from @commitlint/config-conventional
   */
   rules: {
-      // 'type-empty': [ 0, 'never' ],
+      'type-empty': [ 0, 'never' ],
       'subject-empty': [ 0, 'never' ],
       'body-max-line-length': [ 0, 'never' ],
       'type-case': [ 2, 'always', ['upper-case','lower-case'] ],
