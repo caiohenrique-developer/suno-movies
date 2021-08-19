@@ -17,7 +17,7 @@ module.exports = {
       value: ':rocket: [ PERF ]',
       name: '[ PERF ]: A code change that improves performance',
     },
-    {  name: '🚨 [Test]: Adding missing tests' },
+    { value: '🚨 [test]', name: '🚨 [test]: Adding missing tests' },
     {
       value: ':hammer: [ CHORE ]',
       name:
