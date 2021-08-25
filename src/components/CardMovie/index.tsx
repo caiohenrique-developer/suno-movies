@@ -7,9 +7,25 @@ import Link from 'next/link';
 
 import { useReqApi } from '@hooks/useReqApi';
 
-import { CardMovieProps } from '@utils/types/components';
+import { CardMovieProps, MyButtonProps } from '@utils/types/components';
 
 import { Container } from './style';
+
+const MyButton = React.forwardRef(
+  ({ onClick, href, poster, title }: MyButtonProps) => {
+    return (
+      <a href={href} onClick={onClick}>
+        <Image
+          src={poster || '/assets/poster-placeholder.png'}
+          alt={title || 'Undefined'}
+          width={218}
+          height={422}
+          objectFit='cover'
+        />
+      </a>
+    );
+  },
+);
 
 export const CardMovie = ({
   movieID,
@@ -36,16 +52,12 @@ export const CardMovie = ({
         <section id='mob'>
           <div>
             {poster !== '' && (
-              <Link href='/selected-movie'>
-                <a onClick={handleMovieSelected}>
-                  <Image
-                    src={poster || '/assets/poster-placeholder.png'}
-                    alt={title}
-                    width={218}
-                    height={422}
-                    objectFit='cover'
-                  />
-                </a>
+              <Link href='/selected-movie' passHref>
+                <MyButton
+                  poster={poster}
+                  title={title}
+                  onClick={handleMovieSelected}
+                />
               </Link>
             )}
             <div>
@@ -66,16 +78,12 @@ export const CardMovie = ({
       <MediaQuery minDeviceWidth={768}>
         <section>
           {poster !== '' && (
-            <Link href='/selected-movie'>
-              <a onClick={handleMovieSelected}>
-                <Image
-                  src={poster || '/assets/poster-placeholder.png'}
-                  alt={title}
-                  width={218}
-                  height={422}
-                  objectFit='cover'
-                />
-              </a>
+            <Link href='/selected-movie' passHref>
+              <MyButton
+                poster={poster}
+                title={title}
+                onClick={handleMovieSelected}
+              />
             </Link>
           )}
           <div>

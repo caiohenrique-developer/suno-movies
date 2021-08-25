@@ -30,6 +30,14 @@ export interface CatalogueTitleProps {
   title: ChildrenGlobalType.children;
 }
 
+// MyButton
+export interface MyButtonProps {
+  onClick(): void;
+  href?: string;
+  poster: string;
+  title: string;
+}
+
 // CardMovie
 type MovieDiscoverExtends = Omit<FetchMovieProps, 'id'>;
 export interface CardMovieProps extends MovieDiscoverExtends {
