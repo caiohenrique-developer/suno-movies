@@ -54,6 +54,7 @@ export default function SelectedMovie(): JSX.Element {
             <div>
               <Image
                 src={poster || '/assets/poster-placeholder.png'}
+                alt={title || 'Undefined'}
                 width={334}
                 height={494}
                 objectFit='cover'
