@@ -34,8 +34,7 @@ export interface CatalogueTitleProps {
 export interface MyButtonProps {
   onClick(): void;
   href?: string;
-  poster: string;
-  title: string;
+  children?: ChildrenGlobalType.children;
 }
 
 // CardMovie

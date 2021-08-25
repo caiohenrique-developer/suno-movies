@@ -5,27 +5,13 @@ import MediaQuery from 'react-responsive';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { MyButton } from '@components/MyButton';
+
 import { useReqApi } from '@hooks/useReqApi';
 
-import { CardMovieProps, MyButtonProps } from '@utils/types/components';
+import { CardMovieProps } from '@utils/types/components';
 
 import { Container } from './style';
-
-const MyButton = React.forwardRef(
-  ({ onClick, href, poster, title }: MyButtonProps) => {
-    return (
-      <a href={href} onClick={onClick}>
-        <Image
-          src={poster || '/assets/poster-placeholder.png'}
-          alt={title || 'Undefined'}
-          width={218}
-          height={422}
-          objectFit='cover'
-        />
-      </a>
-    );
-  },
-);
 
 export const CardMovie = ({
   movieID,
@@ -53,11 +39,15 @@ export const CardMovie = ({
           <div>
             {poster !== '' && (
               <Link href='/selected-movie' passHref>
-                <MyButton
-                  poster={poster}
-                  title={title}
-                  onClick={handleMovieSelected}
-                />
+                <MyButton onClick={handleMovieSelected}>
+                  <Image
+                    src={poster || '/assets/poster-placeholder.png'}
+                    alt={title || 'Undefined'}
+                    width={218}
+                    height={422}
+                    objectFit='cover'
+                  />
+                </MyButton>
               </Link>
             )}
             <div>
@@ -79,11 +69,15 @@ export const CardMovie = ({
         <section>
           {poster !== '' && (
             <Link href='/selected-movie' passHref>
-              <MyButton
-                poster={poster}
-                title={title}
-                onClick={handleMovieSelected}
-              />
+              <MyButton onClick={handleMovieSelected}>
+                <Image
+                  src={poster || '/assets/poster-placeholder.png'}
+                  alt={title || 'Undefined'}
+                  width={218}
+                  height={422}
+                  objectFit='cover'
+                />
+              </MyButton>
             </Link>
           )}
           <div>
