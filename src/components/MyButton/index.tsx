@@ -3,9 +3,9 @@ import React, { forwardRef } from 'react';
 import { MyButtonProps } from '@utils/types/components';
 
 export const MyButton = forwardRef(
-  ({ onClick, href, children }: MyButtonProps) => {
+  ({ href, onClick, className, children }: MyButtonProps) => {
     return (
-      <a href={href} onClick={onClick}>
+      <a href={href} onClick={onClick} className={className}>
         {children}
       </a>
     );

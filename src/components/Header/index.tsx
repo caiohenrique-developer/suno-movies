@@ -7,6 +7,7 @@ import { fetchSearchMovie } from '@pages/api';
 
 import { AppLogotipo } from '@components/AppLogotipo';
 import { CardMovie } from '@components/CardMovie';
+import { MyButton } from '@components/MyButton';
 
 import { usePageIndicator } from '@hooks/usePageIndicator';
 
@@ -128,10 +129,10 @@ export const Header = (): JSX.Element => {
           {/* Tablet and up */}
           {pageID === 'home' ? (
             <div className='headerContent'>
-              <Link href='/'>
-                <a onClick={handleCollapse} className='hvr-shrink'>
+              <Link passHref href='/'>
+                <MyButton onClick={handleCollapse} className='hvr-shrink'>
                   <AppLogotipo />
-                </a>
+                </MyButton>
               </Link>
 
               <button
@@ -148,10 +149,10 @@ export const Header = (): JSX.Element => {
               <MediaQuery maxDeviceWidth={767}>
                 {pageID === 'home' ? (
                   <>
-                    <Link href='/'>
-                      <a onClick={handleCollapse} className='hvr-shrink'>
+                    <Link passHref href='/'>
+                      <MyButton onClick={handleCollapse} className='hvr-shrink'>
                         <AppLogotipo />
-                      </a>
+                      </MyButton>
                     </Link>
 
                     <button
@@ -181,10 +182,10 @@ export const Header = (): JSX.Element => {
                       </span>
                     </button>
 
-                    <Link href='/'>
-                      <a onClick={handleCollapse} className='hvr-shrink'>
+                    <Link passHref href='/'>
+                      <MyButton onClick={handleCollapse} className='hvr-shrink'>
                         <AppLogotipo />
-                      </a>
+                      </MyButton>
                     </Link>
 
                     <button
@@ -204,35 +205,36 @@ export const Header = (): JSX.Element => {
               {/* Tablet and up */}
               <MediaQuery minDeviceWidth={768}>
                 <>
-                  <Link href='/'>
-                    <a onClick={handleCollapse} className='hvr-shrink'>
+                  <Link passHref href='/'>
+                    <MyButton onClick={handleCollapse} className='hvr-shrink'>
                       <AppLogotipo />
-                    </a>
+                    </MyButton>
                   </Link>
 
                   <div>
                     <nav>
-                      <Link href='/'>
-                        <a
+                      <Link passHref href='/'>
+                        <MyButton
                           onClick={handleCollapse}
                           className='hvr-underline-from-center'
                         >
                           Início
-                        </a>
+                        </MyButton>
                       </Link>
                       <Link
+                        passHref
                         href={
                           pageID === 'catalogue'
                             ? '#catalogue-list'
                             : 'catalogue'
                         }
                       >
-                        <a
+                        <MyButton
                           onClick={handleScrollDownAnchor}
                           className='hvr-underline-from-center'
                         >
                           Catálogo
-                        </a>
+                        </MyButton>
                       </Link>
                     </nav>
 
@@ -294,27 +296,28 @@ export const Header = (): JSX.Element => {
             <nav id='navigation'>
               <ul className={`${toggleMenuMob}`}>
                 <li>
-                  <Link href='/'>
-                    <a
+                  <Link passHref href='/'>
+                    <MyButton
                       onClick={handleCollapse}
                       className='hvr-underline-from-left'
                     >
                       Início
-                    </a>
+                    </MyButton>
                   </Link>
                 </li>
                 <li>
                   <Link
+                    passHref
                     href={
                       pageID === 'catalogue' ? '#catalogue-list' : 'catalogue'
                     }
                   >
-                    <a
+                    <MyButton
                       onClick={handleCollapse}
                       className='hvr-underline-from-left'
                     >
                       Catálogo
-                    </a>
+                    </MyButton>
                   </Link>
                 </li>
               </ul>

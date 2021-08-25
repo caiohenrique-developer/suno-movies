@@ -35,6 +35,7 @@ export interface MyButtonProps {
   onClick(): void;
   href?: string;
   children?: ChildrenGlobalType.children;
+  className?: string;
 }
 
 // CardMovie
