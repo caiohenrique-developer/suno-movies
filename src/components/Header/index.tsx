@@ -1,4 +1,4 @@
-import React, { FormEvent, useEffect, useState } from 'react';
+import React, { FormEvent, useCallback, useEffect, useState } from 'react';
 import MediaQuery from 'react-responsive';
 
 import Link from 'next/link';
@@ -26,6 +26,17 @@ export const Header = (): JSX.Element => {
   const [searchMovieApi, setSearchMovieApi] = useState<FetchMovieProps[]>([]);
   const [inputSearchMovie, setInputSearchMovie] = useState('');
 
+  const handleHeaderSearchBar = useCallback(() => {
+    setToggleHeaderSearchBar(!toggleHeaderSearchBar);
+
+    if (toggleHeaderSearchBar) handleCollapse();
+    else {
+      setTimeout(() => {
+        document.getElementById('input-search').focus();
+      }, 888);
+    }
+  }, [toggleHeaderSearchBar]);
+
   useEffect(() => {
     const handleInputSearchViewShortcut = (ev: HeaderProps) => {
       if (ev.ctrlKey && ev.shiftKey && 'f'.toUpperCase() === 'F') {
@@ -38,7 +49,7 @@ export const Header = (): JSX.Element => {
     window.addEventListener('keyup', handleInputSearchViewShortcut);
     return () =>
       window.removeEventListener('keyup', handleInputSearchViewShortcut);
-  }, []);
+  }, [handleHeaderSearchBar]);
 
   const handleGetInputSearchVal = async (
     ev: React.ChangeEvent<HTMLInputElement>,
@@ -75,17 +86,6 @@ export const Header = (): JSX.Element => {
       movieResultCard.length > 1
     )
       movieResultContainer.removeAttribute('class');
-  };
-
-  const handleHeaderSearchBar = () => {
-    setToggleHeaderSearchBar(!toggleHeaderSearchBar);
-
-    if (toggleHeaderSearchBar) handleCollapse();
-    else {
-      setTimeout(() => {
-        document.getElementById('input-search').focus();
-      }, 888);
-    }
   };
 
   const handleMenuMob = () => {
