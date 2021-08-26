@@ -264,7 +264,6 @@ export const Header = (): JSX.Element => {
           <form onSubmit={(ev: FormEvent) => ev.preventDefault()}>
             <input
               required
-              autoFocus
               type='text'
               id='input-search'
               value={inputSearchMovie}
