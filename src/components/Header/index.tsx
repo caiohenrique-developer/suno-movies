@@ -322,14 +322,18 @@ export const Header = (): JSX.Element => {
               </ul>
 
               {/* Header menu-mob overlay */}
-              <span className={`${toggleMenuMob}`} onClick={handleMenuMob} />
+              <span
+                className={`${toggleMenuMob}`}
+                onClick={handleMenuMob}
+                aria-hidden='true'
+              />
             </nav>
           )}
         </MediaQuery>
       </header>
 
       {/* Header search-bar overlay */}
-      <span onClick={handleHeaderSearchBar} />
+      <span onClick={handleHeaderSearchBar} aria-hidden='true' />
     </Container>
   );
 };
