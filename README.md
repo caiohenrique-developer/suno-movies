@@ -108,6 +108,8 @@ $ npm i
 # Start the project
 $ yarn dev
 
+# You'll be able to see the URL http://localhost:{port} on your command line, so open them!
+
 # Very well, now you can enjoy this project! ;)
 ```
 
