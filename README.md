@@ -77,6 +77,8 @@
 In order to use and test this project locally, you should've already setup the development environment. <br>
 _Or go to [**suno-movies.vercel.app**](https://suno-movies.vercel.app/) to see the project in a production environment._
 
+[![Deploy with Vercel](https://vercel.com/button)](https://suno-movies.vercel.app/)
+
 ## [🔝](#top) How To Use :grey_question:
 
 To clone and run this application locally, you'll need [Git](https://git-scm.com), [Node.js v10.16][nodejs] or higher + [Yarn v1.13][yarn] or higher installed on your computer.
@@ -84,22 +86,23 @@ To clone and run this application locally, you'll need [Git](https://git-scm.com
 <details open>
   <summary>Hit me to toggle collapse: 🕹️<sup>🤏</sup></summary>
 
-  _From your `command line` follow these steps..._
+_From your `command line` follow these steps..._
 
-  ```bash
-  # Clone the project
-  $ git clone https://github.com/caiohenrique-developer/suno-movies.git 'Suno-Movies' && cd 'Suno-Movies'
+```bash
+# Clone the project
+$ git clone https://github.com/caiohenrique-developer/suno-movies.git 'Suno-Movies' && cd 'Suno-Movies'
 
-  # Install dependencies
-  $ yarn
-  # or
-  $ npm i
+# Install dependencies
+$ yarn
+# or
+$ npm i
 
-  # Start the project
-  $ yarn dev
+# Start the project
+$ yarn dev
 
-  # Very well, now you can enjoy this project! ;)
-  ```
+# Very well, now you can enjoy this project! ;)
+```
+
 </details>
 
 ## [🔝](#top) Badges :bookmark:
