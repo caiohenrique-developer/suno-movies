@@ -1,21 +1,21 @@
-### <a name="top"></a>
+#### <a name="top"></a> <br><br>
 
-<h1 align="center">
+<h5 align="center">
   <a href="https://suno-movies.vercel.app/" target="_blank">
     <img alt="Suno Movies logotipo" src="./public/logo-full.svg" />
   </a>
-</h1>
+</h5>
 
 <h5 align="center">🍿 Let's watch?</h5>
 
 <p align="center">
-  <a href="#-roadmap-gem">💎 Roadmap</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="#-techs-flying_saucer">🛸 Techs</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="#-prerequisites-warning">⚠️ Prerequisites</a>&nbsp;&nbsp;&nbsp;|&nbsp;
-  <a href="#-how-to-use-grey_question">❔ How To Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="#-badges-bookmark">🔖 Badges</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="#-license-closed_lock_with_key">🔐 License</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="#-contact-me-phone">☎ Contact Me</a>
+  <a href="#gem">💎 Roadmap</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#flying_saucer">🛸 Techs</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#warning">⚠️ Prerequisites</a>&nbsp;&nbsp;&nbsp;|&nbsp;
+  <a href="#grey_question">❔ How To Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#bookmark">🔖 Badges</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#closed_lock_with_key">🔐 License</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#phone">☎ Contact Me</a>
 </p>
 
 <br><br>
@@ -26,7 +26,9 @@
 
 <br>
 
-## [🔝](#top) Roadmap :gem:
+#### <a name="gem"></a> <br>
+
+## 💎 Roadmap <a href="#top"><img align="right" width="25" src="./src/assets/back-to-top.png" /></a>
 
 <img align="right" src="https://img.shields.io/badge/Project%20Status%20-🚧%20(WIP)%20🚧-2C8EBB?style=flat&logo=statuspage&logoColor=white&color=yellowgreen"/>
 
@@ -34,7 +36,9 @@
 - Any suggestion?
   - <a href="#-contact-me-phone">Contact me!</a>
 
-## [🔝](#top) Techs :flying_saucer:
+#### <a name="flying_saucer"></a> <br>
+
+## 🛸 Techs <a href="#top"><img align="right" width="25" src="./src/assets/icons/back-to-top.png" /></a>
 
 <table>
   <tr align="center">
@@ -72,14 +76,18 @@
   </tr>
 </table>
 
-## [🔝](#top) Prerequisites :warning:
+#### <a name="warning"></a> <br>
+
+## ⚠️ Prerequisites <a href="#top"><img align="right" width="25" src="./src/assets/icons/back-to-top.png" /></a>
 
 In order to use and test this project locally, you should've already setup the development environment. <br>
 _Or go to [**suno-movies.vercel.app**](https://suno-movies.vercel.app/) to see the project in a production environment._
 
 [![Deploy with Vercel](https://vercel.com/button)](https://suno-movies.vercel.app/)
 
-## [🔝](#top) How To Use :grey_question:
+#### <a name="grey_question"></a> <br>
+
+## ❔ How To Use <a href="#top"><img align="right" width="25" src="./src/assets/icons/back-to-top.png" /></a>
 
 To clone and run this application locally, you'll need [Git](https://git-scm.com), [Node.js v10.16][nodejs] or higher + [Yarn v1.13][yarn] or higher installed on your computer.
 
@@ -105,7 +113,9 @@ $ yarn dev
 
 </details>
 
-## [🔝](#top) Badges :bookmark:
+#### <a name="bookmark"></a> <br>
+
+## 🔖 Badges <a href="#top"><img align="right" width="25" src="./src/assets/icons/back-to-top.png" /></a>
 
 <p align="center">
   <img alt="GitHub Language Count" src="https://img.shields.io/github/languages/count/caiohenrique-developer/suno-movies">
@@ -147,7 +157,9 @@ $ yarn dev
   <img alt="NextJS" src="https://img.shields.io/badge/next.js-000000?style=flat&logo=next.js&logoColor=white"/>
 </p>
 
-## [🔝](#top) License :closed_lock_with_key:
+#### <a name="closed_lock_with_key"></a> <br>
+
+## 🔐 License <a href="#top"><img align="right" width="25" src="./src/assets/icons/back-to-top.png" /></a>
 
 Copyright © 2021 Suno Movies, [MIT](https://github.com/caiohenrique-developer/suno-movies/blob/master/LICENSE) .
 
@@ -157,7 +169,9 @@ Copyright © 2021 Suno Movies, [MIT](https://github.com/caiohenrique-developer/s
 
 <blockquote align="center">“Always running in search of the goals!” <br> Done with ♥ by myself 👇 <a href="#-contact-me-phone">Get in touch!</a></blockquote>
 
-## [🔝](#top) Contact Me :phone:
+#### <a name="phone"></a> <br>
+
+## ☎ Contact Me <a href="#top"><img align="right" width="25" src="./src/assets/icons/back-to-top.png" /></a>
 
 <p align="left">
   <img align="left" alt="Profile Avatar" src="./public/professional.png" width="80" />
