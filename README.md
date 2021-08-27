@@ -38,7 +38,7 @@
 
 #### <a name="flying_saucer"></a> <br>
 
-## 🛸 Techs <a href="#top"><img align="right" width="25" src="./src/assets/icons/back-to-top.png" /></a>
+## 🛸 Techs <a href="#top"><img align="right" width="25" src="./src/assets/back-to-top.png" /></a>
 
 <table>
   <tr align="center">
@@ -78,7 +78,7 @@
 
 #### <a name="warning"></a> <br>
 
-## ⚠️ Prerequisites <a href="#top"><img align="right" width="25" src="./src/assets/icons/back-to-top.png" /></a>
+## ⚠️ Prerequisites <a href="#top"><img align="right" width="25" src="./src/assets/back-to-top.png" /></a>
 
 In order to use and test this project locally, you should've already setup the development environment. <br>
 _Or go to [**suno-movies.vercel.app**](https://suno-movies.vercel.app/) to see the project in a production environment._
@@ -87,7 +87,7 @@ _Or go to [**suno-movies.vercel.app**](https://suno-movies.vercel.app/) to see t
 
 #### <a name="grey_question"></a> <br>
 
-## ❔ How To Use <a href="#top"><img align="right" width="25" src="./src/assets/icons/back-to-top.png" /></a>
+## ❔ How To Use <a href="#top"><img align="right" width="25" src="./src/assets/back-to-top.png" /></a>
 
 To clone and run this application locally, you'll need [Git](https://git-scm.com), [Node.js v10.16][nodejs] or higher + [Yarn v1.13][yarn] or higher installed on your computer.
 
@@ -115,7 +115,7 @@ $ yarn dev
 
 #### <a name="bookmark"></a> <br>
 
-## 🔖 Badges <a href="#top"><img align="right" width="25" src="./src/assets/icons/back-to-top.png" /></a>
+## 🔖 Badges <a href="#top"><img align="right" width="25" src="./src/assets/back-to-top.png" /></a>
 
 <p align="center">
   <img alt="GitHub Language Count" src="https://img.shields.io/github/languages/count/caiohenrique-developer/suno-movies">
@@ -159,7 +159,7 @@ $ yarn dev
 
 #### <a name="closed_lock_with_key"></a> <br>
 
-## 🔐 License <a href="#top"><img align="right" width="25" src="./src/assets/icons/back-to-top.png" /></a>
+## 🔐 License <a href="#top"><img align="right" width="25" src="./src/assets/back-to-top.png" /></a>
 
 Copyright © 2021 Suno Movies, [MIT](https://github.com/caiohenrique-developer/suno-movies/blob/master/LICENSE) .
 
@@ -171,7 +171,7 @@ Copyright © 2021 Suno Movies, [MIT](https://github.com/caiohenrique-developer/s
 
 #### <a name="phone"></a> <br>
 
-## ☎ Contact Me <a href="#top"><img align="right" width="25" src="./src/assets/icons/back-to-top.png" /></a>
+## ☎ Contact Me <a href="#top"><img align="right" width="25" src="./src/assets/back-to-top.png" /></a>
 
 <p align="left">
   <img align="left" alt="Profile Avatar" src="./public/professional.png" width="80" />
