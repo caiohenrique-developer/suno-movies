@@ -11,7 +11,7 @@ export const Footer = (): JSX.Element => {
   return (
     <Container>
       <p>
-        Copyright &copy; {year} Suno Movies, done with ☕ by{' '}
+        Copyright &copy; {year} Suno Movies, done with ☕ by:{' '}
         <Link href='https://github.com/caiohenrique-developer/suno-movies'>
           <a target='_blank' rel='noreferrer'>
             caiohenrique-developer
