@@ -21,7 +21,7 @@
 <br><br>
 
 <p align="center">
-  <img alt="Suno Movies image background" src="./public/image-bkg.png" width="100%" />
+  <img alt="Suno Movies image background" src="./public/images/mockup.png" width="100%" />
 </p>
 
 <br>
