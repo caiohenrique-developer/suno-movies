@@ -172,7 +172,7 @@ Copyright © 2021 Suno Movies, [MIT](https://github.com/caiohenrique-developer/s
 ## ☎ Contact Me <a href="#top"><img align="right" width="25" src="./src/assets/catalogue-arrow-up.svg" /></a>
 
 <p align="left">
-  <img align="left" alt="Profile Avatar" src="./public/professional.png" width="80" />
+  <img align="left" alt="Profile Avatar" src="./public/professional 1.png" width="80" />
 
   <br>
 
