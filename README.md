@@ -124,10 +124,6 @@ $ yarn dev
 
   <img alt="GitHub Top Language" src="https://img.shields.io/github/languages/top/caiohenrique-developer/suno-movies">
 
-  <a href="https://www.codacy.com/app/caiohenrique-developer/suno-movies?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=caiohenrique-developer/suno-movies&amp;utm_campaign=Badge_Grade">
-    <img alt="Codacy Grade" src="https://img.shields.io/codacy/grade/4f87fc059ec846118f2ef2950200b13a.svg">
-  </a>
-
   <a href="https://github.com/caiohenrique-developer/suno-movies/commits/master">
     <img alt="GitHub Last Commit" src="https://img.shields.io/github/last-commit/caiohenrique-developer/suno-movies">
   </a>
