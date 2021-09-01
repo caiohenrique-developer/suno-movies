@@ -38,17 +38,45 @@ export const Header = (): JSX.Element => {
   }, [toggleHeaderSearchBar]);
 
   useEffect(() => {
-    const handleInputSearchViewShortcut = (ev: HeaderProps) => {
-      if (ev.ctrlKey && ev.shiftKey && 'f'.toUpperCase() === 'F') {
-        handleHeaderSearchBar();
-      }
+    // Hide header component on scroll down or show it on scroll up
+    window.addEventListener(
+      'scroll',
+      () => {
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+        const st = window.pageYOffset || document.documentElement.scrollTop;
 
-      if (ev.key === 'Escape') handleCollapse();
-    };
+        if (st > lastScrollTop) {
+          // downscroll code
+          console.log('rolow pra baixo');
+          console.log(lastScrollTop);
 
-    window.addEventListener('keyup', handleInputSearchViewShortcut);
-    return () =>
-      window.removeEventListener('keyup', handleInputSearchViewShortcut);
+          header.style.visibility = 'hidden';
+        } else {
+          // upscroll code
+          console.log('rolow pra cima');
+          console.log(lastScrollTop);
+
+          header.style.visibility = 'visible';
+        }
+
+        lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+      },
+      false,
+    );
+
+    // Open input header search bar with ctrl+shift+f shortcut
+    window.addEventListener(
+      'keyup',
+      (ev: HeaderProps) => {
+        if (ev.ctrlKey && ev.shiftKey && 'f'.toUpperCase() === 'F') {
+          handleHeaderSearchBar();
+        }
+
+        if (ev.key === 'Escape') handleCollapse();
+      },
+      false,
+    );
   }, [handleHeaderSearchBar]);
 
   const handleGetInputSearchVal = async (
@@ -109,13 +137,17 @@ export const Header = (): JSX.Element => {
     const catalogueListAnchor = document.getElementById('catalogue-list');
 
     if (pageID === 'catalogue') {
-      catalogueListAnchor.addEventListener('click', () => {
-        catalogueListAnchor.scrollIntoView({
-          behavior: 'smooth', // Defines the transition animation. default: auto
-          block: 'start', // Defines vertical alignment. default: start
-          inline: 'center', // Defines horizontal alignment. default: nearest
-        });
-      });
+      catalogueListAnchor.addEventListener(
+        'click',
+        () => {
+          catalogueListAnchor.scrollIntoView({
+            behavior: 'smooth', // Defines the transition animation. default: auto
+            block: 'start', // Defines vertical alignment. default: start
+            inline: 'center', // Defines horizontal alignment. default: nearest
+          });
+        },
+        false,
+      );
     }
 
     handleCollapse();
