@@ -48,7 +48,7 @@ export const Header = (): JSX.Element => {
       const catalogueListPosition = catalogueList.getBoundingClientRect().top;
 
       if (st > lastScrollTop || catalogueListPosition === 0) {
-        header.className = 'animate__animated animate__backOutUp';
+        header.className = 'animate__animated animate__slideOutUp';
       } else {
         header.className = 'animate__animated animate__slideInDown';
       }
