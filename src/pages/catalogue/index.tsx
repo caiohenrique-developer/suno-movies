@@ -56,30 +56,35 @@ export default function Catalogue(): JSX.Element {
 
   const handleFilteredOption = (filteredOption: NodeListOf<Element>) => {
     for (let i = 0; i < filteredOption.length; i++) {
-      filteredOption[i].addEventListener('click', function () {
-        const filterButton = this.closest('ul').previousSibling;
-        const current = this.parentElement.getElementsByClassName('selected');
+      filteredOption[i].addEventListener(
+        'click',
+        function () {
+          const filterButton = this.closest('ul').previousSibling;
+          const current = this.parentElement.getElementsByClassName('selected');
 
-        current[0].className = current[0].className.replace('selected', '');
+          current[0].className = current[0].className.replace('selected', '');
 
-        if (!this.classList.contains('selected')) this.className += 'selected';
+          if (!this.classList.contains('selected'))
+            this.className += 'selected';
 
-        if (filterButton.classList.contains('filter-layout')) {
-          const layoutType = this.querySelector('label').getAttribute('for');
+          if (filterButton.classList.contains('filter-layout')) {
+            const layoutType = this.querySelector('label').getAttribute('for');
 
-          setLayoutType(layoutType);
-          setToggleLayout(false);
-        } else if (filterButton.classList.contains('filter-genre')) {
-          const genreCategory = this.querySelector('label').innerText;
-          const genreCategoryID =
-            this.querySelector('input').getAttribute('id');
+            setLayoutType(layoutType);
+            setToggleLayout(false);
+          } else if (filterButton.classList.contains('filter-genre')) {
+            const genreCategory = this.querySelector('label').innerText;
+            const genreCategoryID =
+              this.querySelector('input').getAttribute('id');
 
-          // The plus sign turns another format into a number
-          reqApi(+genreCategoryID);
-          setGenre(genreCategory);
-          setToggleGenre(false);
-        }
-      });
+            // The plus sign turns another format into a number
+            reqApi(+genreCategoryID);
+            setGenre(genreCategory);
+            setToggleGenre(false);
+          }
+        },
+        false,
+      );
     }
   };
 

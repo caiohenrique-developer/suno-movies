@@ -41,37 +41,38 @@ export const Header = (): JSX.Element => {
     // Hide header component on scroll down or show it on scroll up
     let lastScrollTop = 0;
 
-    window.addEventListener(
-      'scroll',
-      () => {
-        const header = document.querySelector('header');
-        const st = window.pageYOffset || document.documentElement.scrollTop;
-        const catalogueList = document.getElementById('catalogue-list');
-        const catalogueListPosition = catalogueList.getBoundingClientRect().top;
+    const handleScrollPage = () => {
+      const header = document.querySelector('header');
+      const st = window.pageYOffset || document.documentElement.scrollTop;
+      const catalogueList = document.getElementById('catalogue-list');
+      const catalogueListPosition = catalogueList.getBoundingClientRect().top;
 
-        if (st > lastScrollTop || catalogueListPosition === 0) {
-          header.className = 'animate__animated animate__backOutUp';
-        } else {
-          header.className = 'animate__animated animate__slideInDown';
-        }
+      if (st > lastScrollTop || catalogueListPosition === 0) {
+        header.className = 'animate__animated animate__backOutUp';
+      } else {
+        header.className = 'animate__animated animate__slideInDown';
+      }
 
-        lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-      },
-      false,
-    );
+      lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+    };
+
+    window.addEventListener('scroll', handleScrollPage, false);
 
     // Open input header search bar with ctrl+shift+f shortcut
-    window.addEventListener(
-      'keyup',
-      (ev: HeaderProps) => {
-        if (ev.ctrlKey && ev.shiftKey && 'f'.toUpperCase() === 'F') {
-          handleHeaderSearchBar();
-        }
+    const handleInputSearchViewShortcut = (ev: HeaderProps) => {
+      if (ev.ctrlKey && ev.shiftKey && 'f'.toUpperCase() === 'F') {
+        handleHeaderSearchBar();
+      }
 
-        if (ev.key === 'Escape') handleCollapse();
-      },
-      false,
-    );
+      if (ev.key === 'Escape') handleCollapse();
+    };
+
+    window.addEventListener('keyup', handleInputSearchViewShortcut, false);
+
+    return () => {
+      window.removeEventListener('scroll', handleScrollPage, false);
+      window.removeEventListener('keyup', handleInputSearchViewShortcut, false);
+    };
   }, [handleHeaderSearchBar]);
 
   const handleGetInputSearchVal = async (
@@ -132,17 +133,26 @@ export const Header = (): JSX.Element => {
     const catalogueListAnchor = document.getElementById('catalogue-list');
 
     if (pageID === 'catalogue') {
+      const handleScrollToCatalogueListByClick = () => {
+        catalogueListAnchor.scrollIntoView({
+          behavior: 'smooth', // Defines the transition animation. default: auto
+          block: 'start', // Defines vertical alignment. default: start
+          inline: 'center', // Defines horizontal alignment. default: nearest
+        });
+      };
+
       catalogueListAnchor.addEventListener(
         'click',
-        () => {
-          catalogueListAnchor.scrollIntoView({
-            behavior: 'smooth', // Defines the transition animation. default: auto
-            block: 'start', // Defines vertical alignment. default: start
-            inline: 'center', // Defines horizontal alignment. default: nearest
-          });
-        },
+        handleScrollToCatalogueListByClick,
         false,
       );
+
+      return () =>
+        catalogueListAnchor.removeEventListener(
+          'click',
+          handleScrollToCatalogueListByClick,
+          false,
+        );
     }
 
     handleCollapse();
