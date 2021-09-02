@@ -14,6 +14,10 @@ export const Container = styled.div<HeaderProps>`
 
     width: 100%;
 
+    &:not(.animate__animated) {
+      /* show the element */
+    }
+
     &#home {
       > div {
         border: 0;

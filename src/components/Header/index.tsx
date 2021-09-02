@@ -51,9 +51,9 @@ export const Header = (): JSX.Element => {
         const st = window.pageYOffset || document.documentElement.scrollTop;
 
         if (st > lastScrollTop || !catalogueList) {
-          header.style.visibility = 'hidden';
+          header.className = 'animate__animated animate__backOutUp';
         } else {
-          header.style.visibility = 'visible';
+          header.className = 'animate__animated animate__fadeInDown';
         }
 
         lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
