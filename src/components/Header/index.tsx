@@ -39,24 +39,20 @@ export const Header = (): JSX.Element => {
 
   useEffect(() => {
     // Hide header component on scroll down or show it on scroll up
+    let lastScrollTop = 0;
+
     window.addEventListener(
       'scroll',
       () => {
-        let lastScrollTop = 0;
+        const catalogueList = document
+          .getElementById('catalogue-list')
+          .getBoundingClientRect().top;
         const header = document.querySelector('header');
         const st = window.pageYOffset || document.documentElement.scrollTop;
 
-        if (st > lastScrollTop) {
-          // downscroll code
-          console.log('rolow pra baixo');
-          console.log(lastScrollTop);
-
+        if (st > lastScrollTop || !catalogueList) {
           header.style.visibility = 'hidden';
         } else {
-          // upscroll code
-          console.log('rolow pra cima');
-          console.log(lastScrollTop);
-
           header.style.visibility = 'visible';
         }
 
