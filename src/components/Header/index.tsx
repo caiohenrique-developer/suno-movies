@@ -146,13 +146,6 @@ export const Header = (): JSX.Element => {
         handleScrollToCatalogueListByClick,
         false,
       );
-
-      return () =>
-        catalogueListAnchor.removeEventListener(
-          'click',
-          handleScrollToCatalogueListByClick,
-          false,
-        );
     }
 
     handleCollapse();
