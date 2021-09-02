@@ -44,16 +44,15 @@ export const Header = (): JSX.Element => {
     window.addEventListener(
       'scroll',
       () => {
-        const catalogueList = document
-          .getElementById('catalogue-list')
-          .getBoundingClientRect().top;
         const header = document.querySelector('header');
         const st = window.pageYOffset || document.documentElement.scrollTop;
+        const catalogueList = document.getElementById('catalogue-list');
+        const catalogueListPosition = catalogueList.getBoundingClientRect().top;
 
-        if (st > lastScrollTop || !catalogueList) {
+        if (st > lastScrollTop || catalogueListPosition === 0) {
           header.className = 'animate__animated animate__backOutUp';
         } else {
-          header.className = 'animate__animated animate__fadeInDown';
+          header.className = 'animate__animated animate__slideInDown';
         }
 
         lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
