@@ -47,22 +47,32 @@ export const Header = (): JSX.Element => {
       const catalogueList = document.getElementById('catalogue-list');
       const catalogueListPosition = catalogueList.getBoundingClientRect().top;
 
+      header.className = 'animate__animated';
+
       if (st > lastScrollTop || catalogueListPosition === 0) {
-        header.className = 'animate__animated animate__slideOutUp';
-      } else {
-        header.className = 'animate__animated animate__slideInDown';
-      }
+        header.classList.add('animate__slideOutUp');
+      } else header.classList.add('animate__slideInDown');
 
       lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
     };
 
-    if (toggleHeaderSearchBar === false) {
-      window.addEventListener('scroll', handleScrollPage, false);
-    } else {
-      header.removeAttribute('class');
-    }
+    window.addEventListener(
+      'scroll',
+      () => {
+        const headerHeight = header.offsetHeight + 200;
+        const documentScrollTop = document.documentElement.scrollTop;
 
-    // Open input header search bar with ctrl+shift+f shortcut
+        if (
+          toggleHeaderSearchBar === false &&
+          documentScrollTop >= headerHeight
+        ) {
+          handleScrollPage();
+        } else header.removeAttribute('class');
+      },
+      false,
+    );
+
+    // Toggle input header search bar with ctrl+shift+f shortcut
     const handleInputSearchViewShortcut = (ev: HeaderProps) => {
       if (ev.ctrlKey && ev.shiftKey && 'f'.toUpperCase() === 'F') {
         handleHeaderSearchBar();
@@ -73,10 +83,12 @@ export const Header = (): JSX.Element => {
 
     window.addEventListener('keyup', handleInputSearchViewShortcut, false);
 
-    return () => {
+    const removeEvents = () => {
       window.removeEventListener('scroll', handleScrollPage, false);
       window.removeEventListener('keyup', handleInputSearchViewShortcut, false);
     };
+
+    return removeEvents;
   }, [handleHeaderSearchBar, toggleHeaderSearchBar]);
 
   const handleGetInputSearchVal = async (
@@ -112,8 +124,9 @@ export const Header = (): JSX.Element => {
       textVal &&
       movieResultContainer !== null &&
       movieResultCard.length > 1
-    )
+    ) {
       movieResultContainer.removeAttribute('class');
+    }
   };
 
   const handleMenuMob = () => {
