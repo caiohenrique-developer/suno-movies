@@ -56,7 +56,9 @@ export const Header = (): JSX.Element => {
       lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
     };
 
-    window.addEventListener('scroll', handleScrollPage, false);
+    if (toggleHeaderSearchBar === false) {
+      window.addEventListener('scroll', handleScrollPage, false);
+    }
 
     // Open input header search bar with ctrl+shift+f shortcut
     const handleInputSearchViewShortcut = (ev: HeaderProps) => {
@@ -73,7 +75,7 @@ export const Header = (): JSX.Element => {
       window.removeEventListener('scroll', handleScrollPage, false);
       window.removeEventListener('keyup', handleInputSearchViewShortcut, false);
     };
-  }, [handleHeaderSearchBar]);
+  }, [handleHeaderSearchBar, toggleHeaderSearchBar]);
 
   const handleGetInputSearchVal = async (
     ev: React.ChangeEvent<HTMLInputElement>,
