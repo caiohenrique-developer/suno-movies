@@ -41,17 +41,13 @@ export const Container = styled.main`
             content: '';
 
             display: block;
-            height: min(0.188rem, 0.4vw);
-            background: linear-gradient(
-              80deg,
-              var(--pink_FF5) 0%,
-              var(--pink_FE3) 100%
-            );
+            height: 1px;
           }
         }
 
-        &:last-of-type {
+        &#catalogue-list {
           padding: min(2.188rem, 2.8vw) 0;
+          border-top: min(0.188rem, 0.4vw) solid var(--pink_FE3);
         }
       }
     }
