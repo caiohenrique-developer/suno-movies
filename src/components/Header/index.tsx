@@ -40,9 +40,9 @@ export const Header = (): JSX.Element => {
   useEffect(() => {
     // Hide header component on scroll down or show it on scroll up
     let lastScrollTop = 0;
+    const header = document.querySelector('header');
 
     const handleScrollPage = () => {
-      const header = document.querySelector('header');
       const st = window.pageYOffset || document.documentElement.scrollTop;
       const catalogueList = document.getElementById('catalogue-list');
       const catalogueListPosition = catalogueList.getBoundingClientRect().top;
@@ -58,6 +58,8 @@ export const Header = (): JSX.Element => {
 
     if (toggleHeaderSearchBar === false) {
       window.addEventListener('scroll', handleScrollPage, false);
+    } else {
+      header.removeAttribute('class');
     }
 
     // Open input header search bar with ctrl+shift+f shortcut
