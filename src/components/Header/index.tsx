@@ -42,7 +42,7 @@ export const Header = (): JSX.Element => {
     let lastScrollTop = 0;
     const header = document.querySelector('header');
 
-    const handleScrollPage = () => {
+    const handleShowOrHideHeaderEffect = () => {
       const st = window.pageYOffset || document.documentElement.scrollTop;
       const catalogueList = document.getElementById('catalogue-list');
       const catalogueListPosition = catalogueList.getBoundingClientRect().top;
@@ -66,7 +66,7 @@ export const Header = (): JSX.Element => {
           toggleHeaderSearchBar === false &&
           documentScrollTop >= headerHeight
         ) {
-          handleScrollPage();
+          handleShowOrHideHeaderEffect();
         } else header.removeAttribute('class');
       },
       false,
@@ -84,7 +84,7 @@ export const Header = (): JSX.Element => {
     window.addEventListener('keyup', handleInputSearchViewShortcut, false);
 
     const removeEvents = () => {
-      window.removeEventListener('scroll', handleScrollPage, false);
+      window.removeEventListener('scroll', handleShowOrHideHeaderEffect, false);
       window.removeEventListener('keyup', handleInputSearchViewShortcut, false);
     };
 
@@ -147,18 +147,21 @@ export const Header = (): JSX.Element => {
   };
 
   const handleScrollDownAnchor = () => {
-    const catalogueListAnchor = document.getElementById('catalogue-list');
+    const catalogueLinkMenu = document.querySelector(
+      'header .headerContent nav a + a',
+    );
+    const catalogueSection = document.getElementById('catalogue-list');
 
     if (pageID === 'catalogue') {
       const handleScrollToCatalogueListByClick = () => {
-        catalogueListAnchor.scrollIntoView({
+        catalogueSection.scrollIntoView({
           behavior: 'smooth', // Defines the transition animation. default: auto
           block: 'start', // Defines vertical alignment. default: start
           inline: 'center', // Defines horizontal alignment. default: nearest
         });
       };
 
-      catalogueListAnchor.addEventListener(
+      catalogueLinkMenu.addEventListener(
         'click',
         handleScrollToCatalogueListByClick,
         false,
