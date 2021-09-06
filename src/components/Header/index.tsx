@@ -35,6 +35,9 @@ export const Header = (): JSX.Element => {
         document.getElementById('input-search').focus();
       }, 888);
     }
+
+    // Remove header attribute class
+    document.querySelector('header').removeAttribute('class');
   }, [toggleHeaderSearchBar]);
 
   useEffect(() => {
