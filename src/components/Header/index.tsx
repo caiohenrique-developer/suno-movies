@@ -36,9 +36,16 @@ export const Header = (): JSX.Element => {
       }, 888);
     }
 
-    // Remove header attribute class
-    document.querySelector('header').removeAttribute('class');
+    handleHeaderRemoveClass();
   }, [toggleHeaderSearchBar]);
+
+  const handleMenuMob = useCallback(() => {
+    setToggleMenuMob(!toggleMenuMob);
+
+    if (toggleMenuMob) handleCollapse();
+
+    handleHeaderRemoveClass();
+  }, [toggleMenuMob]);
 
   useEffect(() => {
     // Hide header component on scroll down or show it on scroll up
@@ -66,11 +73,12 @@ export const Header = (): JSX.Element => {
         const documentScrollTop = document.documentElement.scrollTop;
 
         if (
+          toggleMenuMob === false &&
           toggleHeaderSearchBar === false &&
           documentScrollTop >= headerHeight
         ) {
           handleShowOrHideHeaderEffect();
-        } else header.removeAttribute('class');
+        } else handleHeaderRemoveClass();
       },
       false,
     );
@@ -92,7 +100,7 @@ export const Header = (): JSX.Element => {
     };
 
     return removeEvents;
-  }, [handleHeaderSearchBar, toggleHeaderSearchBar]);
+  }, [handleHeaderSearchBar, toggleHeaderSearchBar, toggleMenuMob]);
 
   const handleGetInputSearchVal = async (
     ev: React.ChangeEvent<HTMLInputElement>,
@@ -132,13 +140,8 @@ export const Header = (): JSX.Element => {
     }
   };
 
-  const handleMenuMob = () => {
-    setToggleMenuMob(!toggleMenuMob);
-
-    if (toggleMenuMob === true) handleCollapse();
-  };
-
   const handleCollapse = () => {
+    // Reset header values
     setToggleHeaderSearchBar(false);
     setToggleMenuMob(false);
 
@@ -147,6 +150,11 @@ export const Header = (): JSX.Element => {
       setInputSearchMovie('');
       document.getElementById('input-search').blur();
     }, 888);
+  };
+
+  const handleHeaderRemoveClass = () => {
+    // Remove header attribute class
+    document.querySelector('header').removeAttribute('class');
   };
 
   const handleScrollDownAnchor = () => {
