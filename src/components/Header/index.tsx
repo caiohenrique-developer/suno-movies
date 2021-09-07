@@ -55,7 +55,8 @@ export const Header = (): JSX.Element => {
     const handleShowOrHideHeaderEffect = () => {
       const st = window.pageYOffset || document.documentElement.scrollTop;
       const catalogueList = document.getElementById('catalogue-list');
-      const catalogueListPosition = catalogueList.getBoundingClientRect().top;
+      const catalogueListPosition =
+        catalogueList && catalogueList.getBoundingClientRect().top;
 
       header.className = 'animate__animated';
 
