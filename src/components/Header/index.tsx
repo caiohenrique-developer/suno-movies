@@ -1,4 +1,10 @@
-import React, { FormEvent, useCallback, useEffect, useState } from 'react';
+import React, {
+  FormEvent,
+  useCallback,
+  useEffect,
+  useState,
+  MouseEvent,
+} from 'react';
 import MediaQuery from 'react-responsive';
 
 import Link from 'next/link';
@@ -158,26 +164,17 @@ export const Header = (): JSX.Element => {
     document.querySelector('header').removeAttribute('class');
   };
 
-  const handleScrollDownAnchor = () => {
-    const catalogueLinkMenu = document.querySelector(
-      'header .headerContent nav a + a',
-    );
-    const catalogueSection = document.getElementById('catalogue-list');
-
+  const handleScrollDownAnchor = (ev: MouseEvent<HTMLElement>) => {
     if (pageID === 'catalogue') {
-      const handleScrollToCatalogueListByClick = () => {
-        catalogueSection.scrollIntoView({
-          behavior: 'smooth', // Defines the transition animation. default: auto
-          block: 'start', // Defines vertical alignment. default: start
-          inline: 'center', // Defines horizontal alignment. default: nearest
-        });
-      };
+      ev.preventDefault();
 
-      catalogueLinkMenu.addEventListener(
-        'click',
-        handleScrollToCatalogueListByClick,
-        false,
-      );
+      const catalogueSection = document.getElementById('catalogue-list');
+
+      catalogueSection.scrollIntoView({
+        behavior: 'smooth', // Defines the transition animation. default: auto
+        block: 'start', // Defines vertical alignment. default: start
+        inline: 'center', // Defines horizontal alignment. default: nearest
+      });
     }
 
     handleCollapse();
@@ -374,7 +371,7 @@ export const Header = (): JSX.Element => {
                     }
                   >
                     <MyButton
-                      onClick={handleCollapse}
+                      onClick={handleScrollDownAnchor}
                       className='hvr-underline-from-left'
                     >
                       Catálogo

@@ -1,3 +1,5 @@
+import { MouseEvent } from 'react';
+
 import { FetchMovieProps } from '@utils/types/api';
 import { ChildrenGlobalType } from '@utils/types/GlobalTypes';
 
@@ -32,7 +34,7 @@ export interface CatalogueTitleProps {
 
 // MyButton
 export interface MyButtonProps {
-  onClick(): void;
+  onClick(ev?: MouseEvent<HTMLElement>): void;
   href?: string;
   children?: ChildrenGlobalType.children;
   className?: string;
