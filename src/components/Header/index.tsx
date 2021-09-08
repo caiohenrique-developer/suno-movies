@@ -85,6 +85,8 @@ export const Header = (): JSX.Element => {
           documentScrollTop >= headerHeight
         ) {
           handleShowOrHideHeaderEffect();
+        } else if (header.classList.contains('animate__animated')) {
+          removeEventListeners();
         } else handleHeaderRemoveClass();
       },
       false,
@@ -101,12 +103,12 @@ export const Header = (): JSX.Element => {
 
     window.addEventListener('keyup', handleInputSearchViewShortcut, false);
 
-    const removeEvents = () => {
+    const removeEventListeners = () => {
       window.removeEventListener('scroll', handleShowOrHideHeaderEffect, false);
       window.removeEventListener('keyup', handleInputSearchViewShortcut, false);
     };
 
-    return removeEvents;
+    return removeEventListeners;
   }, [handleHeaderSearchBar, toggleHeaderSearchBar, toggleMenuMob]);
 
   const handleGetInputSearchVal = async (
