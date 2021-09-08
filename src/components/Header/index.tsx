@@ -173,9 +173,9 @@ export const Header = (): JSX.Element => {
       const catalogueSection = document.getElementById('catalogue-list');
 
       catalogueSection.scrollIntoView({
-        behavior: 'smooth', // Defines the transition animation. default: auto
         block: 'start', // Defines vertical alignment. default: start
         inline: 'center', // Defines horizontal alignment. default: nearest
+        behavior: 'smooth', // Defines the transition animation. default: auto
       });
     }
 
