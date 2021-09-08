@@ -131,7 +131,7 @@ export default function Catalogue(): JSX.Element {
               <div>
                 <div className={`${toggleGenre}`}>
                   <FilterButton
-                    onClick={handleFilterGenreButton}
+                    onClickHandleFilterButton={handleFilterGenreButton}
                     className='btn-black hvr-shrink hvr-icon-hang filter-genre'
                     title={genre}
                     iconBefore={
@@ -149,7 +149,7 @@ export default function Catalogue(): JSX.Element {
               <MediaQuery minDeviceWidth={768}>
                 <div className={`${toggleLayout}`}>
                   <FilterButton
-                    onClick={handleFilterLayoutButton}
+                    onClickHandleFilterButton={handleFilterLayoutButton}
                     className='btn-black hvr-shrink hvr-icon-hang filter-layout'
                     title={`Em ${layoutType}`}
                     iconBefore={

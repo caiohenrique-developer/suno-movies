@@ -10,7 +10,7 @@ export const FilterButton = ({
   className,
   iconBefore,
   title,
-  onClick,
+  onClickHandleFilterButton,
 }: FilterButtonProps): JSX.Element => {
   const { genreApi } = useReqApi();
 
@@ -27,7 +27,7 @@ export const FilterButton = ({
 
   return (
     <>
-      <Button onClick={onClick} className={className}>
+      <Button onClick={onClickHandleFilterButton} className={className}>
         {iconBefore}
         {title}
       </Button>
