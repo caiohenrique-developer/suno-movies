@@ -54,15 +54,15 @@ export const Header = (): JSX.Element => {
   }, [toggleMenuMob]);
 
   useEffect(() => {
-    // Hide header component on scroll down or show it on scroll up
     let lastScrollTop = 0;
     const header = document.querySelector('header');
 
+    // Hide header component on scroll down or show it on scroll up
     const handleShowOrHideHeaderEffect = () => {
       const st = window.pageYOffset || document.documentElement.scrollTop;
       const catalogueList = document.getElementById('catalogue-list');
       const catalogueListPosition =
-        catalogueList && catalogueList.getBoundingClientRect().top;
+        catalogueList && Math.floor(catalogueList.getBoundingClientRect().top);
 
       header.className = 'animate__animated';
 
@@ -73,24 +73,21 @@ export const Header = (): JSX.Element => {
       lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
     };
 
-    window.addEventListener(
-      'scroll',
-      () => {
-        const headerHeight = header.offsetHeight + 200;
-        const documentScrollTop = document.documentElement.scrollTop;
+    // Add scroll event listener
+    const handleScroll = () => {
+      const headerHeight = header.offsetHeight + 200;
+      const documentScrollTop = document.documentElement.scrollTop;
 
-        if (
-          toggleMenuMob === false &&
-          toggleHeaderSearchBar === false &&
-          documentScrollTop >= headerHeight
-        ) {
-          handleShowOrHideHeaderEffect();
-        } else if (header.classList.contains('animate__animated')) {
-          removeEventListeners();
-        } else handleHeaderRemoveClass();
-      },
-      false,
-    );
+      if (
+        toggleMenuMob === false &&
+        toggleHeaderSearchBar === false &&
+        documentScrollTop >= headerHeight
+      ) {
+        handleShowOrHideHeaderEffect();
+      } else handleHeaderRemoveClass();
+    };
+
+    window.addEventListener('scroll', handleScroll, false);
 
     // Toggle input header search bar with ctrl+shift+f shortcut
     const handleInputSearchViewShortcut = (ev: HeaderProps) => {
@@ -103,12 +100,13 @@ export const Header = (): JSX.Element => {
 
     window.addEventListener('keyup', handleInputSearchViewShortcut, false);
 
-    const removeEventListeners = () => {
-      window.removeEventListener('scroll', handleShowOrHideHeaderEffect, false);
+    // Remove events listeners
+    const handleRemoveEventListeners = () => {
+      window.removeEventListener('scroll', handleScroll, false);
       window.removeEventListener('keyup', handleInputSearchViewShortcut, false);
     };
 
-    return removeEventListeners;
+    return handleRemoveEventListeners;
   }, [handleHeaderSearchBar, toggleHeaderSearchBar, toggleMenuMob]);
 
   const handleGetInputSearchVal = async (
