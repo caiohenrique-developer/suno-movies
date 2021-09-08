@@ -88,7 +88,7 @@ export default function Catalogue(): JSX.Element {
     }
   };
 
-  const loadMore = () => {
+  const handleLoadMoreButton = () => {
     setMovieVisible(movieVisible + 6);
   };
 
@@ -183,7 +183,10 @@ export default function Catalogue(): JSX.Element {
             </div>
 
             {movieVisible < movieWithGenreApi.length && (
-              <Button onClick={loadMore} className='btn-pink hvr-shrink'>
+              <Button
+                onClick={handleLoadMoreButton}
+                className='btn-pink hvr-shrink'
+              >
                 Carregar mais
               </Button>
             )}
