@@ -87,6 +87,7 @@ export const Button = styled.button`
   i {
     position: relative;
 
+    pointer-events: none;
     width: min(0.875rem, 1.3vw);
     margin-right: min(0.75rem, 1.1vw);
   }

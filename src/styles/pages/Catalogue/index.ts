@@ -85,25 +85,6 @@ export const Container = styled.main`
                   margin-left: min(1.563rem, 3vw);
                 }
               }
-
-              /* & .false ul,
-              &.false ul {
-                max-height: 0;
-                border-width: 0;
-
-                &,
-                li {
-                  margin: 0;
-                  padding: 0;
-                  transition: calc(var(--animate-duration) * 0.75)
-                    cubic-bezier(0.15, -0.4, 1, 0.01);
-                }
-              }
-
-              & div:not(.false) > button,
-              &:not(.false) > button {
-                transform: unset;
-              } */
             }
           }
 

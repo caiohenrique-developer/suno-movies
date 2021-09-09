@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, MouseEvent } from 'react';
 
 import { useReqApi } from '@hooks/useReqApi';
 
@@ -11,13 +11,13 @@ import { FilterButtonProps } from '@utils/types/components';
 
 export const FilterButton = ({
   className,
-  // iconBefore,
   title,
   onClickHandleFilterButton,
 }: FilterButtonProps): JSX.Element => {
   const { genreApi } = useReqApi();
 
   const [toggleLayoutFilter, setToggleLayoutFilter] = useState(false);
+  const [toggleGenreFilter, setToggleGenreFilter] = useState(false);
 
   const genreValues = genreApi.map(({ id, genreName }) => ({
     inputID: id,
@@ -30,8 +30,17 @@ export const FilterButton = ({
     { inputID: 'lista', labelHtmlFor: 'lista', labelContent: 'Em lista' },
   ];
 
-  const handleFilterButton = () => {
-    setToggleLayoutFilter(!toggleLayoutFilter);
+  const handleFilterButton = (ev: MouseEvent<HTMLElement>) => {
+    const filterLayoutButton =
+      ev.currentTarget.className.includes('filter-layout');
+
+    if (filterLayoutButton) {
+      setToggleLayoutFilter(!toggleLayoutFilter);
+      setToggleGenreFilter(false);
+    } else {
+      setToggleGenreFilter(!toggleGenreFilter);
+      setToggleLayoutFilter(false);
+    }
 
     onClickHandleFilterButton();
   };
@@ -40,13 +49,15 @@ export const FilterButton = ({
     <>
       <Button
         onClick={handleFilterButton}
-        className={`${className} ${toggleLayoutFilter}`}
+        className={`${className} ${toggleLayoutFilter || toggleGenreFilter}`}
       >
-        {/* {iconBefore} */}
         <i className='hvr-icon'>
-          {toggleLayoutFilter ? <FilterArrowUp /> : <FilterArrowDown />}
+          {toggleLayoutFilter || toggleGenreFilter ? (
+            <FilterArrowUp />
+          ) : (
+            <FilterArrowDown />
+          )}
         </i>
-
         {title}
       </Button>
 
