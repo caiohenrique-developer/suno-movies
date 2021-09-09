@@ -60,6 +60,23 @@ export const Button = styled.button`
 
   border-radius: 0.2rem;
 
+  &:not(.false) {
+    transform: unset;
+  }
+
+  &.false ~ ul {
+    max-height: 0;
+    border-width: 0;
+
+    &,
+    li {
+      margin: 0;
+      padding: 0;
+      transition: calc(var(--animate-duration) * 0.75)
+        cubic-bezier(0.15, -0.4, 1, 0.01);
+    }
+  }
+
   &:hover,
   &:focus {
     i {

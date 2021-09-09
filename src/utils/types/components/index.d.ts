@@ -21,7 +21,7 @@ export interface CTAButtonProps {
 // FilterButton
 export interface FilterButtonProps {
   className: string;
-  iconBefore?: ChildrenGlobalType.children;
+  // iconBefore?: ChildrenGlobalType.children;
   title: string;
   onClickHandleFilterButton(): void;
 }
@@ -44,5 +44,5 @@ type MovieDiscoverExtends = Omit<FetchMovieProps, 'id'>;
 export interface CardMovieProps extends MovieDiscoverExtends {
   className?: string;
   movieID: number;
-  handleResetHeaderValues(): void;
+  handleResetHeaderValues?(): void;
 }

@@ -86,7 +86,7 @@ export const Container = styled.main`
                 }
               }
 
-              & .false ul,
+              /* & .false ul,
               &.false ul {
                 max-height: 0;
                 border-width: 0;
@@ -103,7 +103,7 @@ export const Container = styled.main`
               & div:not(.false) > button,
               &:not(.false) > button {
                 transform: unset;
-              }
+              } */
             }
           }
 
