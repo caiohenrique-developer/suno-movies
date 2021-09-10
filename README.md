@@ -32,9 +32,15 @@
 
 <img align="right" src="https://img.shields.io/badge/Project%20Status%20-🚧%20(WIP)%20🚧-2C8EBB?style=flat&logo=statuspage&logoColor=white&color=yellowgreen"/>
 
-- [ ] ...
+###### Header
+
+- [x] Show or hide header effect with scroll event
+- [x] Toggle input header search bar with <kbd>Ctrl+Shift+f</kbd> shortcut
+- [x] Close input header search bar with <kbd>Escape</kbd> shortcut
+- [x] Search movie
+- [x] Different style between home and other pages
 - Any suggestion?
-  - <a href="#-contact-me-phone">Contact me!</a>
+  - <a href="#phone">Contact me!</a>
 
 #### <a name="flying_saucer"></a> <br>
 
