@@ -11,6 +11,9 @@ import { FilterButton } from '@components/FilterButton';
 import { usePageIndicator } from '@hooks/usePageIndicator';
 import { useReqApi } from '@hooks/useReqApi';
 
+import FilterArrowDown from '@assets/catalogue-arrow-down.svg';
+import FilterArrowUp from '@assets/catalogue-arrow-up.svg';
+
 import { ActiveIndicator, Button } from '@styles/components/ButtonStyles';
 import { Container } from '@styles/pages/Catalogue';
 
@@ -22,6 +25,8 @@ export default function Catalogue(): JSX.Element {
     addPageID('catalogue');
   }, [addPageID]);
 
+  const [toggleLayout, setToggleLayout] = useState(false);
+  const [toggleGenre, setToggleGenre] = useState(false);
   const [layoutType, setLayoutType] = useState('grid');
   const [genre, setGenre] = useState('Populares');
   const [movieVisible, setMovieVisible] = useState(6);
@@ -33,6 +38,8 @@ export default function Catalogue(): JSX.Element {
 
     handleFilteredOption(optionsList);
 
+    setToggleLayout(!toggleLayout);
+    setToggleGenre(false);
     setMovieVisible(6);
   };
 
@@ -42,6 +49,8 @@ export default function Catalogue(): JSX.Element {
       .nextElementSibling.querySelectorAll('.option-item');
 
     handleFilteredOption(optionsList);
+    setToggleGenre(!toggleGenre);
+    setToggleLayout(false);
   };
 
   const handleFilteredOption = (filteredOption: NodeListOf<Element>) => {
@@ -57,6 +66,7 @@ export default function Catalogue(): JSX.Element {
           if (filterButton.classList.contains('filter-layout')) {
             const layoutType = this.querySelector('label').getAttribute('for');
             setLayoutType(layoutType);
+            setToggleLayout(false);
           } else if (filterButton.classList.contains('filter-genre')) {
             const genreCategory = this.querySelector('label').innerText;
             const genreCategoryID =
@@ -64,6 +74,7 @@ export default function Catalogue(): JSX.Element {
             // The plus sign turns another format into a number
             reqApi(+genreCategoryID);
             setGenre(genreCategory);
+            setToggleGenre(false);
           }
         },
         false,
@@ -112,11 +123,16 @@ export default function Catalogue(): JSX.Element {
           <div>
             <div>
               <div>
-                <div>
+                <div className={`${toggleGenre}`}>
                   <FilterButton
-                    onClickHandleFilterButton={handleFilterGenreButton}
+                    onClick={handleFilterGenreButton}
                     className='btn-black hvr-shrink hvr-icon-hang filter-genre'
                     title={genre}
+                    iconBefore={
+                      <i className='hvr-icon'>
+                        {toggleGenre ? <FilterArrowUp /> : <FilterArrowDown />}
+                      </i>
+                    }
                   />
                 </div>
 
@@ -125,11 +141,16 @@ export default function Catalogue(): JSX.Element {
 
               {/* Tablet and up */}
               <MediaQuery minDeviceWidth={768}>
-                <div>
+                <div className={`${toggleLayout}`}>
                   <FilterButton
-                    onClickHandleFilterButton={handleFilterLayoutButton}
+                    onClick={handleFilterLayoutButton}
                     className='btn-black hvr-shrink hvr-icon-hang filter-layout'
                     title={`Em ${layoutType}`}
+                    iconBefore={
+                      <i className='hvr-icon'>
+                        {toggleLayout ? <FilterArrowUp /> : <FilterArrowDown />}
+                      </i>
+                    }
                   />
                 </div>
               </MediaQuery>

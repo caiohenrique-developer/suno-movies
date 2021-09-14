@@ -21,8 +21,9 @@ export interface CTAButtonProps {
 // FilterButton
 export interface FilterButtonProps {
   className: string;
+  iconBefore: ChildrenGlobalType.children;
   title: string;
-  onClickHandleFilterButton(): void;
+  onClick(): void;
 }
 
 // CatalogueTitle

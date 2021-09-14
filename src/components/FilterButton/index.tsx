@@ -1,9 +1,6 @@
-import React, { useState, MouseEvent } from 'react';
+import React from 'react';
 
 import { useReqApi } from '@hooks/useReqApi';
-
-import FilterArrowDown from '@assets/catalogue-arrow-down.svg';
-import FilterArrowUp from '@assets/catalogue-arrow-up.svg';
 
 import { Button, OptionsList } from '@styles/components/ButtonStyles';
 
@@ -11,13 +8,11 @@ import { FilterButtonProps } from '@utils/types/components';
 
 export const FilterButton = ({
   className,
+  iconBefore,
   title,
-  onClickHandleFilterButton,
+  onClick,
 }: FilterButtonProps): JSX.Element => {
   const { genreApi } = useReqApi();
-
-  const [toggleLayoutFilter, setToggleLayoutFilter] = useState(false);
-  const [toggleGenreFilter, setToggleGenreFilter] = useState(false);
 
   const genreValues = genreApi.map(({ id, genreName }) => ({
     inputID: id,
@@ -30,34 +25,10 @@ export const FilterButton = ({
     { inputID: 'lista', labelHtmlFor: 'lista', labelContent: 'Em lista' },
   ];
 
-  const handleFilterButton = (ev: MouseEvent<HTMLElement>) => {
-    const filterLayoutButton =
-      ev.currentTarget.className.includes('filter-layout');
-
-    if (filterLayoutButton) {
-      setToggleLayoutFilter(!toggleLayoutFilter);
-      setToggleGenreFilter(false);
-    } else {
-      setToggleGenreFilter(!toggleGenreFilter);
-      setToggleLayoutFilter(false);
-    }
-
-    onClickHandleFilterButton();
-  };
-
   return (
     <>
-      <Button
-        onClick={handleFilterButton}
-        className={`${className} ${toggleLayoutFilter || toggleGenreFilter}`}
-      >
-        <i className='hvr-icon'>
-          {toggleLayoutFilter || toggleGenreFilter ? (
-            <FilterArrowUp />
-          ) : (
-            <FilterArrowDown />
-          )}
-        </i>
+      <Button onClick={onClick} className={className}>
+        {iconBefore}
         {title}
       </Button>
 
