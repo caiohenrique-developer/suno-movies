@@ -8,7 +8,7 @@ export default async function fetchMovieDetail(
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<void> {
-  const { movieID } = req.query;
+  const { movie_id: movieID } = req.query;
 
   try {
     const fetchResponse = await axios.all([
@@ -26,8 +26,8 @@ export default async function fetchMovieDetail(
       }),
     ]);
 
-    const movieDetail = fetchResponse[0].data;
-    const video = fetchResponse[1].data;
+    const movieDetail = fetchResponse[0]['data'];
+    const video = fetchResponse[1]['data'];
 
     const {
       id,

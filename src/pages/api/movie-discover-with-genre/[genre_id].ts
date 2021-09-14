@@ -6,7 +6,7 @@ export default async function fetchMovieDiscoverWithGenre(
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<void> {
-  const { genreID } = req.query;
+  const { genre_id: genreID } = req.query;
 
   try {
     const entrypointUrl = genreID === '8' ? topRated : movieDiscover;

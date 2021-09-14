@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 
 import {
   fetchGenres,
@@ -31,11 +37,7 @@ export const ReqApiProvider = ({
     {} as FetchMovieDetailProps,
   );
 
-  useEffect(() => {
-    reqApi(8, undefined);
-  }, []);
-
-  const reqApi = async (genreID?: number, movieID?: number) => {
+  const reqApi = useCallback(async (genreID: number, movieID: number) => {
     if (genreID) {
       setMovieWithGenreApi(await fetchMovieDiscoverWithGenre(genreID)); // Filtered by genre
     }
@@ -53,7 +55,11 @@ export const ReqApiProvider = ({
 
     setMovieDiscoverApi(await fetchMovieDiscover()); // List movies
     setGenreApi(await fetchGenres()); // Get genre categories
-  };
+  }, []);
+
+  useEffect(() => {
+    reqApi(8, undefined);
+  }, [reqApi]);
 
   const valCtx = {
     movieDiscoverApi,

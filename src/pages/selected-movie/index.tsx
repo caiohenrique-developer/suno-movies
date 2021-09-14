@@ -38,8 +38,6 @@ export default function SelectedMovie(): JSX.Element {
     const movieSelected = JSON.parse(
       localStorage.getItem('@SunoMoveis:movie-selected'),
     );
-
-    console.log(movieSelected);
   }
 
   return (
