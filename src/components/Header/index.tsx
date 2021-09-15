@@ -332,13 +332,13 @@ export const Header = (): JSX.Element => {
 
             {searchMovieApi.length > 0 && (
               <span>
-                {searchMovieApi.map(({ id, genres, title, poster, rating }) => (
+                {searchMovieApi.map(({ id, genre, title, poster, rating }) => (
                   <CardMovie
                     key={id}
                     movieID={id}
                     poster={poster}
                     title={title}
-                    genres={genres}
+                    genre={genre}
                     rating={rating}
                     handleResetHeaderValues={handleCollapse}
                   />

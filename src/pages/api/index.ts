@@ -40,12 +40,12 @@ const fetchMovieDiscover = async (): Promise<FetchMovieProps[]> => {
 
     const movieApi = dataRes[0].map(
       ({ id, genreIDs, title, poster, rating, description }) => {
-        const genresApi = dataRes[1]
+        const genre = dataRes[1]
           .filter(({ genreID }) => genreIDs.includes(genreID))
           .map(({ genreName }) => genreName)
           .join(', ');
 
-        return { id, genresApi, title, poster, rating, description };
+        return { id, genre, title, poster, rating, description };
       },
     );
 
@@ -85,9 +85,9 @@ const fetchMovieDiscoverWithGenre = async (
 
 const fetchGenres = async (): Promise<FetchGenreProps[]> => {
   try {
-    const { data: genresApi } = await hostEnv.get('genres');
+    const { data: genre } = await hostEnv.get('genres');
 
-    return genresApi;
+    return genre;
   } catch (err) {
     throw new Error(err);
   }
@@ -104,12 +104,12 @@ const fetchSearchMovie = async (search: string): Promise<FetchMovieProps[]> => {
 
     const foundMovieApi = dataRes[0].map(
       ({ id, genreIDs, title, poster, rating, description }) => {
-        const genresApi = dataRes[1]
-          .filter(({ genreID }) => genreIDs.includes(genreID))
+        const genre = dataRes[1]
+          .filter(({ id: genreID }) => genreIDs.includes(genreID))
           .map(({ genreName }) => genreName)
           .join(', ');
 
-        return { id, genresApi, title, poster, rating, description };
+        return { id, genre, title, poster, rating, description };
       },
     );
 

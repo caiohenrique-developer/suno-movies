@@ -4,14 +4,14 @@ export interface FetchMovieProps {
   title: string;
   poster: string;
   description?: string;
-  genres: string;
+  genre: string;
   rating: number;
 }
 
 // fetchMovieDetail
 export interface FetchMovieDetailProps extends FetchMovieProps {
   posterBkg: string;
-  genres: [{ name: string }];
+  genre: [{ name: string }];
   movieVideoID: string;
   trailer: string;
 }
