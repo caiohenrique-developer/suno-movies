@@ -51,16 +51,16 @@ export const CardMovie = ({
               </Link>
             )}
             <div>
-              <h4>{title}</h4>
-              <h3>{genres}</h3>
+              <h4>{title || 'Undefined'}</h4>
+              <h3>{genres || 'Undefined'}</h3>
               <span>
                 <TiStarFullOutline />
-                {rating}
+                {rating || 0.0}
               </span>
             </div>
           </div>
 
-          <p>{description}</p>
+          {description && <p>{description}</p>}
         </section>
       </MediaQuery>
 
@@ -88,10 +88,7 @@ export const CardMovie = ({
               {rating || 0.0}
             </span>
 
-            <p>
-              {description ||
-                'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, possimus. Aspernatur, minus commodi recusandae laudantium consequuntur deleniti totam voluptatum eius sint consequatur placeat blanditiis debitis perferendis consectetur quaerat est id?'}
-            </p>
+            {description && <p>{description}</p>}
           </div>
         </section>
       </MediaQuery>

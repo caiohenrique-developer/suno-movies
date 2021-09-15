@@ -232,8 +232,14 @@ export const Container = styled.div<HeaderProps>`
                   overflow: hidden;
                 }
 
-                > div h3 {
-                  margin: min(0.625rem) 0;
+                > div {
+                  h3 {
+                    margin: min(0.625rem) 0;
+                  }
+
+                  p {
+                    display: none;
+                  }
                 }
               }
             }
