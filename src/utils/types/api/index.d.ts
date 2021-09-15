@@ -11,7 +11,7 @@ export interface FetchMovieProps {
 // fetchMovieDetail
 export interface FetchMovieDetailProps extends FetchMovieProps {
   posterBkg: string;
-  genre: [{ name: string }];
+  genres: [{ name: string }];
   movieVideoID: string;
   trailer: string;
 }

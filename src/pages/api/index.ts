@@ -41,7 +41,7 @@ const fetchMovieDiscover = async (): Promise<FetchMovieProps[]> => {
     const movieApi = dataRes[0].map(
       ({ id, genreIDs, title, poster, rating, description }) => {
         const genre = dataRes[1]
-          .filter(({ genreID }) => genreIDs.includes(genreID))
+          .filter(({ id: genreID }) => genreIDs.includes(genreID))
           .map(({ genreName }) => genreName)
           .join(', ');
 
@@ -68,12 +68,12 @@ const fetchMovieDiscoverWithGenre = async (
 
     const filteredGenreApi = dataRes[0].map(
       ({ id, genreIDs, title, poster, rating, description }) => {
-        const filterGenreApi = dataRes[1]
-          .filter(({ filterGenreID }) => genreIDs.includes(filterGenreID))
+        const genre = dataRes[1]
+          .filter(({ id: filterGenreID }) => genreIDs.includes(filterGenreID))
           .map(({ genreName }) => genreName)
           .join(', ');
 
-        return { id, filterGenreApi, title, poster, rating, description };
+        return { id, genre, title, poster, rating, description };
       },
     );
 

@@ -25,10 +25,10 @@ export default function Catalogue(): JSX.Element {
     addPageID('catalogue');
   }, [addPageID]);
 
-  const [toggleLayout, setToggleLayout] = useState(false);
-  const [toggleGenre, setToggleGenre] = useState(false);
+  const [toggleLayoutFilter, setToggleLayoutFilter] = useState(false);
+  const [toggleGenreFilter, setToggleGenreFilter] = useState(false);
   const [layoutType, setLayoutType] = useState('grid');
-  const [genre, setGenre] = useState('Populares');
+  const [genreType, setGenreType] = useState('Populares');
   const [movieVisible, setMovieVisible] = useState(6);
 
   const handleFilterLayoutButton = () => {
@@ -38,8 +38,8 @@ export default function Catalogue(): JSX.Element {
 
     handleFilteredOption(optionsList);
 
-    setToggleLayout(!toggleLayout);
-    setToggleGenre(false);
+    setToggleLayoutFilter(!toggleLayoutFilter);
+    setToggleGenreFilter(false);
     setMovieVisible(6);
   };
 
@@ -49,8 +49,8 @@ export default function Catalogue(): JSX.Element {
       .nextElementSibling.querySelectorAll('.option-item');
 
     handleFilteredOption(optionsList);
-    setToggleGenre(!toggleGenre);
-    setToggleLayout(false);
+    setToggleGenreFilter(!toggleGenreFilter);
+    setToggleLayoutFilter(false);
   };
 
   const handleFilteredOption = (filteredOption: NodeListOf<Element>) => {
@@ -64,17 +64,18 @@ export default function Catalogue(): JSX.Element {
           if (!this.classList.contains('selected'))
             this.className += 'selected';
           if (filterButton.classList.contains('filter-layout')) {
-            const layoutType = this.querySelector('label').getAttribute('for');
-            setLayoutType(layoutType);
-            setToggleLayout(false);
+            const layoutCategory =
+              this.querySelector('label').getAttribute('for');
+            setLayoutType(layoutCategory);
+            setToggleLayoutFilter(false);
           } else if (filterButton.classList.contains('filter-genre')) {
             const genreCategory = this.querySelector('label').innerText;
             const genreCategoryID =
               this.querySelector('input').getAttribute('id');
             // The plus sign turns another format into a number
             reqApi(+genreCategoryID);
-            setGenre(genreCategory);
-            setToggleGenre(false);
+            setGenreType(genreCategory);
+            setToggleGenreFilter(false);
           }
         },
         false,
@@ -123,32 +124,42 @@ export default function Catalogue(): JSX.Element {
           <div>
             <div>
               <div>
-                <div className={`${toggleGenre}`}>
+                <div className={`${toggleGenreFilter}`}>
                   <FilterButton
                     onClick={handleFilterGenreButton}
                     className='btn-black hvr-shrink hvr-icon-hang filter-genre'
-                    title={genre}
+                    title={genreType}
                     iconBefore={
                       <i className='hvr-icon'>
-                        {toggleGenre ? <FilterArrowUp /> : <FilterArrowDown />}
+                        {toggleGenreFilter ? (
+                          <FilterArrowUp />
+                        ) : (
+                          <FilterArrowDown />
+                        )}
                       </i>
                     }
                   />
                 </div>
 
-                <ActiveIndicator className='btn-pink'>{genre}</ActiveIndicator>
+                <ActiveIndicator className='btn-pink'>
+                  {genreType}
+                </ActiveIndicator>
               </div>
 
               {/* Tablet and up */}
               <MediaQuery minDeviceWidth={768}>
-                <div className={`${toggleLayout}`}>
+                <div className={`${toggleLayoutFilter}`}>
                   <FilterButton
                     onClick={handleFilterLayoutButton}
                     className='btn-black hvr-shrink hvr-icon-hang filter-layout'
                     title={`Em ${layoutType}`}
                     iconBefore={
                       <i className='hvr-icon'>
-                        {toggleLayout ? <FilterArrowUp /> : <FilterArrowDown />}
+                        {toggleLayoutFilter ? (
+                          <FilterArrowUp />
+                        ) : (
+                          <FilterArrowDown />
+                        )}
                       </i>
                     }
                   />
@@ -158,7 +169,7 @@ export default function Catalogue(): JSX.Element {
             <div className={layoutType}>
               {movieWithGenreApi
                 .slice(0, movieVisible)
-                .map(({ id, genres, title, poster, description, rating }) => (
+                .map(({ id, genre, title, poster, description, rating }) => (
                   <CardMovie
                     key={id}
                     movieID={id}
@@ -169,7 +180,7 @@ export default function Catalogue(): JSX.Element {
                     }`}
                     poster={poster}
                     title={title}
-                    genres={genres}
+                    genre={genre}
                     description={description}
                     rating={rating}
                   />

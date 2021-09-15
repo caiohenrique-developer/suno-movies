@@ -54,13 +54,13 @@ export const CarouselContainer = (): JSX.Element => {
         itemClass='react-multi-carousel-item-card'
       >
         {movieDiscoverApi.map(
-          ({ id, genres, title, poster, description, rating }) => (
+          ({ id, genre, title, poster, description, rating }) => (
             <CardMovie
               key={id}
               movieID={id}
               poster={poster}
               title={title}
-              genres={genres}
+              genre={genre}
               description={description}
               rating={rating}
             />
