@@ -4,10 +4,11 @@ import { TiStarFullOutline } from 'react-icons/ti';
 import Head from 'next/head';
 import Image from 'next/image';
 
+import { fetchMovieDetail } from '@pages/api';
+
 import { CTAButton } from '@components/CTAButton';
 
 import { usePageIndicator } from '@hooks/usePageIndicator';
-import { useReqApi } from '@hooks/useReqApi';
 
 import { Container } from '@styles/pages/SelectedMovie';
 
@@ -15,27 +16,30 @@ import { FetchMovieDetailProps } from '@utils/types/api';
 
 export default function SelectedMovie(): JSX.Element {
   const { addPageID, pageID } = usePageIndicator();
-  const {
-    movieDetailApi: {
-      title,
-      description,
-      genres,
-      poster,
-      posterBkg,
-      rating,
-      movieVideoID,
-      trailer,
-    },
-  } = useReqApi();
 
-  const [movie, setMovie] = useState({} as FetchMovieDetailProps);
+  const [selectedMovie, setSelectedMovie] = useState(
+    {} as FetchMovieDetailProps,
+  );
 
   useEffect(() => {
     addPageID('selected-movie');
+
+    const reqMovieDetail = async (movieID: number) => {
+      if (movieID) {
+        const selectedMovieDetailApi = await fetchMovieDetail(movieID); // Get details by selected movie
+
+        localStorage.setItem(
+          '@SunoMoveis:movie-selected',
+          JSON.stringify(selectedMovieDetailApi),
+        );
+
+        setSelectedMovie(selectedMovieDetailApi);
+      }
+    };
   }, [addPageID]);
 
   if (process.browser) {
-    const movieSelected = JSON.parse(
+    const getFromStorageSelectedMovie = JSON.parse(
       localStorage.getItem('@SunoMoveis:movie-selected'),
     );
   }

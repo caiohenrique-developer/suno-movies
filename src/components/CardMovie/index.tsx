@@ -14,7 +14,6 @@ import { CardMovieProps } from '@utils/types/components';
 import { Container } from './style';
 
 export const CardMovie = ({
-  movieID,
   className,
   poster,
   title,
@@ -26,7 +25,7 @@ export const CardMovie = ({
   const { reqApi } = useReqApi();
 
   const handleMovieSelected = () => {
-    reqApi(8, movieID);
+    reqApi(8);
 
     if (handleResetHeaderValues) handleResetHeaderValues();
   };

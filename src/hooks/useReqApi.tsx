@@ -10,14 +10,9 @@ import {
   fetchGenres,
   fetchMovieDiscover,
   fetchMovieDiscoverWithGenre,
-  fetchMovieDetail,
 } from '@pages/api';
 
-import {
-  FetchMovieProps,
-  FetchGenreProps,
-  FetchMovieDetailProps,
-} from '@utils/types/api';
+import { FetchMovieProps, FetchGenreProps } from '@utils/types/api';
 import { ChildrenGlobalType } from '@utils/types/GlobalTypes';
 import { ReqApiValCtx } from '@utils/types/hooks';
 
@@ -33,24 +28,10 @@ export const ReqApiProvider = ({
     [],
   );
   const [genreApi, setGenreApi] = useState<FetchGenreProps[]>([]);
-  const [movieDetailApi, setMovieDetailApi] = useState<FetchMovieDetailProps>(
-    {} as FetchMovieDetailProps,
-  );
 
-  const reqApi = useCallback(async (genreID: number, movieID: number) => {
+  const reqApi = useCallback(async (genreID: number) => {
     if (genreID) {
       setMovieWithGenreApi(await fetchMovieDiscoverWithGenre(genreID)); // Filtered by genre
-    }
-
-    if (movieID) {
-      const movieDetailSelected = await fetchMovieDetail(movieID); // Get details by selected movie
-
-      localStorage.setItem(
-        '@SunoMoveis:movie-selected',
-        JSON.stringify(movieDetailSelected),
-      );
-
-      setMovieDetailApi(movieDetailSelected);
     }
 
     setMovieDiscoverApi(await fetchMovieDiscover()); // List movies
@@ -58,13 +39,12 @@ export const ReqApiProvider = ({
   }, []);
 
   useEffect(() => {
-    reqApi(8, undefined);
+    reqApi(8);
   }, [reqApi]);
 
   const valCtx = {
     movieDiscoverApi,
     movieWithGenreApi,
-    movieDetailApi,
     genreApi,
     reqApi,
   } as ReqApiValCtx;
