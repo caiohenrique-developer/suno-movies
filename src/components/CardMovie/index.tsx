@@ -7,8 +7,6 @@ import Link from 'next/link';
 
 import { MyButton } from '@components/MyButton';
 
-import { useReqApi } from '@hooks/useReqApi';
-
 import { CardMovieProps } from '@utils/types/components';
 
 import { Container } from './style';
@@ -23,11 +21,7 @@ export const CardMovie = ({
   description,
   handleResetHeaderValues,
 }: CardMovieProps): JSX.Element => {
-  const { reqApi } = useReqApi();
-
   const handleSelectedMovie = () => {
-    reqApi(8);
-
     if (handleResetHeaderValues) handleResetHeaderValues();
   };
 
