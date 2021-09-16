@@ -3,6 +3,7 @@ import { TiStarFullOutline } from 'react-icons/ti';
 
 import Head from 'next/head';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import { fetchMovieDetail } from '@pages/api';
 
@@ -21,11 +22,18 @@ export default function SelectedMovie(): JSX.Element {
     {} as FetchMovieDetailProps,
   );
 
+  const router = useRouter();
+  const { slug } = router.query;
+
+  if (slug === 'catalogue') {
+    router.push(`/${slug}`);
+  }
+
   useEffect(() => {
     addPageID('selected-movie');
 
-    const reqMovieDetail = async (movieID: number) => {
-      if (movieID) {
+    async function fetchData(movieID: number) {
+      if (!Number.isNaN(movieID)) {
         const selectedMovieDetailApi = await fetchMovieDetail(movieID); // Get details by selected movie
 
         localStorage.setItem(
@@ -35,8 +43,9 @@ export default function SelectedMovie(): JSX.Element {
 
         setSelectedMovie(selectedMovieDetailApi);
       }
-    };
-  }, [addPageID]);
+    }
+    fetchData(+slug); // I'm using the plus sign to convert the string to number
+  }, [addPageID, slug]);
 
   if (process.browser) {
     const getFromStorageSelectedMovie = JSON.parse(
@@ -47,29 +56,32 @@ export default function SelectedMovie(): JSX.Element {
   return (
     <>
       <Head>
-        <title>{title || 'Undefined'} | Suno Movies</title>
+        <title>{selectedMovie['title'] || 'Undefined'} | Suno Movies</title>
       </Head>
 
-      <Container id={pageID} posterBkg={posterBkg}>
+      <Container id={pageID} posterBkg={selectedMovie['posterBkg']}>
         <section>
           <div>
             <div>
               <Image
-                src={poster || '/assets/poster-placeholder.png'}
-                alt={title || 'Undefined'}
+                src={
+                  selectedMovie['poster'] || '/assets/poster-placeholder.png'
+                }
+                alt={selectedMovie['title'] || 'Undefined'}
                 width={334}
                 height={494}
                 objectFit='cover'
               />
 
               <div>
-                <h1>{title || 'Undefined'}</h1>
+                <h1>{selectedMovie['title'] || 'Undefined'}</h1>
 
                 <div id='genres'>
-                  {genres?.map(({ name }) => `${name}`).join(' - ') ||
-                    'Undefined'}
+                  {selectedMovie['genres']
+                    ?.map(({ name }) => `${name}`)
+                    .join(' - ') || 'Undefined'}
                   <span>
-                    <TiStarFullOutline /> {rating || 0.0}
+                    <TiStarFullOutline /> {selectedMovie['rating'] || 0.0}
                   </span>
                 </div>
 
@@ -77,7 +89,7 @@ export default function SelectedMovie(): JSX.Element {
                   <span>Sinopse</span>
 
                   <p>
-                    {description ||
+                    {selectedMovie['description'] ||
                       'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, possimus. Aspernatur, minus commodi recusandae laudantium consequuntur deleniti totam voluptatum eius sint consequatur placeat blanditiis debitis perferendis consectetur quaerat est id?'}
                   </p>
                 </div>
@@ -88,12 +100,12 @@ export default function SelectedMovie(): JSX.Element {
 
         <section>
           <div>
-            <h4>{trailer || 'Trailer'}</h4>
+            <h4>{selectedMovie['trailer'] || 'Trailer'}</h4>
 
             <iframe
               width='100%'
               height='580'
-              src={`https://www.youtube.com/embed/${movieVideoID}`}
+              src={`https://www.youtube.com/embed/${selectedMovie['movieVideoID']}`}
               title='YouTube video player'
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
             />

@@ -57,6 +57,7 @@ export const CarouselContainer = (): JSX.Element => {
           ({ id, genre, title, poster, description, rating }) => (
             <CardMovie
               key={id}
+              movieID={id}
               poster={poster}
               title={title}
               genre={genre}

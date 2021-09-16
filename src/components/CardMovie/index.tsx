@@ -14,17 +14,18 @@ import { CardMovieProps } from '@utils/types/components';
 import { Container } from './style';
 
 export const CardMovie = ({
-  className,
-  poster,
   title,
   genre,
-  description,
+  poster,
   rating,
+  movieID,
+  className,
+  description,
   handleResetHeaderValues,
 }: CardMovieProps): JSX.Element => {
   const { reqApi } = useReqApi();
 
-  const handleMovieSelected = () => {
+  const handleSelectedMovie = () => {
     reqApi(8);
 
     if (handleResetHeaderValues) handleResetHeaderValues();
@@ -37,8 +38,8 @@ export const CardMovie = ({
         <section id='mob'>
           <div>
             {poster !== '' && (
-              <Link href='/selected-movie' passHref>
-                <MyButton onClick={handleMovieSelected}>
+              <Link href={`/selected-movie/${movieID}`} passHref>
+                <MyButton onClick={handleSelectedMovie}>
                   <Image
                     src={poster || '/assets/poster-placeholder.png'}
                     alt={title || 'Undefined'}
@@ -67,8 +68,8 @@ export const CardMovie = ({
       <MediaQuery minDeviceWidth={768}>
         <section>
           {poster !== '' && (
-            <Link href='/selected-movie' passHref>
-              <MyButton onClick={handleMovieSelected}>
+            <Link href={`/selected-movie/${movieID}`} passHref>
+              <MyButton onClick={handleSelectedMovie}>
                 <Image
                   src={poster || '/assets/poster-placeholder.png'}
                   alt={title || 'Undefined'}

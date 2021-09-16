@@ -172,6 +172,7 @@ export default function Catalogue(): JSX.Element {
                 .map(({ id, genre, title, poster, description, rating }) => (
                   <CardMovie
                     key={id}
+                    movieID={id}
                     className={`animate__animated ${
                       layoutType === 'grid'
                         ? 'animate__backInDown'

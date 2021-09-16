@@ -335,6 +335,7 @@ export const Header = (): JSX.Element => {
                 {searchMovieApi.map(({ id, genre, title, poster, rating }) => (
                   <CardMovie
                     key={id}
+                    movieID={id}
                     poster={poster}
                     title={title}
                     genre={genre}

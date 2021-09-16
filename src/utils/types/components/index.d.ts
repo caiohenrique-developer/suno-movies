@@ -42,6 +42,7 @@ export interface MyButtonProps {
 // CardMovie
 type MovieDiscoverExtends = Omit<FetchMovieProps, 'id'>;
 export interface CardMovieProps extends MovieDiscoverExtends {
+  movieID: number;
   className?: string;
   handleResetHeaderValues?(): void;
 }
