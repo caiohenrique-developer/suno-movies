@@ -37,7 +37,7 @@ export default function SelectedMovie(): JSX.Element {
         const selectedMovieDetailApi = await fetchMovieDetail(movieID); // Get details by selected movie
 
         localStorage.setItem(
-          '@SunoMoveis:movie-selected',
+          '@SunoMoveis:selected-movie',
           JSON.stringify(selectedMovieDetailApi),
         );
 
@@ -49,7 +49,7 @@ export default function SelectedMovie(): JSX.Element {
 
   if (process.browser) {
     const getFromStorageSelectedMovie = JSON.parse(
-      localStorage.getItem('@SunoMoveis:movie-selected'),
+      localStorage.getItem('@SunoMoveis:selected-movie'),
     );
   }
 
