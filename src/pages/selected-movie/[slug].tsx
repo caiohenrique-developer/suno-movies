@@ -25,33 +25,36 @@ export default function SelectedMovie(): JSX.Element {
   const router = useRouter();
   const { slug } = router.query;
 
-  if (slug === 'catalogue') {
-    router.push(`/${slug}`);
-  }
+  if (slug === 'catalogue') router.push(`/${slug}`);
 
   useEffect(() => {
     addPageID('selected-movie');
 
     async function fetchData(movieID: number) {
+      const getFromStorageSelectedMovie = JSON.parse(
+        localStorage.getItem('@SunoMoveis:selected-movie'),
+      ); // Get details by selected movie from Storage
+
+      if (
+        (!Number.isNaN(movieID) && getFromStorageSelectedMovie?.id) === movieID
+      ) {
+        setSelectedMovie(getFromStorageSelectedMovie);
+        return;
+      }
+
       if (!Number.isNaN(movieID)) {
-        const selectedMovieDetailApi = await fetchMovieDetail(movieID); // Get details by selected movie
+        const getFromApiSelectedMovie = await fetchMovieDetail(movieID); // Get details by selected movie from API
 
         localStorage.setItem(
           '@SunoMoveis:selected-movie',
-          JSON.stringify(selectedMovieDetailApi),
+          JSON.stringify(getFromApiSelectedMovie),
         );
 
-        setSelectedMovie(selectedMovieDetailApi);
+        setSelectedMovie(getFromApiSelectedMovie);
       }
     }
     fetchData(+slug); // I'm using the plus sign to convert the string to number
   }, [addPageID, slug]);
-
-  if (process.browser) {
-    const getFromStorageSelectedMovie = JSON.parse(
-      localStorage.getItem('@SunoMoveis:selected-movie'),
-    );
-  }
 
   return (
     <>
