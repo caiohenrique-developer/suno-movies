@@ -160,7 +160,7 @@ export const OptionsList = styled.ul`
   }
 `;
 
-export const ActiveIndicator = styled.span`
+export const GenreActiveIndicator = styled.span`
   ${TypeBtnColors}
   ${BaseBtnFilters}
 `;

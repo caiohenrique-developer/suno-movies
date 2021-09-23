@@ -15,7 +15,7 @@ import { useReqApi } from '@hooks/useReqApi';
 import FilterArrowDown from '@assets/catalogue-arrow-down.svg';
 import FilterArrowUp from '@assets/catalogue-arrow-up.svg';
 
-import { ActiveIndicator, Button } from '@styles/components/ButtonStyles';
+import { GenreActiveIndicator, Button } from '@styles/components/ButtonStyles';
 import { Container } from '@styles/pages/Catalogue';
 
 export default function Catalogue(): JSX.Element {
@@ -144,9 +144,9 @@ export default function Catalogue(): JSX.Element {
                   />
                 </div>
 
-                <ActiveIndicator className='btn-pink'>
+                <GenreActiveIndicator className='btn-pink'>
                   {genreType}
-                </ActiveIndicator>
+                </GenreActiveIndicator>
               </div>
 
               {/* Tablet and up */}
