@@ -7,6 +7,7 @@ import { CardMovie } from '@components/CardMovie';
 import { CarouselContainer } from '@components/Carousel';
 import { CatalogueTitle } from '@components/CatalogueTitle';
 import { FilterButton } from '@components/FilterButton';
+import { FilterButtons } from '@components/FilterButton/filterButton';
 
 import { usePageIndicator } from '@hooks/usePageIndicator';
 import { useReqApi } from '@hooks/useReqApi';
@@ -122,6 +123,8 @@ export default function Catalogue(): JSX.Element {
 
         <section>
           <div>
+            <FilterButtons />
+
             <div>
               <div>
                 <div className={`${toggleGenreFilter}`}>
@@ -166,6 +169,7 @@ export default function Catalogue(): JSX.Element {
                 </div>
               </MediaQuery>
             </div>
+
             <div className={layoutType}>
               {movieWithGenreApi
                 .slice(0, movieVisible)

@@ -28,6 +28,9 @@
     }
   },
   "dependencies": {
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@mui/material": "^5.0.1",
     "animate.css": "^4.1.1",
     "axios": "^0.21.1",
     "hover.css": "^2.3.2",
