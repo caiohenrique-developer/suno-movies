@@ -8,6 +8,8 @@ import Typography from '@mui/material/Typography';
 
 import { GenreActiveIndicator } from '@styles/components/ButtonStyles';
 
+import { Container } from './style';
+
 export const FilterButtons = (): JSX.Element => {
   const [expanded, setExpanded] = React.useState<string | false>(false);
 
@@ -17,7 +19,7 @@ export const FilterButtons = (): JSX.Element => {
     };
 
   return (
-    <section>
+    <Container>
       <Accordion
         expanded={expanded === 'panel1'}
         onChange={handleChange('panel1')}
@@ -62,6 +64,6 @@ export const FilterButtons = (): JSX.Element => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-    </section>
+    </Container>
   );
 };
