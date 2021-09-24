@@ -19,6 +19,7 @@ export const Container = styled.section`
 
   .MuiPaper-root {
     background-color: red;
+    margin-top: 0;
 
     /* Filter button */
     .MuiButtonBase-root {
@@ -35,13 +36,19 @@ export const Container = styled.section`
         var(--black_212) 100%
       );
 
-      .MuiSvgIcon-root {
-        fill: var(--white_EAE);
-        width: 1.875rem;
-        height: 1.875rem;
-        margin-left: -0.375rem;
-        margin-right: 0.25rem;
-        pointer-events: none;
+      .MuiAccordionSummary-expandIconWrapper {
+        &.Mui-expanded {
+          transform: rotateX(180deg);
+        }
+
+        .MuiSvgIcon-root {
+          fill: var(--white_EAE);
+          width: min(1.875rem, 2.5vw);
+          height: min(1.875rem, 2.5vw);
+          margin-left: -0.375rem;
+          margin-right: 0.25rem;
+          pointer-events: none;
+        }
       }
 
       .MuiAccordionSummary-content {
