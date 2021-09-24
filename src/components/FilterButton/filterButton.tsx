@@ -1,4 +1,5 @@
 import * as React from 'react';
+import MediaQuery from 'react-responsive';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Accordion from '@mui/material/Accordion';
@@ -46,27 +47,30 @@ export const FilterButtons = (): JSX.Element => {
         </GenreActiveIndicator>
       </div>
 
-      <Accordion
-        expanded={expanded === 'panel2'}
-        onChange={handleChange('panel2')}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls='panel2bh-content'
-          id='panel2bh-header'
+      {/* Tablet and up */}
+      <MediaQuery minDeviceWidth={768}>
+        <Accordion
+          expanded={expanded === 'panel2'}
+          onChange={handleChange('panel2')}
         >
-          <Typography>em grid</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Donec placerat, lectus sed mattis semper, neque lectus feugiat
-            lectus, varius pulvinar diam eros in elit. Pellentesque convallis
-            laoreet laoreet. Donec placerat, lectus sed mattis semper, neque
-            lectus feugiat lectus, varius pulvinar diam eros in elit.
-            Pellentesque convallis laoreet laoreet.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls='panel2bh-content'
+            id='panel2bh-header'
+          >
+            <Typography>em grid</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              Donec placerat, lectus sed mattis semper, neque lectus feugiat
+              lectus, varius pulvinar diam eros in elit. Pellentesque convallis
+              laoreet laoreet. Donec placerat, lectus sed mattis semper, neque
+              lectus feugiat lectus, varius pulvinar diam eros in elit.
+              Pellentesque convallis laoreet laoreet.
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+      </MediaQuery>
     </Container>
   );
 };

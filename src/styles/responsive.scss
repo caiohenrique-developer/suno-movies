@@ -355,13 +355,58 @@ $hamburger-layer-height: 2px !default;
                 padding: min(1.875rem, 5vw) max(1.25rem, 1.57vw);
                 max-width: 95%;
 
+                // old version
                 > div:first-of-type > div > div button,
                 > div:first-of-type > div span,
                 > button {
+                  border: 5px solid green;
                   font-size: min(0.75rem, 4vw);
                 }
 
+                > section {
+                  border: 5px solid blue;
+
+                  > div {
+                    justify-content: center;
+
+                    width: 100%;
+                    max-width: 100%;
+                    max-height: min(2.525rem, 11vw);
+
+                    margin-right: 0;
+
+                    span,
+                    > div,
+                    > div > div {
+                      width: 100%;
+                      max-width: unset;
+                      margin-left: 0;
+                    }
+
+                    > div {
+                      margin-right: 2rem;
+                    }
+
+                    span,
+                    .MuiTypography-root {
+                      font-size: min(0.75rem, 4vw);
+                    }
+
+                    .MuiAccordionSummary-expandIconWrapper {
+                      position: relative;
+                      top: 2px;
+
+                      .MuiSvgIcon-root {
+                        width: min(1.4rem, 8vw);
+                        height: min(1.4rem, 8vw);
+                      }
+                    }
+                  }
+                }
+
+                // old version
                 > div {
+                  border: 5px solid yellow;
                   max-height: 100%;
 
                   &:first-of-type > div {
