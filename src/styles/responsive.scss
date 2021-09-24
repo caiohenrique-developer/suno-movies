@@ -365,13 +365,15 @@ $hamburger-layer-height: 2px !default;
 
                 > section {
                   border: 5px solid blue;
+                  max-height: 100%;
 
                   > div {
                     justify-content: center;
 
                     width: 100%;
                     max-width: 100%;
-                    max-height: min(2.525rem, 11vw);
+                    // discomment after to use this max-height
+                    // max-height: min(2.525rem, 11vw);
 
                     margin-right: 0;
 
