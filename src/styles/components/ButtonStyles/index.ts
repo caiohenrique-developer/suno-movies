@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const TypeBtnColors = css`
+export const TypeBtnColors = css`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,7 +43,7 @@ const TypeBtnColors = css`
   }
 `;
 
-const BaseBtnFilters = css`
+export const BaseBtnFilters = css`
   font-weight: 600;
   font-size: min(0.9rem, 1.1vw);
   text-transform: lowercase;

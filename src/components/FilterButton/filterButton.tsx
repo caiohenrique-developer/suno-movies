@@ -6,9 +6,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 
-import { GenreActiveIndicator } from '@styles/components/ButtonStyles';
-
-import { Container } from './style';
+import { Container, GenreActiveIndicator } from './style';
 
 export const FilterButtons = (): JSX.Element => {
   const [expanded, setExpanded] = React.useState<string | false>(false);
@@ -20,30 +18,33 @@ export const FilterButtons = (): JSX.Element => {
 
   return (
     <Container>
-      <Accordion
-        expanded={expanded === 'panel1'}
-        onChange={handleChange('panel1')}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls='panel1bh-content'
-          id='panel1bh-header'
+      <div>
+        <Accordion
+          expanded={expanded === 'panel1'}
+          onChange={handleChange('panel1')}
         >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>
-            General settings
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
-            Aliquam eget maximus est, id dignissim quam.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls='panel1bh-content'
+            id='panel1bh-header'
+          >
+            <Typography>populares</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              Nulla facilisi. Phasellus sollicitudin nulla et quam mattis
+              feugiat. Aliquam eget maximus est, id dignissim quam. Donec
+              placerat, lectus sed mattis semper, neque lectus feugiat lectus,
+              varius pulvinar diam eros in elit. Pellentesque convallis laoreet
+              laoreet.
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
 
-      <GenreActiveIndicator className='btn-pink'>
-        Tipo do gênero
-      </GenreActiveIndicator>
+        <GenreActiveIndicator className='btn-pink'>
+          populares
+        </GenreActiveIndicator>
+      </div>
 
       <Accordion
         expanded={expanded === 'panel2'}
@@ -54,13 +55,15 @@ export const FilterButtons = (): JSX.Element => {
           aria-controls='panel2bh-content'
           id='panel2bh-header'
         >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>Users</Typography>
+          <Typography>em grid</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
             Donec placerat, lectus sed mattis semper, neque lectus feugiat
             lectus, varius pulvinar diam eros in elit. Pellentesque convallis
-            laoreet laoreet.
+            laoreet laoreet. Donec placerat, lectus sed mattis semper, neque
+            lectus feugiat lectus, varius pulvinar diam eros in elit.
+            Pellentesque convallis laoreet laoreet.
           </Typography>
         </AccordionDetails>
       </Accordion>

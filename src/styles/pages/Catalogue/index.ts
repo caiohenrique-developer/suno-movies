@@ -70,7 +70,7 @@ export const Container = styled.main`
             z-index: 1;
 
             display: flex;
-            justify-content: space-between;
+            /* justify-content: space-between; */
 
             max-height: min(2.813rem, 4vw);
 
