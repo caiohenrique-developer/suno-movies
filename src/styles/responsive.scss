@@ -394,14 +394,9 @@ $hamburger-layer-height: 2px !default;
                       font-size: min(0.75rem, 4vw);
                     }
 
-                    .MuiAccordionSummary-expandIconWrapper {
-                      position: relative;
-                      top: 2px;
-
-                      .MuiSvgIcon-root {
-                        width: min(1.4rem, 8vw);
-                        height: min(1.4rem, 8vw);
-                      }
+                    .MuiSvgIcon-root {
+                      width: min(1.4rem, 8vw);
+                      height: min(1.4rem, 8vw);
                     }
                   }
                 }

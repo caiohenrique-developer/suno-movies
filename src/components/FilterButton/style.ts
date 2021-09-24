@@ -37,6 +37,9 @@ export const Container = styled.section`
       );
 
       .MuiAccordionSummary-expandIconWrapper {
+        position: relative;
+        top: 2px;
+
         &.Mui-expanded {
           transform: rotateX(180deg);
         }
