@@ -398,6 +398,15 @@ $hamburger-layer-height: 2px !default;
                       width: min(1.4rem, 8vw);
                       height: min(1.4rem, 8vw);
                     }
+
+                    ul {
+                      margin-top: 4px;
+                      border-width: min(0.625rem, 2vw);
+
+                      label {
+                        font-size: min(0.625rem, 3vw);
+                      }
+                    }
                   }
                 }
 
