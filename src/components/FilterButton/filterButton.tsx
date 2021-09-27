@@ -76,6 +76,7 @@ export const FilterButtons = (): JSX.Element => {
                   id={String(inputID)}
                   name='category'
                   onClick={() => {
+                    setExpanded(false);
                     fetchData(inputID);
                     setSelectedGenre(labelContent);
                   }}
@@ -118,7 +119,10 @@ export const FilterButtons = (): JSX.Element => {
                   className='radio'
                   id={inputID}
                   name='category'
-                  onClick={() => setSelectedLayout(inputID)}
+                  onClick={() => {
+                    setExpanded(false);
+                    setSelectedLayout(inputID);
+                  }}
                 />
                 <label htmlFor={labelHtmlFor}>{labelContent}</label>
               </li>
