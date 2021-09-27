@@ -19,6 +19,8 @@ export const Container = styled.section`
 
   .MuiPaper-root {
     background-color: red;
+    /* background-color: transparent; */
+    box-shadow: none;
     margin-top: 0;
 
     /* Filter button */
@@ -101,6 +103,44 @@ export const Container = styled.section`
       &::-webkit-scrollbar-thumb {
         background: var(--gray_9F9);
         border-radius: 4px;
+      }
+
+      ul li {
+        font-size: min(0.9rem, 1.1vw);
+        text-transform: lowercase;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: var(--white_EAE);
+        background: var(--gray_252);
+        transition: 0.3s;
+
+        & + li {
+          border-top: 1px solid var(--black_000);
+        }
+
+        &.selected,
+        &:hover {
+          font-weight: 700;
+          color: var(--gray_252);
+          background: var(--white_EAE);
+          opacity: 0.5;
+        }
+
+        &.selected {
+          opacity: 0.8;
+        }
+
+        input {
+          display: none;
+        }
+
+        label {
+          display: block;
+          width: 100%;
+          text-align: center;
+          padding: 5px 0;
+          cursor: pointer;
+        }
       }
     }
   }

@@ -1,21 +1,53 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import MediaQuery from 'react-responsive';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Accordion from '@mui/material/Accordion';
-import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
+
+import { fetchGenres, fetchMovieDiscoverWithGenre } from '@pages/api';
+
+import { FetchMovieProps, FetchGenreProps } from '@utils/types/api';
 
 import { Container, GenreActiveIndicator } from './style';
 
 export const FilterButtons = (): JSX.Element => {
-  const [expanded, setExpanded] = React.useState<string | false>(false);
+  const [expanded, setExpanded] = useState<string | false>(false);
+  const [selectedLayout, setSelectedLayout] = useState('grid');
+  const [selectedGenre, setSelectedGenre] = useState('Populares');
+  const [genresApi, setGenresApi] = useState<FetchGenreProps[]>([]);
+  const [listFilteredMoviesByGenre, setListFilteredMoviesByGenre] = useState<
+    FetchMovieProps[]
+  >([]);
 
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
       setExpanded(isExpanded ? panel : false);
     };
+
+  const fetchData = async (genreID: number): Promise<void> => {
+    if (genreID) {
+      setListFilteredMoviesByGenre(await fetchMovieDiscoverWithGenre(genreID)); // Filtered by genre
+    }
+
+    setGenresApi(await fetchGenres()); // Get genre categories
+  };
+
+  useEffect(() => {
+    fetchData(8);
+  }, []);
+
+  const genreValues = genresApi.map(({ id, genreName }) => ({
+    inputID: id,
+    labelHtmlFor: id,
+    labelContent: genreName,
+  }));
+
+  const layoutValues = [
+    { inputID: 'grid', labelHtmlFor: 'grid', labelContent: 'Em grid' },
+    { inputID: 'lista', labelHtmlFor: 'lista', labelContent: 'Em lista' },
+  ];
 
   return (
     <Container>
@@ -29,21 +61,33 @@ export const FilterButtons = (): JSX.Element => {
             aria-controls='panel1bh-content'
             id='panel1bh-header'
           >
-            <Typography>populares</Typography>
+            <Typography>{selectedGenre}</Typography>
           </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              Nulla facilisi. Phasellus sollicitudin nulla et quam mattis
-              feugiat. Aliquam eget maximus est, id dignissim quam. Donec
-              placerat, lectus sed mattis semper, neque lectus feugiat lectus,
-              varius pulvinar diam eros in elit. Pellentesque convallis laoreet
-              laoreet.
-            </Typography>
-          </AccordionDetails>
+
+          <ul>
+            {genreValues.map(({ inputID, labelHtmlFor, labelContent }) => (
+              <li
+                key={inputID}
+                className={`option-item ${inputID === 8 ? 'selected' : ''}`}
+              >
+                <input
+                  type='radio'
+                  className='radio'
+                  id={String(inputID)}
+                  name='category'
+                  onClick={() => {
+                    fetchData(inputID);
+                    setSelectedGenre(labelContent);
+                  }}
+                />
+                <label htmlFor={String(labelHtmlFor)}>{labelContent}</label>
+              </li>
+            ))}
+          </ul>
         </Accordion>
 
         <GenreActiveIndicator className='btn-pink'>
-          populares
+          {selectedGenre}
         </GenreActiveIndicator>
       </div>
 
@@ -58,17 +102,28 @@ export const FilterButtons = (): JSX.Element => {
             aria-controls='panel2bh-content'
             id='panel2bh-header'
           >
-            <Typography>em grid</Typography>
+            <Typography>em {selectedLayout}</Typography>
           </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              Donec placerat, lectus sed mattis semper, neque lectus feugiat
-              lectus, varius pulvinar diam eros in elit. Pellentesque convallis
-              laoreet laoreet. Donec placerat, lectus sed mattis semper, neque
-              lectus feugiat lectus, varius pulvinar diam eros in elit.
-              Pellentesque convallis laoreet laoreet.
-            </Typography>
-          </AccordionDetails>
+
+          <ul>
+            {layoutValues.map(({ inputID, labelHtmlFor, labelContent }) => (
+              <li
+                key={inputID}
+                className={`option-item ${
+                  inputID === 'grid' ? 'selected' : ''
+                }`}
+              >
+                <input
+                  type='radio'
+                  className='radio'
+                  id={inputID}
+                  name='category'
+                  onClick={() => setSelectedLayout(inputID)}
+                />
+                <label htmlFor={labelHtmlFor}>{labelContent}</label>
+              </li>
+            ))}
+          </ul>
         </Accordion>
       </MediaQuery>
     </Container>

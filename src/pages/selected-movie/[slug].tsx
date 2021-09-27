@@ -30,7 +30,7 @@ export default function SelectedMovie(): JSX.Element {
   useEffect(() => {
     addPageID('selected-movie');
 
-    async function fetchData(movieID: number) {
+    const fetchData = async (movieID: number) => {
       const getFromStorageSelectedMovie = JSON.parse(
         localStorage.getItem('@SunoMoveis:selected-movie'),
       ); // Get details by selected movie from Storage
@@ -52,7 +52,7 @@ export default function SelectedMovie(): JSX.Element {
 
         setSelectedMovie(getFromApiSelectedMovie);
       }
-    }
+    };
     fetchData(+slug); // I'm using the plus sign to convert the string to number
   }, [addPageID, slug]);
 
