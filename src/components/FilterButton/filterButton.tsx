@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, SyntheticEvent } from 'react';
 import MediaQuery from 'react-responsive';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -8,11 +8,15 @@ import Typography from '@mui/material/Typography';
 
 import { fetchGenres, fetchMovieDiscoverWithGenre } from '@pages/api';
 
+import { useFilteredButtonOption } from '@hooks/useFilteredButtonOption';
+
 import { FetchMovieProps, FetchGenreProps } from '@utils/types/api';
 
 import { Container, GenreActiveIndicator } from './style';
 
 export const FilterButtons = (): JSX.Element => {
+  const { setFilteredLayout } = useFilteredButtonOption();
+
   const [expanded, setExpanded] = useState<string | false>(false);
   const [selectedLayout, setSelectedLayout] = useState('grid');
   const [selectedGenre, setSelectedGenre] = useState('Populares');
@@ -20,11 +24,6 @@ export const FilterButtons = (): JSX.Element => {
   const [listFilteredMoviesByGenre, setListFilteredMoviesByGenre] = useState<
     FetchMovieProps[]
   >([]);
-
-  const handleChange =
-    (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
-      setExpanded(isExpanded ? panel : false);
-    };
 
   const fetchData = async (genreID: number): Promise<void> => {
     if (genreID) {
@@ -34,9 +33,15 @@ export const FilterButtons = (): JSX.Element => {
     setGenresApi(await fetchGenres()); // Get genre categories
   };
 
+  const handleChange =
+    (panel: string) => (event: SyntheticEvent, isExpanded: boolean) => {
+      setExpanded(isExpanded ? panel : false);
+    };
+
   useEffect(() => {
     fetchData(8);
-  }, []);
+    setFilteredLayout(selectedLayout);
+  }, [setFilteredLayout, selectedLayout]);
 
   const genreValues = genresApi.map(({ id, genreName }) => ({
     inputID: id,

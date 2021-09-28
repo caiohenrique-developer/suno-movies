@@ -1,15 +1,21 @@
 import { FetchMovieProps, FetchGenreProps } from '@utils/types/api';
 
 // usePageIndicator
-export interface PageIDCtxProps {
+export type PageIDCtxProps = {
   pageID: string;
   addPageID(page: string): void;
-}
+};
 
 // useReqApi
-export interface ReqApiValCtx {
+export type ReqApiValCtx = {
   movieDiscoverApi: FetchMovieProps[];
   movieWithGenreApi: FetchMovieProps[];
   genreApi: FetchGenreProps[];
   reqApi(genreID: number): void;
-}
+};
+
+// useFilteredButtonOption
+export type FilteredButtonOptionCtxProps = {
+  filteredLayout: string;
+  setFilteredLayout: React.Dispatch<React.SetStateAction<string>>;
+};

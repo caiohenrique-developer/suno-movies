@@ -6,6 +6,7 @@ import Head from 'next/head';
 import { Footer } from '@components/Footer';
 import { Header } from '@components/Header';
 
+import { FilteredButtonOptionProvider } from '@hooks/useFilteredButtonOption';
 import { PageIDProvider } from '@hooks/usePageIndicator';
 import { ReqApiProvider } from '@hooks/useReqApi';
 
@@ -24,13 +25,15 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
 
-      <ReqApiProvider>
-        <PageIDProvider>
-          <Header />
-          <Component {...pageProps} />
-          <Footer />
-        </PageIDProvider>
-      </ReqApiProvider>
+      <FilteredButtonOptionProvider>
+        <ReqApiProvider>
+          <PageIDProvider>
+            <Header />
+            <Component {...pageProps} />
+            <Footer />
+          </PageIDProvider>
+        </ReqApiProvider>
+      </FilteredButtonOptionProvider>
 
       <GlobalStyles />
     </>

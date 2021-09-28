@@ -9,6 +9,7 @@ import { CatalogueTitle } from '@components/CatalogueTitle';
 import { FilterButton } from '@components/FilterButton';
 import { FilterButtons } from '@components/FilterButton/filterButton';
 
+import { useFilteredButtonOption } from '@hooks/useFilteredButtonOption';
 import { usePageIndicator } from '@hooks/usePageIndicator';
 import { useReqApi } from '@hooks/useReqApi';
 
@@ -21,16 +22,17 @@ import { Container } from '@styles/pages/Catalogue';
 export default function Catalogue(): JSX.Element {
   const { addPageID, pageID } = usePageIndicator();
   const { movieWithGenreApi, reqApi } = useReqApi();
-
-  useEffect(() => {
-    addPageID('catalogue');
-  }, [addPageID]);
+  const { filteredLayout } = useFilteredButtonOption();
 
   const [toggleLayoutFilter, setToggleLayoutFilter] = useState(false);
   const [toggleGenreFilter, setToggleGenreFilter] = useState(false);
   const [layoutType, setLayoutType] = useState('grid');
   const [genreType, setGenreType] = useState('Populares');
   const [movieVisible, setMovieVisible] = useState(6);
+
+  useEffect(() => {
+    addPageID('catalogue');
+  }, [addPageID]);
 
   const handleFilterLayoutButton = () => {
     const optionsList = document
@@ -155,7 +157,7 @@ export default function Catalogue(): JSX.Element {
                   <FilterButton
                     onClick={handleFilterLayoutButton}
                     className='btn-black hvr-shrink hvr-icon-hang filter-layout'
-                    title={`Em ${layoutType}`}
+                    title={`Em ${filteredLayout}`}
                     iconBefore={
                       <i className='hvr-icon'>
                         {toggleLayoutFilter ? (
@@ -170,7 +172,7 @@ export default function Catalogue(): JSX.Element {
               </MediaQuery>
             </div>
 
-            <div className={layoutType}>
+            <div className={filteredLayout}>
               {movieWithGenreApi
                 .slice(0, movieVisible)
                 .map(({ id, genre, title, poster, description, rating }) => (
@@ -178,7 +180,7 @@ export default function Catalogue(): JSX.Element {
                     key={id}
                     movieID={id}
                     className={`animate__animated ${
-                      layoutType === 'grid'
+                      filteredLayout === 'grid'
                         ? 'animate__backInDown'
                         : 'animate__fadeInDownBig'
                     }`}
