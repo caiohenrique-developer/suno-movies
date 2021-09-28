@@ -21,7 +21,15 @@ export const Container = styled.section`
     background-color: red;
     /* background-color: transparent; */
     box-shadow: none;
-    margin-top: 0;
+
+    &.Mui-expanded {
+      margin: 0;
+    }
+
+    &:not(.Mui-expanded) .MuiCollapse-root {
+      border-width: 0;
+      margin: 0;
+    }
 
     /* Filter button */
     .MuiButtonBase-root {
@@ -64,15 +72,6 @@ export const Container = styled.section`
           font-weight: 600;
           font-size: min(0.9rem, 1.1vw);
         }
-      }
-
-      &:not(.Mui-expanded) ~ .MuiCollapse-root {
-        border-width: 0;
-        margin: 0;
-      }
-
-      &.Mui-expanded ~ .MuiCollapse-root {
-        /* filter options structure */
       }
     }
 
