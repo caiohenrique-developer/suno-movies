@@ -53,83 +53,36 @@ export const Container = styled.main`
     }
 
     /* last section */
-    &:last-of-type {
-      > div {
-        max-width: 1200px;
-        margin: auto;
-        padding: min(2.5rem, 3.2vw) min(1.25rem, 1.57vw);
+    &:last-of-type > div {
+      max-width: 1200px;
+      margin: auto;
+      padding: min(2.5rem, 3.2vw) min(1.25rem, 1.57vw);
 
-        > button {
-          margin: 0 auto min(5rem, 6.6vw);
+      > button {
+        margin: 0 auto min(5rem, 6.6vw);
+      }
+
+      > div:last-of-type {
+        overflow: hidden;
+        margin: min(2.8rem, 3.5vw) 0 min(4.4rem, 5.5vw);
+
+        &.grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: min(2.5rem, 3.3vw) min(1.875rem, 2.5vw);
+
+          > div {
+            & + div {
+              margin-top: 0;
+            }
+          }
         }
 
-        > div {
-          &:first-of-type {
-            position: relative;
-            top: 0;
-            z-index: 1;
-
-            display: flex;
-            /* justify-content: space-between; */
-
-            max-height: min(2.813rem, 4vw);
-
-            > div {
-              &:first-of-type {
-                display: flex;
-                margin-right: min(1.563rem, 3vw);
-
-                span {
-                  cursor: unset;
-                  border-radius: 0.2rem;
-                  margin-left: min(1.563rem, 3vw);
-                }
-              }
-
-              & .false ul,
-              &.false ul {
-                max-height: 0;
-                border-width: 0;
-
-                &,
-                li {
-                  margin: 0;
-                  padding: 0;
-                  transition: calc(var(--animate-duration) * 0.75)
-                    cubic-bezier(0.15, -0.4, 1, 0.01);
-                }
-              }
-
-              & div:not(.false) > button,
-              &:not(.false) > button {
-                transform: unset;
-              }
-            }
-          }
-
-          &:last-of-type {
-            overflow: hidden;
-            margin: min(2.8rem, 3.5vw) 0 min(4.4rem, 5.5vw);
-
-            &.grid {
-              display: grid;
-              grid-template-columns: repeat(2, 1fr);
-              gap: min(2.5rem, 3.3vw) min(1.875rem, 2.5vw);
-
-              > div {
-                & + div {
-                  margin-top: 0;
-                }
-              }
-            }
-
-            > div section > a {
-              max-width: min(9.875rem, 12.7vw) !important;
-              min-width: 124px;
-              max-height: min(14.375rem, 18.5vw);
-              margin-right: min(1.75rem, 2.8vw);
-            }
-          }
+        > div section > a {
+          max-width: min(9.875rem, 12.7vw) !important;
+          min-width: 124px;
+          max-height: min(14.375rem, 18.5vw);
+          margin-right: min(1.75rem, 2.8vw);
         }
       }
     }

@@ -1,90 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import MediaQuery from 'react-responsive';
 
 import Head from 'next/head';
 
 import { CardMovie } from '@components/CardMovie';
 import { CarouselContainer } from '@components/Carousel';
 import { CatalogueTitle } from '@components/CatalogueTitle';
-import { FilterButton } from '@components/FilterButton';
-import { FilterButtons } from '@components/FilterButton/filterButton';
+import { FilterButtons } from '@components/FilterButton';
 
 import { useFilteredButtonOption } from '@hooks/useFilteredButtonOption';
 import { usePageIndicator } from '@hooks/usePageIndicator';
-import { useReqApi } from '@hooks/useReqApi';
 
-import FilterArrowDown from '@assets/catalogue-arrow-down.svg';
-import FilterArrowUp from '@assets/catalogue-arrow-up.svg';
-
-import { Button, GenreActiveIndicator } from '@styles/components/ButtonStyles';
+import { Button } from '@styles/components/ButtonStyles';
 import { Container } from '@styles/pages/Catalogue';
 
 export default function Catalogue(): JSX.Element {
   const { addPageID, pageID } = usePageIndicator();
-  const { movieWithGenreApi, reqApi } = useReqApi();
   const { filteredLayout, filteredMoviesByGenre } = useFilteredButtonOption();
 
-  const [toggleLayoutFilter, setToggleLayoutFilter] = useState(false);
-  const [toggleGenreFilter, setToggleGenreFilter] = useState(false);
-  const [layoutType, setLayoutType] = useState('grid');
-  const [genreType, setGenreType] = useState('Populares');
   const [movieVisible, setMovieVisible] = useState(6);
 
   useEffect(() => {
     addPageID('catalogue');
   }, [addPageID]);
-
-  const handleFilterLayoutButton = () => {
-    const optionsList = document
-      .querySelector('.filter-layout')
-      .nextElementSibling.querySelectorAll('.option-item');
-
-    handleFilteredOption(optionsList);
-
-    setToggleLayoutFilter(!toggleLayoutFilter);
-    setToggleGenreFilter(false);
-    setMovieVisible(6);
-  };
-
-  const handleFilterGenreButton = () => {
-    const optionsList = document
-      .querySelector('.filter-genre')
-      .nextElementSibling.querySelectorAll('.option-item');
-
-    handleFilteredOption(optionsList);
-    setToggleGenreFilter(!toggleGenreFilter);
-    setToggleLayoutFilter(false);
-  };
-
-  const handleFilteredOption = (filteredOption: NodeListOf<Element>) => {
-    for (let i = 0; i < filteredOption.length; i++) {
-      filteredOption[i].addEventListener(
-        'click',
-        function () {
-          const filterButton = this.closest('ul').previousSibling;
-          const current = this.parentElement.getElementsByClassName('selected');
-          current[0].className = current[0].className.replace('selected', '');
-          if (!this.classList.contains('selected'))
-            this.className += 'selected';
-          if (filterButton.classList.contains('filter-layout')) {
-            const layoutCategory =
-              this.querySelector('label').getAttribute('for');
-            setLayoutType(layoutCategory);
-            setToggleLayoutFilter(false);
-          } else if (filterButton.classList.contains('filter-genre')) {
-            const genreCategory = this.querySelector('label').innerText;
-            const genreCategoryID =
-              this.querySelector('input').getAttribute('id');
-            // The plus sign turns another format into a number
-            reqApi(+genreCategoryID);
-            setGenreType(genreCategory);
-            setToggleGenreFilter(false);
-          }
-        },
-        false,
-      );
-    }
-  };
 
   const handleLoadMoreButton = () => {
     setMovieVisible(movieVisible + 6);
@@ -126,51 +63,6 @@ export default function Catalogue(): JSX.Element {
         <section>
           <div>
             <FilterButtons />
-
-            <div>
-              <div>
-                <div className={`${toggleGenreFilter}`}>
-                  <FilterButton
-                    onClick={handleFilterGenreButton}
-                    className='btn-black hvr-shrink hvr-icon-hang filter-genre'
-                    title={genreType}
-                    iconBefore={
-                      <i className='hvr-icon'>
-                        {toggleGenreFilter ? (
-                          <FilterArrowUp />
-                        ) : (
-                          <FilterArrowDown />
-                        )}
-                      </i>
-                    }
-                  />
-                </div>
-
-                <GenreActiveIndicator className='btn-pink'>
-                  {genreType}
-                </GenreActiveIndicator>
-              </div>
-
-              {/* Tablet and up */}
-              <MediaQuery minDeviceWidth={768}>
-                <div className={`${toggleLayoutFilter}`}>
-                  <FilterButton
-                    onClick={handleFilterLayoutButton}
-                    className='btn-black hvr-shrink hvr-icon-hang filter-layout'
-                    title={`Em ${filteredLayout}`}
-                    iconBefore={
-                      <i className='hvr-icon'>
-                        {toggleLayoutFilter ? (
-                          <FilterArrowUp />
-                        ) : (
-                          <FilterArrowDown />
-                        )}
-                      </i>
-                    }
-                  />
-                </div>
-              </MediaQuery>
-            </div>
 
             <div className={filteredLayout}>
               {filteredMoviesByGenre
