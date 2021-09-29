@@ -1,4 +1,4 @@
-import React, { useEffect, useState, SyntheticEvent } from 'react';
+import React, { useEffect, useState, useRef, SyntheticEvent } from 'react';
 import MediaQuery from 'react-responsive';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -26,6 +26,12 @@ export const FilterButtons = (): JSX.Element => {
     FetchMovieProps[]
   >([]);
 
+  setFilteredLayout(selectedLayout);
+  setFilteredMoviesByGenre(listFilteredMoviesByGenre);
+
+  const genreFilterButtonRef = useRef<HTMLDivElement>(null);
+  const layoutFilterButtonRef = useRef<HTMLDivElement>(null);
+
   const fetchData = async (genreID: number): Promise<void> => {
     if (genreID) {
       setListFilteredMoviesByGenre(await fetchMovieDiscoverWithGenre(genreID)); // Filtered by genre
@@ -41,10 +47,31 @@ export const FilterButtons = (): JSX.Element => {
 
   useEffect(() => {
     fetchData(8);
-  }, []);
 
-  setFilteredLayout(selectedLayout);
-  setFilteredMoviesByGenre(listFilteredMoviesByGenre);
+    const handleFilterButton = (evt) => {
+      if (layoutFilterButtonRef.current) {
+        if (
+          genreFilterButtonRef.current &&
+          !genreFilterButtonRef.current.contains(evt.target) &&
+          layoutFilterButtonRef.current &&
+          !layoutFilterButtonRef.current.contains(evt.target)
+        ) {
+          setExpanded(false);
+        }
+      } else if (
+        genreFilterButtonRef.current &&
+        !genreFilterButtonRef.current.contains(evt.target)
+      ) {
+        setExpanded(false);
+      }
+    };
+
+    window.addEventListener('click', handleFilterButton, false);
+
+    return () => {
+      window.removeEventListener('click', handleFilterButton, false);
+    };
+  }, []);
 
   const genreValues = genresApi.map(({ id, genreName }) => ({
     inputID: id,
@@ -68,6 +95,7 @@ export const FilterButtons = (): JSX.Element => {
             expandIcon={<ExpandMoreIcon />}
             aria-controls='panel1bh-content'
             id='panel1bh-header'
+            ref={genreFilterButtonRef}
           >
             <Typography>{selectedGenre}</Typography>
           </AccordionSummary>
@@ -110,6 +138,7 @@ export const FilterButtons = (): JSX.Element => {
             expandIcon={<ExpandMoreIcon />}
             aria-controls='panel2bh-content'
             id='panel2bh-header'
+            ref={layoutFilterButtonRef}
           >
             <Typography>em {selectedLayout}</Typography>
           </AccordionSummary>
