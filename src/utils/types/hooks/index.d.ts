@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
 
-import { FetchMovieProps, FetchGenreProps } from '@utils/types/api';
+import { FetchMovieProps } from '@utils/types/api';
 
 // usePageIndicator
 export type PageIDCtxProps = {
@@ -9,11 +9,9 @@ export type PageIDCtxProps = {
 };
 
 // useReqApi
-export type ReqApiValCtx = {
+export type ReqApiCtxVal = {
   movieDiscoverApi: FetchMovieProps[];
-  movieWithGenreApi: FetchMovieProps[];
-  genreApi: FetchGenreProps[];
-  reqApi(genreID: number): void;
+  reqApi(): void;
 };
 
 // useFilteredButtonOption

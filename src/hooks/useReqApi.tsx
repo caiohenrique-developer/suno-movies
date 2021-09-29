@@ -6,17 +6,13 @@ import React, {
   useState,
 } from 'react';
 
-import {
-  fetchGenres,
-  fetchMovieDiscover,
-  fetchMovieDiscoverWithGenre,
-} from '@pages/api';
+import { fetchMovieDiscover } from '@pages/api';
 
-import { FetchMovieProps, FetchGenreProps } from '@utils/types/api';
+import { FetchMovieProps } from '@utils/types/api';
 import { ChildrenGlobalType } from '@utils/types/GlobalTypes';
-import { ReqApiValCtx } from '@utils/types/hooks';
+import { ReqApiCtxVal } from '@utils/types/hooks';
 
-const ReqApiContext = createContext({} as ReqApiValCtx);
+const ReqApiContext = createContext({} as ReqApiCtxVal);
 
 export const ReqApiProvider = ({
   children,
@@ -24,36 +20,25 @@ export const ReqApiProvider = ({
   const [movieDiscoverApi, setMovieDiscoverApi] = useState<FetchMovieProps[]>(
     [],
   );
-  const [movieWithGenreApi, setMovieWithGenreApi] = useState<FetchMovieProps[]>(
-    [],
-  );
-  const [genreApi, setGenreApi] = useState<FetchGenreProps[]>([]);
 
-  const reqApi = useCallback(async (genreID: number) => {
-    if (genreID) {
-      setMovieWithGenreApi(await fetchMovieDiscoverWithGenre(genreID)); // Filtered by genre
-    }
-
+  const reqApi = useCallback(async () => {
     setMovieDiscoverApi(await fetchMovieDiscover()); // List movies
-    setGenreApi(await fetchGenres()); // Get genre categories
   }, []);
 
   useEffect(() => {
-    reqApi(8);
+    reqApi();
   }, [reqApi]);
 
-  const valCtx = {
+  const ctxVal = {
     movieDiscoverApi,
-    movieWithGenreApi,
-    genreApi,
     reqApi,
-  } as ReqApiValCtx;
+  } as ReqApiCtxVal;
 
   return (
-    <ReqApiContext.Provider value={valCtx}>{children}</ReqApiContext.Provider>
+    <ReqApiContext.Provider value={ctxVal}>{children}</ReqApiContext.Provider>
   );
 };
 
-export const useReqApi = (): ReqApiValCtx => {
+export const useReqApi = (): ReqApiCtxVal => {
   return useContext(ReqApiContext);
 };
