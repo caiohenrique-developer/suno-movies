@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from 'react';
+
 import { FetchMovieProps, FetchGenreProps } from '@utils/types/api';
 
 // usePageIndicator
@@ -17,5 +19,7 @@ export type ReqApiValCtx = {
 // useFilteredButtonOption
 export type FilteredButtonOptionCtxProps = {
   filteredLayout: string;
-  setFilteredLayout: React.Dispatch<React.SetStateAction<string>>;
+  filteredMoviesByGenre: FetchMovieProps[];
+  setFilteredLayout: Dispatch<SetStateAction<string>>;
+  setFilteredMoviesByGenre: Dispatch<SetStateAction<FetchMovieProps[]>>;
 };

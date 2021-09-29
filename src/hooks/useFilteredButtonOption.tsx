@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 
+import { FetchMovieProps } from '@utils/types/api';
 import { ChildrenGlobalType } from '@utils/types/GlobalTypes';
 import { FilteredButtonOptionCtxProps } from '@utils/types/hooks';
 
@@ -9,11 +10,19 @@ export const FilteredButtonOptionProvider = ({
   children,
 }: ChildrenGlobalType): JSX.Element => {
   const [filteredLayout, setFilteredLayout] = useState('');
+  const [filteredMoviesByGenre, setFilteredMoviesByGenre] = useState<
+    FetchMovieProps[]
+  >([]);
+
+  const ctxVal = {
+    filteredLayout,
+    setFilteredLayout,
+    filteredMoviesByGenre,
+    setFilteredMoviesByGenre,
+  } as FilteredButtonOptionCtxProps;
 
   return (
-    <FilteredButtonOption.Provider
-      value={{ filteredLayout, setFilteredLayout }}
-    >
+    <FilteredButtonOption.Provider value={ctxVal}>
       {children}
     </FilteredButtonOption.Provider>
   );

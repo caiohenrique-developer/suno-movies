@@ -15,7 +15,8 @@ import { FetchMovieProps, FetchGenreProps } from '@utils/types/api';
 import { Container, GenreActiveIndicator } from './style';
 
 export const FilterButtons = (): JSX.Element => {
-  const { setFilteredLayout } = useFilteredButtonOption();
+  const { setFilteredLayout, setFilteredMoviesByGenre } =
+    useFilteredButtonOption();
 
   const [expanded, setExpanded] = useState<string | false>(false);
   const [selectedLayout, setSelectedLayout] = useState('grid');
@@ -40,8 +41,10 @@ export const FilterButtons = (): JSX.Element => {
 
   useEffect(() => {
     fetchData(8);
-    setFilteredLayout(selectedLayout);
-  }, [setFilteredLayout, selectedLayout]);
+  }, []);
+
+  setFilteredLayout(selectedLayout);
+  setFilteredMoviesByGenre(listFilteredMoviesByGenre);
 
   const genreValues = genresApi.map(({ id, genreName }) => ({
     inputID: id,

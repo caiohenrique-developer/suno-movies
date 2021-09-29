@@ -117,7 +117,7 @@ export const Container = styled.section`
           border-top: 1px solid var(--black_000);
         }
 
-        &.selected,
+        /* &.selected, */
         &:hover {
           font-weight: 700;
           color: var(--gray_252);

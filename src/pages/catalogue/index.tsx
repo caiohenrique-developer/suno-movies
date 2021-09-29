@@ -22,7 +22,7 @@ import { Container } from '@styles/pages/Catalogue';
 export default function Catalogue(): JSX.Element {
   const { addPageID, pageID } = usePageIndicator();
   const { movieWithGenreApi, reqApi } = useReqApi();
-  const { filteredLayout } = useFilteredButtonOption();
+  const { filteredLayout, filteredMoviesByGenre } = useFilteredButtonOption();
 
   const [toggleLayoutFilter, setToggleLayoutFilter] = useState(false);
   const [toggleGenreFilter, setToggleGenreFilter] = useState(false);
@@ -173,7 +173,7 @@ export default function Catalogue(): JSX.Element {
             </div>
 
             <div className={filteredLayout}>
-              {movieWithGenreApi
+              {filteredMoviesByGenre
                 .slice(0, movieVisible)
                 .map(({ id, genre, title, poster, description, rating }) => (
                   <CardMovie
@@ -193,7 +193,7 @@ export default function Catalogue(): JSX.Element {
                 ))}
             </div>
 
-            {movieVisible < movieWithGenreApi.length && (
+            {movieVisible < filteredMoviesByGenre.length && (
               <Button
                 onClick={handleLoadMoreButton}
                 className='btn-pink hvr-shrink'
