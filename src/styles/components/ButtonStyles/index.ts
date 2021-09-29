@@ -54,6 +54,7 @@ export const BaseBtnFilters = css`
   overflow: hidden;
 `;
 
+// remover TUDO
 export const Button = styled.button`
   ${TypeBtnColors}
   ${BaseBtnFilters}
@@ -93,6 +94,7 @@ export const Button = styled.button`
   }
 `;
 
+// remover TUDO
 export const OptionsList = styled.ul`
   max-width: min(10rem, 12.8vw);
   min-width: 124px;
@@ -160,6 +162,7 @@ export const OptionsList = styled.ul`
   }
 `;
 
+// remover TUDO
 export const GenreActiveIndicator = styled.span`
   ${TypeBtnColors}
   ${BaseBtnFilters}

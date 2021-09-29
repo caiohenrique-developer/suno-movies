@@ -16,7 +16,7 @@ import { useReqApi } from '@hooks/useReqApi';
 import FilterArrowDown from '@assets/catalogue-arrow-down.svg';
 import FilterArrowUp from '@assets/catalogue-arrow-up.svg';
 
-import { GenreActiveIndicator, Button } from '@styles/components/ButtonStyles';
+import { Button, GenreActiveIndicator } from '@styles/components/ButtonStyles';
 import { Container } from '@styles/pages/Catalogue';
 
 export default function Catalogue(): JSX.Element {

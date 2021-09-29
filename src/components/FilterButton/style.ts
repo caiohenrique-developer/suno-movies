@@ -10,7 +10,7 @@ export const Container = styled.section`
   display: flex;
   /* justify-content: space-between; */
 
-  /* max-height: min(2.813rem, 4vw); */
+  max-height: min(2.813rem, 4vw);
 
   > div:first-of-type {
     display: flex;
@@ -18,8 +18,7 @@ export const Container = styled.section`
   }
 
   .MuiPaper-root {
-    background-color: red;
-    /* background-color: transparent; */
+    background-color: transparent;
     box-shadow: none;
 
     &.Mui-expanded {
