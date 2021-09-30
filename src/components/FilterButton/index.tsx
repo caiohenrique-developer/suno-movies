@@ -104,7 +104,9 @@ export const FilterButtons = (): JSX.Element => {
             {genreValues.map(({ inputID, labelHtmlFor, labelContent }) => (
               <li
                 key={inputID}
-                className={`option-item ${inputID === 8 ? 'selected' : ''}`}
+                className={`option-item ${
+                  labelContent === selectedGenre ? 'selected' : ''
+                }`}
               >
                 <input
                   type='radio'
@@ -148,7 +150,7 @@ export const FilterButtons = (): JSX.Element => {
               <li
                 key={inputID}
                 className={`option-item ${
-                  inputID === 'grid' ? 'selected' : ''
+                  inputID === selectedLayout ? 'selected' : ''
                 }`}
               >
                 <input

@@ -116,12 +116,12 @@ export const Container = styled.section`
           border-top: 1px solid var(--black_000);
         }
 
-        /* &.selected, */
+        &.selected,
         &:hover {
           font-weight: 700;
           color: var(--gray_252);
           background: var(--white_EAE);
-          opacity: 0.5;
+          opacity: 0.2;
         }
 
         &.selected {
