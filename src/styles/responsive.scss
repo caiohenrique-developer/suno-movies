@@ -388,17 +388,24 @@ $hamburger-layer-height: 2px !default;
                       font-size: min(0.75rem, 4vw);
                     }
 
-                    .MuiSvgIcon-root {
-                      width: min(1.4rem, 8vw);
-                      height: min(1.4rem, 8vw);
-                    }
+                    .MuiPaper-root {
+                      .MuiSvgIcon-root {
+                        width: min(1.4rem, 8vw);
+                        height: min(1.4rem, 8vw);
+                      }
 
-                    .MuiCollapse-root {
-                      margin-top: 4px;
-                      border-width: min(0.625rem, 2vw);
+                      &:not(.Mui-expanded) .MuiCollapse-root {
+                        border-width: 0;
+                        margin: 0;
+                      }
 
-                      label {
-                        font-size: min(0.625rem, 3vw);
+                      .MuiCollapse-root {
+                        margin-top: 4px;
+                        border-width: min(0.625rem, 2vw);
+
+                        label {
+                          font-size: min(0.625rem, 3vw);
+                        }
                       }
                     }
                   }
