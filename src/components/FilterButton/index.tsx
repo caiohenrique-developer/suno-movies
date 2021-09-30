@@ -48,28 +48,28 @@ export const FilterButtons = (): JSX.Element => {
   useEffect(() => {
     fetchData(8);
 
-    const handleFilterButton = (evt) => {
+    const handleFilterButton = (evt: Event) => {
       if (layoutFilterButtonRef.current) {
         if (
           genreFilterButtonRef.current &&
-          !genreFilterButtonRef.current.contains(evt.target) &&
+          !genreFilterButtonRef.current.contains(evt.target as Node) &&
           layoutFilterButtonRef.current &&
-          !layoutFilterButtonRef.current.contains(evt.target)
+          !layoutFilterButtonRef.current.contains(evt.target as Node)
         ) {
           setExpanded(false);
         }
       } else if (
         genreFilterButtonRef.current &&
-        !genreFilterButtonRef.current.contains(evt.target)
+        !genreFilterButtonRef.current.contains(evt.target as Node)
       ) {
         setExpanded(false);
       }
     };
 
-    window.addEventListener('click', handleFilterButton, false);
+    window.addEventListener('click', handleFilterButton);
 
     return () => {
-      window.removeEventListener('click', handleFilterButton, false);
+      window.removeEventListener('click', handleFilterButton);
     };
   }, []);
 
