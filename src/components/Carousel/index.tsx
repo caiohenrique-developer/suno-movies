@@ -43,7 +43,7 @@ export const CarouselContainer = (): JSX.Element => {
     <Container>
       <Carousel
         infinite
-        // autoPlay
+        autoPlay
         arrows={false}
         renderButtonGroupOutside
         customButtonGroup={<ButtonGroup />}

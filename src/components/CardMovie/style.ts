@@ -13,18 +13,48 @@ export const Container = styled.div`
       position: relative;
 
       > div {
-        min-width: min(5.5rem, 7.5vw);
-        width: 100vw;
-        height: 100%;
+        &:first-of-type {
+          min-width: min(5.5rem, 7.5vw);
+          width: 100vw;
+          height: 100%;
 
-        transition: 0.5s;
+          transition: 0.5s;
+        }
+
+        &.lf-player-container {
+          position: absolute;
+          top: 0;
+
+          width: 100%;
+          height: 100%;
+
+          #lottie svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+
+            opacity: 0;
+            margin: auto;
+            max-width: 8.8rem;
+            max-height: 8.8rem;
+            pointer-events: none;
+          }
+        }
       }
+    }
+
+    &#mob > div > a {
+      position: relative;
 
       .lf-player-container {
         position: absolute;
         top: 0;
 
         width: 100%;
+        height: 100%;
 
         #lottie svg {
           position: absolute;
