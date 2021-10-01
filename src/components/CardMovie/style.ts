@@ -1,4 +1,4 @@
-import { backgroundImages, opacify } from 'polished';
+import { opacify } from 'polished';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -9,16 +9,42 @@ export const Container = styled.div`
   > section {
     display: flex;
 
-    > a > div {
-      min-width: min(5.5rem, 7.5vw);
-      width: 100vw;
-      height: 100%;
+    > a {
+      position: relative;
 
-      transition: 0.5s;
+      > div {
+        min-width: min(5.5rem, 7.5vw);
+        width: 100vw;
+        height: 100%;
+
+        transition: 0.5s;
+      }
+
+      .lf-player-container {
+        position: absolute;
+        top: 0;
+
+        width: 100%;
+
+        #lottie svg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 1;
+
+          opacity: 0;
+          margin: auto;
+          max-width: 8.8rem;
+          max-height: 8.8rem;
+          pointer-events: none;
+        }
+      }
     }
 
-    > a > div,
-    &#mob > div > a > div {
+    > a > div:first-of-type,
+    &#mob > div > a > div:first-of-type {
       &:after {
         content: '';
 
@@ -30,7 +56,6 @@ export const Container = styled.div`
         z-index: 1;
 
         background: ${opacify('0.1', 'rgba(254, 49, 137, 0.4)')};
-        ${backgroundImages('url("/assets/play-circle-outline.svg")')}
         background-repeat: no-repeat;
         background-position: center;
         background-size: min(4rem, 5.2vw);
@@ -48,7 +73,8 @@ export const Container = styled.div`
         box-shadow: 0px 0px 25px -5px var(--pink_FE3);
         border-radius: 5px;
 
-        &:after {
+        &:after,
+        ~ .lf-player-container #lottie svg {
           opacity: 1;
         }
       }

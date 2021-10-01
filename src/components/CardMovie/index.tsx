@@ -5,6 +5,8 @@ import MediaQuery from 'react-responsive';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { Player } from '@lottiefiles/react-lottie-player';
+
 import { MyButton } from '@components/MyButton';
 
 import { CardMovieProps } from '@utils/types/components';
@@ -41,6 +43,12 @@ export const CardMovie = ({
                     height={422}
                     objectFit='cover'
                   />
+                  <Player
+                    autoplay
+                    loop
+                    src='https://assets2.lottiefiles.com/private_files/lf30_avzk3oss.json'
+                    style={{ height: '100%', width: '100%' }}
+                  />
                 </MyButton>
               </Link>
             )}
@@ -70,6 +78,12 @@ export const CardMovie = ({
                   width={218}
                   height={422}
                   objectFit='cover'
+                />
+                <Player
+                  autoplay
+                  loop
+                  src='https://assets2.lottiefiles.com/private_files/lf30_avzk3oss.json'
+                  style={{ height: '100%', width: '100%' }}
                 />
               </MyButton>
             </Link>
