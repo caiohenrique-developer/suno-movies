@@ -1,6 +1,8 @@
 import { opacify } from 'polished';
 import { createGlobalStyle } from 'styled-components';
 
+import { responsive } from '@styles/responsive';
+
 export default createGlobalStyle`
   /* Root variables */
   :root {
@@ -91,6 +93,9 @@ export default createGlobalStyle`
         color: inherit;
         text-decoration: none;
       }
+
+      /* Responsive layout */
+      ${responsive}
     }
   }
 `;

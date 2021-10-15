@@ -6,11 +6,11 @@ export const breakpointCfg = {
     items: 5,
   },
   desktop: {
-    breakpoint: { max: 3000, min: 1024 },
+    breakpoint: { max: 2999, min: 1024 },
     items: 4,
   },
   tablet: {
-    breakpoint: { max: 1024, min: 768 },
+    breakpoint: { max: 1023, min: 768 },
     items: 3,
   },
   mobile: {
