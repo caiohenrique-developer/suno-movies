@@ -12,8 +12,6 @@ export const Footer = (): JSX.Element => {
 
   return (
     <>
-      <BackToTopButton />
-
       <Container>
         <p>
           Copyright &copy; {year} Suno Movies, done with ☕ by:{' '}
