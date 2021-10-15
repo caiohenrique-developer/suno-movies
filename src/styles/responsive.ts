@@ -119,6 +119,15 @@ export const responsive = css`
                     }
                   }
 
+                  .hamburger-react div {
+                    &:nth-of-type(even) {
+                      left: 28% !important;
+                    }
+                    &:nth-of-type(odd) {
+                      left: 0 !important;
+                    }
+                  }
+
                   &:not(&.hamburger) {
                     margin-right: min(1.25rem, 1.57vw);
                   }

@@ -9,6 +9,8 @@ import MediaQuery from 'react-responsive';
 
 import Link from 'next/link';
 
+import { Divide as Hamburger } from 'hamburger-react';
+
 import { fetchSearchMovie } from '@pages/api';
 
 import { AppLogotipo } from '@components/AppLogotipo';
@@ -239,6 +241,24 @@ export const Header = (): JSX.Element => {
                       <span className='hamburger-box'>
                         <span className='hamburger-inner' />
                       </span>
+                    </button>
+
+                    <button
+                      type='button'
+                      aria-controls='navigation'
+                      aria-label='Show menu mobile'
+                      disabled={toggleHeaderSearchBar}
+                      className={`hamburger hamburger--collapse ${
+                        toggleMenuMob && 'is-active'
+                      }`}
+                    >
+                      <Hamburger
+                        rounded
+                        size={28}
+                        color='#EAEAEA'
+                        toggled={toggleMenuMob}
+                        toggle={handleMenuMob}
+                      />
                     </button>
 
                     <Link passHref href='/'>
