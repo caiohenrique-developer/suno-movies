@@ -53,44 +53,60 @@
   </tr>
 
   <tr align="center">
-    <td><a href="https://animate.style/">Animate.css</a></td>
+    <td><a href="https://axios-http.com/">Axios</a></td>
     <td><a href="https://github.com/conventional-changelog/commitlint">Commitlint</a></td>
   </tr>
   <tr align="center">
-    <td><a href="https://axios-http.com/">Axios</a></td>
+    <td><a href="https://animate.style/">Animate.css</a></td>
     <td><a href="https://github.com/commitizen/cz-cli">Commitizen</a></td>
   </tr>
   <tr align="center">
-    <td><a href="https://ianlunn.github.io/Hover/">Hover.css</a></td>
+    <td><a href="https://github.com/luukdv/hamburger-react">Hamburger-react</a></td>
     <td><a href="https://github.com/leoforfree/cz-customizable">CZ-customizable</a></td>
   </tr>
   <tr align="center">
-    <td><a href="https://vercel.com/solutions/nextjs">Next.js</a></td>
+    <td><a href="https://ianlunn.github.io/Hover/">Hover.css</a></td>
     <td><a href="https://eslint.org/">ESLint</a></td>
   </tr>
   <tr align="center">
-    <td><a href="https://polished.js.org/">Polished</a></td>
+    <td><a href="https://github.com/mifi/react-lottie-player">LottieFiles</a></td>
     <td><a href="https://github.com/Tibfib/eslint-plugin-import-helpers">ESlint-plugin-import-helpers</a></td>
   </tr>
   <tr align="center">
-    <td><a href="https://pt-br.reactjs.org/">React</a></td>
+    <td><a href="https://mui.com/pt/">Material UI</a></td>
     <td><a href="https://github.com/typicode/husky">Husky</a></td>
   </tr>
     <tr align="center">
-    <td><a href="https://www.npmjs.com/package/react-multi-carousel">React-multi-carousel</a></td>
+    <td><a href="https://vercel.com/solutions/nextjs">Next.js</a></td>
     <td><a href="https://prettier.io/">Prettier</a></td>
   </tr>
   <tr align="center">
-    <td><a href="https://github.com/contra/react-responsive">React-responsive</a></td>
-    <td><a href="https://github.com/sass/dart-sass">Sass</a></td>
-  </tr>
-  <tr align="center">
-    <td><a href="https://styled-components.com/">Styled-components</a></td>
+    <td><a href="https://polished.js.org/">Polished</a></td>
     <td><a href="https://react-svgr.com/">SVGR</a></td>
   </tr>
   <tr align="center">
-    <td><a href="https://vercel.com/">Vercel</a></td>
+    <td><a href="https://pt-br.reactjs.org/">React</a></td>
     <td><a href="https://www.typescriptlang.org/">TypeScript</a></td>
+  </tr>
+  <tr align="center">
+    <td><a href="https://react-icons.github.io/react-icons">React-icons</a></td>
+    <td><a href="#"></a></td>
+  </tr>
+  <tr align="center">
+    <td><a href="https://github.com/contra/react-responsive">React-responsive</a></td>
+    <td><a href="#"></a></td>
+  </tr>
+  <tr align="center">
+    <td><a href="https://www.npmjs.com/package/react-multi-carousel">React-multi-carousel</a></td>
+    <td><a href="#"></a></td>
+  </tr>
+  <tr align="center">
+    <td><a href="https://styled-components.com/">Styled-components</a></td>
+    <td><a href="#"></a></td>
+  </tr>
+  <tr align="center">
+    <td><a href="https://vercel.com/">Vercel</a></td>
+    <td><a href="#"></a></td>
   </tr>
 </table>
 
