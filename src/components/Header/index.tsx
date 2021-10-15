@@ -229,21 +229,6 @@ export const Header = (): JSX.Element => {
                 ) : (
                   <>
                     <button
-                      className={`hamburger hamburger--collapse ${
-                        toggleMenuMob && 'is-active'
-                      }`}
-                      onClick={handleMenuMob}
-                      type='button'
-                      aria-label='Menu'
-                      aria-controls='navigation'
-                      disabled={toggleHeaderSearchBar}
-                    >
-                      <span className='hamburger-box'>
-                        <span className='hamburger-inner' />
-                      </span>
-                    </button>
-
-                    <button
                       type='button'
                       aria-controls='navigation'
                       aria-label='Show menu mobile'

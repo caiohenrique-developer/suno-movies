@@ -83,9 +83,7 @@ export const responsive = css`
 
                 button {
                   &:disabled {
-                    .hamburger-inner,
-                    .hamburger-inner:before,
-                    .hamburger-inner:after,
+                    .hamburger-react div,
                     svg g {
                       stroke: rgb(234, 234, 234);
                       background: rgb(234, 234, 234) !important;
@@ -93,9 +91,8 @@ export const responsive = css`
                   }
 
                   &.hamburger {
+                    padding: 0;
                     border-radius: 0;
-                    padding: min(16px, 3vw) min(16px, 3vw) min(16px, 3vw)
-                      0.25rem;
                     transform: scale(0.6);
 
                     &:hover,
@@ -103,28 +100,13 @@ export const responsive = css`
                       transform: scale(0.7);
                     }
 
-                    .hamburger-box {
-                      display: block;
-                      width: 24px;
-
-                      .hamburger-inner {
-                        &,
-                        &:before,
-                        &:after {
-                          width: $hamburger-layer-wid;
-                          height: $hamburger-layer-height;
-                          background: $hamburger-layer-color;
-                        }
+                    .hamburger-react div {
+                      &:nth-of-type(even) {
+                        left: 28% !important;
                       }
-                    }
-                  }
-
-                  .hamburger-react div {
-                    &:nth-of-type(even) {
-                      left: 28% !important;
-                    }
-                    &:nth-of-type(odd) {
-                      left: 0 !important;
+                      &:nth-of-type(odd) {
+                        left: 0 !important;
+                      }
                     }
                   }
 

@@ -111,9 +111,7 @@ export const Container = styled.div<HeaderProps>`
               background: ${opacify('0.1', 'rgba(254, 49, 137, 0)')};
               border-radius: 15px;
 
-              .hamburger-inner,
-              .hamburger-inner:before,
-              .hamburger-inner:after,
+              .hamburger-react div,
               svg g {
                 stroke: ${opacify('0.5', 'rgba(254, 49, 137, 0)')};
                 background: ${opacify(
@@ -124,9 +122,7 @@ export const Container = styled.div<HeaderProps>`
             }
 
             &.is-active {
-              .hamburger-inner,
-              .hamburger-inner:before,
-              .hamburger-inner:after,
+              .hamburger-react div,
               svg g {
                 stroke: ${opacify('1', 'rgba(254, 49, 137, 0)')};
                 background: ${opacify('1', 'rgba(254, 49, 137, 0)')} !important;

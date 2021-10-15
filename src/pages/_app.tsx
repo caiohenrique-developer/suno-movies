@@ -11,7 +11,6 @@ import { PageIDProvider } from '@hooks/usePageIndicator';
 import { ReqApiProvider } from '@hooks/useReqApi';
 
 import GlobalStyles from '@styles/globals';
-import '@styles/responsive.scss';
 
 import 'hover.css';
 import 'animate.css';
