@@ -83,6 +83,10 @@ export const responsive = css`
 
                 button {
                   &:disabled {
+                    .hamburger-react {
+                      pointer-events: none;
+                    }
+
                     .hamburger-react div,
                     svg g {
                       stroke: rgb(234, 234, 234);
@@ -156,7 +160,7 @@ export const responsive = css`
           &:not(#home) {
             > div .headerContent {
               > a {
-                margin: 0 2rem;
+                margin: 0 2rem 0 1rem;
               }
 
               button {
