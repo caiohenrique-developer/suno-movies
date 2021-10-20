@@ -1,13 +1,6 @@
 import { css } from 'styled-components';
 
 export const responsive = css`
-  // menu mobile variables
-  $hamburger-layer-color: var(--white_EAE) !default;
-  $hamburger-layer-width: 24px !default;
-  $hamburger-layer-height: 2px !default;
-
-  @import '@assets/hamburgers';
-
   /* Desktop */
   @media screen and (min-width: 1024px) {
   }

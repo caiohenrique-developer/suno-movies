@@ -26,7 +26,7 @@ export default function Home(): JSX.Element {
       </Head>
 
       <Container id={pageID}>
-        {/* Home background breakpoint */}
+        {/* Home image background breakpoint */}
         <>
           {/* Mob */}
           <MediaQuery maxDeviceWidth={767}>
