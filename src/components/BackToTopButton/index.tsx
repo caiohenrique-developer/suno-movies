@@ -9,10 +9,10 @@ export const BackToTopButton = (): JSX.Element => {
     <Container>
       <Image
         src='/assets/back-to-top-hand-mickey.png'
-        alt='Back to top icon'
+        alt='Back to top button'
         width='100%'
         height='100%'
-        objectFit='cover'
+        objectFit='contain'
       />
     </Container>
   );
