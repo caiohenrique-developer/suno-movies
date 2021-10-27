@@ -13,10 +13,5 @@ export const Container = styled.button`
 
   &.animate__bounce {
     opacity: 1;
-
-    &:hover {
-      transition: 0.3s;
-      transform: translateY(-1rem) scale(1.2) !important;
-    }
   }
 `;
