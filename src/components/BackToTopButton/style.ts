@@ -6,12 +6,16 @@ export const Container = styled.button`
   right: 2rem;
   z-index: 2;
 
+  opacity: 0;
   width: 4rem;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.5s ease-in-out;
 
+  &.animate__bounce {
+    opacity: 1;
+  }
   &:hover {
-    transition: 0.2s;
-    transform: translateY(-1rem);
+    transition: 0.3s;
+    transform: translateY(-1rem) scale(1.1) !important;
   }
 `;

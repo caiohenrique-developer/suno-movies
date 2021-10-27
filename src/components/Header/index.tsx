@@ -8,12 +8,14 @@ import React, {
 import MediaQuery from 'react-responsive';
 
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import { Divide as Hamburger } from 'hamburger-react';
 
 import { fetchSearchMovie } from '@pages/api';
 
 import { AppLogotipo } from '@components/AppLogotipo';
+import { BackToTopButton } from '@components/BackToTopButton';
 import { CardMovie } from '@components/CardMovie';
 import { MyButton } from '@components/MyButton';
 
@@ -28,6 +30,7 @@ import { Container } from './style';
 
 export const Header = (): JSX.Element => {
   const { pageID } = usePageIndicator();
+  const { route } = useRouter();
 
   const [toggleHeaderSearchBar, setToggleHeaderSearchBar] = useState(false);
   const [toggleMenuMob, setToggleMenuMob] = useState(false);
@@ -58,6 +61,7 @@ export const Header = (): JSX.Element => {
   useEffect(() => {
     let lastScrollTop = 0;
     const header = document.querySelector('header');
+    const backToTop = document.querySelector('.back-to-top');
 
     // Hide header component on scroll down or show it on scroll up
     const handleShowOrHideHeaderEffect = () => {
@@ -67,10 +71,15 @@ export const Header = (): JSX.Element => {
         catalogueList && Math.floor(catalogueList.getBoundingClientRect().top);
 
       header.className = 'animate__animated';
+      backToTop.classList.add('animate__animated');
 
       if (st > lastScrollTop || catalogueListPosition === 0) {
         header.classList.add('animate__slideOutUp');
-      } else header.classList.add('animate__slideInDown');
+        backToTop.classList.add('animate__bounce');
+      } else {
+        header.classList.add('animate__slideInDown');
+        backToTop.classList.remove('animate__bounce');
+      }
 
       lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
     };
@@ -183,221 +192,235 @@ export const Header = (): JSX.Element => {
   };
 
   return (
-    <Container toggleDropDown={toggleHeaderSearchBar}>
-      {/* Header segregation page and breakpoint */}
-      <header id={pageID}>
-        <div>
-          {/* Tablet and up */}
-          {pageID === 'home' ? (
-            <div className='headerContent'>
-              <Link passHref href='/'>
-                <MyButton onClick={handleCollapse} className='hvr-shrink'>
-                  <AppLogotipo />
-                </MyButton>
-              </Link>
+    <>
+      <Container toggleDropDown={toggleHeaderSearchBar}>
+        {/* Header segregation page and breakpoint */}
+        <header id={pageID}>
+          <div>
+            {/* Tablet and up */}
+            {pageID === 'home' ? (
+              <div className='headerContent'>
+                <Link passHref href='/'>
+                  <MyButton onClick={handleCollapse} className='hvr-shrink'>
+                    <AppLogotipo />
+                  </MyButton>
+                </Link>
 
-              <button
-                className={`hvr-grow  ${toggleHeaderSearchBar && 'is-active'}`}
-                type='button'
-                onClick={handleHeaderSearchBar}
-              >
-                <MagnifyingGlass />
-              </button>
-            </div>
-          ) : (
-            <div className='headerContent'>
-              {/* Mob */}
-              <MediaQuery maxDeviceWidth={767}>
-                {pageID === 'home' ? (
-                  <>
-                    <Link passHref href='/'>
-                      <MyButton onClick={handleCollapse} className='hvr-shrink'>
-                        <AppLogotipo />
-                      </MyButton>
-                    </Link>
-
-                    <button
-                      className={`hvr-grow  ${
-                        toggleHeaderSearchBar && 'is-active'
-                      }`}
-                      type='button'
-                      onClick={handleHeaderSearchBar}
-                    >
-                      <MagnifyingGlass />
-                    </button>
-                  </>
-                ) : (
-                  <>
-                    <button
-                      type='button'
-                      aria-controls='navigation'
-                      aria-label='Show menu mobile'
-                      disabled={toggleHeaderSearchBar}
-                      className={`hamburger hamburger--collapse ${
-                        toggleMenuMob && 'is-active'
-                      }`}
-                    >
-                      <Hamburger
-                        rounded
-                        size={28}
-                        color='#EAEAEA'
-                        toggled={toggleMenuMob}
-                        toggle={handleMenuMob}
-                      />
-                    </button>
-
-                    <Link passHref href='/'>
-                      <MyButton onClick={handleCollapse} className='hvr-shrink'>
-                        <AppLogotipo />
-                      </MyButton>
-                    </Link>
-
-                    <button
-                      className={`hvr-grow ${
-                        toggleHeaderSearchBar && 'is-active'
-                      }`}
-                      type='button'
-                      onClick={handleHeaderSearchBar}
-                      disabled={toggleMenuMob}
-                    >
-                      <MagnifyingGlass />
-                    </button>
-                  </>
-                )}
-              </MediaQuery>
-
-              {/* Tablet and up */}
-              <MediaQuery minDeviceWidth={768}>
-                <>
-                  <Link passHref href='/'>
-                    <MyButton onClick={handleCollapse} className='hvr-shrink'>
-                      <AppLogotipo />
-                    </MyButton>
-                  </Link>
-
-                  <div>
-                    <nav>
+                <button
+                  className={`hvr-grow  ${
+                    toggleHeaderSearchBar && 'is-active'
+                  }`}
+                  type='button'
+                  onClick={handleHeaderSearchBar}
+                >
+                  <MagnifyingGlass />
+                </button>
+              </div>
+            ) : (
+              <div className='headerContent'>
+                {/* Mob */}
+                <MediaQuery maxDeviceWidth={767}>
+                  {pageID === 'home' ? (
+                    <>
                       <Link passHref href='/'>
                         <MyButton
                           onClick={handleCollapse}
-                          className='hvr-underline-from-center'
+                          className='hvr-shrink'
                         >
-                          Início
+                          <AppLogotipo />
                         </MyButton>
                       </Link>
-                      <Link
-                        passHref
-                        href={
-                          pageID === 'catalogue'
-                            ? '#catalogue-list'
-                            : 'catalogue'
-                        }
+
+                      <button
+                        className={`hvr-grow  ${
+                          toggleHeaderSearchBar && 'is-active'
+                        }`}
+                        type='button'
+                        onClick={handleHeaderSearchBar}
                       >
+                        <MagnifyingGlass />
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <button
+                        type='button'
+                        aria-controls='navigation'
+                        aria-label='Show menu mobile'
+                        disabled={toggleHeaderSearchBar}
+                        className={`hamburger hamburger--collapse ${
+                          toggleMenuMob && 'is-active'
+                        }`}
+                      >
+                        <Hamburger
+                          rounded
+                          size={28}
+                          color='#EAEAEA'
+                          toggled={toggleMenuMob}
+                          toggle={handleMenuMob}
+                        />
+                      </button>
+
+                      <Link passHref href='/'>
                         <MyButton
-                          onClick={handleScrollDownAnchor}
-                          className='hvr-underline-from-center'
+                          onClick={handleCollapse}
+                          className='hvr-shrink'
                         >
-                          Catálogo
+                          <AppLogotipo />
                         </MyButton>
                       </Link>
-                    </nav>
 
-                    <button
-                      className={`hvr-grow  ${
-                        toggleHeaderSearchBar && 'is-active'
-                      }`}
-                      type='button'
-                      onClick={handleHeaderSearchBar}
-                    >
-                      <MagnifyingGlass />
-                    </button>
-                  </div>
-                </>
-              </MediaQuery>
-            </div>
-          )}
-        </div>
+                      <button
+                        className={`hvr-grow ${
+                          toggleHeaderSearchBar && 'is-active'
+                        }`}
+                        type='button'
+                        onClick={handleHeaderSearchBar}
+                        disabled={toggleMenuMob}
+                      >
+                        <MagnifyingGlass />
+                      </button>
+                    </>
+                  )}
+                </MediaQuery>
 
-        <div
-          className={`animate__animated ${
-            toggleHeaderSearchBar === true
-              ? `animate__flipInX ${toggleHeaderSearchBar}`
-              : `animate__flipOutX ${toggleHeaderSearchBar}`
-          }`}
-        >
-          <form onSubmit={(ev: FormEvent) => ev.preventDefault()}>
-            <input
-              required
-              type='text'
-              id='input-search'
-              value={inputSearchMovie}
-              onChange={handleGetInputSearchVal}
-              placeholder='O que deseja assistir agora?'
-            />
+                {/* Tablet and up */}
+                <MediaQuery minDeviceWidth={768}>
+                  <>
+                    <Link passHref href='/'>
+                      <MyButton onClick={handleCollapse} className='hvr-shrink'>
+                        <AppLogotipo />
+                      </MyButton>
+                    </Link>
 
-            {searchMovieApi.length > 0 && (
-              <span>
-                {searchMovieApi.map(({ id, genre, title, poster, rating }) => (
-                  <CardMovie
-                    key={id}
-                    movieID={id}
-                    poster={poster}
-                    title={title}
-                    genre={genre}
-                    rating={rating}
-                    handleResetHeaderValues={handleCollapse}
-                  />
-                ))}
-              </span>
+                    <div>
+                      <nav>
+                        <Link passHref href='/'>
+                          <MyButton
+                            onClick={handleCollapse}
+                            className='hvr-underline-from-center'
+                          >
+                            Início
+                          </MyButton>
+                        </Link>
+                        <Link
+                          passHref
+                          href={
+                            pageID === 'catalogue'
+                              ? '#catalogue-list'
+                              : 'catalogue'
+                          }
+                        >
+                          <MyButton
+                            onClick={handleScrollDownAnchor}
+                            className='hvr-underline-from-center'
+                          >
+                            Catálogo
+                          </MyButton>
+                        </Link>
+                      </nav>
+
+                      <button
+                        className={`hvr-grow  ${
+                          toggleHeaderSearchBar && 'is-active'
+                        }`}
+                        type='button'
+                        onClick={handleHeaderSearchBar}
+                      >
+                        <MagnifyingGlass />
+                      </button>
+                    </div>
+                  </>
+                </MediaQuery>
+              </div>
             )}
-          </form>
-        </div>
+          </div>
 
-        {/* Mob */}
-        <MediaQuery maxDeviceWidth={767}>
-          {pageID !== 'home' && (
-            <nav id='navigation'>
-              <ul className={`${toggleMenuMob}`}>
-                <li>
-                  <Link passHref href='/'>
-                    <MyButton
-                      onClick={handleCollapse}
-                      className='hvr-underline-from-left'
-                    >
-                      Início
-                    </MyButton>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    passHref
-                    href={
-                      pageID === 'catalogue' ? '#catalogue-list' : 'catalogue'
-                    }
-                  >
-                    <MyButton
-                      onClick={handleScrollDownAnchor}
-                      className='hvr-underline-from-left'
-                    >
-                      Catálogo
-                    </MyButton>
-                  </Link>
-                </li>
-              </ul>
-
-              {/* Header menu-mob overlay */}
-              <span
-                className={`${toggleMenuMob}`}
-                onClick={handleMenuMob}
-                aria-hidden='true'
+          <div
+            className={`animate__animated ${
+              toggleHeaderSearchBar === true
+                ? `animate__flipInX ${toggleHeaderSearchBar}`
+                : `animate__flipOutX ${toggleHeaderSearchBar}`
+            }`}
+          >
+            <form onSubmit={(ev: FormEvent) => ev.preventDefault()}>
+              <input
+                required
+                type='text'
+                id='input-search'
+                value={inputSearchMovie}
+                onChange={handleGetInputSearchVal}
+                placeholder='O que deseja assistir agora?'
               />
-            </nav>
-          )}
-        </MediaQuery>
-      </header>
 
-      {/* Header search-bar overlay */}
-      <span onClick={handleHeaderSearchBar} aria-hidden='true' />
-    </Container>
+              {searchMovieApi.length > 0 && (
+                <span>
+                  {searchMovieApi.map(
+                    ({ id, genre, title, poster, rating }) => (
+                      <CardMovie
+                        key={id}
+                        movieID={id}
+                        poster={poster}
+                        title={title}
+                        genre={genre}
+                        rating={rating}
+                        handleResetHeaderValues={handleCollapse}
+                      />
+                    ),
+                  )}
+                </span>
+              )}
+            </form>
+          </div>
+
+          {/* Mob */}
+          <MediaQuery maxDeviceWidth={767}>
+            {pageID !== 'home' && (
+              <nav id='navigation'>
+                <ul className={`${toggleMenuMob}`}>
+                  <li>
+                    <Link passHref href='/'>
+                      <MyButton
+                        onClick={handleCollapse}
+                        className='hvr-underline-from-left'
+                      >
+                        Início
+                      </MyButton>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      passHref
+                      href={
+                        pageID === 'catalogue' ? '#catalogue-list' : 'catalogue'
+                      }
+                    >
+                      <MyButton
+                        onClick={handleScrollDownAnchor}
+                        className='hvr-underline-from-left'
+                      >
+                        Catálogo
+                      </MyButton>
+                    </Link>
+                  </li>
+                </ul>
+
+                {/* Header menu-mob overlay */}
+                <span
+                  className={`${toggleMenuMob}`}
+                  onClick={handleMenuMob}
+                  aria-hidden='true'
+                />
+              </nav>
+            )}
+          </MediaQuery>
+        </header>
+
+        {/* Header search-bar overlay */}
+        <span onClick={handleHeaderSearchBar} aria-hidden='true' />
+      </Container>
+
+      {route !== '/' && <BackToTopButton />}
+    </>
   );
 };
