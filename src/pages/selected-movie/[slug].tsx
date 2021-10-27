@@ -73,7 +73,7 @@ export default function SelectedMovie(): JSX.Element {
                 alt={selectedMovie['title'] || 'Undefined'}
                 width={334}
                 height={494}
-                objectFit='cover'
+                objectFit='contain'
               />
 
               <div>

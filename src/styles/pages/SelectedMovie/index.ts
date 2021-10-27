@@ -51,6 +51,7 @@ export const Container = styled.main<ContainerProps>`
 
       > div > div {
         display: flex;
+        align-items: flex-start;
         justify-content: space-between;
 
         padding: min(7.5rem, 9.4vw) 0 min(10rem, 12.5vw);
