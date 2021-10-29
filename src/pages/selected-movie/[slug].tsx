@@ -108,8 +108,9 @@ export default function SelectedMovie(): JSX.Element {
             <iframe
               width='100%'
               height='580'
-              src={`https://www.youtube.com/embed/${selectedMovie['movieVideoID']}`}
+              allowFullScreen
               title='YouTube video player'
+              src={`https://www.youtube.com/embed/${selectedMovie['movieVideoID']}`}
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
             />
 
