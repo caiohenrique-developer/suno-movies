@@ -29,7 +29,7 @@ export default function Home(): JSX.Element {
         {/* Home image background breakpoint */}
         <>
           {/* Mob */}
-          <MediaQuery maxDeviceWidth={767}>
+          <MediaQuery maxWidth={767}>
             <Image
               src='/images/Home_Background_Mobile.jpg'
               width={1400}
@@ -40,7 +40,7 @@ export default function Home(): JSX.Element {
           </MediaQuery>
 
           {/* Tablet */}
-          <MediaQuery minDeviceWidth={768} maxDeviceWidth={1079}>
+          <MediaQuery minWidth={768} maxWidth={1079}>
             <Image
               src='/images/Home_Background_Small_Optimized.jpg'
               width={750}
@@ -51,7 +51,7 @@ export default function Home(): JSX.Element {
           </MediaQuery>
 
           {/* Desk and up */}
-          <MediaQuery minDeviceWidth={1080}>
+          <MediaQuery minWidth={1080}>
             <Image
               src='/images/Home_Background_Desktop.jpg'
               width={2160}

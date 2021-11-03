@@ -219,7 +219,7 @@ export const Header = (): JSX.Element => {
             ) : (
               <div className='headerContent'>
                 {/* Mob */}
-                <MediaQuery maxDeviceWidth={767}>
+                <MediaQuery maxWidth={767}>
                   {pageID === 'home' ? (
                     <>
                       <Link passHref href='/'>
@@ -285,7 +285,7 @@ export const Header = (): JSX.Element => {
                 </MediaQuery>
 
                 {/* Tablet and up */}
-                <MediaQuery minDeviceWidth={768}>
+                <MediaQuery minWidth={768}>
                   <>
                     <Link passHref href='/'>
                       <MyButton onClick={handleCollapse} className='hvr-shrink'>
@@ -374,7 +374,7 @@ export const Header = (): JSX.Element => {
           </div>
 
           {/* Mob */}
-          <MediaQuery maxDeviceWidth={767}>
+          <MediaQuery maxWidth={767}>
             {pageID !== 'home' && (
               <nav id='navigation'>
                 <ul className={`${toggleMenuMob}`}>

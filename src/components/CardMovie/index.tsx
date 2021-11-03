@@ -30,7 +30,7 @@ export const CardMovie = ({
   return (
     <Container className={className}>
       {/* Mob */}
-      <MediaQuery maxDeviceWidth={767}>
+      <MediaQuery maxWidth={767}>
         <section id='mob'>
           <div>
             {poster !== '' && (
@@ -67,7 +67,7 @@ export const CardMovie = ({
       </MediaQuery>
 
       {/* Tablet and up */}
-      <MediaQuery minDeviceWidth={768}>
+      <MediaQuery minWidth={768}>
         <section>
           {poster !== '' && (
             <Link href={`/selected-movie/${movieID}`} passHref>

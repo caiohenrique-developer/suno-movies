@@ -131,7 +131,7 @@ export const FilterButtons = (): JSX.Element => {
       </div>
 
       {/* Tablet and up */}
-      <MediaQuery minDeviceWidth={768}>
+      <MediaQuery minWidth={768}>
         <Accordion
           expanded={expanded === 'panel2'}
           onChange={handleChange('panel2')}
