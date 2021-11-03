@@ -420,7 +420,7 @@ export const Header = (): JSX.Element => {
         <span onClick={handleHeaderSearchBar} aria-hidden='true' />
       </Container>
 
-      {route !== '/' && <BackToTopButton />}
+      <BackToTopButton />
     </>
   );
 };
