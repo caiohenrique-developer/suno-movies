@@ -9,27 +9,26 @@ import { fetchMovieDetail } from '@pages/api';
 
 import { CTAButton } from '@components/CTAButton';
 
-import { usePageIndicator } from '@hooks/usePageIndicator';
-
 import { Container } from '@styles/pages/SelectedMovie';
 
 import { FetchMovieDetailProps } from '@utils/types/api';
 
 export default function SelectedMovie(): JSX.Element {
-  const { addPageID, pageID } = usePageIndicator();
-
   const [selectedMovie, setSelectedMovie] = useState(
     {} as FetchMovieDetailProps,
   );
 
-  const router = useRouter();
-  const { slug } = router.query;
+  const {
+    route,
+    query: { slug },
+    ...router
+  } = useRouter();
+
+  const pageID = route === '/selected-movie' && 'selected-movie';
 
   if (slug === 'catalogue') router.push(`/${slug}`);
 
   useEffect(() => {
-    addPageID('selected-movie');
-
     const fetchData = async (movieID: number) => {
       const getFromStorageSelectedMovie = JSON.parse(
         localStorage.getItem('@SunoMoveis:selected-movie'),
@@ -54,7 +53,7 @@ export default function SelectedMovie(): JSX.Element {
       }
     };
     fetchData(+slug); // I'm using the plus sign to convert the string to number
-  }, [addPageID, slug]);
+  }, [slug]);
 
   return (
     <>

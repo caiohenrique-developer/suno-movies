@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 import { CardMovie } from '@components/CardMovie';
 import { CarouselContainer } from '@components/Carousel';
@@ -8,20 +9,17 @@ import { CatalogueTitle } from '@components/CatalogueTitle';
 import { FilterButtons } from '@components/FilterButton';
 
 import { useFilteredButtonOption } from '@hooks/useFilteredButtonOption';
-import { usePageIndicator } from '@hooks/usePageIndicator';
 
 import { Button } from '@styles/components/ButtonStyles';
 import { Container } from '@styles/pages/Catalogue';
 
 export default function Catalogue(): JSX.Element {
-  const { addPageID, pageID } = usePageIndicator();
-  const { filteredLayout, filteredMoviesByGenre } = useFilteredButtonOption();
-
   const [movieVisible, setMovieVisible] = useState(6);
 
-  useEffect(() => {
-    addPageID('catalogue');
-  }, [addPageID]);
+  const { filteredLayout, filteredMoviesByGenre } = useFilteredButtonOption();
+  const { route } = useRouter();
+
+  const pageID = route === '/catalogue' && 'catalogue';
 
   const handleLoadMoreButton = () => {
     setMovieVisible(movieVisible + 6);

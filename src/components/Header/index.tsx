@@ -19,8 +19,6 @@ import { BackToTopButton } from '@components/BackToTopButton';
 import { CardMovie } from '@components/CardMovie';
 import { MyButton } from '@components/MyButton';
 
-import { usePageIndicator } from '@hooks/usePageIndicator';
-
 import MagnifyingGlass from '@assets/search-outline.svg';
 
 import { FetchMovieProps } from '@utils/types/api';
@@ -29,8 +27,9 @@ import { HeaderProps } from '@utils/types/components';
 import { Container } from './style';
 
 export const Header = (): JSX.Element => {
-  const { pageID } = usePageIndicator();
   const { route } = useRouter();
+
+  const pageID = route === '/' ? 'home' : route.split('/')[1];
 
   const [toggleHeaderSearchBar, setToggleHeaderSearchBar] = useState(false);
   const [toggleMenuMob, setToggleMenuMob] = useState(false);

@@ -1,23 +1,20 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import MediaQuery from 'react-responsive';
 
 import Head from 'next/head';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import { CTAButton } from '@components/CTAButton';
-
-import { usePageIndicator } from '@hooks/usePageIndicator';
 
 import RightArrow from '@assets/chevron-next-outline.svg';
 
 import { Container } from '@styles/pages/Home';
 
 export default function Home(): JSX.Element {
-  const { pageID, addPageID } = usePageIndicator();
+  const { route } = useRouter();
 
-  useEffect(() => {
-    addPageID('home');
-  }, [addPageID]);
+  const pageID = route === '/' && 'home';
 
   return (
     <>
