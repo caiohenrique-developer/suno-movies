@@ -7,7 +7,6 @@ import { Footer } from '@components/Footer';
 import { Header } from '@components/Header';
 
 import { FilteredButtonOptionProvider } from '@hooks/useFilteredButtonOption';
-import { PageIDProvider } from '@hooks/usePageIndicator';
 import { ReqApiProvider } from '@hooks/useReqApi';
 
 import GlobalStyles from '@styles/globals';
@@ -26,11 +25,9 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
 
       <FilteredButtonOptionProvider>
         <ReqApiProvider>
-          <PageIDProvider>
-            <Header />
-            <Component {...pageProps} />
-            <Footer />
-          </PageIDProvider>
+          <Header />
+          <Component {...pageProps} />
+          <Footer />
         </ReqApiProvider>
       </FilteredButtonOptionProvider>
 
