@@ -14,11 +14,11 @@ import { Divide as Hamburger } from 'hamburger-react';
 
 import { fetchSearchMovie } from '@pages/api';
 
-import { AppLogotipo } from '@components/AppLogotipo';
 import { BackToTopButton } from '@components/BackToTopButton';
 import { CardMovie } from '@components/CardMovie';
 import { MyButton } from '@components/MyButton';
 
+import AppLogotipo from '@assets/app-logotipo.svg';
 import MagnifyingGlass from '@assets/search-outline.svg';
 
 import { FetchMovieProps } from '@utils/types/api';
