@@ -39,8 +39,44 @@
 - [x] Close input header search bar with <kbd>Escape</kbd> shortcut
 - [x] Search movie
 - [x] Different style between home and other pages
-- Any suggestion?
-  - <a href="#phone">Contact me!</a>
+
+###### Header > mob
+
+- [x] Open menu
+
+###### Footer
+
+- [x] Code repository anchor
+
+###### Catalogue
+
+- [x] List movies
+  - Carousel
+  - Catalogue list
+- [x] Filter buttons by:
+  - Genre
+  - Layout
+- [x] Load more button
+
+###### Selected movie
+
+- [x] List movie details
+- [x] Video player
+  - [ ] Fix some movie id that doesn't work
+  - Captions
+  - Settings
+  - TV share
+  - Full screen
+  - Watch on YouTube
+  - ...
+
+###### Others
+
+- [x] Responsive layout
+- [x] Back to top button
+- [x] Save movie details data on browser local storage
+
+- _*Any suggestion?*_ <a href="#phone">Contact me!</a>
 
 #### <a name="flying_saucer"></a> <br>
 
