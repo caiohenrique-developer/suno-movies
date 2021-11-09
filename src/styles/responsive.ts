@@ -10,6 +10,14 @@ export const responsive = css`
   /* Mobile */
   @media screen and (max-width: 767px) {
     #__next {
+      .back-to-top {
+        padding: 0.5rem 0.4rem;
+
+        svg {
+          width: 1.4rem;
+        }
+      }
+
       // Card movie
       #mob {
         > div {
