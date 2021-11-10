@@ -3,12 +3,11 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
+import { Button } from '@components/Button/ButtonStyles';
+import { FilterButtons } from '@components/Button/FilterButton';
 import { CardMovie } from '@components/CardMovie';
 import { CarouselContainer } from '@components/Carousel';
 import { CatalogueTitle } from '@components/CatalogueTitle';
-import { FilterButtons } from '@components/FilterButton';
-
-import { Button } from '@styles/components/ButtonStyles';
 
 import { useFilteredButtonOption } from '@hooks/useFilteredButtonOption';
 

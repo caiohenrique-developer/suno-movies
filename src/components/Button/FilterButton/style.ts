@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { TypeBtnColors, BaseBtnFilters } from '@styles/components/ButtonStyles';
+import { TypeBtnColors, BaseBtnFilters } from '@components/Button/ButtonStyles';
 
 export const Container = styled.section`
   position: relative;

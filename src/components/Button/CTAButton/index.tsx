@@ -2,7 +2,7 @@ import React from 'react';
 
 import Link from 'next/link';
 
-import { Container } from '@styles/components/ButtonStyles';
+import { Container } from '@components/Button/ButtonStyles';
 
 import { CTAButtonProps } from '@utils/types/components';
 

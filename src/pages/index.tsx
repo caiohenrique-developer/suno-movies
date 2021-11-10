@@ -5,7 +5,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import { CTAButton } from '@components/CTAButton';
+import { CTAButton } from '@components/Button/CTAButton';
 
 import RightArrow from '@assets/chevron-next-outline.svg';
 

@@ -12,9 +12,9 @@ import { useRouter } from 'next/router';
 
 import { Divide as Hamburger } from 'hamburger-react';
 
-import { BackToTopButton } from '@components/BackToTopButton';
+import { BackToTopButton } from '@components/Button/BackToTopButton';
+import { MyButton } from '@components/Button/MyButton';
 import { CardMovie } from '@components/CardMovie';
-import { MyButton } from '@components/MyButton';
 
 import { fetchSearchMovie } from '@pages/api';
 import { FetchMovieProps } from '@pages/api/_types';

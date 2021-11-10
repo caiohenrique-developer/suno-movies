@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 import { Player } from '@lottiefiles/react-lottie-player';
 
-import { MyButton } from '@components/MyButton';
+import { MyButton } from '@components/Button/MyButton';
 
 import { CardMovieProps } from '@utils/types/components';
 
