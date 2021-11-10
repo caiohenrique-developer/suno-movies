@@ -8,7 +8,7 @@ import { useReqApi } from '@hooks/useReqApi';
 import ArrowLeft from '@assets/carousel-arrow-left.svg';
 import ArrowRight from '@assets/carousel-arrow-right.svg';
 
-import { breakpointCfg } from '@utils/general/carouselBreakpoint';
+import { breakpoint } from '@utils/general/breakpointCfg';
 
 import { Container } from './style';
 
@@ -47,7 +47,7 @@ export const CarouselContainer = (): JSX.Element => {
         arrows={false}
         renderButtonGroupOutside
         customButtonGroup={<ButtonGroup />}
-        responsive={breakpointCfg}
+        responsive={breakpoint}
         containerClass='react-multi-carousel-container'
         sliderClass='react-multi-carousel-slider'
         dotListClass='react-multi-carousel-dot-list'

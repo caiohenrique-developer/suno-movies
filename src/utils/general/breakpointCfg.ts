@@ -1,5 +1,5 @@
 // Carousel Responsive
-export const breakpointCfg = {
+export const breakpoint = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 3000 },
