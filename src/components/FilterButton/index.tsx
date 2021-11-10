@@ -7,10 +7,9 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 
 import { fetchGenres, fetchMovieDiscoverWithGenre } from '@pages/api';
+import { FetchMovieProps, FetchGenreProps } from '@pages/api/_types';
 
 import { useFilteredButtonOption } from '@hooks/useFilteredButtonOption';
-
-import { FetchMovieProps, FetchGenreProps } from '@utils/types/api';
 
 import { Container, GenreActiveIndicator } from './style';
 

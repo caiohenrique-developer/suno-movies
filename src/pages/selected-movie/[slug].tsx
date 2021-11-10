@@ -5,13 +5,12 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import { fetchMovieDetail } from '@pages/api';
-
 import { CTAButton } from '@components/CTAButton';
 
-import { Container } from '@styles/pages/SelectedMovie';
+import { fetchMovieDetail } from '@pages/api';
+import { FetchMovieDetailProps } from '@pages/api/_types';
 
-import { FetchMovieDetailProps } from '@utils/types/api';
+import { Container } from '@styles/pages/SelectedMovie';
 
 export default function SelectedMovie(): JSX.Element {
   const [selectedMovie, setSelectedMovie] = useState(

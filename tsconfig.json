@@ -4,13 +4,12 @@
     "baseUrl": "./src",
     "outDir": "./dist",
     "paths": {
-      "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
-      "@hooks/*": ["hooks/*"],
       "@pages/*": ["pages/*"],
-      "@services/*": ["services/*"],
-      "@api/*": ["pages/api/*"],
+      "@assets/*": ["assets/*"],
       "@styles/*": ["styles/*"],
+      "@services/*": ["services/*"],
+      "@hooks/*": ["hooks/*"],
       "@utils/*": ["utils/*"]
     },
 

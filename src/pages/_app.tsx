@@ -6,10 +6,10 @@ import Head from 'next/head';
 import { Footer } from '@components/Footer';
 import { Header } from '@components/Header';
 
+import GlobalStyles from '@styles/globals';
+
 import { FilteredButtonOptionProvider } from '@hooks/useFilteredButtonOption';
 import { ReqApiProvider } from '@hooks/useReqApi';
-
-import GlobalStyles from '@styles/globals';
 
 import 'hover.css';
 import 'animate.css';

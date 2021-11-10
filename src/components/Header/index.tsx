@@ -12,16 +12,16 @@ import { useRouter } from 'next/router';
 
 import { Divide as Hamburger } from 'hamburger-react';
 
-import { fetchSearchMovie } from '@pages/api';
-
 import { BackToTopButton } from '@components/BackToTopButton';
 import { CardMovie } from '@components/CardMovie';
 import { MyButton } from '@components/MyButton';
 
+import { fetchSearchMovie } from '@pages/api';
+import { FetchMovieProps } from '@pages/api/_types';
+
 import AppLogotipo from '@assets/app-logotipo.svg';
 import MagnifyingGlass from '@assets/search-outline.svg';
 
-import { FetchMovieProps } from '@utils/types/api';
 import { HeaderProps } from '@utils/types/components';
 
 import { Container } from './style';

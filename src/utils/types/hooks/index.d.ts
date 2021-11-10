@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
 
-import { FetchMovieProps } from '@utils/types/api';
+import { FetchMovieProps } from '@pages/api/_types';
 
 // useReqApi
 export type ReqApiCtxVal = {

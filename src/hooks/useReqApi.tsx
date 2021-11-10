@@ -7,8 +7,8 @@ import React, {
 } from 'react';
 
 import { fetchMovieDiscover } from '@pages/api';
+import { FetchMovieProps } from '@pages/api/_types';
 
-import { FetchMovieProps } from '@utils/types/api';
 import { ChildrenGlobalType } from '@utils/types/GlobalTypes';
 import { ReqApiCtxVal } from '@utils/types/hooks';
 

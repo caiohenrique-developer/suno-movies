@@ -1,23 +1,23 @@
 // fetchMovie
-export interface FetchMovieProps {
+export type FetchMovieProps = {
   id: number;
   title: string;
   poster: string;
   description?: string;
   genre: string;
   rating: number;
-}
+};
 
 // fetchMovieDetail
-export interface FetchMovieDetailProps extends FetchMovieProps {
+export type FetchMovieDetailProps = FetchMovieProps & {
   posterBkg: string;
   genres: [{ name: string }];
   movieVideoID: string;
   trailer: string;
-}
+};
 
 // fetchGenres
-export interface FetchGenreProps {
+export type FetchGenreProps = {
   id: number;
   genreName: string;
-}
+};

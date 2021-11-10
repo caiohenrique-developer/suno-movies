@@ -3,10 +3,10 @@ import Carousel from 'react-multi-carousel';
 
 import { CardMovie } from '@components/CardMovie';
 
-import { useReqApi } from '@hooks/useReqApi';
-
 import ArrowLeft from '@assets/carousel-arrow-left.svg';
 import ArrowRight from '@assets/carousel-arrow-right.svg';
+
+import { useReqApi } from '@hooks/useReqApi';
 
 import { breakpoint } from '@utils/general/breakpointCfg';
 

@@ -1,6 +1,7 @@
 import { MouseEvent } from 'react';
 
-import { FetchMovieProps } from '@utils/types/api';
+import { FetchMovieProps } from '@pages/api/_types';
+
 import { ChildrenGlobalType } from '@utils/types/GlobalTypes';
 
 // Header

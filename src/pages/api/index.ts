@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-import { hostEnv } from '@services/api';
-
 import {
   FetchGenreProps,
   FetchMovieProps,
   FetchMovieDetailProps,
-} from '@utils/types/api';
+} from '@pages/api/_types';
+
+import { hostEnv } from '@services/api';
 
 const fetchMovieDiscover = async (): Promise<FetchMovieProps[]> => {
   try {

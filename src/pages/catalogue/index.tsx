@@ -8,10 +8,10 @@ import { CarouselContainer } from '@components/Carousel';
 import { CatalogueTitle } from '@components/CatalogueTitle';
 import { FilterButtons } from '@components/FilterButton';
 
-import { useFilteredButtonOption } from '@hooks/useFilteredButtonOption';
-
 import { Button } from '@styles/components/ButtonStyles';
 import { Container } from '@styles/pages/Catalogue';
+
+import { useFilteredButtonOption } from '@hooks/useFilteredButtonOption';
 
 export default function Catalogue(): JSX.Element {
   const [movieVisible, setMovieVisible] = useState(6);
