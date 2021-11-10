@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { tmdbApi, apiKey, genres, ptBR } from '@pages/api';
+import { tmdbApi, apiKey, genres, ptBR } from '@services/api';
 
 export default async function fetchGenres(
   req: NextApiRequest,

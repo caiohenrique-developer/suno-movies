@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 import axios from 'axios';
 
-import { tmdbApi, apiKey, movie, ptBR } from '@pages/api';
+import { tmdbApi, apiKey, movie, ptBR } from '@services/api';
 
 export default async function fetchMovieDetail(
   req: NextApiRequest,

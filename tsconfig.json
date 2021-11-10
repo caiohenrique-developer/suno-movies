@@ -8,6 +8,7 @@
       "@components/*": ["components/*"],
       "@hooks/*": ["hooks/*"],
       "@pages/*": ["pages/*"],
+      "@services/*": ["services/*"],
       "@api/*": ["pages/api/*"],
       "@styles/*": ["styles/*"],
       "@utils/*": ["utils/*"]

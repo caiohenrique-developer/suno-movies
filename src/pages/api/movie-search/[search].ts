@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { tmdbApi, apiKey, searchMovie, ptBR } from '@pages/api';
+import { tmdbApi, apiKey, searchMovie, ptBR } from '@services/api';
 
 export default async function fetchMovieSearch(
   req: NextApiRequest,

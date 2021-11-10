@@ -1,30 +1,12 @@
 import axios from 'axios';
 
+import { hostEnv } from '@services/api';
+
 import {
   FetchGenreProps,
   FetchMovieProps,
   FetchMovieDetailProps,
 } from '@utils/types/api';
-
-const { tmdbApi, hostEnv } = {
-  tmdbApi: axios.create({
-    baseURL: 'https://api.themoviedb.org/3',
-  }),
-  hostEnv: axios.create({
-    baseURL: '/api',
-  }),
-};
-
-// route
-const movie = 'movie';
-const movieDiscover = 'discover/movie';
-const searchMovie = 'search/movie';
-const topRated = 'movie/top_rated';
-const genres = 'genre/movie/list';
-
-// route params
-const ptBR = 'pt-BR';
-const apiKey = process.env.API_KEY;
 
 const fetchMovieDiscover = async (): Promise<FetchMovieProps[]> => {
   try {
@@ -131,22 +113,10 @@ const fetchMovieDetail = async (
 };
 
 export {
-  // baseURL
-  tmdbApi,
-  hostEnv,
-  // route
-  movie,
-  movieDiscover,
-  searchMovie,
-  topRated,
-  genres,
-  // route params
-  apiKey,
-  ptBR,
   // entrypoint requests
-  fetchMovieDiscover,
-  fetchMovieDiscoverWithGenre,
   fetchGenres,
   fetchSearchMovie,
   fetchMovieDetail,
+  fetchMovieDiscover,
+  fetchMovieDiscoverWithGenre,
 };
