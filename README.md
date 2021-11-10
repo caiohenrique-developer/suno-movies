@@ -50,6 +50,7 @@
 
 ###### Catalogue
 
+- [x] Scroll to the catalogue section
 - [x] List movies
   - Carousel
   - Catalogue list
