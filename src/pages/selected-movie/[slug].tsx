@@ -10,7 +10,7 @@ import { CTAButton } from '@components/CTAButton';
 import { fetchMovieDetail } from '@pages/api';
 import { FetchMovieDetailProps } from '@pages/api/_types';
 
-import { Container } from '@styles/pages/SelectedMovie';
+import { Container } from './_styles';
 
 export default function SelectedMovie(): JSX.Element {
   const [selectedMovie, setSelectedMovie] = useState(

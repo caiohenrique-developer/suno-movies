@@ -9,9 +9,10 @@ import { CatalogueTitle } from '@components/CatalogueTitle';
 import { FilterButtons } from '@components/FilterButton';
 
 import { Button } from '@styles/components/ButtonStyles';
-import { Container } from '@styles/pages/Catalogue';
 
 import { useFilteredButtonOption } from '@hooks/useFilteredButtonOption';
+
+import { Container } from './_styles';
 
 export default function Catalogue(): JSX.Element {
   const [movieVisible, setMovieVisible] = useState(6);

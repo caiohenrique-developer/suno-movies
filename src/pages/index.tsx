@@ -9,7 +9,7 @@ import { CTAButton } from '@components/CTAButton';
 
 import RightArrow from '@assets/chevron-next-outline.svg';
 
-import { Container } from '@styles/pages/Home';
+import { Container } from './_home/styles';
 
 export default function Home(): JSX.Element {
   const { route } = useRouter();
