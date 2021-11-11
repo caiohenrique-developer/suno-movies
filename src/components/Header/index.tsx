@@ -22,8 +22,6 @@ import { FetchMovieProps } from '@pages/api/_types';
 import AppLogotipo from '@assets/app-logotipo.svg';
 import MagnifyingGlass from '@assets/search-outline.svg';
 
-import { HeaderProps } from '@utils/types/components';
-
 import { Container } from './styles';
 
 export const Header = (): JSX.Element => {
@@ -99,9 +97,9 @@ export const Header = (): JSX.Element => {
 
     window.addEventListener('scroll', handleScroll, false);
 
-    // Toggle input header search bar with ctrl+shift+f shortcut
-    const handleInputSearchViewShortcut = (ev: HeaderProps) => {
-      if (ev.ctrlKey && ev.shiftKey && 'f'.toUpperCase() === 'F') {
+    // Toggle input header search bar with ctrl+shift+F shortcut
+    const handleInputSearchViewShortcut = (ev: KeyboardEvent) => {
+      if ((ev.ctrlKey && ev.shiftKey && 'f'.toUpperCase()) === 'F') {
         handleHeaderSearchBar();
       }
 

@@ -1,7 +1,7 @@
 import { opacify } from 'polished';
 import styled, { css } from 'styled-components';
 
-import { HeaderProps } from '@utils/types/styles';
+import { HeaderProps } from './types';
 
 export const Container = styled.div<HeaderProps>`
   position: relative;
@@ -257,6 +257,7 @@ export const Container = styled.div<HeaderProps>`
         opacity: 0.8;
         background: var(--black_181);
         cursor: crosshair;
+        background-color: red !important;
       }
     `};
 `;

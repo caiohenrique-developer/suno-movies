@@ -1,9 +1,4 @@
-// Header
-export interface HeaderProps {
-  toggleDropDown: boolean;
-}
-
 // SelectedMovie
-export interface ContainerProps {
+export type ContainerProps = {
   posterBkg: string;
-}
+};
