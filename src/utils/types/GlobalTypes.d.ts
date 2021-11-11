@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
 // Global Children type
-export interface ChildrenGlobalType {
+export type ChildrenGlobalType = {
   children?: ReactNode;
-}
+};

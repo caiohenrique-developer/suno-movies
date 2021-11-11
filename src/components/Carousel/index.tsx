@@ -11,14 +11,14 @@ import { useReqApi } from '@hooks/useReqApi';
 import { breakpoint } from '@utils/general/breakpointCfg';
 
 import { Container } from './styles';
+import { ButtonGroupProps } from './types';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const ButtonGroup = (props: any) => {
+const ButtonGroup = ({ previous, next }: ButtonGroupProps): JSX.Element => {
   const handleArrowClick = (ev: Event & { currentTarget: Element }) => {
     if (ev.currentTarget.classList.contains('carousel-arrow-right')) {
-      props.next();
+      next();
     } else {
-      props.previous();
+      previous();
     }
   };
 
