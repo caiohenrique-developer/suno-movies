@@ -2,7 +2,7 @@ import React from 'react';
 
 import Link from 'next/link';
 
-import { Container } from './style';
+import { Container } from './styles';
 
 export const Footer = (): JSX.Element => {
   const currentYear = new Date().getFullYear();

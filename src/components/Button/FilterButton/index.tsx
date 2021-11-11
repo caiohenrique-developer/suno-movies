@@ -11,7 +11,7 @@ import { FetchMovieProps, FetchGenreProps } from '@pages/api/_types';
 
 import { useFilteredButtonOption } from '@hooks/useFilteredButtonOption';
 
-import { Container, GenreActiveIndicator } from './style';
+import { Container, GenreActiveIndicator } from './styles';
 
 export const FilterButtons = (): JSX.Element => {
   const { setFilteredLayout, setFilteredMoviesByGenre } =

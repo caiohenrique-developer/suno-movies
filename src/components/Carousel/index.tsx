@@ -10,7 +10,7 @@ import { useReqApi } from '@hooks/useReqApi';
 
 import { breakpoint } from '@utils/general/breakpointCfg';
 
-import { Container } from './style';
+import { Container } from './styles';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ButtonGroup = (props: any) => {

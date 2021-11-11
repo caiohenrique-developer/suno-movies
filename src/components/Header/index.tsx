@@ -24,7 +24,7 @@ import MagnifyingGlass from '@assets/search-outline.svg';
 
 import { HeaderProps } from '@utils/types/components';
 
-import { Container } from './style';
+import { Container } from './styles';
 
 export const Header = (): JSX.Element => {
   const { route } = useRouter();

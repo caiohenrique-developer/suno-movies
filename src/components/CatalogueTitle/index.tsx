@@ -4,7 +4,7 @@ import CatalogueTitleEllipse from '@assets/ellipse.svg';
 
 import { CatalogueTitleProps } from '@utils/types/components';
 
-import { Container } from './style';
+import { Container } from './styles';
 
 export const CatalogueTitle = ({ title }: CatalogueTitleProps): JSX.Element => {
   return (

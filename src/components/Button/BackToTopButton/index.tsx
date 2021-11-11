@@ -2,7 +2,7 @@ import React from 'react';
 
 import ArrowUp from '@assets/catalogue-arrow-up.svg';
 
-import { Container } from './style';
+import { Container } from './styles';
 
 export const BackToTopButton = (): JSX.Element => {
   const handleClick = () => {

@@ -11,7 +11,7 @@ import { MyButton } from '@components/Button/MyButton';
 
 import { CardMovieProps } from '@utils/types/components';
 
-import { Container } from './style';
+import { Container } from './styles';
 
 export const CardMovie = ({
   title,
