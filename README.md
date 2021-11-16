@@ -32,23 +32,31 @@
 
 <img align="right" src="https://img.shields.io/badge/Project%20Status%20-🚧%20(WIP)%20🚧-2C8EBB?style=flat&logo=statuspage&logoColor=white&color=yellowgreen"/>
 
-###### Header
+###### 📂 Header
+
+<details open>
+  <summary>🕹️<sup>🤏</sup></summary>
 
 - [x] Show or hide header effect with scroll event
 - [x] Toggle input header search bar with <kbd>Ctrl+Shift+f</kbd> shortcut
 - [x] Close input header search bar with <kbd>Escape</kbd> shortcut
+- [x] Get auto focus input when input search bar is open
 - [x] Search movie
 - [x] Different style between home and other pages
+</details>
 
-###### Header > mob
+###### 📂 Header > mob
 
 - [x] Open menu
 
-###### Footer
+###### 📂 Footer
 
 - [x] Code repository anchor
 
-###### Catalogue
+###### 📃 Catalogue
+
+<details open>
+  <summary>🕹️<sup>🤏</sup></summary>
 
 - [x] Scroll to the catalogue section
 - [x] List movies
@@ -57,9 +65,14 @@
 - [x] Filter buttons by:
   - Genre
   - Layout
+  - Close filter accordion with outside element click
 - [x] Load more button
+</details>
 
-###### Selected movie
+###### 📃 Selected movie
+
+<details open>
+  <summary>🕹️<sup>🤏</sup></summary>
 
 - [x] List movie details
 - [x] Video player
@@ -70,14 +83,25 @@
   - Full screen
   - Watch on YouTube
   - ...
+  </details>
 
-###### Others
+###### 📃 404
+
+- [ ] Custom error page
+
+###### ⚙️ Others
+
+<details open>
+  <summary>🕹️<sup>🤏</sup></summary>
 
 - [x] Responsive layout
 - [x] Back to top button
 - [x] Save movie details data on browser local storage
-
+- [ ] Toggle theme mode, Dark **default** | Light | Automatic
+- [ ] Shimmer skeleton lazy loading placeholder
+- [ ] Static Generation (SSG)
 - _*Any suggestion?*_ <a href="#phone">Contact me!</a>
+</details>
 
 #### <a name="flying_saucer"></a> <br>
 
