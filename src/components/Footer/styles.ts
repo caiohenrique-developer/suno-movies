@@ -8,7 +8,7 @@ export const Container = styled.footer`
     padding: 2.6rem;
 
     color: var(--white_EAE);
-    font-size: min(18px, 3vw);
+    font-size: min(14px, 3vw);
     text-align: center;
 
     a {
