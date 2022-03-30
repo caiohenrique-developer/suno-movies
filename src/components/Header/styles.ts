@@ -252,12 +252,11 @@ export const Container = styled.div<HeaderProps>`
         position: fixed;
         top: 0;
 
+        opacity: 0.8;
         width: 100vw;
         height: 100vh;
-        opacity: 0.8;
-        background: var(--black_181);
         cursor: crosshair;
-        background-color: red !important;
+        background: var(--black_181);
       }
     `};
 `;
