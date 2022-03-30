@@ -543,6 +543,16 @@ export const responsive = css`
             }
           }
         }
+
+        &#page-not-found {
+          .lf-player-container > div {
+            max-height: auto;
+
+            svg {
+              width: auto !important;
+            }
+          }
+        }
       }
 
       footer p {
