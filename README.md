@@ -38,11 +38,12 @@
   <summary>🕹️<sup>🤏</sup></summary>
 
 - [x] Show or hide header effect with scroll event
-- [x] Toggle input header search bar with <kbd>Ctrl+Shift+f</kbd> shortcut
-- [x] Close input header search bar with <kbd>Escape</kbd> shortcut
-- [x] Get auto focus input when input search bar is open
+- [ ] Form input header search bar validation with Yup lib
+- [x] Toggle form input header search bar with <kbd>Ctrl+Shift+f</kbd> shortcut
+- [x] Close form input header search bar with <kbd>Escape</kbd> shortcut
+- [x] Get auto focus input when form input header search bar is open
 - [x] Search movie
-- [x] Different style between home and other pages
+- [x] Different header style between home and other pages
 </details>
 
 ###### 📂 Header > mob
@@ -61,6 +62,7 @@
 - [x] Scroll to the catalogue section
 - [x] List movies
   - Carousel
+    - Change carousel card movie scale/effect with mouse hover
   - Catalogue list
 - [x] Filter buttons by:
   - Genre
@@ -87,7 +89,7 @@
 
 ###### 📃 404
 
-- [ ] Custom error page
+- [x] Custom error page
 
 ###### ⚙️ Others
 
@@ -99,6 +101,7 @@
 - [x] Save movie details data on browser local storage
 - [ ] Toggle theme mode, Dark **default** | Light | Automatic
 - [ ] Shimmer skeleton lazy loading placeholder
+- [ ] Button loading
 - [ ] Static Generation (SSG)
 - _*Any suggestion?*_ <a href="#phone">Contact me!</a>
 </details>
