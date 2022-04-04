@@ -13,7 +13,7 @@ export const responsive = css`
       .back-to-top {
         padding: 0.5rem 0.4rem;
 
-        svg {
+        > svg {
           width: 1.4rem;
         }
       }
