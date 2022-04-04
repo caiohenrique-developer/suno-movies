@@ -29,8 +29,8 @@
   "rules": {
     // ESlint mostra erro caso as regras do Prettier forem violadas
     "prettier/prettier": "error",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/rules-of-hooks": "error", // Verifica as regras dos Hooks
+    "react-hooks/exhaustive-deps": "warn", // Verifica as dependências de effects
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
     "import/prefer-default-export": "off",
     "react/jsx-props-no-spreading": "off",

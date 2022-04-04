@@ -7,16 +7,31 @@ export const Container = styled.button`
   right: 2rem;
   z-index: 2;
 
-  opacity: 0;
-  cursor: pointer;
-  border-radius: 0.4rem;
-  padding: 0.6rem 0.4rem;
-  transition: all 0.4s ease-in-out;
-  background: ${opacify('0.1', 'rgba(255, 255, 255, 0.1)')};
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  svg {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 2.25rem;
+  max-height: 2.438rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.4s ease-in-out;
+  background: ${opacify('0.0', 'rgba(255, 255, 255, 0.1)')};
+
+  > div svg {
+    color: rgba(255, 255, 255, 0.5);
+    height: 100% !important;
+    transition: 0.4s;
+  }
+
+  > svg {
+    position: absolute;
+
     opacity: 0.5;
-    width: 1.475rem;
+    width: 0.888rem;
     transition: 0.2s;
   }
 
@@ -26,7 +41,7 @@ export const Container = styled.button`
     box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.5);
     -webkit-box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.5);
 
-    svg {
+    > svg {
       opacity: 0.8;
     }
   }
