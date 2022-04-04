@@ -5,8 +5,12 @@ import Link from 'next/link';
 import { Container } from './styles';
 
 export const Footer = (): JSX.Element => {
+  const appCreatedAt = new Date('2021-06-01').getFullYear();
   const currentYear = new Date().getFullYear();
-  const year = currentYear > 2021 ? `2021 - ${currentYear}` : currentYear;
+  const year =
+    currentYear > appCreatedAt
+      ? `${appCreatedAt} - ${currentYear}`
+      : currentYear;
 
   return (
     <>
