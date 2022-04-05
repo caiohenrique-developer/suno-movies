@@ -23,7 +23,7 @@ export default function SelectedMovie(): JSX.Element {
     ...router
   } = useRouter();
 
-  const pageID = route === '/selected-movie' && 'selected-movie';
+  const pageID = route === '/selected-movie/[slug]' && 'selected-movie';
 
   if (slug === 'catalogue') router.push(`/${slug}`);
 
