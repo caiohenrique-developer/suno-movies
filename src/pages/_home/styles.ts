@@ -3,10 +3,12 @@ import styled from 'styled-components';
 export const Container = styled.main`
   position: relative;
 
+  height: 100vh;
   overflow: hidden;
 
   > div {
     width: 100%;
+    height: 100%;
   }
 
   section {

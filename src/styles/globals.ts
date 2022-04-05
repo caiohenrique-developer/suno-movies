@@ -60,6 +60,17 @@ export default createGlobalStyle`
       font-family: 'Poppins', sans-serif;
       background: var(--background);
 
+      #__next main {
+        &:not(#home) ~ footer {
+          background: var(--black_181);
+        }
+
+        &#home ~ footer {
+          position: absolute;
+          bottom: 0;
+        }
+      }
+
       &::-webkit-scrollbar {
         width: 8px;
         height: 0;

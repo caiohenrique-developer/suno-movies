@@ -242,18 +242,13 @@ export const responsive = css`
           }
 
           section {
-            position: relative;
-            z-index: 1;
-
             background: #040714;
-            margin-top: -8px;
 
             aside {
-              position: static;
-
               align-items: center;
               flex-direction: column;
 
+              transform: unset;
               text-align: center;
 
               h1 {
