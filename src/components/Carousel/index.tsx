@@ -1,5 +1,5 @@
 import React from 'react';
-import Carousel from 'react-multi-carousel';
+import Carousel, { ButtonGroupProps } from 'react-multi-carousel';
 
 import { CardMovie } from '@components/CardMovie';
 
@@ -11,7 +11,6 @@ import { useReqApi } from '@hooks/useReqApi';
 import { breakpoint } from '@utils/general/breakpointCfg';
 
 import { Container } from './styles';
-import { ButtonGroupProps } from './types';
 
 const ButtonGroup = ({ previous, next }: ButtonGroupProps): JSX.Element => {
   const handleArrowClick = (ev: Event & { currentTarget: Element }) => {

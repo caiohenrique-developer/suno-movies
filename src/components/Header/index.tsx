@@ -4,6 +4,7 @@ import React, {
   useEffect,
   useState,
   MouseEvent,
+  ChangeEvent,
 } from 'react';
 import MediaQuery from 'react-responsive';
 
@@ -117,9 +118,7 @@ export const Header = (): JSX.Element => {
     return handleRemoveEventListeners;
   }, [handleHeaderSearchBar, toggleHeaderSearchBar, toggleMenuMob]);
 
-  const handleGetInputSearchVal = async (
-    ev: React.ChangeEvent<HTMLInputElement>,
-  ) => {
+  const handleGetInputSearchVal = async (ev: ChangeEvent<HTMLInputElement>) => {
     ev.preventDefault();
 
     const { value: textVal } = ev.currentTarget;
