@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useMemo, useState } from 'react';
 
 import { FetchMovieProps } from '@pages/api/_types';
 
@@ -15,12 +15,14 @@ export const FilteredButtonOptionProvider = ({
     FetchMovieProps[]
   >([]);
 
-  const ctxVal = {
-    filteredLayout,
-    setFilteredLayout,
-    filteredMoviesByGenre,
-    setFilteredMoviesByGenre,
-  } as FilteredButtonOptionCtxProps;
+  const ctxVal = useMemo(() => {
+    return {
+      filteredLayout,
+      setFilteredLayout,
+      filteredMoviesByGenre,
+      setFilteredMoviesByGenre,
+    } as FilteredButtonOptionCtxProps;
+  }, [filteredLayout, filteredMoviesByGenre]);
 
   return (
     <FilteredButtonOption.Provider value={ctxVal}>

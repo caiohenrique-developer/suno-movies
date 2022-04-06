@@ -3,6 +3,7 @@ import React, {
   useCallback,
   useContext,
   useEffect,
+  useMemo,
   useState,
 } from 'react';
 
@@ -29,10 +30,12 @@ export const ReqApiProvider = ({
     reqApi();
   }, [reqApi]);
 
-  const ctxVal = {
-    movieDiscoverApi,
-    reqApi,
-  } as ReqApiCtxVal;
+  const ctxVal = useMemo(() => {
+    return {
+      movieDiscoverApi,
+      reqApi,
+    } as ReqApiCtxVal;
+  }, [movieDiscoverApi, reqApi]);
 
   return (
     <ReqApiContext.Provider value={ctxVal}>{children}</ReqApiContext.Provider>

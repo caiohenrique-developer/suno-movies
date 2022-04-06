@@ -13,18 +13,16 @@ export const Footer = (): JSX.Element => {
       : currentYear;
 
   return (
-    <>
-      <Container>
-        <p>
-          Copyright &copy; {year} Suno Movies, done with ☕ by:{' '}
-          <Link href='https://github.com/caiohenrique-developer/suno-movies'>
-            <a target='_blank' rel='noreferrer'>
-              caiohenrique-developer
-            </a>
-          </Link>
-          .
-        </p>
-      </Container>
-    </>
+    <Container>
+      <p>
+        Copyright &copy; {year} Suno Movies, done with ☕ by:{' '}
+        <Link href='https://github.com/caiohenrique-developer/suno-movies'>
+          <a target='_blank' rel='noreferrer'>
+            caiohenrique-developer
+          </a>
+        </Link>
+        .
+      </p>
+    </Container>
   );
 };

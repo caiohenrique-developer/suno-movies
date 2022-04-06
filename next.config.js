@@ -1,10 +1,8 @@
 module.exports = {
   webpack(config) {
     config.module.rules.push({
-      test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-      issuer: {
-        test: /\.(js|ts)x?$/,
-      },
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
       use: ['@svgr/webpack'],
     });
 

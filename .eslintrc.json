@@ -36,17 +36,6 @@
     "react/jsx-props-no-spreading": "off",
     "func-names": "off",
     "no-nested-ternary": "off",
-    "no-unused-vars": "off",
-    "unused-imports/no-unused-imports": "error",
-    "unused-imports/no-unused-vars": [
-      "warn",
-      {
-        "vars": "all",
-        "varsIgnorePattern": "^_",
-        "args": "after-used",
-        "argsIgnorePattern": "^_"
-      }
-    ],
     "jsx-a11y/anchor-is-valid": [ "error", {
       "components": [ "Link" ],
       "specialLink": ["hrefLeft", "hrefRight"],
@@ -63,6 +52,12 @@
       {
         "ts": "never",
         "tsx": "never"
+      }
+    ],
+    "react/function-component-definition": [
+      2, {
+        "namedComponents": ["function-declaration", "function-expression", "arrow-function"],
+        "unnamedComponents": ["function-expression", "arrow-function"]
       }
     ],
     "import-helpers/order-imports": [
@@ -83,6 +78,17 @@
           ["parent", "sibling", "index"]
         ],
         "alphabetize": { "order": "asc", "ignoreCase": true }
+      }
+    ],
+    "no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
       }
     ]
   },
