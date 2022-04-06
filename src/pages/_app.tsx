@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { AppProps } from 'next/app';
 import Head from 'next/head';
@@ -16,6 +16,14 @@ import 'animate.css';
 import 'react-multi-carousel/lib/styles.css';
 
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
+  const [showChild, setShowChild] = useState(false);
+
+  useEffect(() => {
+    setShowChild(true);
+  }, []);
+
+  if (!showChild) return null;
+
   return (
     <>
       <Head>
