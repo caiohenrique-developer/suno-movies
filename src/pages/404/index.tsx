@@ -16,6 +16,7 @@ export default function Custom404(): JSX.Element {
       <Player
         loop
         autoplay
+        style={{ width: '88%', height: '88%' }}
         src='https://assets9.lottiefiles.com/packages/lf20_afwjhfb2.json'
       />
     </Container>
