@@ -1,7 +1,7 @@
 import { opacify } from 'polished';
 import styled, { css } from 'styled-components';
 
-import { HeaderProps } from './types';
+import { HeaderProps } from '@components/Header/types';
 
 export const Container = styled.div<HeaderProps>`
   position: relative;

@@ -1,10 +1,10 @@
 import React from 'react';
 
+import { Container } from '@components/CatalogueTitle/styles';
+
 import CatalogueTitleEllipse from '@assets/ellipse.svg';
 
 import { CatalogueTitleProps } from '@utils/types/components';
-
-import { Container } from './styles';
 
 export const CatalogueTitle = ({ title }: CatalogueTitleProps): JSX.Element => {
   return (

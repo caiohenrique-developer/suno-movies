@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 
 import { CircularProgress } from '@material-ui/core';
 
-import ArrowUp from '@assets/catalogue-arrow-up.svg';
+import { Container } from '@components/Button/BackToTopButton/styles';
 
-import { Container } from './styles';
+import ArrowUp from '@assets/catalogue-arrow-up.svg';
 
 export const BackToTopButton = (): JSX.Element => {
   const [progressBar, setProgressBar] = useState(0);

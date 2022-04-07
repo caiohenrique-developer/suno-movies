@@ -2,7 +2,7 @@ import React from 'react';
 
 import Link from 'next/link';
 
-import { Container } from './styles';
+import { Container } from '@components/Footer/styles';
 
 export const Footer = (): JSX.Element => {
   const appCreatedAt = new Date('2021-06-01').getFullYear();

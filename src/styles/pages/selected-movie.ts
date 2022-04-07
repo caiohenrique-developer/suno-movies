@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { ContainerProps } from './_types';
+import { ContainerProps } from '@utils/types/pages';
 
 export const Container = styled.main<ContainerProps>`
   margin: min(9.3vw, 106px) auto 0;

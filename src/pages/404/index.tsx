@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 import { Player } from '@lottiefiles/react-lottie-player';
 
-import { Container } from './_styles';
+import { Container } from '@styles/pages/custom404';
 
 export default function Custom404(): JSX.Element {
   const { route } = useRouter();

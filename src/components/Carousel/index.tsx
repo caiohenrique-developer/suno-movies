@@ -2,6 +2,7 @@ import React from 'react';
 import Carousel, { ButtonGroupProps } from 'react-multi-carousel';
 
 import { CardMovie } from '@components/CardMovie';
+import { Container } from '@components/Carousel/styles';
 
 import ArrowLeft from '@assets/carousel-arrow-left.svg';
 import ArrowRight from '@assets/carousel-arrow-right.svg';
@@ -9,8 +10,6 @@ import ArrowRight from '@assets/carousel-arrow-right.svg';
 import { useReqApi } from '@hooks/useReqApi';
 
 import { breakpoint } from '@utils/general/breakpointCfg';
-
-import { Container } from './styles';
 
 const ButtonGroup = ({ previous, next }: ButtonGroupProps): JSX.Element => {
   const handleArrowClick = (ev: Event & { currentTarget: Element }) => {

@@ -8,10 +8,9 @@ import Link from 'next/link';
 import { Player } from '@lottiefiles/react-lottie-player';
 
 import { MyButton } from '@components/Button/MyButton';
+import { Container } from '@components/CardMovie/styles';
 
 import { CardMovieProps } from '@utils/types/components';
-
-import { Container } from './styles';
 
 export const CardMovie = ({
   title,

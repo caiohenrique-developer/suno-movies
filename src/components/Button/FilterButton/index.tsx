@@ -6,12 +6,15 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 
+import {
+  Container,
+  GenreActiveIndicator,
+} from '@components/Button/FilterButton/styles';
+
 import { fetchGenres, fetchMovieDiscoverWithGenre } from '@pages/api';
 import { FetchMovieProps, FetchGenreProps } from '@pages/api/_types';
 
 import { useFilteredButtonOption } from '@hooks/useFilteredButtonOption';
-
-import { Container, GenreActiveIndicator } from './styles';
 
 export const FilterButtons = (): JSX.Element => {
   const { setFilteredLayout, setFilteredMoviesByGenre } =

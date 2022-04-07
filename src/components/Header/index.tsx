@@ -16,14 +16,13 @@ import { Divide as Hamburger } from 'hamburger-react';
 import { BackToTopButton } from '@components/Button/BackToTopButton';
 import { MyButton } from '@components/Button/MyButton';
 import { CardMovie } from '@components/CardMovie';
+import { Container } from '@components/Header/styles';
 
 import { fetchSearchMovie } from '@pages/api';
 import { FetchMovieProps } from '@pages/api/_types';
 
 import AppLogotipo from '@assets/app-logotipo.svg';
 import MagnifyingGlass from '@assets/search-outline.svg';
-
-import { Container } from './styles';
 
 export const Header = (): JSX.Element => {
   const { route } = useRouter();
