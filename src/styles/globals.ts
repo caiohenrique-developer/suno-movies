@@ -60,12 +60,15 @@ export default createGlobalStyle`
       font-family: 'Poppins', sans-serif;
       background: var(--background);
 
-      #__next main {
-        &:not(#home) ~ footer {
+      #__next {
+        position: relative;
+        height: 100vh;
+
+        main:not(#home) ~ footer {
           background: var(--black_181);
         }
 
-        &#home ~ footer {
+        footer {
           position: absolute;
           bottom: 0;
         }

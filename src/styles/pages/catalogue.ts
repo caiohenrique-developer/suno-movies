@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.main`
-  margin: min(9.3vw, 106px) auto 0;
-
   > section {
     background: var(--black_212);
 
