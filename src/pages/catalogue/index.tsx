@@ -62,26 +62,28 @@ export default function Catalogue(): JSX.Element {
           <div>
             <FilterButtons />
 
-            <div className={filteredLayout}>
-              {filteredMoviesByGenre
-                .slice(0, movieVisible)
-                .map(({ id, genre, title, poster, description, rating }) => (
-                  <CardMovie
-                    key={id}
-                    movieID={id}
-                    className={`animate__animated ${
-                      filteredLayout === 'grid'
-                        ? 'animate__backInDown'
-                        : 'animate__fadeInDownBig'
-                    }`}
-                    poster={poster}
-                    title={title}
-                    genre={genre}
-                    description={description}
-                    rating={rating}
-                  />
-                ))}
-            </div>
+            {filteredMoviesByGenre.length > 0 && (
+              <div className={filteredLayout}>
+                {filteredMoviesByGenre
+                  .slice(0, movieVisible)
+                  .map(({ id, genre, title, poster, description, rating }) => (
+                    <CardMovie
+                      key={id}
+                      movieID={id}
+                      className={`animate__animated ${
+                        filteredLayout === 'grid'
+                          ? 'animate__backInDown'
+                          : 'animate__fadeInDownBig'
+                      }`}
+                      poster={poster}
+                      title={title}
+                      genre={genre}
+                      description={description}
+                      rating={rating}
+                    />
+                  ))}
+              </div>
+            )}
 
             {movieVisible < filteredMoviesByGenre.length && (
               <Button
