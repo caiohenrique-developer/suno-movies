@@ -4,7 +4,6 @@ import styled, { css } from 'styled-components';
 import { HeaderProps } from '@components/Header/types';
 
 export const Container = styled.div<HeaderProps>`
-  position: sticky;
   top: 0;
   z-index: 2;
 

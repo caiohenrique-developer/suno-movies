@@ -64,11 +64,17 @@ export default createGlobalStyle`
         position: relative;
         height: 100vh;
 
-        main:not(#home) ~ footer {
-          background: var(--black_181);
+        main {
+          &#home ~ div { position: absolute; }
+
+          &:not(#home) {
+            & ~ div { position: sticky; }
+
+            & ~ footer { background: var(--black_181); }
+          }
         }
 
-        footer {
+        > footer {
           position: absolute;
           bottom: 0;
         }
