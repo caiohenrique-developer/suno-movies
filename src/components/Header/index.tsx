@@ -188,9 +188,9 @@ export const Header = (): JSX.Element => {
 
   return (
     <>
-      <Container toggleDropDown={toggleHeaderSearchBar}>
+      <Container id={pageID} toggleDropDown={toggleHeaderSearchBar}>
         {/* Header segregation page and breakpoint */}
-        <header id={pageID}>
+        <header>
           <div>
             {/* Tablet and up */}
             {pageID === 'home' ? (
