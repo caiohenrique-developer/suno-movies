@@ -39,32 +39,34 @@ export const CarouselContainer = (): JSX.Element => {
 
   return (
     <Container>
-      <Carousel
-        infinite
-        autoPlay
-        arrows={false}
-        renderButtonGroupOutside
-        customButtonGroup={<ButtonGroup />}
-        responsive={breakpoint}
-        containerClass='react-multi-carousel-container'
-        sliderClass='react-multi-carousel-slider'
-        dotListClass='react-multi-carousel-dot-list'
-        itemClass='react-multi-carousel-item-card'
-      >
-        {movieDiscoverApi.map(
-          ({ id, genre, title, poster, description, rating }) => (
-            <CardMovie
-              key={id}
-              movieID={id}
-              poster={poster}
-              title={title}
-              genre={genre}
-              description={description}
-              rating={rating}
-            />
-          ),
-        )}
-      </Carousel>
+      {movieDiscoverApi.length > 0 && (
+        <Carousel
+          infinite
+          autoPlay
+          arrows={false}
+          renderButtonGroupOutside
+          customButtonGroup={<ButtonGroup />}
+          responsive={breakpoint}
+          containerClass='react-multi-carousel-container'
+          sliderClass='react-multi-carousel-slider'
+          dotListClass='react-multi-carousel-dot-list'
+          itemClass='react-multi-carousel-item-card'
+        >
+          {movieDiscoverApi.map(
+            ({ id, genre, title, poster, description, rating }) => (
+              <CardMovie
+                key={id}
+                movieID={id}
+                poster={poster}
+                title={title}
+                genre={genre}
+                description={description}
+                rating={rating}
+              />
+            ),
+          )}
+        </Carousel>
+      )}
     </Container>
   );
 };

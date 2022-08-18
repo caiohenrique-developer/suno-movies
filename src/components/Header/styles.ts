@@ -1,9 +1,9 @@
 import { opacify } from 'polished';
 import styled, { css } from 'styled-components';
 
-import { HeaderProps } from '@components/Header/types';
+import { HeaderStylesProps } from '@components/Header/types';
 
-export const Container = styled.div<HeaderProps>`
+export const Container = styled.div<HeaderStylesProps>`
   position: sticky;
   top: 0;
   z-index: 2;

@@ -25,7 +25,7 @@ export const Container = styled.section`
       margin: 0;
     }
 
-    &:not(.Mui-expanded) .MuiCollapse-root {
+    &.hasChildElement:not(.Mui-expanded) .MuiCollapse-root {
       border-width: 0;
       margin: 0;
     }
@@ -75,7 +75,7 @@ export const Container = styled.section`
     }
 
     /* Filter options */
-    .MuiCollapse-root {
+    &.hasChildElement .MuiCollapse-root {
       max-width: min(10rem, 12.8vw);
       min-width: 124px;
       width: 100vw;

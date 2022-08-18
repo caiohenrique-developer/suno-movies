@@ -92,6 +92,7 @@ export const FilterButtons = (): JSX.Element => {
         <Accordion
           expanded={expanded === 'panel1'}
           onChange={handleChange('panel1')}
+          className={genreValues.length > 0 && 'hasChildElement'}
         >
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
@@ -102,29 +103,31 @@ export const FilterButtons = (): JSX.Element => {
             <Typography>{selectedGenre}</Typography>
           </AccordionSummary>
 
-          <ul>
-            {genreValues.map(({ inputID, labelHtmlFor, labelContent }) => (
-              <li
-                key={inputID}
-                className={`option-item ${
-                  labelContent === selectedGenre ? 'selected' : ''
-                }`}
-              >
-                <input
-                  type='radio'
-                  className='radio'
-                  id={String(inputID)}
-                  name='category'
-                  onClick={() => {
-                    setExpanded(false);
-                    fetchData(inputID);
-                    setSelectedGenre(labelContent);
-                  }}
-                />
-                <label htmlFor={String(labelHtmlFor)}>{labelContent}</label>
-              </li>
-            ))}
-          </ul>
+          {genreValues.length > 0 && (
+            <ul>
+              {genreValues.map(({ inputID, labelHtmlFor, labelContent }) => (
+                <li
+                  key={inputID}
+                  className={`option-item ${
+                    labelContent === selectedGenre ? 'selected' : ''
+                  }`}
+                >
+                  <input
+                    type='radio'
+                    className='radio'
+                    id={String(inputID)}
+                    name='category'
+                    onClick={() => {
+                      setExpanded(false);
+                      fetchData(inputID);
+                      setSelectedGenre(labelContent);
+                    }}
+                  />
+                  <label htmlFor={String(labelHtmlFor)}>{labelContent}</label>
+                </li>
+              ))}
+            </ul>
+          )}
         </Accordion>
 
         <GenreActiveIndicator className='btn-pink'>
@@ -137,6 +140,7 @@ export const FilterButtons = (): JSX.Element => {
         <Accordion
           expanded={expanded === 'panel2'}
           onChange={handleChange('panel2')}
+          className={layoutValues.length > 0 && 'hasChildElement'}
         >
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
@@ -147,28 +151,30 @@ export const FilterButtons = (): JSX.Element => {
             <Typography>em {selectedLayout}</Typography>
           </AccordionSummary>
 
-          <ul>
-            {layoutValues.map(({ inputID, labelHtmlFor, labelContent }) => (
-              <li
-                key={inputID}
-                className={`option-item ${
-                  inputID === selectedLayout ? 'selected' : ''
-                }`}
-              >
-                <input
-                  type='radio'
-                  className='radio'
-                  id={inputID}
-                  name='category'
-                  onClick={() => {
-                    setExpanded(false);
-                    setSelectedLayout(inputID);
-                  }}
-                />
-                <label htmlFor={labelHtmlFor}>{labelContent}</label>
-              </li>
-            ))}
-          </ul>
+          {layoutValues.length > 0 && (
+            <ul>
+              {layoutValues.map(({ inputID, labelHtmlFor, labelContent }) => (
+                <li
+                  key={inputID}
+                  className={`option-item ${
+                    inputID === selectedLayout ? 'selected' : ''
+                  }`}
+                >
+                  <input
+                    type='radio'
+                    className='radio'
+                    id={inputID}
+                    name='category'
+                    onClick={() => {
+                      setExpanded(false);
+                      setSelectedLayout(inputID);
+                    }}
+                  />
+                  <label htmlFor={labelHtmlFor}>{labelContent}</label>
+                </li>
+              ))}
+            </ul>
+          )}
         </Accordion>
       </MediaQuery>
     </Container>
