@@ -86,6 +86,7 @@ export const Container = styled.main<ContainerProps>`
 
                 span {
                   display: flex;
+                  align-items: center;
 
                   font-size: min(1.7rem, 2vw);
                   font-weight: 500;

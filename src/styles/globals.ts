@@ -61,15 +61,14 @@ export default createGlobalStyle`
       background: var(--background);
 
       #__next {
-        position: relative;
-        height: 100vh;
+        display: flex;
+        flex-direction: column;
+
+        min-height: 100vh;
 
         > div:first-of-type:not(#home) ~ footer { background: var(--black_181); }
 
-        > footer {
-          position: absolute;
-          bottom: 0;
-        }
+        > footer { margin-top: auto; }
       }
 
       &::-webkit-scrollbar {
