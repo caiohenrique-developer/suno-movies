@@ -3,6 +3,11 @@ import styled from 'styled-components';
 export const Container = styled.footer`
   width: 100%;
 
+  &#home {
+    position: absolute;
+    bottom: 0;
+  }
+
   p {
     padding: 2.6rem;
 
