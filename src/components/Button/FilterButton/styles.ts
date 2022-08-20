@@ -25,6 +25,10 @@ export const Container = styled.section`
       margin: 0;
     }
 
+    &.Mui-disabled {
+      cursor: not-allowed;
+    }
+
     &.hasChildElement:not(.Mui-expanded) .MuiCollapse-root {
       border-width: 0;
       margin: 0;

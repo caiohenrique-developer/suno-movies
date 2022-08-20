@@ -92,6 +92,7 @@ export const FilterButtons = (): JSX.Element => {
         <Accordion
           expanded={expanded === 'panel1'}
           onChange={handleChange('panel1')}
+          disabled={genreValues.length <= 0}
           className={genreValues.length > 0 && 'hasChildElement'}
         >
           <AccordionSummary
@@ -140,6 +141,7 @@ export const FilterButtons = (): JSX.Element => {
         <Accordion
           expanded={expanded === 'panel2'}
           onChange={handleChange('panel2')}
+          disabled={layoutValues.length <= 0}
           className={layoutValues.length > 0 && 'hasChildElement'}
         >
           <AccordionSummary
